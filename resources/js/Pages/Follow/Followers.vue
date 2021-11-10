@@ -1,6 +1,8 @@
 <template>
     <BreezeAuthenticatedLayout>
-        <div>
+<!--        <div>-->
+            <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+
             <FollowingHeader :profile="profile"></FollowingHeader>
 
             <div v-for="user in followers.data" :key="user.id" class="flex p-4 border-b border-gray-200">

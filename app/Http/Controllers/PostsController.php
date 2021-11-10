@@ -13,32 +13,37 @@ use Inertia\Inertia;
 class PostsController extends Controller
 {
 
-    public function index(User $user, Request $request)
+    public function index(User $user)
     {
-//        return Inertia::render('Home/Index', [
-//            'posts' => Post::with('user')->get()->all(),
-//        ]);
-
-        $posts = $user->posts()
-            ->withCount(['likes'=>function($q) {
-                $q->where('user_id', auth()->id());
-            }])
-            ->with('user')->paginate();
-
-        if ($request->wantsJson()) {
-            return $posts;
-        }
-
-        return Inertia::render('Home/Index',[
-           'user' => $user,
-           'posts' => $posts,
+        return Inertia::render('Home/Index', [
+            'posts' => Post::with('user')->latest()->get()->all(),
         ]);
+
+//        $posts = $user->posts()
+//            ->withCount(['likes'=>function($q) {
+//                $q->where('user_id', auth()->id());
+//            }])
+//            ->with('user')->paginate();
+//
+//        if ($request->wantsJson()) {
+//            return $posts;
+//        }
+//
+//        return Inertia::render('Home/Index',[
+//           'user' => $user,
+//           'posts' => $posts,
+//        ]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('Posts/Create');
+
     }
 
 
     public function store()
     {
-
         $attributes = request()->validate([
             'body' => 'required|max:255',
             'image' => 'nullable|image',

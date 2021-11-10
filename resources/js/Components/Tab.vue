@@ -60,11 +60,12 @@
                 </a>
 
 
-                <a :href="route('profile', $page.props.auth.user.username )"
+                <a :href="route('posts.create', $page.props.auth.user.username )"
                    class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
                 >
                     <img :src="plus" width="25" height="25" class="inline-block" alt="plus">
                 </a>
+
                 <a :href="route('explore')"
                    class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
                     <svg width="25" height="25" viewBox="0 0 42 42" class="inline-block mb-1">

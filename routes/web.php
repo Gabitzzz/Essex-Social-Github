@@ -27,14 +27,26 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', [\App\Http\Controllers\PostsController::class, 'index'])
-    ->middleware('auth')
-    ->name('home');
+
 
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware('auth')->name('dashboard');
+
+//  POSTS
+Route::get('/home', [\App\Http\Controllers\PostsController::class, 'index'])
+    ->middleware('auth')
+    ->name('home');
+
+Route::get('create-post', [PostsController::class, 'create'])
+    ->middleware('auth')
+    ->name('posts.create');
+
+
+Route::post('add', [PostsController::class, 'store'])
+    ->middleware('auth')
+    ->name('posts.store');
 
 
 //  USERS

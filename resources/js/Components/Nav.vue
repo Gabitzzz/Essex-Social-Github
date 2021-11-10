@@ -15,7 +15,7 @@
                         <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </BreezeNavLink>
-                        <BreezeNavLink :href="route('explore')" :active="route().current('#')">
+                        <BreezeNavLink :href="route('explore')" :active="route().current('explore')">
                             Explore
                         </BreezeNavLink>
                         <!--                        <BreezeNavLink :href="route('profile', $page.props.auth.user.username)" :active="route().current('profile')">-->
@@ -32,10 +32,14 @@
                                 <img :src="search" width="25" height="25" class="inline-block" alt="search">
                             </inertia-link>
 
-                            <button class="bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
-                                    style="border-radius: 15px;">
-                                <img :src="plus" width="25" height="25" class="inline-block" alt="plus">
-                            </button>
+                            <inertia-link class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25" :href="route('posts.create')" style="border-radius: 15px;">
+                                <img :src="plus" width="25" height="25" class="inline-block" alt="search">
+                            </inertia-link>
+
+<!--                            <button class="bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"-->
+<!--                                    style="border-radius: 15px;">-->
+<!--                                <img :src="plus" width="25" height="25" class="inline-block" alt="plus">-->
+<!--                            </button>-->
 
                             <BreezeNavLink :href="route('profile', $page.props.auth.user.username)"
                                            :active="route().current('profile')">

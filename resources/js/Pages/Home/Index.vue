@@ -2,7 +2,7 @@
     <div>
         <BreezeAuthenticatedLayout>
             <div class="pb-20">
-                <div v-for="post in posts.data" :key="post.id">
+                <div v-for="post in posts" :posts="posts">
                     <div class="mx-auto sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
                         <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                             <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
@@ -11,22 +11,25 @@
                                     {{ post.user.username }}
                                 </p>
 
+
                             </div>
 
                             <div class="px-4 pb-4 border-b border-gray-200">
-                                <p class="text-xl">
+<!--                                <hr>-->
+
+                                <p class="text-xl px-4 py-2">
                                     {{ post.body }}
                                 </p>
 
                                 <hr>
 
 <!--                                <button @click="toggleLike(post.id)">Like</button>-->
-                                <inertia-link preserve-scroll
-                                              method="POST"
-                                              as="button"
-                                              :href="`/posts/${post.id}/like`">
-                                    Like
-                                </inertia-link>
+<!--                                <inertia-link preserve-scroll-->
+<!--                                              method="POST"-->
+<!--                                              as="button"-->
+<!--                                              :href="`/posts/${post.id}/like`">-->
+<!--                                    Like-->
+<!--                                </inertia-link>-->
 
 
                                 <div class="flex justify-items-start mt-2 mx-2">
@@ -53,20 +56,16 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import avatar from "/img/background/human.jpg";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 
-
-
 export default {
     name: "Index",
-
-
-
 
     components: {
         BreezeAuthenticatedLayout,
         InertiaLink,
     },
     props: {
-        posts: Object,
+        posts: Array,
+        post:Object,
         user: Object,
 
     },
