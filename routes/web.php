@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LikedPostsController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,8 +26,68 @@ Route::get('/', function () {
     ]);
 });
 
+
+Route::get('/home', [\App\Http\Controllers\PostsController::class, 'index'])
+    ->middleware('auth')
+    ->name('home');
+
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware('auth')->name('dashboard');
 
-require __DIR__.'/auth.php';
+
+//  USERS
+Route::get('/users/{user:username}', [\App\Http\Controllers\UsersController::class, 'index'])
+    ->name('profile')
+    ->middleware('auth');
+
+Route::get('users/{user:username}/edit', [\App\Http\Controllers\UsersController::class, 'edit'])
+    ->name('users.edit')
+    ->middleware('auth');
+
+Route::put('users/{user}', [\App\Http\Controllers\UsersController::class, 'update'])
+    ->name('users.update')
+    ->middleware('auth');
+
+Route::get('/explore', [\App\Http\Controllers\UsersController::class, 'explore'])
+    ->name('explore')
+    ->middleware('auth');
+
+Route::get('/search', [\App\Http\Controllers\UsersController::class, 'search'])
+    ->name('search')
+    ->middleware('auth');
+
+//      FOLLOW
+Route::get('/users/{user:username}/followings', [\App\Http\Controllers\FollowingController::class, 'index'])
+    ->name('followings')
+    ->middleware('auth');
+
+Route::post('/users/{user:username}/followings/{id}', [\App\Http\Controllers\FollowingController::class, 'store'])
+    ->name('followings.store')
+    ->middleware('auth');
+
+
+Route::delete('/users/{user:username}/followings/{id}', [\App\Http\Controllers\FollowingController::class, 'destroy'])
+    ->name('followings.delete')
+    ->middleware('auth');
+
+
+Route::get('/users/{user:username}/followers', [\App\Http\Controllers\FollowersController::class, 'index'])
+    ->name('followers')
+    ->middleware('auth');
+
+
+Route::get('/users/{user:username}/followers/{id}', [\App\Http\Controllers\FollowersController::class, 'store'])
+    ->name('followers.store')
+    ->middleware('auth');
+
+Route::delete('/users/{user:username}/followers/{id}', [\App\Http\Controllers\FollowersController::class, 'destroy'])
+    ->name('followers.delete')
+    ->middleware('auth');
+
+//  LIKE
+Route::post('/posts/{post}/like', [LikedPostsController::class, 'toggle']);
+
+
+require __DIR__ . '/auth.php';
