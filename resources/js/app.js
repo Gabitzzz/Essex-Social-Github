@@ -10,7 +10,7 @@ InertiaProgress.init({
     delay: 10,
 
     // The color of the progress bar.
-    color: '#29d',
+    color: '#000000',
 
     // Whether to include the default NProgress styles.
     includeCSS: true,

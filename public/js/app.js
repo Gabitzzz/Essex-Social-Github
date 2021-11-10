@@ -26602,7 +26602,7 @@ _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__.InertiaProgress.init({
   // appear during navigation, in milliseconds.
   delay: 10,
   // The color of the progress bar.
-  color: '#29d',
+  color: '#000000',
   // Whether to include the default NProgress styles.
   includeCSS: true,
   // Whether the NProgress spinner will be shown.
