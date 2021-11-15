@@ -27,9 +27,6 @@ Route::get('/', function () {
 });
 
 
-
-
-
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware('auth')->name('dashboard');
@@ -99,13 +96,15 @@ Route::delete('/users/{user:username}/followers/{id}', [\App\Http\Controllers\Fo
     ->middleware('auth');
 
 //  LIKE
-Route::prefix('post-like')->name('post-like.')->group(function (){
+Route::prefix('post-like')->name('post-like.')->group(function () {
     Route::post('/{post}', [\App\Http\Controllers\PostLikeController::class, 'store'])
         ->name('store');
 
     Route::delete('/{post}/delete', [\App\Http\Controllers\PostLikeController::class, 'destroy'])
         ->name('destroy');
 });
+
+
 
 
 require __DIR__ . '/auth.php';

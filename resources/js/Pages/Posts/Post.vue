@@ -11,43 +11,41 @@
             <div class="px-4 pb-4 border-b border-gray-200">
                 <p class="text-xl px-4 py-2">
                     {{ post.body }}
+
                 </p>
 
 
+                <!--                LIKES   -->
+                <div class="flex text-xs">
+                    <div v-if="post.liked === 0">
 
+                    </div>
 
-<!--                LIKES   -->
-            <div class="flex text-xs">
-                <div v-if="post.liked === 0">
+                    <div v-else-if="post.liked === 1">
+                        {{ post.liked }} Like &nbsp;
+                    </div>
 
+                    <div v-else>
+                        {{ post.liked }} Likes &nbsp;
+
+                    </div>
+
+                    <!--                DISLIKES    -->
+                    <div v-if="post.disliked === 0">
+
+                    </div>
+
+                    <div v-else-if="post.disliked === 1">
+                        {{ post.disliked }} Dislike &nbsp;
+                    </div>
+
+                    <div v-else>
+                        {{ post.disliked }} Dislikes &nbsp;
+
+                    </div>
                 </div>
-
-                <div v-else-if="post.liked === 1">
-                    {{post.liked}} Like &nbsp;
-                </div>
-
-                <div v-else>
-                    {{post.liked}} Likes &nbsp;
-
-                </div>
-
-                <!--                DISLIKES    -->
-                <div v-if="post.disliked === 0">
-
-                </div>
-
-                <div v-else-if="post.disliked === 1">
-                    {{post.disliked}} Dislike &nbsp;
-                </div>
-
-                <div v-else>
-                    {{post.disliked}} Dislikes &nbsp;
-
-                </div>
-            </div>
 
                 <hr>
-
 
 
                 <div class="flex justify-between">
@@ -56,6 +54,7 @@
                         <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">
                         <p class="mt-2 ml-2">
                             {{ $page.props.auth.user.username }}
+
                         </p>
                     </div>
 
@@ -96,26 +95,30 @@ export default {
 
         }
     },
-    components:{
+    components: {
         Like,
         Dislike,
     },
     props: {
         post: Object,
     },
-    methods:{
+    methods: {
         submitLike() {
             this.likeForm.post(this.route('post-like.store', this.post), {
                 preservedScroll: true,
-                onSuccess:()=>{}
+                onSuccess: () => {
+                }
             })
         },
+
+
         submitDislike() {
             this.dislikeForm.delete(this.route('post-like.destroy', this.post), {
                 preserveScroll: true,
                 onSuccess:()=>{}
             })
-        }
+        },
+
     }
 }
 </script>

@@ -14,7 +14,7 @@ class Post extends Model
     protected $fillable = ['user_id', 'parent_id', 'body'];
 
     protected $appends = [
-        'liked', 'disliked',
+        'liked', 'disliked', 'unliked','undisliked'
     ];
 
     public function user() {
@@ -31,7 +31,21 @@ class Post extends Model
             ->where('likeable_type', get_class($this))
             ->count();
     }
+    public function getUnLikedAttribute() {
+        return $this->likes()->where('like', 0)
+            ->where('likeable_id', $this->id)
+            ->where('likeable_type', get_class($this))
+            ->count();
+    }
+
     public function getdislikedAttribute() {
+        return $this->likes()->where('dislike', 1)
+            ->where('likeable_id', $this->id)
+            ->where('likeable_type', get_class($this))
+            ->count();
+    }
+
+    public function getUndislikedAttribute() {
         return $this->likes()->where('dislike', 1)
             ->where('likeable_id', $this->id)
             ->where('likeable_type', get_class($this))

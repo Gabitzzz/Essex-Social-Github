@@ -17,6 +17,7 @@ class CreateLikesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('like')->default(0);
+            $table->unsignedBigInteger('unlike')->default(0);
             $table->unsignedBigInteger('dislike')->default(0);
             $table->unsignedBigInteger('likeable_id')->default(0);
             $table->string('likeable_type');
