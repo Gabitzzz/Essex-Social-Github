@@ -20,6 +20,7 @@ class CreateLikesTable extends Migration
             $table->unsignedBigInteger('dislike')->default(0);
             $table->unsignedBigInteger('likeable_id')->default(0);
             $table->string('likeable_type');
+
             $table->timestamps();
         });
     }
