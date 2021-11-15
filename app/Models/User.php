@@ -54,7 +54,7 @@ class User extends Authenticatable
         return Post::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
             ->withLikes()
-            ->latest()
+            ->latest('created_at')->get()
             ->paginate(10);
     }
 
