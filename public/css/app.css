@@ -528,14 +528,14 @@ samp {
  *    CSS Remedy, with `svg` added as well.
  *
  *    https://github.com/mozdevs/cssremedy/issues/14
- * 
+ *
  * 2. Add `vertical-align: middle` to align replaced elements more
  *    sensibly by default when overriding `display` by adding a
  *    utility like `inline`.
  *
  *    This can trigger a poorly considered linting error in some
  *    tools but is included by design.
- * 
+ *
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
 
@@ -15633,7 +15633,7 @@ select{
 
 .bg-red-500{
   --tw-bg-opacity: 1;
-  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+  background-color: rgba(255, 33, 33, var(--tw-bg-opacity));
 }
 
 .bg-red-600{
@@ -15648,7 +15648,7 @@ select{
 
 .bg-red-800{
   --tw-bg-opacity: 1;
-  background-color: rgba(153, 27, 27, var(--tw-bg-opacity));
+  background-color: rgba(145, 16, 16, var(--tw-bg-opacity));
 }
 
 .bg-red-900{
@@ -15733,7 +15733,7 @@ select{
 
 .bg-green-500{
   --tw-bg-opacity: 1;
-  background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+  background-color: rgba(48, 252, 3, var(--tw-bg-opacity));
 }
 
 .bg-green-600{
@@ -15743,7 +15743,7 @@ select{
 
 .bg-green-700{
   --tw-bg-opacity: 1;
-  background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
+  background-color: rgba(16, 122, 0, var(--tw-bg-opacity));
 }
 
 .bg-green-800{

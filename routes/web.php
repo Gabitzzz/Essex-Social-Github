@@ -99,7 +99,13 @@ Route::delete('/users/{user:username}/followers/{id}', [\App\Http\Controllers\Fo
     ->middleware('auth');
 
 //  LIKE
-Route::post('/posts/{post}/like', [LikedPostsController::class, 'toggle']);
+Route::prefix('post-like')->name('post-like.')->group(function (){
+    Route::post('/{post}', [\App\Http\Controllers\PostLikeController::class, 'store'])
+        ->name('store');
+
+    Route::delete('/{post}/delete', [\App\Http\Controllers\PostLikeController::class, 'destroy'])
+        ->name('destroy');
+});
 
 
 require __DIR__ . '/auth.php';

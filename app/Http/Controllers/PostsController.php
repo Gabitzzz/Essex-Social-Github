@@ -13,19 +13,22 @@ use Inertia\Inertia;
 class PostsController extends Controller
 {
 
-    public function index(User $user)
+    public function index()
     {
-        $posts = $user->posts()
-            ->withCount(['likes as liked' => function ($q) {
-                $q->where('user_id', auth()->id());
-            }])
-            ->withCasts(['liked'=> 'boolean'])
-            ->with('user')->paginate();
-
-
-        return Inertia::render('Posts/Posts', [
-            'posts' => $posts
+//        $posts = $user->posts()
+//            ->withCount(['likes as liked' => function ($q) {
+//                $q->where('user_id', auth()->id());
+//            }])
+//            ->withCasts(['liked'=> 'boolean'])
+//            ->with('user')->paginate();
+//
+//
+        return Inertia::render('Home/Index', [
+            'posts' => Post::with('user')->get()->all(),
         ]);
+
+
+
     }
 
     public function create()
