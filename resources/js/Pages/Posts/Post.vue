@@ -13,6 +13,9 @@
                     {{ post.body }}
                 </p>
 
+
+
+
 <!--                LIKES   -->
             <div class="flex text-xs">
                 <div v-if="post.liked === 0">
@@ -58,6 +61,7 @@
 
                     <div class="flex justify-end mt-4">
                         <div class="flex">
+
                             <Like :item="post" :method="submitLike"></Like>
 
                             <Dislike :item="post" :method="submitDislike" class="ml-1"></Dislike>

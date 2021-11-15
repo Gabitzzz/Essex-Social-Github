@@ -14,6 +14,16 @@ trait Likeable
             ->count();
     }
 
+    public function hasUnliked($query)
+    {
+        return (bool)$query->likes
+            ->where('like', 0)
+            ->where('likeable_id', $query->id)
+            ->where('likeable_type', get_class($query))
+            ->where('user_id', $this->id)
+            ->count();
+    }
+
     public function hasDisliked($query)
     {
         return (bool)$query->likes
@@ -43,6 +53,9 @@ trait Likeable
     public function like($query)
     {
         if ($this->hasLiked($query)) {
+            return back();
+        }
+        if ($this->hasUnliked($query)) {
             return back();
         }
         if ($this->hasdisliked($query)) {
