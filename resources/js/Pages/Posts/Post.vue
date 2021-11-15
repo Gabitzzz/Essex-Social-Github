@@ -14,32 +14,34 @@
                 </p>
 
 <!--                LIKES   -->
+            <div class="flex text-xs">
                 <div v-if="post.liked === 0">
 
                 </div>
 
                 <div v-else-if="post.liked === 1">
-                    {{post.liked}} Like
+                    {{post.liked}} Like &nbsp;
                 </div>
 
                 <div v-else>
-                    {{post.liked}} Likes
+                    {{post.liked}} Likes &nbsp;
 
                 </div>
 
-<!--                DISLIKES    -->
+                <!--                DISLIKES    -->
                 <div v-if="post.disliked === 0">
 
                 </div>
 
                 <div v-else-if="post.disliked === 1">
-                    {{post.disliked}} Dislike
+                    {{post.disliked}} Dislike &nbsp;
                 </div>
 
                 <div v-else>
-                    {{post.disliked}} Dislikes
+                    {{post.disliked}} Dislikes &nbsp;
 
                 </div>
+            </div>
 
                 <hr>
 
