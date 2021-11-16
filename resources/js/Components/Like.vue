@@ -15,12 +15,9 @@
                     ✓
                 </button>
 
-                <div v-if="item.user_id === $page.props.auth.user.id">
-                </div>
+
             </div>
         </form>
-
-
 
 
 

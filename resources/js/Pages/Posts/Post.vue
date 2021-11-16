@@ -17,6 +17,8 @@
 
                 <!--                LIKES   -->
                 <div class="flex text-xs">
+
+
                     <div v-if="post.liked === 0">
 
                     </div>
@@ -27,7 +29,6 @@
 
                     <div v-else>
                         {{ post.liked }} Likes &nbsp;
-
                     </div>
 
                     <!--                DISLIKES    -->
