@@ -3,6 +3,7 @@
         <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
             <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
                 <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">
+
                 <p class="mt-2 ml-2">
                     {{ post.user.username }}
                 </p>
@@ -15,36 +16,56 @@
                 </p>
 
 
+
+
+
                 <!--                LIKES   -->
-                <div class="flex text-xs">
 
 
-                    <div v-if="post.liked === 0">
+                <inertia-link preserve-scroll
+                              method="POST"
+                              as="button"
+                              :href="route('likes.toggle', post.id)"
+                >
+
+                    <!--            {{ $page.props.auth.user.id }}-->
+
+                    <div class="flex text-xs">
+
+                        <div v-if="post.likes.length === 0">
+
+                        </div>
+
+                        <div v-else-if="post.likes.length === 1">
+                            {{ post.likes.length }} Like &nbsp;
+                        </div>
+
+                        <div v-else>
+                            {{ post.likes.length }} Likes &nbsp;
+                        </div>
+
+                        <!--                DISLIKES    -->
+                        <div v-if="post.dislikes.length === 0">
+
+                        </div>
+
+                        <div v-else-if="post.dislikes.length === 1">
+                            {{ post.dislikes.length }} Dislike &nbsp;
+                        </div>
+
+                        <div v-else>
+                            {{ post.dislikes.length }} Dislikes &nbsp;
+
+                        </div>
+
 
                     </div>
 
-                    <div v-else-if="post.liked === 1">
-                        {{ post.liked }} Like &nbsp;
-                    </div>
 
-                    <div v-else>
-                        {{ post.liked }} Likes &nbsp;
-                    </div>
+                </inertia-link>
 
-                    <!--                DISLIKES    -->
-                    <div v-if="post.disliked === 0">
 
-                    </div>
-
-                    <div v-else-if="post.disliked === 1">
-                        {{ post.disliked }} Dislike &nbsp;
-                    </div>
-
-                    <div v-else>
-                        {{ post.disliked }} Dislikes &nbsp;
-
-                    </div>
-                </div>
+                <!--                {{ post.likes.length }}-->
 
                 <hr>
 
@@ -62,9 +83,10 @@
                     <div class="flex justify-end mt-4">
                         <div class="flex">
 
-                            <Like :item="post" :method="submitLike"></Like>
+                            <Like :post="post"></Like>
 
-                            <Dislike :item="post" :method="submitDislike" class="ml-1"></Dislike>
+
+                            <Dislike :post="post" class="ml-1"></Dislike>
 
                             <button class="ml-1  h-6 w-6 rounded-full bg-blue-400">
                             </button>
@@ -81,6 +103,7 @@
 import avatar from "/img/background/human.jpg";
 import Like from "@/Components/Like.vue";
 import Dislike from "@/Components/Dislike";
+import {InertiaLink} from "@inertiajs/inertia-vue3";
 
 export default {
     name: "Post",
@@ -99,28 +122,15 @@ export default {
     components: {
         Like,
         Dislike,
+        InertiaLink,
     },
     props: {
         post: Object,
+        user: Object,
+        likes: Array,
+        like: Object,
     },
-    methods: {
-        submitLike() {
-            this.likeForm.post(this.route('post-like.store', this.post), {
-                preservedScroll: true,
-                onSuccess: () => {
-                }
-            })
-        },
-
-
-        submitDislike() {
-            this.dislikeForm.delete(this.route('post-like.destroy', this.post), {
-                preserveScroll: true,
-                onSuccess:()=>{}
-            })
-        },
-
-    }
+    methods: {}
 }
 </script>
 

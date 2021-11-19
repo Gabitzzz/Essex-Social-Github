@@ -32,7 +32,7 @@ Route::get('/dashboard', function () {
 })->middleware('auth')->name('dashboard');
 
 //  POSTS
-Route::get('/home', [\App\Http\Controllers\PostsController::class, 'index'])
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])
     ->middleware('auth')
     ->name('home');
 
@@ -53,6 +53,7 @@ Route::get('/users/{user:username}', [\App\Http\Controllers\UsersController::cla
 
 Route::get('users/{user:username}/edit', [\App\Http\Controllers\UsersController::class, 'edit'])
     ->name('users.edit')
+    ->middleware('can:create, App\Models\User')
     ->middleware('auth');
 
 Route::put('users/{user}', [\App\Http\Controllers\UsersController::class, 'update'])
@@ -96,13 +97,21 @@ Route::delete('/users/{user:username}/followers/{id}', [\App\Http\Controllers\Fo
     ->middleware('auth');
 
 //  LIKE
-Route::prefix('post-like')->name('post-like.')->group(function () {
-    Route::post('/{post}', [\App\Http\Controllers\PostLikeController::class, 'store'])
-        ->name('store');
+//Route::prefix('post-like')->name('post-like.')->group(function () {
+//    Route::post('/{post}', [\App\Http\Controllers\PostLikeController::class, 'store'])
+//        ->name('store');
+//
+//    Route::delete('/{post}/delete', [\App\Http\Controllers\PostLikeController::class, 'destroy'])
+//        ->name('destroy');
+//});
 
-    Route::delete('/{post}/delete', [\App\Http\Controllers\PostLikeController::class, 'destroy'])
-        ->name('destroy');
-});
+Route::post('/posts/{post}/like', [\App\Http\Controllers\PostLikeController::class, 'toggle'])
+    ->middleware('auth')
+    ->name('likes.toggle');
+
+Route::post('/posts/{post}/dislike', [\App\Http\Controllers\PostDislikeController::class, 'toggle'])
+    ->middleware('auth')
+    ->name('dislikes.toggle');
 
 
 

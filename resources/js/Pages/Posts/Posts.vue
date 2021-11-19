@@ -1,7 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
-        <div v-for="post in posts" :posts="posts" >
-            <Post :post="post"></Post>
+        <div v-for="post in posts">
+            <Post :post="post" ></Post>
         </div>
 
     </BreezeAuthenticatedLayout>

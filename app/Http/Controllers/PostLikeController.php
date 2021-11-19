@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostLikeController extends Controller
 {
+    public function toggle(Post $post, User $user) {
+        $post->likes()->toggle(auth()->id());
+        return redirect()->back();
+
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +23,10 @@ class PostLikeController extends Controller
      */
     public function index()
     {
-        //
+
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +46,7 @@ class PostLikeController extends Controller
      */
     public function store(Request $request, Post $post)
     {
-        return auth()->user()->like($post);
+//        'likes' => $user->posts()
 
     }
 
@@ -81,6 +92,6 @@ class PostLikeController extends Controller
      */
     public function destroy(Post $post)
     {
-        return auth()->user()->dislike($post);
+        //
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
@@ -33,6 +34,9 @@ class UsersController extends Controller
                 }
             ])->withCasts(['following' => 'boolean'])
                 ->paginate(),
+            'can' => [
+                'createUser' => Auth::user()->can('create', User::class)
+            ]
 
         ]);
     }

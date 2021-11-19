@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,25 +10,31 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
+use function GuzzleHttp\Promise\all;
 
 class PostsController extends Controller
 {
 
-    public function index()
+    public function index(User $user, Like $like)
     {
+//        REPLACEMENT
 //        $posts = $user->posts()
 //            ->withCount(['likes as liked' => function ($q) {
 //                $q->where('user_id', auth()->id());
 //            }])
 //            ->withCasts(['liked'=> 'boolean'])
 //            ->with('user')->paginate();
+//          END
 //
-//
-        return Inertia::render('Home/Index', [
-            'posts' => Post::with('user')->get()->all(),
-        ]);
-
-
+//        return Inertia::render('Home/Index', [
+//            'posts' => $user->posts()
+//                ->with(['likes as liked' => function ($q) {
+//                    $q->where('likes.user_id', auth()->id());
+//                }])
+//                ->withCasts(['liked'=> 'boolean'])
+//                ->with('user')->paginate(),
+//            'likes' => Like::all()
+//        ]);
 
     }
 

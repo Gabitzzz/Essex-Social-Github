@@ -1,36 +1,39 @@
 <template>
     <div>
-        <!--    <span>5</span>-->
-        <form @submit.prevent="method">
-            <div class="flex">
-
-                <button v-if="item.liked === 0"
-                        type="submit"
-                        class="h-6 w-6 rounded-full bg-green-500 hover:bg-green-700">
-                </button>
-
-                <button v-else-if="item.liked !== 0"
-                        type="submit"
-                        class="h-6 w-6 rounded-full bg-green-500 hover:bg-green-700">
-                    ✓
-                </button>
 
 
-            </div>
-        </form>
+        <inertia-link
+            preserve-scroll
+            method="POST"
+            as="button"
+            :href="route('likes.toggle', post.id)"
+            class="h-6 w-6 rounded-full bg-green-500 hover:bg-green-500 text-white">
 
+        </inertia-link>
 
 
     </div>
 </template>
 
 <script>
+import {InertiaLink} from "@inertiajs/inertia-vue3";
+
 export default {
     name: "Like",
     props: {
-        item: Object,
+        post: Object,
         method: Function,
+
     },
+    components: {
+        InertiaLink,
+    },
+
+    // methods: {
+    //     toggleLike() {
+    //     }
+    //
+    // }
 }
 </script>
 

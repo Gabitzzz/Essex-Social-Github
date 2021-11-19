@@ -1,29 +1,27 @@
 <template>
     <div>
         <!--    <span>5</span>-->
-        <form @submit.prevent="method">
-            <div class="flex">
-                <button v-if="item.disliked === 0"
-                        type="submit"
-                        class="h-6 w-6 rounded-full bg-red-500 hover:bg-red-800">
-                </button>
-                <button v-else
-                        type="submit"
-                        class="h-6 w-6 rounded-full bg-red-800 text-white">
-                    ✓
-                </button>
-            </div>
-        </form>
+        <inertia-link preserve-scroll
+                      method="POST"
+                      as="button"
+                      :href="route('dislikes.toggle', post.id)"
+                      class="h-6 w-6 rounded-full bg-red-500 hover:bg-red-700">
+        </inertia-link>
     </div>
 </template>
 
 <script>
+import {InertiaLink} from "@inertiajs/inertia-vue3";
+
 export default {
     name: "Dislike",
     props: {
-        item: Object,
         method: Function,
+        post: Object,
     },
+    components:{
+        InertiaLink,
+    }
 }
 </script>
 

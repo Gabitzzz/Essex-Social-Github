@@ -1,12 +1,13 @@
 <template>
     <div>
-        <Posts :posts="posts"></Posts>
+        <Posts :posts="posts" :likes="likes" ></Posts>
 
     </div>
 </template>
 
 <script>
 import Posts from "@/Pages/Posts/Posts";
+
 export default {
     name: "Index",
     components: {
@@ -14,7 +15,13 @@ export default {
     },
     props: {
         posts: Array,
-    }
+        check: Object,
+        likes: Array,
+        likeToggle: Boolean,
+    },
+    // created() {
+    //     debugger
+    // }
 }
 </script>
 
