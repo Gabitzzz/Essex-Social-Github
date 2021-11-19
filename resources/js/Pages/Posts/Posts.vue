@@ -1,7 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
         <div v-for="post in posts">
-            <Post :post="post" ></Post>
+            <Post :post="post" :likeToggle="likeToggle" ></Post>
         </div>
 
     </BreezeAuthenticatedLayout>
@@ -18,6 +18,7 @@ export default {
         posts: Array,
         post: Object,
         user: Object,
+        likeToggle: Boolean,
     },
     data() {
         return {

@@ -23305,7 +23305,8 @@ __webpack_require__.r(__webpack_exports__);
     post: Object,
     user: Object,
     likes: Array,
-    like: Object
+    like: Object,
+    likeToggle: Boolean
   },
   methods: {}
 });
@@ -23334,7 +23335,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     posts: Array,
     post: Object,
-    user: Object
+    user: Object,
+    likeToggle: Boolean
   },
   data: function data() {
     return {};
@@ -24088,7 +24090,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "h-6 w-6 rounded-full bg-green-500 hover:bg-green-500 text-white"
   }, null, 8
   /* PROPS */
-  , ["href"])]);
+  , ["href"]), _ctx.$page.props.likeToggle ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
+    key: 0,
+    as: "button",
+    "class": "follow button shadow-2xl items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-red-600 hover:text-white active:bg-green-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150 w-40",
+    style: {
+      "font-size": "80%"
+    },
+    href: "/users/".concat(_ctx.$page.props.auth.user.username, "/followings/").concat(_ctx.user.id),
+    "preserve-scroll": "",
+    method: "DELETE"
+  }, null, 8
+  /* PROPS */
+  , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),
@@ -25846,10 +25860,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Posts, {
     posts: $props.posts,
-    likes: $props.likes
+    likes: $props.likes,
+    likeToggle: $props.likeToggle
   }, null, 8
   /* PROPS */
-  , ["posts", "likes"])]);
+  , ["posts", "likes", "likeToggle"])]);
 }
 
 /***/ }),
@@ -26115,10 +26130,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.posts, function (post) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Post, {
-          post: post
+          post: post,
+          likeToggle: $props.likeToggle
         }, null, 8
         /* PROPS */
-        , ["post"])]);
+        , ["post", "likeToggle"])]);
       }), 256
       /* UNKEYED_FRAGMENT */
       ))];

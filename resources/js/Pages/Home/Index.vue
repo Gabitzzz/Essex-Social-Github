@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Posts :posts="posts" :likes="likes" ></Posts>
+        <Posts :posts="posts" :likes="likes" :likeToggle="likeToggle"></Posts>
 
     </div>
 </template>

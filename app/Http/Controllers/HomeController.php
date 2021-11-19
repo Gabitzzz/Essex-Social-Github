@@ -34,7 +34,6 @@ class HomeController extends Controller
 
         return Inertia::render('Home/Index', [
             'posts' => $posts,
-            'likeToggle' => $post->likes()->where('user_id', auth()->id())->exists(),
 
 //            'likeToggle' => Post::with('likes')->where("user_id", auth()->id())->exists(),
 

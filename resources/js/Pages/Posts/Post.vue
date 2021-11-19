@@ -129,6 +129,7 @@ export default {
         user: Object,
         likes: Array,
         like: Object,
+        likeToggle: Boolean,
     },
     methods: {}
 }
