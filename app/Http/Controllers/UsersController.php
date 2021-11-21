@@ -41,18 +41,14 @@ class UsersController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(array $input)
     {
         Request::validate([
             'name' => ['required', 'max:50'],
             'username' => ['required', 'max:50'],
             'description' => ['required', 'max:50'],
-            'avatar' => ['nullable', 'image'],
-            'cover' => ['nullable', 'image'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')],
             'password' => ['nullable'],
-//            'owner' => ['required', 'boolean'],
-//            'photo' => ['nullable', 'image'],
         ]);
 
         Auth::user()->account->users()->create([

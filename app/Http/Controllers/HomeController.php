@@ -12,7 +12,6 @@ class HomeController extends Controller
 {
     public function index(User $user, Post $post)
     {
-
         $posts = Post::select('posts.*')
             ->with('dislikes')
             ->with('user')
@@ -20,30 +19,11 @@ class HomeController extends Controller
             ->with(['likes'])->get()->all();
 
 
-
-
-
-
-//            ->with('users')->get()->all();
-//        $users = Post::
-
-
-//        $users = User::select('users.*')
-//            ->join('posts', 'posts.user_id', '=', 'users.id')->get()->all();
-
-
         return Inertia::render('Home/Index', [
             'posts' => $posts,
-
-//            'likeToggle' => Post::with('likes')->where("user_id", auth()->id())->exists(),
-
-
-
-//            'check' => $check,
-
-
+            'likeToggle' => Post::select('likes.*')->where('user_id', auth()->id())->exists(),
         ]);
-
     }
+
 }
 

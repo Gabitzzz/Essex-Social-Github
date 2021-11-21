@@ -2,6 +2,15 @@
     <div>
 
         <BreezeAuthenticatedLayout>
+            <input type="file" class="hidden"
+                   ref="photo"
+                   @change="updatePreview">
+            <div v-show="preview">
+  <span class="block w-20 h-20 rounded-full"
+        :style="'width: 5rem; height: 5rem; border-radius: 999px; display: block; background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + photoPreview + '\');'">
+  </span>
+            </div>
+
 
             <div class="bg-gray-100">
                 <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">

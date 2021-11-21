@@ -53,7 +53,6 @@ Route::get('/users/{user:username}', [\App\Http\Controllers\UsersController::cla
 
 Route::get('users/{user:username}/edit', [\App\Http\Controllers\UsersController::class, 'edit'])
     ->name('users.edit')
-    ->middleware('can:create, App\Models\User')
     ->middleware('auth');
 
 Route::put('users/{user}', [\App\Http\Controllers\UsersController::class, 'update'])

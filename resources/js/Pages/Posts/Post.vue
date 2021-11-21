@@ -12,24 +12,14 @@
             <div class="px-4 pb-4 border-b border-gray-200">
                 <p class="text-xl px-4 py-2">
                     {{ post.body }}
-
                 </p>
 
-
-
-
-
                 <!--                LIKES   -->
-
-
                 <inertia-link preserve-scroll
                               method="POST"
                               as="button"
                               :href="route('likes.toggle', post.id)"
                 >
-
-                    <!--            {{ $page.props.auth.user.id }}-->
-
                     <div class="flex text-xs">
 
                         <div v-if="post.likes.length === 0">
@@ -55,20 +45,11 @@
 
                         <div v-else>
                             {{ post.dislikes.length }} Dislikes &nbsp;
-
                         </div>
-
-
                     </div>
-
-
                 </inertia-link>
 
-
-                <!--                {{ post.likes.length }}-->
-
                 <hr>
-
 
                 <div class="flex justify-between">
                     <!-- ... -->
@@ -76,19 +57,17 @@
                         <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">
                         <p class="mt-2 ml-2">
                             {{ $page.props.auth.user.username }}
-
                         </p>
                     </div>
 
                     <div class="flex justify-end mt-4">
                         <div class="flex">
-
                             <Like :post="post"></Like>
-
 
                             <Dislike :post="post" class="ml-1"></Dislike>
 
                             <button class="ml-1  h-6 w-6 rounded-full bg-blue-400">
+
                             </button>
                         </div>
                     </div>
@@ -129,7 +108,6 @@ export default {
         user: Object,
         likes: Array,
         like: Object,
-        likeToggle: Boolean,
     },
     methods: {}
 }
