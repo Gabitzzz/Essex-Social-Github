@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreImage;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -41,8 +42,19 @@ class UsersController extends Controller
         ]);
     }
 
-    public function store(array $input)
+    public function store(StoreImage $request)
     {
+
+        $image_path = '';
+
+        if ($request->hasFile('image')) {
+            $image_path = $request->file('image')->store('image', 'public');
+        }
+
+        $data = Image::create([
+            'image' => $image_path,
+        ]);
+
         Request::validate([
             'name' => ['required', 'max:50'],
             'username' => ['required', 'max:50'],
