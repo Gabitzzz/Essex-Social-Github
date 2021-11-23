@@ -37,23 +37,14 @@ class UsersController extends Controller
                 ->paginate(),
             'can' => [
                 'createUser' => Auth::user()->can('create', User::class)
-            ]
+            ],
+
 
         ]);
     }
 
     public function store(StoreImage $request)
     {
-
-        $image_path = '';
-
-        if ($request->hasFile('image')) {
-            $image_path = $request->file('image')->store('image', 'public');
-        }
-
-        $data = Image::create([
-            'image' => $image_path,
-        ]);
 
         Request::validate([
             'name' => ['required', 'max:50'],
@@ -71,6 +62,8 @@ class UsersController extends Controller
             'avatar' => Request::get('avatar'),
             'cover' => Request::get('cover'),
             'password' => Request::get('password'),
+            'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
+
 //            'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
         ]);
         return Redirect::route('profile');
@@ -78,31 +71,29 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-        return Inertia::render('Profile/Edit', [
-            'user' => [
-                'id' => $user->id,
-                'username' => $user->username,
-                'name' => $user->name,
-                'email' => $user->email,
-                'avatar' => $user->avatar ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
-                'cover' => $user->cover ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
-                'description' => $user->description,
-
-            ]
-        ]);
+        return Inertia::render('Profile/Edit', ['user' => auth()->user()]);
     }
 
     public function update(User $user)
     {
         $attributes = request()->validate([
+//            'avatar' => ['sometimes', 'max:1024'],
             'username' => ['required', 'max:50'],
             'name' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')->ignore($user->id)],
-            'password' => ['nullable'],
+            'password' => ['required', 'max:50'],
 //            'owner' => ['required', 'boolean'],
             'photo' => ['nullable', 'image'],
             'description' => ['nullable', 'max:250'],
+            'avatar' => ['nullable'],
+
         ]);
+
+
+
+//        if (!empty($request->avatar)) {
+//            $request->user()->updateProfilePhoto($request->avatar);
+//        }
 
 //        $user->update(\Illuminate\Support\Facades\Request::only('username', 'name', 'email'));
         $user->update($attributes);

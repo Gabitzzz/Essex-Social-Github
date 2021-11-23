@@ -28,6 +28,10 @@ class User extends Authenticatable
     ];
     protected $guarded = [];
 
+
+
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -75,4 +79,7 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'following', 'follower_id', 'followed_id')
             ->withTimestamps();
     }
+
+
+
 }

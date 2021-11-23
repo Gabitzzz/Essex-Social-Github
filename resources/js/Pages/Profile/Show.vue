@@ -8,10 +8,11 @@
                              style="min-height: 350px;">
                         <div class="flex justify-center">
                             <img :src="avatar" class="rounded-full avatar w-32 h-32" alt="avatar">
+<!--                            <img :src="$page.props.user.profile_photo_url" alt="">-->
+
                             <p style="text-align: center;" class="text-2xl username">
                                 {{ $page.props.user.username }}
                             </p>
-
 
                             <div v-if="$page.props.auth.user.id === $page.props.user.id" class="flex justify-center">
                                 <a :href="route('users.edit',$page.props.user.username)"
@@ -22,7 +23,6 @@
                             </div>
 
                             <div v-else class="flex justify-center">
-
                                 <inertia-link v-if="!$page.props.followToggle"
                                               as="button"
                                               class="follow button shadow-2xl  items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
@@ -47,7 +47,6 @@
                                               method="DELETE">
                                     {{ showUnfollow ? 'Unfollow' : '✓ Following' }}
                                 </inertia-link>
-
                             </div>
 
                             <div class="count grid grid-cols-3 divide-x divide-white ">
@@ -93,8 +92,6 @@
                             ABOUT
                         </button>
                     </div>
-
-
                 </div>
 
                 <!--    FEED    -->
@@ -185,8 +182,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </BreezeAuthenticatedLayout>
