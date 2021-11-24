@@ -22104,7 +22104,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex mt-5 py-5 space-x-5"
+  "class": "flex mt-5 space-x-5"
 };
 var _hoisted_2 = {
   "class": "flex-1"

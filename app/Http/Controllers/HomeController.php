@@ -15,7 +15,7 @@ class HomeController extends Controller
         $posts = Post::select('posts.*')
             ->with('dislikes')
             ->with('user')
-            ->join('following', 'following.followed_id', '=', 'posts.user_id')
+//            ->join('following', 'following.followed_id', '=', 'posts.user_id')
             ->with(['likes'])->get()->all();
 
 
