@@ -1,5 +1,5 @@
 <template>
-    <div class="flex  mt-5 py-5 space-x-5">
+    <div class="flex  mt-5  space-x-5">
         <div class="flex-1">
             <div class="flex items-center">
                 <img :src="avatar" class="rounded-full avatar w-10 h-10 mx-1" alt="avatar">
