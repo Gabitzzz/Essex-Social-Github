@@ -79,19 +79,19 @@
 
                 <form @submit.prevent="submit" class="w-full">
                     <div class="flex">
-                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">
+                        <img :src="avatar" class="rounded-full avatar w-10 h-10 mt-1" alt="avatar">
 
-                        <BreezeInput id="body" type="text" class="mt-1  block w-full" v-model="form.body"
-                                     placeholder="Add new post"
+                        <BreezeInput id="body" type="text" class="mt-1 block w-full" v-model="form.body"
+                                     placeholder="Say something.."
                                      required autofocus autocomplete="name"/>
 
 
 
 <!--                    <textarea name="post" rows="3" class="border rounded px-2 py-2 w-full"-->
 <!--                              :placeholder="`Post something  ...`" v-model="form.body"></textarea>-->
-                        <button type="submit" class="text-xs" :class="{ 'opacity-25': form.processing }"
+                        <button type="submit" class="button px-6 mt-1 shadow-2xl" :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing">
-                            submit
+                            SUBMIT
                         </button>
                     </div>
 
@@ -157,5 +157,14 @@ export default {
 </script>
 
 <style scoped>
-
+.button{
+    border-radius: 25px;
+    color: ghostwhite;
+    background-color: black;
+    /*width: 100%;*/
+    /*display: inline;*/
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+}
 </style>
