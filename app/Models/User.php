@@ -12,6 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
 //    use Likeable;
 
     /**
@@ -27,9 +28,6 @@ class User extends Authenticatable
         'password',
     ];
     protected $guarded = [];
-
-
-
 
 
     /**
@@ -80,6 +78,10 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
 
 }

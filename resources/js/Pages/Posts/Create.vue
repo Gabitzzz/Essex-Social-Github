@@ -8,7 +8,7 @@
                         <p class="text-xl text-center">Create new Post!</p>
                         <BreezeLabel for="body" value="Body" class="flex items-center justify-center"/>
                         <BreezeInput id="body" type="text" class="mt-1  py-10 block w-full" v-model="form.body"
-                                     placeholder="Search..."
+                                     placeholder="Add new post"
                                      required autofocus autocomplete="name"/>
                     </div>
 

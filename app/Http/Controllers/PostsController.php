@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
@@ -15,26 +16,18 @@ use function GuzzleHttp\Promise\all;
 class PostsController extends Controller
 {
 
-    public function index(User $user, Like $like)
+    public function index(Post $post)
     {
-//        REPLACEMENT
-//        $posts = $user->posts()
-//            ->withCount(['likes as liked' => function ($q) {
-//                $q->where('user_id', auth()->id());
-//            }])
-//            ->withCasts(['liked'=> 'boolean'])
-//            ->with('user')->paginate();
-//          END
-//
-//        return Inertia::render('Home/Index', [
-//            'posts' => $user->posts()
-//                ->with(['likes as liked' => function ($q) {
-//                    $q->where('likes.user_id', auth()->id());
-//                }])
-//                ->withCasts(['liked'=> 'boolean'])
-//                ->with('user')->paginate(),
-//            'likes' => Like::all()
-//        ]);
+//        $post=Post::all();
+
+//        dd($comments);
+
+        return Inertia::render('Posts/Index', [
+            'post' => Post::with('user')->where("id", "=", $post->id)->get()->first(),
+            'comments' => Comment::with('post')->where("post_id","=", $post->id)->with('user')->get(),
+//            'posts' => Post::with('user')->where("user_id", "=", $user->id)->get(),
+
+        ]);
 
     }
 

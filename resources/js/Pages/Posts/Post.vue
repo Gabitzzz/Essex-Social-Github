@@ -66,16 +66,14 @@
 
                             <Dislike :post="post" class="ml-1"></Dislike>
 
-                            <button class="ml-1  h-6 w-6 rounded-full bg-blue-400">
-
-                            </button>
+                            <InertiaLink :href="route('post.show', post.id)" :post="post.id" class="ml-1  h-6 w-6 rounded-full bg-blue-400">
+                            </InertiaLink>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -83,33 +81,41 @@ import avatar from "/img/background/human.jpg";
 import Like from "@/Components/Like.vue";
 import Dislike from "@/Components/Dislike";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
+import CombinedComments from "@/Components/CombinedComments";
+import PostForm from "@/Components/PostForm";
 
 export default {
     name: "Post",
     data() {
         return {
             avatar: avatar,
+            form: this.$inertia.form({
+                body: this.body,
+                user_id: this.post.user_id,
+            }),
             likeForm: this.$inertia.form({
                 userPost: this.post
             }),
             dislikeForm: this.$inertia.form({
                 userPosts: this.post
             }),
-
         }
     },
     components: {
         Like,
         Dislike,
         InertiaLink,
+        CombinedComments,
+        PostForm,
     },
     props: {
         post: Object,
         user: Object,
         likes: Array,
         like: Object,
+        comments: Array,
     },
-    methods: {}
+
 }
 </script>
 

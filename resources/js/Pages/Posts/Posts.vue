@@ -1,6 +1,6 @@
 <template>
     <BreezeAuthenticatedLayout>
-        <div v-for="post in posts">
+        <div v-for="(post, key) in posts" :key="key">
             <Post :post="post" :likeToggle="likeToggle" ></Post>
         </div>
 

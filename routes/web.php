@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikedPostsController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Foundation\Application;
@@ -35,6 +36,9 @@ Route::get('/dashboard', function () {
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])
     ->middleware('auth')
     ->name('home');
+
+
+
 
 Route::get('create-post', [PostsController::class, 'create'])
     ->middleware('auth')
@@ -95,15 +99,14 @@ Route::delete('/users/{user:username}/followers/{id}', [\App\Http\Controllers\Fo
     ->name('followers.delete')
     ->middleware('auth');
 
-//  LIKE
-//Route::prefix('post-like')->name('post-like.')->group(function () {
-//    Route::post('/{post}', [\App\Http\Controllers\PostLikeController::class, 'store'])
-//        ->name('store');
-//
-//    Route::delete('/{post}/delete', [\App\Http\Controllers\PostLikeController::class, 'destroy'])
-//        ->name('destroy');
-//});
 
+Route::get('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'index'])
+    ->middleware('auth')
+    ->name('post.show');
+
+
+
+//  LIKE
 Route::post('/posts/{post}/like', [\App\Http\Controllers\PostLikeController::class, 'toggle'])
     ->middleware('auth')
     ->name('likes.toggle');
@@ -113,6 +116,7 @@ Route::post('/posts/{post}/dislike', [\App\Http\Controllers\PostDislikeControlle
     ->name('dislikes.toggle');
 
 
+Route::post('/posts/{post}/comment', [CommentController::class, 'store'])->name('comments.store');
 
 
 require __DIR__ . '/auth.php';

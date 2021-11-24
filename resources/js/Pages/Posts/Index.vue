@@ -1,0 +1,161 @@
+<template>
+    <div>
+        <BreezeAuthenticatedLayout>
+
+            <div class="mx-auto sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+
+                <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+                    <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
+                        <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">
+
+                        <p class="mt-2 ml-2">
+                            {{ post.user.username }}'s POST
+                        </p>
+                    </div>
+
+                    <div class="px-4 pb-4 border-b border-gray-200">
+                        <p class="text-xl px-4 py-2">
+                            {{ post.body }}
+                        </p>
+
+                        <!--                LIKES   -->
+                        <!--                <inertia-link preserve-scroll-->
+                        <!--                              method="POST"-->
+                        <!--                              as="button"-->
+                        <!--                              :href="route('likes.toggle', post.id)"-->
+                        <!--                >-->
+                        <!--                    <div class="flex text-xs">-->
+
+                        <!--                        <div v-if="post.likes.length === 0">-->
+
+                        <!--                        </div>-->
+
+                        <!--                        <div v-else-if="post.likes.length === 1">-->
+                        <!--                            {{ post.likes.length }} Like &nbsp;-->
+                        <!--                        </div>-->
+
+                        <!--                        <div v-else>-->
+                        <!--                            {{ post.likes.length }} Likes &nbsp;-->
+                        <!--                        </div>-->
+
+                        <!--                        &lt;!&ndash;                DISLIKES    &ndash;&gt;-->
+                        <!--                        <div v-if="post.dislikes.length === 0">-->
+
+                        <!--                        </div>-->
+
+                        <!--                        <div v-else-if="post.dislikes.length === 1">-->
+                        <!--                            {{ post.dislikes.length }} Dislike &nbsp;-->
+                        <!--                        </div>-->
+
+                        <!--                        <div v-else>-->
+                        <!--                            {{ post.dislikes.length }} Dislikes &nbsp;-->
+                        <!--                        </div>-->
+                        <!--                    </div>-->
+                        <!--                </inertia-link>-->
+
+                        <hr>
+
+<!--                        <div class="flex justify-between">-->
+<!--                            &lt;!&ndash; ... &ndash;&gt;-->
+<!--                            <div class="flex justify-self-star mt-2">-->
+<!--                                <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">-->
+<!--                                <p class="mt-2 ml-2">-->
+<!--                                    {{ $page.props.auth.user.username }}-->
+<!--                                </p>-->
+<!--                            </div>-->
+
+<!--                            <div class="flex justify-end mt-4">-->
+<!--                                <div class="flex">-->
+<!--                                    &lt;!&ndash;                            <Like :post="post"></Like>&ndash;&gt;-->
+
+<!--                                    &lt;!&ndash;                            <Dislike :post="post" class="ml-1"></Dislike>&ndash;&gt;-->
+
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+
+
+                <form @submit.prevent="submit" class="w-full">
+                    <div class="flex">
+                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">
+
+                        <BreezeInput id="body" type="text" class="mt-1  block w-full" v-model="form.body"
+                                     placeholder="Add new post"
+                                     required autofocus autocomplete="name"/>
+
+
+
+<!--                    <textarea name="post" rows="3" class="border rounded px-2 py-2 w-full"-->
+<!--                              :placeholder="`Post something  ...`" v-model="form.body"></textarea>-->
+                        <button type="submit" class="text-xs" :class="{ 'opacity-25': form.processing }"
+                                :disabled="form.processing">
+                            submit
+                        </button>
+                    </div>
+
+                    <div class="flex justify-between my-3">
+                        <div>
+
+                        </div>
+                    </div>
+                </form>
+
+                <div v-for="(comment, index) in comments" :key="index">
+                    <CommentItem :comment="comment"></CommentItem>
+                </div>
+            </div>
+        </BreezeAuthenticatedLayout>
+    </div>
+</template>
+
+<script>
+import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import PostForm from "@/Components/PostForm";
+import CombinedComments from "@/Components/CombinedComments";
+import CommentItem from "@/Components/CommentItem";
+import avatar from "/img/background/human.jpg";
+import BreezeInput from '@/Components/Input.vue';
+
+
+
+export default {
+    name: "Index",
+    components: {
+        CombinedComments,
+        PostForm,
+        BreezeAuthenticatedLayout,
+        CommentItem,
+        BreezeInput,
+    },
+    props: {
+        post: Object,
+        comments: Array,
+        user: Object,
+    },
+    data() {
+        return {
+            avatar: avatar,
+            form: this.$inertia.form({
+                body: null,
+                image: null,
+            }),
+        }
+    },
+    methods: {
+        submit() {
+            this.form.post(this.route('comments.store', this.post), {
+                preserveScroll: true,
+                onSuccess: () => {
+                    this.form.body = null
+                }
+            })
+        },
+    }
+}
+</script>
+
+<style scoped>
+
+</style>
