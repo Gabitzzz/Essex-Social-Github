@@ -23,8 +23,8 @@ class PostsController extends Controller
 //        dd($comments);
 
         return Inertia::render('Posts/Index', [
-            'post' => Post::with('user')->where("id", "=", $post->id)->get()->first(),
-            'comments' => Comment::with('post')->where("post_id","=", $post->id)->with('user')->get(),
+            'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->get()->first(),
+            'comments' => Comment::with('post')->where("post_id","=", $post->id)->with('user')->latest()->get(),
 //            'posts' => Post::with('user')->where("user_id", "=", $user->id)->get(),
 
         ]);

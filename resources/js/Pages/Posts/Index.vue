@@ -3,13 +3,12 @@
         <BreezeAuthenticatedLayout>
 
             <div class="mx-auto sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
-
                 <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                     <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
                         <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">
 
                         <p class="mt-2 ml-2">
-                            {{ post.user.username }}'s POST
+                            {{ post.user.username }}
                         </p>
                     </div>
 
@@ -19,77 +18,82 @@
                         </p>
 
                         <!--                LIKES   -->
-                        <!--                <inertia-link preserve-scroll-->
-                        <!--                              method="POST"-->
-                        <!--                              as="button"-->
-                        <!--                              :href="route('likes.toggle', post.id)"-->
-                        <!--                >-->
-                        <!--                    <div class="flex text-xs">-->
+                        <inertia-link preserve-scroll
+                                      method="POST"
+                                      as="button"
+                                      :href="route('likes.toggle', post.id)"
+                        >
+                            <div class="flex text-xs">
 
-                        <!--                        <div v-if="post.likes.length === 0">-->
+                                <div v-if="post.likes.length === 0">
 
-                        <!--                        </div>-->
+                                </div>
 
-                        <!--                        <div v-else-if="post.likes.length === 1">-->
-                        <!--                            {{ post.likes.length }} Like &nbsp;-->
-                        <!--                        </div>-->
+                                <div v-else-if="post.likes.length === 1">
+                                    {{ post.likes.length }} Like &nbsp;
+                                </div>
 
-                        <!--                        <div v-else>-->
-                        <!--                            {{ post.likes.length }} Likes &nbsp;-->
-                        <!--                        </div>-->
+                                <div v-else>
+                                    {{ post.likes.length }} Likes &nbsp;
+                                </div>
 
-                        <!--                        &lt;!&ndash;                DISLIKES    &ndash;&gt;-->
-                        <!--                        <div v-if="post.dislikes.length === 0">-->
+                                <!--                DISLIKES    -->
+                                <div v-if="post.dislikes.length === 0">
 
-                        <!--                        </div>-->
+                                </div>
 
-                        <!--                        <div v-else-if="post.dislikes.length === 1">-->
-                        <!--                            {{ post.dislikes.length }} Dislike &nbsp;-->
-                        <!--                        </div>-->
+                                <div v-else-if="post.dislikes.length === 1">
+                                    {{ post.dislikes.length }} Dislike &nbsp;
+                                </div>
 
-                        <!--                        <div v-else>-->
-                        <!--                            {{ post.dislikes.length }} Dislikes &nbsp;-->
-                        <!--                        </div>-->
-                        <!--                    </div>-->
-                        <!--                </inertia-link>-->
+                                <div v-else>
+                                    {{ post.dislikes.length }} Dislikes &nbsp;
+                                </div>
+                            </div>
+                        </inertia-link>
 
                         <hr>
 
-<!--                        <div class="flex justify-between">-->
-<!--                            &lt;!&ndash; ... &ndash;&gt;-->
-<!--                            <div class="flex justify-self-star mt-2">-->
-<!--                                <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">-->
-<!--                                <p class="mt-2 ml-2">-->
-<!--                                    {{ $page.props.auth.user.username }}-->
-<!--                                </p>-->
-<!--                            </div>-->
+                        <div class="flex justify-between">
+                            <!-- ... -->
+                            <div class="flex justify-self-star mt-2">
+                                <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">
+                                <p class="mt-2 ml-2">
+                                    {{ $page.props.auth.user.username }}
+                                </p>
+                            </div>
 
-<!--                            <div class="flex justify-end mt-4">-->
-<!--                                <div class="flex">-->
-<!--                                    &lt;!&ndash;                            <Like :post="post"></Like>&ndash;&gt;-->
+                            <div class="flex justify-end mt-4">
+                                <div class="flex">
+                                    <Like :post="post"></Like>
 
-<!--                                    &lt;!&ndash;                            <Dislike :post="post" class="ml-1"></Dislike>&ndash;&gt;-->
+                                    <Dislike :post="post" class="ml-1"></Dislike>
 
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                                    <InertiaLink :href="route('post.show', post.id)" :post="post.id" class="ml-1  h-6 w-6 rounded-full bg-blue-400">
+                                    </InertiaLink>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
+
+
                 </div>
 
-
                 <form @submit.prevent="submit" class="w-full">
-                    <div class="flex">
-                        <img :src="avatar" class="rounded-full avatar w-10 h-10 mt-1 mx-1" alt="avatar">
+                    <div class="flex mt-5">
+                        <img :src="avatar" class="rounded-full avatar w-10 h-10 mx-1" alt="avatar">
 
-                        <BreezeInput id="body" type="text" class="mt-1 block w-full" v-model="form.body"
+                        <BreezeInput id="body" type="text" class="block w-full" v-model="form.body"
                                      placeholder="Say something.."
                                      required autofocus autocomplete="name"/>
 
 
 
-<!--                    <textarea name="post" rows="3" class="border rounded px-2 py-2 w-full"-->
-<!--                              :placeholder="`Post something  ...`" v-model="form.body"></textarea>-->
-                        <button type="submit" class="button px-6 mt-1 mx-1 shadow-2xl" :class="{ 'opacity-25': form.processing }"
+                        <!--                    <textarea name="post" rows="3" class="border rounded px-2 py-2 w-full"-->
+                        <!--                              :placeholder="`Post something  ...`" v-model="form.body"></textarea>-->
+                        <button type="submit" class="button px-6  mx-1 shadow-2xl" :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing">
                             SUBMIT
                         </button>
@@ -106,6 +110,9 @@
                     <CommentItem :comment="comment"></CommentItem>
                 </div>
             </div>
+
+
+
         </BreezeAuthenticatedLayout>
     </div>
 </template>
@@ -117,6 +124,10 @@ import CombinedComments from "@/Components/CombinedComments";
 import CommentItem from "@/Components/CommentItem";
 import avatar from "/img/background/human.jpg";
 import BreezeInput from '@/Components/Input.vue';
+import Like from "@/Components/Like";
+import Dislike from "@/Components/Dislike";
+import {InertiaLink} from "@inertiajs/inertia-vue3";
+
 
 
 
@@ -128,11 +139,15 @@ export default {
         BreezeAuthenticatedLayout,
         CommentItem,
         BreezeInput,
+        Like,
+        Dislike,
+        InertiaLink,
     },
     props: {
         post: Object,
         comments: Array,
         user: Object,
+        likes: Array,
     },
     data() {
         return {
