@@ -22110,23 +22110,26 @@ var _hoisted_2 = {
   "class": "flex-1"
 };
 var _hoisted_3 = {
-  "class": "text-lg font-semibold underline"
+  "class": "flex items-center"
 };
-var _hoisted_4 = {
-  "class": "flex items-end"
-};
-var _hoisted_5 = ["src"];
-var _hoisted_6 = {
-  "class": "bg-gray-100 rounded px-3 py-2"
+var _hoisted_4 = ["src"];
+var _hoisted_5 = {
+  "class": "bg-gray-100 rounded px-3"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: $data.avatar,
+    "class": "rounded-full avatar w-10 h-10 mx-1",
+    alt: "avatar"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.route('profile', $props.comment.user.username)
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.comment.user.username) + " said: ", 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.comment.user.username) + "__", 1
       /* TEXT */
       )];
     }),
@@ -22135,15 +22138,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $data.avatar,
-    "class": "rounded-full avatar w-10 h-10 mt-1",
-    alt: "avatar"
-  }, null, 8
-  /* PROPS */
-  , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.comment.body), 1
+  , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.comment.body), 1
   /* TEXT */
-  )])])]);
+  )])])])]);
 }
 
 /***/ }),
@@ -24618,7 +24615,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "w-full"
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
         src: $data.avatar,
-        "class": "rounded-full avatar w-10 h-10 mt-1",
+        "class": "rounded-full avatar w-10 h-10 mt-1 mx-1",
         alt: "avatar"
       }, null, 8
       /* PROPS */
@@ -24638,7 +24635,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <textarea name=\"post\" rows=\"3\" class=\"border rounded px-2 py-2 w-full\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                              :placeholder=\"`Post something  ...`\" v-model=\"form.body\"></textarea>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         type: "submit",
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["button px-6 mt-1 shadow-2xl", {
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["button px-6 mt-1 mx-1 shadow-2xl", {
           'opacity-25': $data.form.processing
         }]),
         disabled: $data.form.processing

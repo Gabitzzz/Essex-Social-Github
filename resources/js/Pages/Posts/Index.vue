@@ -79,7 +79,7 @@
 
                 <form @submit.prevent="submit" class="w-full">
                     <div class="flex">
-                        <img :src="avatar" class="rounded-full avatar w-10 h-10 mt-1" alt="avatar">
+                        <img :src="avatar" class="rounded-full avatar w-10 h-10 mt-1 mx-1" alt="avatar">
 
                         <BreezeInput id="body" type="text" class="mt-1 block w-full" v-model="form.body"
                                      placeholder="Say something.."
@@ -89,7 +89,7 @@
 
 <!--                    <textarea name="post" rows="3" class="border rounded px-2 py-2 w-full"-->
 <!--                              :placeholder="`Post something  ...`" v-model="form.body"></textarea>-->
-                        <button type="submit" class="button px-6 mt-1 shadow-2xl" :class="{ 'opacity-25': form.processing }"
+                        <button type="submit" class="button px-6 mt-1 mx-1 shadow-2xl" :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing">
                             SUBMIT
                         </button>
