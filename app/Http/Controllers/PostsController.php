@@ -48,6 +48,7 @@ class PostsController extends Controller
             })],
 
 
+
         ]);
 
         Post::create([
