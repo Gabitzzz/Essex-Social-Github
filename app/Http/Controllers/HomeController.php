@@ -10,13 +10,13 @@ use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    public function index(User $user, Post $post)
+    public function index()
     {
         $posts = Post::select('posts.*')
             ->with('dislikes')
             ->with('user')
 //            ->join('following', 'following.followed_id', '=', 'posts.user_id')
-            ->with(['likes'])->get()->all();
+            ->with(['likes'])->latest()->get()->all();
 
 
         return Inertia::render('Home/Index', [

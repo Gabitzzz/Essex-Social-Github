@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SomeonePostedEvent;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
+use App\Notifications\SomeonePosted;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -24,7 +26,7 @@ class PostsController extends Controller
 
         return Inertia::render('Posts/Index', [
             'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->get()->first(),
-            'comments' => Comment::with('post')->where("post_id","=", $post->id)->with('user')->latest()->get(),
+            'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
 //            'posts' => Post::with('user')->where("user_id", "=", $user->id)->get(),
 
         ]);
@@ -48,7 +50,6 @@ class PostsController extends Controller
             })],
 
 
-
         ]);
 
         Post::create([
@@ -56,6 +57,11 @@ class PostsController extends Controller
             'body' => $attributes['body'],
 //            'image'=> $imagePath,
         ]);
+
+
+        $user = User::where('id', auth()->id())->first();
+//        $user->notify(new SomeonePosted($user, auth()->user()));
+        event(new SomeonePostedEvent($user, auth()->user()));
 
         return Redirect::route('home');
     }

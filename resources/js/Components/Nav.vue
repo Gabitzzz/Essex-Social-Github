@@ -36,6 +36,10 @@
                                 <img :src="plus" width="25" height="25" class="inline-block" alt="search">
                             </inertia-link>
 
+                            <inertia-link class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25" :href="route('posts.create')" style="border-radius: 15px;">
+                                <img :src="notification" width="25" height="25" class="inline-block" alt="search">
+                            </inertia-link>
+
 <!--                            <button class="bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"-->
 <!--                                    style="border-radius: 15px;">-->
 <!--                                <img :src="plus" width="25" height="25" class="inline-block" alt="plus">-->
@@ -98,6 +102,7 @@ import BreezeDropdownLink from '@/Components/DropdownLink.vue'
 import BreezeNavLink from '@/Components/NavLink.vue'
 import image from "/img/logo/5.png"
 import search from "/img/Tab/search.png"
+import notification from "/img/Tab/notification.png"
 // import plus from "/img/Tab/plus.png"
 import plus from "/img/Tab/plus.png"
 import {InertiaLink} from "@inertiajs/inertia-vue3";
@@ -118,11 +123,13 @@ export default {
     },
     data() {
         return {
+            users: Object,
             showingNavigationDropdown: false,
             image: image,
             search: search,
             plus: plus,
-            users: Object,
+            notification: notification,
+
         }
     },
 

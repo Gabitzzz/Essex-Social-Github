@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikedPostsController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -106,7 +107,7 @@ Route::get('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'inde
 
 
 
-//  LIKE
+//  LIKES
 Route::post('/posts/{post}/like', [\App\Http\Controllers\PostLikeController::class, 'toggle'])
     ->middleware('auth')
     ->name('likes.toggle');
@@ -115,8 +116,14 @@ Route::post('/posts/{post}/dislike', [\App\Http\Controllers\PostDislikeControlle
     ->middleware('auth')
     ->name('dislikes.toggle');
 
-
+//  COMMENTS
 Route::post('/posts/{post}/comment', [CommentController::class, 'store'])->name('comments.store');
+
+//  NOTIFICATIONS
+Route::get('/notifications', [\App\Http\Controllers\NotificationsController::class, 'index'])->name('notifications.show');
+Route::post('/notifications/mark-one/{id}', [NotificationsController::class, 'store'])->name('notifications.store');
+Route::get('/notifications/mark-all', [NotificationsController::class, 'update'])->name('notifications.update');
+Route::get('/notifications/mark-delete/{id}', [NotificationsController::class, 'destroy'])->name('notifications.destroy');
 
 
 require __DIR__ . '/auth.php';
