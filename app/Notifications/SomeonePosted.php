@@ -59,7 +59,7 @@ class SomeonePosted extends Notification
     {
         return [
             'info' => [
-                'message' => $this->user->username."has posted on your timeline.",
+                'message' => $this->user->username." has posted something!",
                 'link' => route('notifications.show'),
                 'sent' => Carbon::NOW(),
 
