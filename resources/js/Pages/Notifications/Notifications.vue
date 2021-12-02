@@ -7,10 +7,13 @@
 
         </NotificationItem>
 
+        <hr>
+
         <NotificationItem v-for="read in reads"
                           :key="read.id"
                           :read="read"
-                          class="flex justify-between items-center text-gray-700 hover:bg-gray-700 hover:text-gray-300 px-4 py-2 transition duration-150 ease-in-out">
+                          class="flex justify-be
+                          tween items-center text-gray-700 hover:bg-gray-700 hover:text-gray-300 px-4 py-2 transition duration-150 ease-in-out">
         </NotificationItem>
     </div>
 </template>

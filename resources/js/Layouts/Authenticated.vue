@@ -1,6 +1,8 @@
 <template>
     <div class="bg-gray-100">
 
+
+
         <Nav></Nav>
 
         <div class="h-screen">
@@ -31,6 +33,7 @@ import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue'
 import Nav from "@/Components/Nav";
 import {Link} from '@inertiajs/inertia-vue3';
 import Tab from "@/Components/Tab";
+import { Head } from '@inertiajs/inertia-vue3'
 
 export default {
     components: {

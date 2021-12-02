@@ -38,17 +38,29 @@ Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])
     ->middleware('auth')
     ->name('home');
 
-
-
-
 Route::get('create-post', [PostsController::class, 'create'])
     ->middleware('auth')
     ->name('posts.create');
 
-
 Route::post('add', [PostsController::class, 'store'])
     ->middleware('auth')
     ->name('posts.store');
+
+Route::get('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'index'])
+    ->middleware('auth')
+    ->name('post.show');
+
+Route::get('/posts/{post}/edit', [\App\Http\Controllers\PostsController::class, 'edit'])
+    ->name('posts.edit')
+    ->middleware('auth');
+
+Route::put('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'update'])
+    ->name('posts.update')
+    ->middleware('auth');
+
+Route::get('/posts/{post}/delete', [\App\Http\Controllers\PostsController::class, 'destroy'])
+    ->name('posts.destroy')
+    ->middleware('auth');
 
 
 //  USERS
@@ -99,13 +111,6 @@ Route::get('/users/{user:username}/followers/{id}', [\App\Http\Controllers\Follo
 Route::delete('/users/{user:username}/followers/{id}', [\App\Http\Controllers\FollowersController::class, 'destroy'])
     ->name('followers.delete')
     ->middleware('auth');
-
-
-Route::get('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'index'])
-    ->middleware('auth')
-    ->name('post.show');
-
-
 
 //  LIKES
 Route::post('/posts/{post}/like', [\App\Http\Controllers\PostLikeController::class, 'toggle'])

@@ -2,16 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SomeoneLikedEvent;
 use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
+use App\Notifications\SomeoneLiked;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PostLikeController extends Controller
 {
-    public function toggle(Post $post, User $user) {
+    public function toggle(Post $post, User $user)
+    {
         $post->likes()->toggle(auth()->id());
-        return redirect()->back();
+
+        $user = User::where('id', auth()->id())->first();
+        event(new SomeoneLikedEvent($user, auth()->user()));
+
+
+//        dd(event(new SomeoneLikedEvent($user)));
+
+//        return redirect()->back();
+        return Redirect::back();
 
 
     }
@@ -27,7 +39,6 @@ class PostLikeController extends Controller
     }
 
 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -41,7 +52,7 @@ class PostLikeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Post $post)
@@ -53,7 +64,7 @@ class PostLikeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -64,7 +75,7 @@ class PostLikeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
@@ -75,8 +86,8 @@ class PostLikeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
@@ -87,7 +98,7 @@ class PostLikeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)

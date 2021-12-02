@@ -115,6 +115,7 @@ import search from "/img/Tab/search.png"
 import logout from "/images/logout.png"
 
 export default {
+    name: 'Dashboard',
     data() {
         return {
             plus: plus,

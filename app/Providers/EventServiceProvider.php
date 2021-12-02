@@ -20,6 +20,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         \App\Events\SomeonePostedEvent::class => [
             \App\Listeners\SomeonePostedListener::class,
+        ],
+        \App\Events\SomeoneLikedEvent::class => [
+            \App\Listeners\SomeoneLikedListener::class,
         ]
     ];
 

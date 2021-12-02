@@ -69,16 +69,16 @@
                 <a :href="route('notifications.show' )"
                    class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
                 >
-                    <div >
+                    <div>
                         <img :src="notification" width="25" height="25" class="inline-block" alt="profile">
-                           <div v-if="unreadNotifications.length > 0">
-                               <span class="tab text-white bg-red-600 rounded-full px-2 py-1 mr-20 absolute bottom-8 right-3">
-                                    {{ unreadNotifications.length}}
+                        <div v-if="unreadNotifications.length > 0">
+                               <span
+                                   class="tab text-white bg-red-600 rounded-full px-2 py-1 mr-20 absolute bottom-8 right-3 text-xs">
+                                    {{ unreadNotifications.length }}
                                 </span>
-                           </div>
+                        </div>
                     </div>
                 </a>
-
 
 
                 <a :href="route('profile', $page.props.auth.user.username )"

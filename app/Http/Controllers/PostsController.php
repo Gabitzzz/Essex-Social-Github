@@ -28,15 +28,12 @@ class PostsController extends Controller
             'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->get()->first(),
             'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
 //            'posts' => Post::with('user')->where("user_id", "=", $user->id)->get(),
-
         ]);
-
     }
 
     public function create()
     {
         return Inertia::render('Posts/Create');
-
     }
 
 
@@ -48,28 +45,21 @@ class PostsController extends Controller
             'user_id' => ['nullable', Rule::exists('users', 'id')->where(function ($query) {
                 $query->where('user_id', Auth::user()->id);
             })],
-
-
         ]);
-
         Post::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body'],
 //            'image'=> $imagePath,
         ]);
-
-
         $user = User::where('id', auth()->id())->first();
 //        $user->notify(new SomeonePosted($user, auth()->user()));
         event(new SomeonePostedEvent($user, auth()->user()));
-
         return Redirect::route('home');
     }
 
-
     public function edit(Post $post)
     {
-        return Inertia::render('Home/Edit', [
+        return Inertia::render('Posts/Edit', [
             'post' => [
                 'id' => $post->id,
                 'user_id' => $post->user_id,
@@ -89,14 +79,16 @@ class PostsController extends Controller
         ]);
         $post->update($attributes);
 
-        return Redirect::route('dashboard');
+        return Redirect::route('home');
 
     }
 
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = Post::find($id);
-        $post = delete();
-        return Redirect::route('dashboard');
+        $post->delete();
+
+        return Redirect::route('home');
+
+
     }
 }

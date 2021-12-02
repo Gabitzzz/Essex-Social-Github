@@ -1,13 +1,25 @@
 <template>
     <div class="mx-auto sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
         <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-            <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
-                <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">
+            <div class="flex">
+                <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
+                    <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">
+                    <p class="mt-2 ml-2">
+                        {{ post.user.username }}
+                    </p>
+                </div>
+                <inertia-link preserve-scroll
+                              v-if="post.user.id === $page.props.auth.user.id"
+                              class="   "
+                              as="button"
+                              :href="route('posts.edit', post.id)"
+                >
+                    ...
+                </inertia-link>
 
-                <p class="mt-2 ml-2">
-                    {{ post.user.username }}
-                </p>
+
             </div>
+
 
             <div class="px-4 pb-4 border-b border-gray-200">
                 <p class="text-xl px-4 py-2">
@@ -66,7 +78,8 @@
 
                             <Dislike :post="post" class="ml-1"></Dislike>
 
-                            <InertiaLink :href="route('post.show', post.id)" :post="post.id" class="ml-1  h-6 w-6 rounded-full bg-blue-400">
+                            <InertiaLink :href="route('post.show', post.id)" :post="post.id"
+                                         class="ml-1  h-6 w-6 rounded-full bg-blue-400">
                             </InertiaLink>
                         </div>
                     </div>
