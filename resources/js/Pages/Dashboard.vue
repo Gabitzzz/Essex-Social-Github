@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="sm:w-1/3 md:w-3/12 mt-5 sm:mt-0 rounded flex flex-wrap overflow-hidden ">
-                    <div class="w-1/6 sm:w-1/3 md:w-1/3 2xl:w-1/6 overflow-hidden">
+                    <div class="w-1/6 sm:w-1/3 md:w-1/3 2xl:w-1/6 ">
                         <!-- Column Content -->
                         <div
                             class=" flex-wrap content-center mx-1 my-1 md:mx-0 md:my-0 bg-gray-100 border-2 border-gray-200 border-opacity-25  overflow-hidden shadow-sm rounded-xl">
@@ -44,10 +44,32 @@
                         </div>
                     </div>
 
-                    <div class="w-1/6 sm:w-1/3 md:w-1/3 2xl:w-1/6 overflow-hidden  ">
+                    <div class="w-1/6 sm:w-1/3 overflow-hidden md:w-1/3 2xl:w-1/6">
                         <!-- Column Content -->
                         <div
-                            class="flex-wrap content-center mx-1 my-1  max-2 bg-gray-100 border-2 border-gray-200 border-opacity-25 overflow-hidden shadow-sm rounded-xl ">
+                            class="flex-wrap content-center mx-1 my-1 max-2  overflow-hidden shadow-sm rounded-xl ">
+                            <button class=" p-2 bg-gray-100 bg-border-200"
+                                    style="border-radius: 15px;">
+                                <img :src="search" class="inline-block" alt="search">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="w-1/6 sm:w-1/3 overflow-hidden md:w-1/3 2xl:w-1/6">
+                        <!-- Column Content -->
+                        <div
+                            class="flex-wrap content-center mx-1 my-1 max-2 overflow-hidden shadow-sm rounded-xl ">
+                            <button class=" p-2"
+                                    style="border-radius: 15px;">
+                                <img :src="search" class="inline-block" alt="search">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="w-1/6 sm:w-1/3 overflow-hidden md:w-1/3 2xl:w-1/6">
+                        <!-- Column Content -->
+                        <div
+                            class="flex-wrap content-center mx-1 my-1 max-2  overflow-hidden shadow-sm rounded-xl ">
                             <button class=" p-2"
                                     style="border-radius: 15px; color: white;">
                                 <img :src="search" class="inline-block" alt="search">
@@ -58,29 +80,7 @@
                     <div class="w-1/6 sm:w-1/3 overflow-hidden md:w-1/3 2xl:w-1/6">
                         <!-- Column Content -->
                         <div
-                            class="flex-wrap content-center mx-1 my-1 max-2 calendar overflow-hidden shadow-sm rounded-xl ">
-                            <button class=" p-2"
-                                    style="border-radius: 15px; color: white;">
-                                <img :src="search" class="inline-block" alt="search">
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="w-1/6 sm:w-1/3 overflow-hidden md:w-1/3 2xl:w-1/6">
-                        <!-- Column Content -->
-                        <div
-                            class="flex-wrap content-center mx-1 my-1 max-2 calendar overflow-hidden shadow-sm rounded-xl ">
-                            <button class=" p-2"
-                                    style="border-radius: 15px; color: white;">
-                                <img :src="search" class="inline-block" alt="search">
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="w-1/6 sm:w-1/3 overflow-hidden md:w-1/3 2xl:w-1/6">
-                        <!-- Column Content -->
-                        <div
-                            class="flex-wrap content-center mx-1 my-1 max-2 calendar overflow-hidden shadow-sm rounded-xl ">
+                            class="flex-wrap content-center mx-1 my-1 max-2  overflow-hidden shadow-sm rounded-xl ">
                             <button class=" p-2"
                                     style="border-radius: 15px; color: white;">
                                 <img :src="search" class="inline-block" alt="search">

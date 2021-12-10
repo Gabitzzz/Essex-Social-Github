@@ -19,7 +19,7 @@ class UsersController extends Controller
     {
         return Inertia::render('Profile/Show', [
             'user' => $user,
-            'posts' => Post::with('user')->where("user_id", "=", $user->id)->get(),
+            'posts' => Post::with('user')->where("user_id", "=", $user->id)->with('likes')->with('dislikes')->get(),
             'followToggle' => $user->followers()->where('follower_id', auth()->id())->exists(),
             'followers' => $user->followers()->withCount([
                 'followers as following' => function($q) {

@@ -8,7 +8,7 @@
                              style="min-height: 350px;">
                         <div class="flex justify-center">
                             <img :src="avatar" class="rounded-full avatar w-32 h-32" alt="avatar">
-<!--                            <img :src="$page.props.user.profile_photo_url" alt="">-->
+                            <!--                            <img :src="$page.props.user.profile_photo_url" alt="">-->
 
                             <p style="text-align: center;" class="text-2xl username">
                                 {{ $page.props.user.username }}
@@ -104,33 +104,91 @@
                         </div>
                     </div>
 
-                    <div class="pb-20">
+                    <div class="pb-20 mt-5">
                         <div v-for="post in posts" :posts="posts">
-                            <div class="mx-auto sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+                            <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+
                                 <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-                                    <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
-                                        <img :src="avatar" class="rounded-full w-12 h-12" alt="avatar">
-                                        <p class="mt-3 ml-2">
-                                            {{ post.user.username }}
-                                        </p>
+                                    <div class="flex">
+                                        <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
+                                            <p class="mt-2 ml-2">
+                                                {{ post.user.username }}
+                                            </p>
+                                        </div>
+                                        <inertia-link preserve-scroll
+                                                      v-if="post.user.id === $page.props.auth.user.id"
+                                                      class="mt-2"
+                                                      as="button"
+                                                      :href="route('posts.edit', post.id)"
+                                        >
+                                            ...
+                                        </inertia-link>
+
+
                                     </div>
 
+
                                     <div class="px-4 pb-4 border-b border-gray-200">
-                                        <p class="text-xl">
+                                        <p class="text-xl px-4 py-2">
                                             {{ post.body }}
                                         </p>
 
+                                        <!--                                                    LIKES-->
+
+                                        <div class="flex text-xs">
+
+                                            <div v-if="post.likes.length === 0">
+
+                                            </div>
+
+                                            <div v-else-if="post.likes.length === 1">
+                                                {{ post.likes.length }} Like &nbsp;
+                                            </div>
+
+                                            <div v-else>
+                                                {{ post.likes.length }} Likes &nbsp;
+                                            </div>
+
+                                            <!--                DISLIKES    -->
+                                            <div v-if="post.dislikes.length === 0">
+
+                                            </div>
+
+                                            <div v-else-if="post.dislikes.length === 1">
+                                                {{ post.dislikes.length }} Dislike &nbsp;
+                                            </div>
+
+                                            <div v-else>
+                                                {{ post.dislikes.length }} Dislikes &nbsp;
+                                            </div>
+                                        </div>
+
                                         <hr>
 
-                                        <div class="flex justify-items-start mt-2 mx-2">
-                                            <img :src="avatar" class="rounded-full  w-8 h-8 mt-1" alt="avatar">
-                                            <p class="mt-2 ml-2">
-                                                {{ $page.props.auth.user.username }}
-                                            </p>
+                                        <div class="flex justify-between">
+                                            <!-- ... -->
+                                            <div class="flex justify-self-star mt-2">
+                                                <p class="mt-2 ml-2">
+                                                    {{ $page.props.auth.user.username }}
+                                                </p>
+                                            </div>
+
+                                            <div class="flex justify-end mt-4">
+                                                <div class="flex">
+                                                    <Like :post="post"></Like>
+
+                                                    <Dislike :post="post" class="ml-1"></Dislike>
+
+                                                    <InertiaLink :href="route('post.show', post.id)" :post="post.id"
+                                                                 class="ml-1  h-6 w-6 rounded-full bg-blue-400">
+                                                    </InertiaLink>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -149,16 +207,16 @@
                         <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                             <div class="p-6 border-b border-gray-200">
                                 <p>
-                                    <strong>Username:</strong> {{ $page.props.auth.user.username }}
+                                    <strong>Username:</strong> {{ $page.props.user.username }}
                                 </p>
                                 <p>
-                                    <strong>Name:</strong> {{ $page.props.auth.user.name }}
+                                    <strong>Name:</strong> {{ $page.props.user.name }}
                                 </p>
                                 <p>
-                                    <strong>Email:</strong> {{ $page.props.auth.user.email }}
+                                    <strong>Email:</strong> {{ $page.props.user.email }}
                                 </p>
                                 <p>
-                                    <strong>Description:</strong> {{ $page.props.auth.user.description }}
+                                    <strong>Description:</strong> {{ $page.props.user.description }}
                                 </p>
                             </div>
                         </div>
@@ -168,16 +226,16 @@
                         <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                             <div class="p-6 border-b border-gray-200">
                                 <p>
-                                    <strong>Username:</strong> {{ $page.props.auth.user.username }}
+                                    <strong>Username:</strong> {{ $page.props.user.username }}
                                 </p>
                                 <p>
-                                    <strong>Name:</strong> {{ $page.props.auth.user.name }}
+                                    <strong>Name:</strong> {{ $page.props.user.name }}
                                 </p>
                                 <p>
-                                    <strong>Email:</strong> {{ $page.props.auth.user.email }}
+                                    <strong>Email:</strong> {{ $page.props.user.email }}
                                 </p>
                                 <p>
-                                    <strong>Description:</strong> {{ $page.props.auth.user.description }}
+                                    <strong>Description:</strong> {{ $page.props.user.description }}
                                 </p>
                             </div>
                         </div>
@@ -195,6 +253,8 @@ import cover from "/img/background/forrest.jpg";
 import avatar from "/img/background/human.jpg";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import FollowButton from "@/Components/FollowButton";
+import Like from "@/Components/Like";
+import Dislike from "@/Components/Dislike";
 
 
 export default {
@@ -219,6 +279,8 @@ export default {
         followers: Object,
         followings: Object,
         followToggle: Boolean,
+        likes: Array,
+        dislikes: Array,
 
     },
 
@@ -226,6 +288,8 @@ export default {
         BreezeAuthenticatedLayout,
         InertiaLink,
         FollowButton,
+        Like,
+        Dislike,
     },
 
     methods: {}

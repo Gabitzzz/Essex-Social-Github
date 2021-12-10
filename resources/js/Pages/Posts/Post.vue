@@ -58,6 +58,19 @@
                         <div v-else>
                             {{ post.dislikes.length }} Dislikes &nbsp;
                         </div>
+
+
+<!--                        <div v-if="post.comments.length === 0">-->
+
+<!--                        </div>-->
+
+<!--                        <div v-else-if="post.comments.length === 1">-->
+<!--                            {{ post.comments.length }} Dislike &nbsp;-->
+<!--                        </div>-->
+
+<!--                        <div v-else>-->
+<!--                            {{ post.comments.length }} Dislikes &nbsp;-->
+<!--                        </div>-->
                     </div>
                 </inertia-link>
 
