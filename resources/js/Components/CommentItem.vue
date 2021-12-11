@@ -24,7 +24,7 @@
 
 <script>
 import {InertiaLink} from "@inertiajs/inertia-vue3";
-import avatar from "/img/background/human.jpg";
+// import avatar from "/img/background/human.jpg";
 
 
 export default {

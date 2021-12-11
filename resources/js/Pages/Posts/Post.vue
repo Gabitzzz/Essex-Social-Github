@@ -116,7 +116,6 @@
 </template>
 
 <script>
-import avatar from "/img/background/human.jpg";
 import Like from "@/Components/Like.vue";
 import Dislike from "@/Components/Dislike";
 import {InertiaLink} from "@inertiajs/inertia-vue3";

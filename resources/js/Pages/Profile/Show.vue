@@ -256,7 +256,6 @@
 <script>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import cover from "/img/background/forrest.jpg";
-import avatar from "/img/background/human.jpg";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import FollowButton from "@/Components/FollowButton";
 import Like from "@/Components/Like";
@@ -268,7 +267,6 @@ export default {
     data() {
         return {
             cover: cover,
-            avatar: avatar,
             about: false,
             feed: true,
             gallery: false,

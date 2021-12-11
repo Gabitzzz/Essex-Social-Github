@@ -20250,8 +20250,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../img/background/human.jpg */ "./public/img/background/human.jpg");
-
+ // import avatar from "/img/background/human.jpg";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['comment', 'post'],
@@ -20260,7 +20259,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      avatar: _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_1__["default"]
+      avatar: avatar
     };
   },
   methods: {
@@ -21697,12 +21696,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_PostForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/PostForm */ "./resources/js/Components/PostForm.vue");
 /* harmony import */ var _Components_CombinedComments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/CombinedComments */ "./resources/js/Components/CombinedComments.vue");
 /* harmony import */ var _Components_CommentItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/CommentItem */ "./resources/js/Components/CommentItem.vue");
-/* harmony import */ var _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../img/background/human.jpg */ "./public/img/background/human.jpg");
-/* harmony import */ var _Components_Input_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Input.vue */ "./resources/js/Components/Input.vue");
-/* harmony import */ var _Components_Like__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Like */ "./resources/js/Components/Like.vue");
-/* harmony import */ var _Components_Dislike__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Components/Dislike */ "./resources/js/Components/Dislike.vue");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-
+/* harmony import */ var _Components_Input_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Input.vue */ "./resources/js/Components/Input.vue");
+/* harmony import */ var _Components_Like__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Like */ "./resources/js/Components/Like.vue");
+/* harmony import */ var _Components_Dislike__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Dislike */ "./resources/js/Components/Dislike.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 
 
 
@@ -21718,10 +21715,10 @@ __webpack_require__.r(__webpack_exports__);
     PostForm: _Components_PostForm__WEBPACK_IMPORTED_MODULE_1__["default"],
     BreezeAuthenticatedLayout: _Layouts_Authenticated_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     CommentItem: _Components_CommentItem__WEBPACK_IMPORTED_MODULE_3__["default"],
-    BreezeInput: _Components_Input_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Like: _Components_Like__WEBPACK_IMPORTED_MODULE_6__["default"],
-    Dislike: _Components_Dislike__WEBPACK_IMPORTED_MODULE_7__["default"],
-    InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__.InertiaLink
+    BreezeInput: _Components_Input_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Like: _Components_Like__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Dislike: _Components_Dislike__WEBPACK_IMPORTED_MODULE_6__["default"],
+    InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_7__.InertiaLink
   },
   props: {
     post: Object,
@@ -21766,13 +21763,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../img/background/human.jpg */ "./public/img/background/human.jpg");
-/* harmony import */ var _Components_Like_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Like.vue */ "./resources/js/Components/Like.vue");
-/* harmony import */ var _Components_Dislike__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Dislike */ "./resources/js/Components/Dislike.vue");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _Components_CombinedComments__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/CombinedComments */ "./resources/js/Components/CombinedComments.vue");
-/* harmony import */ var _Components_PostForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/PostForm */ "./resources/js/Components/PostForm.vue");
-
+/* harmony import */ var _Components_Like_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Components/Like.vue */ "./resources/js/Components/Like.vue");
+/* harmony import */ var _Components_Dislike__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Dislike */ "./resources/js/Components/Dislike.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _Components_CombinedComments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/CombinedComments */ "./resources/js/Components/CombinedComments.vue");
+/* harmony import */ var _Components_PostForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/PostForm */ "./resources/js/Components/PostForm.vue");
 
 
 
@@ -21782,7 +21777,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "Post",
   data: function data() {
     return {
-      avatar: _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_0__["default"],
+      avatar: avatar,
       form: this.$inertia.form({
         body: this.body,
         user_id: this.post.user_id
@@ -21796,11 +21791,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    Like: _Components_Like_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Dislike: _Components_Dislike__WEBPACK_IMPORTED_MODULE_2__["default"],
-    InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.InertiaLink,
-    CombinedComments: _Components_CombinedComments__WEBPACK_IMPORTED_MODULE_4__["default"],
-    PostForm: _Components_PostForm__WEBPACK_IMPORTED_MODULE_5__["default"]
+    Like: _Components_Like_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Dislike: _Components_Dislike__WEBPACK_IMPORTED_MODULE_1__["default"],
+    InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.InertiaLink,
+    CombinedComments: _Components_CombinedComments__WEBPACK_IMPORTED_MODULE_3__["default"],
+    PostForm: _Components_PostForm__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
     post: Object,
@@ -21947,12 +21942,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_Authenticated_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Authenticated.vue */ "./resources/js/Layouts/Authenticated.vue");
 /* harmony import */ var _img_background_forrest_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../img/background/forrest.jpg */ "./public/img/background/forrest.jpg");
-/* harmony import */ var _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../img/background/human.jpg */ "./public/img/background/human.jpg");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _Components_FollowButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/FollowButton */ "./resources/js/Components/FollowButton.vue");
-/* harmony import */ var _Components_Like__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Like */ "./resources/js/Components/Like.vue");
-/* harmony import */ var _Components_Dislike__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Dislike */ "./resources/js/Components/Dislike.vue");
-
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _Components_FollowButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/FollowButton */ "./resources/js/Components/FollowButton.vue");
+/* harmony import */ var _Components_Like__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Like */ "./resources/js/Components/Like.vue");
+/* harmony import */ var _Components_Dislike__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Dislike */ "./resources/js/Components/Dislike.vue");
 
 
 
@@ -21964,7 +21957,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       cover: _img_background_forrest_jpg__WEBPACK_IMPORTED_MODULE_1__["default"],
-      avatar: _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
       about: false,
       feed: true,
       gallery: false
@@ -21983,10 +21975,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     BreezeAuthenticatedLayout: _Layouts_Authenticated_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.InertiaLink,
-    FollowButton: _Components_FollowButton__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Like: _Components_Like__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Dislike: _Components_Dislike__WEBPACK_IMPORTED_MODULE_6__["default"]
+    InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.InertiaLink,
+    FollowButton: _Components_FollowButton__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Like: _Components_Like__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Dislike: _Components_Dislike__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   methods: {
     showImage: function showImage() {
@@ -27072,21 +27064,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/forrest.jpg?761889f1b184535f97d72a4bd2efba60");
-
-/***/ }),
-
-/***/ "./public/img/background/human.jpg":
-/*!*****************************************!*\
-  !*** ./public/img/background/human.jpg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/human.jpg?3cedd2bdb5b780a149075bf3350eba36");
 
 /***/ }),
 
