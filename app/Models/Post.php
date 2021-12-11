@@ -13,11 +13,6 @@ class Post extends Model
     protected $guarded = [];
 
 
-//
-//    protected $appends = [
-//        'liked', 'disliked', 'unliked','undisliked'
-//    ];
-
     public function user()
     {
         return $this->belongsTo(User::class);
