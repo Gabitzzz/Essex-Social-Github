@@ -20250,7 +20250,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
- // import avatar from "/img/background/human.jpg";
+/* harmony import */ var _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../img/background/human.jpg */ "./public/img/background/human.jpg");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['comment', 'post'],
@@ -20259,7 +20260,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      avatar: avatar
+      avatar: _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_1__["default"]
     };
   },
   methods: {
@@ -21696,10 +21697,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_PostForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/PostForm */ "./resources/js/Components/PostForm.vue");
 /* harmony import */ var _Components_CombinedComments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/CombinedComments */ "./resources/js/Components/CombinedComments.vue");
 /* harmony import */ var _Components_CommentItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/CommentItem */ "./resources/js/Components/CommentItem.vue");
-/* harmony import */ var _Components_Input_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Input.vue */ "./resources/js/Components/Input.vue");
-/* harmony import */ var _Components_Like__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Like */ "./resources/js/Components/Like.vue");
-/* harmony import */ var _Components_Dislike__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Dislike */ "./resources/js/Components/Dislike.vue");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../img/background/human.jpg */ "./public/img/background/human.jpg");
+/* harmony import */ var _Components_Input_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Input.vue */ "./resources/js/Components/Input.vue");
+/* harmony import */ var _Components_Like__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Like */ "./resources/js/Components/Like.vue");
+/* harmony import */ var _Components_Dislike__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Components/Dislike */ "./resources/js/Components/Dislike.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
 
 
 
@@ -21715,18 +21718,20 @@ __webpack_require__.r(__webpack_exports__);
     PostForm: _Components_PostForm__WEBPACK_IMPORTED_MODULE_1__["default"],
     BreezeAuthenticatedLayout: _Layouts_Authenticated_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     CommentItem: _Components_CommentItem__WEBPACK_IMPORTED_MODULE_3__["default"],
-    BreezeInput: _Components_Input_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Like: _Components_Like__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Dislike: _Components_Dislike__WEBPACK_IMPORTED_MODULE_6__["default"],
-    InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_7__.InertiaLink
+    BreezeInput: _Components_Input_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Like: _Components_Like__WEBPACK_IMPORTED_MODULE_6__["default"],
+    Dislike: _Components_Dislike__WEBPACK_IMPORTED_MODULE_7__["default"],
+    InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__.InertiaLink
   },
   props: {
     post: Object,
     comments: Array,
-    user: Object
+    user: Object,
+    likes: Array
   },
   data: function data() {
     return {
+      avatar: _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
       form: this.$inertia.form({
         body: null,
         image: null
@@ -22297,7 +22302,7 @@ var _hoisted_5 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <img :src=\"avatar\" class=\"rounded-full avatar w-10 h-10 mx-1\" alt=\"avatar\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $options.showImage() + $props.comment.user.avatar,
     "class": "avatar rounded-full avatar w-10 h-10 mx-1",
     alt: "avatar"
@@ -25191,8 +25196,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["href"]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ... "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <img :src=\"avatar\" class=\"rounded-full avatar w-8 h-8 mt-1\" alt=\"avatar\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: $options.showImage() + _ctx.$page.props.auth.user.avatar,
+      , ["href"]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ... "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+        src: $options.showImage() + $props.post.user.avatar,
         "class": "rounded-full avatar w-8 h-8 mt-1",
         alt: "avatar"
       }, null, 8
@@ -25219,8 +25224,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $options.submit && $options.submit.apply($options, arguments);
         }, ["prevent"])),
         "class": "w-full"
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img :src=\"avatar\" class=\"rounded-full avatar w-10 h-10 mx-1\" alt=\"avatar\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: $options.showImage() + _ctx.$page.props.auth.user.avatar,
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+        src: $options.showImage() + $props.post.user.avatar,
         "class": "rounded-full avatar w-10 h-10 mx-1",
         alt: "avatar"
       }, null, 8
@@ -27063,6 +27068,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/forrest.jpg?761889f1b184535f97d72a4bd2efba60");
+
+/***/ }),
+
+/***/ "./public/img/background/human.jpg":
+/*!*****************************************!*\
+  !*** ./public/img/background/human.jpg ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/human.jpg?3cedd2bdb5b780a149075bf3350eba36");
 
 /***/ }),
 

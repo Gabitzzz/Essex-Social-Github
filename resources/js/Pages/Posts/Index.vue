@@ -6,12 +6,13 @@
                 <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                     <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
 <!--                        <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">-->
+                        <img
+                            :src="showImage() + post.user.avatar"
+                            class="rounded-full avatar w-12 h-12"
+                            alt="avatar"
+                        />
 
-<!--                        <img-->
-<!--                            :src="showImage() + post.user.avatar"-->
-<!--                            class="rounded-full avatar w-12 h-12"-->
-<!--                            alt="avatar"-->
-<!--                        />-->
+
                         <p class="mt-2 ml-2">
                             {{ post.user.username }}
                         </p>
@@ -62,13 +63,13 @@
                         <div class="flex justify-between">
                             <!-- ... -->
                             <div class="flex justify-self-star mt-2">
-<!--                                <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">-->
 
-<!--                                <img-->
-<!--                                    :src="showImage() + $page.props.auth.user.avatar"-->
-<!--                                    class="rounded-full avatar w-8 h-8 mt-1"-->
-<!--                                    alt="avatar"-->
-<!--                                />-->
+                                <img
+                                    :src="showImage() + post.user.avatar"
+                                    class="rounded-full avatar w-8 h-8 mt-1"
+                                    alt="avatar"
+                                />
+
 
 
                                 <p class="mt-2 ml-2">
@@ -96,13 +97,13 @@
 
                 <form @submit.prevent="submit" class="w-full">
                     <div class="flex mt-5">
-<!--                        <img :src="avatar" class="rounded-full avatar w-10 h-10 mx-1" alt="avatar">-->
 
-<!--                        <img-->
-<!--                            :src="showImage() + $page.props.auth.user.avatar"-->
-<!--                            class="rounded-full avatar w-10 h-10 mx-1"-->
-<!--                            alt="avatar"-->
-<!--                        />-->
+                        <img
+                            :src="showImage() + post.user.avatar"
+                            class="rounded-full avatar w-10 h-10 mx-1"
+                            alt="avatar"
+                        />
+
 
                         <BreezeInput id="body" type="text" class="block w-full" v-model="form.body"
                                      placeholder="Say something.."
@@ -141,6 +142,7 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import PostForm from "@/Components/PostForm";
 import CombinedComments from "@/Components/CombinedComments";
 import CommentItem from "@/Components/CommentItem";
+import avatar from "/img/background/human.jpg";
 import BreezeInput from '@/Components/Input.vue';
 import Like from "@/Components/Like";
 import Dislike from "@/Components/Dislike";
@@ -165,9 +167,11 @@ export default {
         post: Object,
         comments: Array,
         user: Object,
+        likes: Array,
     },
     data() {
         return {
+            avatar: avatar,
             form: this.$inertia.form({
                 body: null,
                 image: null,
