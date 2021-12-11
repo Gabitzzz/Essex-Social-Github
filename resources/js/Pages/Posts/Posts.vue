@@ -17,6 +17,7 @@ export default {
     props: {
         posts: Array,
         likeToggle: Boolean,
+        user: Object,
     },
     data() {
         return {

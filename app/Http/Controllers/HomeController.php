@@ -19,6 +19,8 @@ class HomeController extends Controller
             ->with(['likes'])->latest()->get()->all();
 
 
+
+
         return Inertia::render('Home/Index', [
             'posts' => $posts,
             'likeToggle' => Post::select('likes.*')->where('user_id', auth()->id())->exists(),
