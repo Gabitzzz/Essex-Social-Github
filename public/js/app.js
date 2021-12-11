@@ -21471,8 +21471,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     posts: Array,
-    check: Object,
-    likes: Array,
     likeToggle: Boolean
   } // created() {
   //     debugger
@@ -21807,10 +21805,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     post: Object,
-    user: Object,
-    likes: Array,
-    like: Object,
-    comments: Array
+    user: Object
   },
   methods: {
     showImage: function showImage() {
@@ -21842,8 +21837,6 @@ __webpack_require__.r(__webpack_exports__);
   name: "Posts",
   props: {
     posts: Array,
-    post: Object,
-    user: Object,
     likeToggle: Boolean
   },
   data: function data() {
@@ -24663,7 +24656,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Posts, {
     posts: $props.posts,
-    likes: $props.likes,
+    likes: _ctx.likes,
     likeToggle: $props.likeToggle
   }, null, 8
   /* PROPS */

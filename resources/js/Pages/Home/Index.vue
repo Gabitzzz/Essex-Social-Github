@@ -15,8 +15,6 @@ export default {
     },
     props: {
         posts: Array,
-        check: Object,
-        likes: Array,
         likeToggle: Boolean,
     },
     // created() {

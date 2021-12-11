@@ -150,9 +150,6 @@ export default {
     props: {
         post: Object,
         user: Object,
-        likes: Array,
-        like: Object,
-        comments: Array,
     },
     methods:{
         showImage() {
