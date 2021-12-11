@@ -126,7 +126,6 @@ export default {
     name: "Post",
     data() {
         return {
-            avatar: null,
             form: this.$inertia.form({
                 body: this.body,
                 user_id: this.post.user_id,
