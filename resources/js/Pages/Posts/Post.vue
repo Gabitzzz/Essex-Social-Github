@@ -3,14 +3,20 @@
         <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
             <div class="flex">
                 <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
-                    <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">
+<!--                    <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">-->
+                    <img
+                        :src="showImage() + post.user.avatar"
+                        class="rounded-full avatar w-12 h-12"
+                        alt="avatar"
+                    />
+
+
                     <p class="mt-2 ml-2">
                         {{ post.user.username }}
                     </p>
                 </div>
                 <inertia-link preserve-scroll
                               v-if="post.user.id === $page.props.auth.user.id"
-                              class="   "
                               as="button"
                               :href="route('posts.edit', post.id)"
                 >
@@ -79,7 +85,14 @@
                 <div class="flex justify-between">
                     <!-- ... -->
                     <div class="flex justify-self-star mt-2">
-                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">
+<!--                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">-->
+
+                        <img
+                            :src="showImage() + $page.props.auth.user.avatar"
+                            class="rounded-full avatar w-8 h-8 mt-1"
+                            alt="avatar"
+                        />
+
                         <p class="mt-2 ml-2">
                             {{ $page.props.auth.user.username }}
                         </p>
@@ -140,6 +153,11 @@ export default {
         likes: Array,
         like: Object,
         comments: Array,
+    },
+    methods:{
+        showImage() {
+            return "/storage/";
+        },
     },
 
 }

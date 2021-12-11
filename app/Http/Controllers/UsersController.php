@@ -55,15 +55,19 @@ class UsersController extends Controller
             'password' => ['nullable'],
         ]);
 
+        if ($request->hasFile('avatar')) {
+            $avatar_path = $request->file('avatar')->store('avatar', 'public');
+        }
+
         Auth::user()->account->users()->create([
             'name' => Request::get('name'),
             'username' => Request::get('username'),
             'email' => Request::get('email'),
             'description' => Request::get('description'),
-            'avatar' => Request::get('avatar'),
-            'cover' => Request::get('cover'),
+            'avatar' => $avatar_path,
+//            'cover' => Request::get('cover'),
             'password' => Request::get('password'),
-            'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
+//            'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
 
 //            'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
         ]);
@@ -75,8 +79,13 @@ class UsersController extends Controller
         return Inertia::render('Profile/Edit', ['user' => auth()->user()]);
     }
 
-    public function update(User $user)
+    public function update(User $user, StoreImage $request)
     {
+
+//        if ($request->hasFile('avatar')) {
+//            $avatar_path = $request->file('avatar')->store('image', 'public');
+//        }
+
         $attributes = request()->validate([
 //            'avatar' => ['sometimes', 'max:1024'],
             'username' => ['required', 'max:50'],
@@ -86,9 +95,13 @@ class UsersController extends Controller
 //            'owner' => ['required', 'boolean'],
             'photo' => ['nullable', 'image'],
             'description' => ['nullable', 'max:250'],
-            'avatar' => ['nullable'],
-
+            'avatar' => ['file'],
         ]);
+
+        if ($request->hasFile('avatar')) {
+            $attributes['avatar'] = $request->file('avatar')->store('avatar', 'public');
+//            $user->update(['avatar' => $request->file('avatar')->storePublicly('image', 'public')]);
+        }
 
 
 

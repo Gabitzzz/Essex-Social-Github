@@ -7,8 +7,14 @@
                         <img :src="cover" class="cover rounded-lg" alt="cover"
                              style="min-height: 350px;">
                         <div class="flex justify-center">
-                            <img :src="avatar" class="rounded-full avatar w-32 h-32" alt="avatar">
+<!--                            <img :src="avatar" class="rounded-full avatar w-32 h-32" alt="avatar">-->
                             <!--                            <img :src="$page.props.user.profile_photo_url" alt="">-->
+
+                            <img
+                                :src="showImage() + user.avatar"
+                                class="rounded-full avatar w-32 h-32"
+                                alt="avatar"
+                            />
 
                             <p style="text-align: center;" class="text-2xl username">
                                 {{ $page.props.user.username }}
@@ -292,7 +298,11 @@ export default {
         Dislike,
     },
 
-    methods: {}
+    methods: {
+        showImage() {
+            return "/storage/";
+        },
+    }
     // created() {
     //     debugger
     // },
