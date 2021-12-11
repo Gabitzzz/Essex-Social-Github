@@ -4,12 +4,11 @@
             <div class="flex">
                 <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
 <!--                    <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">-->
-<!--                    <img-->
-<!--                        :src="showImage() + post.user.avatar"-->
-<!--                        class="rounded-full avatar w-12 h-12"-->
-<!--                        alt="avatar"-->
-<!--                    />-->
-
+                    <img
+                        :src="showImage() + post.user.avatar"
+                        class="rounded-full avatar w-12 h-12"
+                        alt="avatar"
+                    />
 
 
                     <p class="mt-2 ml-2">
@@ -88,11 +87,11 @@
                     <div class="flex justify-self-star mt-2">
 <!--                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">-->
 
-<!--                        <img-->
-<!--                            :src="showImage() + $page.props.auth.user.avatar"-->
-<!--                            class="rounded-full avatar w-8 h-8 mt-1"-->
-<!--                            alt="avatar"-->
-<!--                        />-->
+                        <img
+                            :src="showImage() + $page.props.auth.user.avatar"
+                            class="rounded-full avatar w-8 h-8 mt-1"
+                            alt="avatar"
+                        />
 
                         <p class="mt-2 ml-2">
                             {{ $page.props.auth.user.username }}
