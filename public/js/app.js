@@ -21471,6 +21471,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     posts: Array,
+    likes: Array,
     likeToggle: Boolean
   } // created() {
   //     debugger
@@ -21729,7 +21730,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      avatar: _img_background_human_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
       form: this.$inertia.form({
         body: null,
         image: null
@@ -24656,10 +24656,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Posts, {
     posts: $props.posts,
+    likes: $props.likes,
     likeToggle: $props.likeToggle
   }, null, 8
   /* PROPS */
-  , ["posts", "likeToggle"])]);
+  , ["posts", "likes", "likeToggle"])]);
 }
 
 /***/ }),

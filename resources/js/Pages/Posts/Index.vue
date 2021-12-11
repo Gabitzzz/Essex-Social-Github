@@ -169,7 +169,6 @@ export default {
     },
     data() {
         return {
-            avatar: avatar,
             form: this.$inertia.form({
                 body: null,
                 image: null,
