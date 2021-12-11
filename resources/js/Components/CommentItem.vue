@@ -4,11 +4,11 @@
             <div class="flex items-center">
 <!--                <img :src="avatar" class="rounded-full avatar w-10 h-10 mx-1" alt="avatar">-->
 
-                <img
-                    :src="showImage() + comment.user.avatar"
-                    class="avatar rounded-full avatar w-10 h-10 mx-1"
-                    alt="avatar"
-                />
+<!--                <img-->
+<!--                    :src="showImage() + comment.user.avatar"-->
+<!--                    class="avatar rounded-full avatar w-10 h-10 mx-1"-->
+<!--                    alt="avatar"-->
+<!--                />-->
 
                 <p class="bg-gray-100 rounded px-3 ">
                     <inertia-link :href="route('profile', comment.user.username)"><strong>{{
