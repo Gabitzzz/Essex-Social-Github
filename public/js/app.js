@@ -21777,7 +21777,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "Post",
   data: function data() {
     return {
-      avatar: avatar,
+      avatar: null,
       form: this.$inertia.form({
         body: this.body,
         user_id: this.post.user_id
