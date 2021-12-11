@@ -16,6 +16,7 @@ export default {
     props: {
         posts: Array,
         likeToggle: Boolean,
+        likes: Array,
     },
     // created() {
     //     debugger

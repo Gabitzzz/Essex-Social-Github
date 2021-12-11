@@ -21471,7 +21471,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     posts: Array,
-    likeToggle: Boolean
+    likeToggle: Boolean,
+    likes: Array
   } // created() {
   //     debugger
   // }
@@ -24656,7 +24657,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Posts, {
     posts: $props.posts,
-    likes: _ctx.likes,
+    likes: $props.likes,
     likeToggle: $props.likeToggle
   }, null, 8
   /* PROPS */
