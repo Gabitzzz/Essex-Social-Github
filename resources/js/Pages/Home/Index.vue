@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Posts :posts="posts" :likes="likes" :likeToggle="likeToggle"></Posts>
+        <Posts :posts="posts" :likeToggle="likeToggle"></Posts>
 
     </div>
 </template>
@@ -16,7 +16,6 @@ export default {
     props: {
         posts: Array,
         likeToggle: Boolean,
-        likes: Array,
     },
     // created() {
     //     debugger
