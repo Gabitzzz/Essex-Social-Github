@@ -11,9 +11,9 @@
 <!--                    />-->
 
 
-                    <p class="mt-2 ml-2">
-                        {{ post.user.username }}
-                    </p>
+<!--                    <p class="mt-2 ml-2">-->
+<!--                        {{ post.user.username }}-->
+<!--                    </p>-->
                 </div>
                 <inertia-link preserve-scroll
                               v-if="post.user.id === $page.props.auth.user.id"

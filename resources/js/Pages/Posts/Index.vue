@@ -14,9 +14,9 @@
 <!--                        />-->
 
 
-<!--                        <p class="mt-2 ml-2">-->
-<!--                            {{ post.user.username }}-->
-<!--                        </p>-->
+                        <p class="mt-2 ml-2">
+                            {{ post.user.username }}
+                        </p>
                     </div>
 
                     <div class="px-4 pb-4 border-b border-gray-200">
