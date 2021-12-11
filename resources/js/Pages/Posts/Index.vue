@@ -142,7 +142,7 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import PostForm from "@/Components/PostForm";
 import CombinedComments from "@/Components/CombinedComments";
 import CommentItem from "@/Components/CommentItem";
-import avatar from "/img/background/human.jpg";
+// import avatar from "/img/background/human.jpg";
 import BreezeInput from '@/Components/Input.vue';
 import Like from "@/Components/Like";
 import Dislike from "@/Components/Dislike";
@@ -171,7 +171,7 @@ export default {
     },
     data() {
         return {
-            avatar: avatar,
+            // avatar: avatar,
             form: this.$inertia.form({
                 body: null,
                 image: null,
