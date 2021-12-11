@@ -27,7 +27,6 @@
 
             </div>
 
-<!--            {{post}}-->
 
 
             <div class="px-4 pb-4 border-b border-gray-200">
