@@ -7,11 +7,11 @@
                     <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
 <!--                        <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">-->
 
-                        <img
-                            :src="showImage() + post.user.avatar"
-                            class="rounded-full avatar w-12 h-12"
-                            alt="avatar"
-                        />
+<!--                        <img-->
+<!--                            :src="showImage() + post.user.avatar"-->
+<!--                            class="rounded-full avatar w-12 h-12"-->
+<!--                            alt="avatar"-->
+<!--                        />-->
 
 
                         <p class="mt-2 ml-2">
@@ -65,11 +65,11 @@
                             <!-- ... -->
                             <div class="flex justify-self-star mt-2">
 
-                                <img
-                                    :src="showImage() + post.user.avatar"
-                                    class="rounded-full avatar w-8 h-8 mt-1"
-                                    alt="avatar"
-                                />
+<!--                                <img-->
+<!--                                    :src="showImage() + post.user.avatar"-->
+<!--                                    class="rounded-full avatar w-8 h-8 mt-1"-->
+<!--                                    alt="avatar"-->
+<!--                                />-->
 
 
 
@@ -99,11 +99,11 @@
                 <form @submit.prevent="submit" class="w-full">
                     <div class="flex mt-5">
 
-                        <img
-                            :src="showImage() + post.user.avatar"
-                            class="rounded-full avatar w-10 h-10 mx-1"
-                            alt="avatar"
-                        />
+<!--                        <img-->
+<!--                            :src="showImage() + post.user.avatar"-->
+<!--                            class="rounded-full avatar w-10 h-10 mx-1"-->
+<!--                            alt="avatar"-->
+<!--                        />-->
 
 
                         <BreezeInput id="body" type="text" class="block w-full" v-model="form.body"

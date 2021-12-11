@@ -22296,7 +22296,7 @@ var _hoisted_4 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    :src=\"showImage() + comment.user.avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    class=\"avatar rounded-full avatar w-10 h-10 mx-1\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    alt=\"avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.route('profile', $props.comment.user.username)
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -25067,67 +25067,64 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "flex justify-items-start mx-4 mt-4 mb-2"
 };
-var _hoisted_4 = ["src"];
-var _hoisted_5 = {
+var _hoisted_4 = {
   "class": "mt-2 ml-2"
 };
-var _hoisted_6 = {
+var _hoisted_5 = {
   "class": "px-4 pb-4 border-b border-gray-200"
 };
-var _hoisted_7 = {
+var _hoisted_6 = {
   "class": "text-xl px-4 py-2"
 };
-var _hoisted_8 = {
+var _hoisted_7 = {
   "class": "flex text-xs"
 };
-var _hoisted_9 = {
+var _hoisted_8 = {
   key: 0
 };
-var _hoisted_10 = {
+var _hoisted_9 = {
   key: 1
 };
-var _hoisted_11 = {
+var _hoisted_10 = {
   key: 2
 };
-var _hoisted_12 = {
+var _hoisted_11 = {
   key: 3
 };
-var _hoisted_13 = {
+var _hoisted_12 = {
   key: 4
 };
-var _hoisted_14 = {
+var _hoisted_13 = {
   key: 5
 };
 
-var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1
   /* HOISTED */
   );
 });
 
-var _hoisted_16 = {
+var _hoisted_15 = {
   "class": "flex justify-between"
 };
-var _hoisted_17 = {
+var _hoisted_16 = {
   "class": "flex justify-self-star mt-2"
 };
-var _hoisted_18 = ["src"];
-var _hoisted_19 = {
+var _hoisted_17 = {
   "class": "mt-2 ml-2"
 };
-var _hoisted_20 = {
+var _hoisted_18 = {
   "class": "flex justify-end mt-4"
 };
-var _hoisted_21 = {
+var _hoisted_19 = {
   "class": "flex"
 };
-var _hoisted_22 = {
+var _hoisted_20 = {
   "class": "flex mt-5"
 };
-var _hoisted_23 = ["src"];
-var _hoisted_24 = ["disabled"];
+var _hoisted_21 = ["disabled"];
 
-var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "flex justify-between my-3"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div")], -1
@@ -25152,15 +25149,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeAuthenticatedLayout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img :src=\"avatar\" class=\"rounded-full avatar w-12 h-12\" alt=\"avatar\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: $options.showImage() + $props.post.user.avatar,
-        "class": "rounded-full avatar w-12 h-12",
-        alt: "avatar"
-      }, null, 8
-      /* PROPS */
-      , _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.user.username), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img :src=\"avatar\" class=\"rounded-full avatar w-12 h-12\" alt=\"avatar\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            :src=\"showImage() + post.user.avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"rounded-full avatar w-12 h-12\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            alt=\"avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.user.username), 1
       /* TEXT */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.body), 1
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.body), 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                LIKES   "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
         "preserve-scroll": "",
@@ -25169,13 +25160,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         href: _ctx.route('likes.toggle', $props.post.id)
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [$props.post.likes.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9)) : $props.post.likes.length === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.likes.length) + " Like   ", 1
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [$props.post.likes.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8)) : $props.post.likes.length === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.likes.length) + " Like   ", 1
           /* TEXT */
-          )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.likes.length) + " Likes   ", 1
+          )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.likes.length) + " Likes   ", 1
           /* TEXT */
-          )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                DISLIKES    "), $props.post.dislikes.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12)) : $props.post.dislikes.length === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.dislikes.length) + " Dislike   ", 1
+          )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                DISLIKES    "), $props.post.dislikes.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11)) : $props.post.dislikes.length === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.dislikes.length) + " Dislike   ", 1
           /* TEXT */
-          )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.dislikes.length) + " Dislikes   ", 1
+          )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.dislikes.length) + " Dislikes   ", 1
           /* TEXT */
           ))])];
         }),
@@ -25184,15 +25175,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["href"]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ... "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: $options.showImage() + $props.post.user.avatar,
-        "class": "rounded-full avatar w-8 h-8 mt-1",
-        alt: "avatar"
-      }, null, 8
-      /* PROPS */
-      , _hoisted_18), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.user.username), 1
+      , ["href"]), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ... "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                    :src=\"showImage() + post.user.avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                    class=\"rounded-full avatar w-8 h-8 mt-1\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                    alt=\"avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.user.username), 1
       /* TEXT */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Like, {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Like, {
         post: $props.post
       }, null, 8
       /* PROPS */
@@ -25212,13 +25197,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $options.submit && $options.submit.apply($options, arguments);
         }, ["prevent"])),
         "class": "w-full"
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: $options.showImage() + $props.post.user.avatar,
-        "class": "rounded-full avatar w-10 h-10 mx-1",
-        alt: "avatar"
-      }, null, 8
-      /* PROPS */
-      , _hoisted_23), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            :src=\"showImage() + post.user.avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"rounded-full avatar w-10 h-10 mx-1\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            alt=\"avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
         id: "body",
         type: "text",
         "class": "block w-full",
@@ -25240,7 +25219,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         disabled: $data.form.processing
       }, " SUBMIT ", 10
       /* CLASS, PROPS */
-      , _hoisted_24)]), _hoisted_25], 32
+      , _hoisted_21)]), _hoisted_22], 32
       /* HYDRATE_EVENTS */
       ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.comments, function (comment, index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
@@ -25287,59 +25266,57 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   "class": "flex justify-items-start mx-4 mt-4 mb-2"
 };
-var _hoisted_5 = ["src"];
-var _hoisted_6 = {
+var _hoisted_5 = {
   "class": "mt-2 ml-2"
 };
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ... ");
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ... ");
 
-var _hoisted_8 = {
+var _hoisted_7 = {
   "class": "px-4 pb-4 border-b border-gray-200"
 };
-var _hoisted_9 = {
+var _hoisted_8 = {
   "class": "text-xl px-4 py-2"
 };
-var _hoisted_10 = {
+var _hoisted_9 = {
   "class": "flex text-xs"
 };
-var _hoisted_11 = {
+var _hoisted_10 = {
   key: 0
 };
-var _hoisted_12 = {
+var _hoisted_11 = {
   key: 1
 };
-var _hoisted_13 = {
+var _hoisted_12 = {
   key: 2
 };
-var _hoisted_14 = {
+var _hoisted_13 = {
   key: 3
 };
-var _hoisted_15 = {
+var _hoisted_14 = {
   key: 4
 };
-var _hoisted_16 = {
+var _hoisted_15 = {
   key: 5
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_18 = {
+var _hoisted_17 = {
   "class": "flex justify-between"
 };
-var _hoisted_19 = {
+var _hoisted_18 = {
   "class": "flex justify-self-star mt-2"
 };
-var _hoisted_20 = ["src"];
-var _hoisted_21 = {
+var _hoisted_19 = {
   "class": "mt-2 ml-2"
 };
-var _hoisted_22 = {
+var _hoisted_20 = {
   "class": "flex justify-end mt-4"
 };
-var _hoisted_23 = {
+var _hoisted_21 = {
   "class": "flex"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -25351,13 +25328,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_InertiaLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("InertiaLink");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <img :src=\"avatar\" class=\"rounded-full avatar w-12 h-12\" alt=\"avatar\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $options.showImage() + $props.post.user.avatar,
-    "class": "rounded-full avatar w-12 h-12",
-    alt: "avatar"
-  }, null, 8
-  /* PROPS */
-  , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.user.username), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <img :src=\"avatar\" class=\"rounded-full avatar w-12 h-12\" alt=\"avatar\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        :src=\"showImage() + post.user.avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        class=\"rounded-full avatar w-12 h-12\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        alt=\"avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.user.username), 1
   /* TEXT */
   )]), $props.post.user.id === _ctx.$page.props.auth.user.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
     key: 0,
@@ -25366,14 +25337,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: _ctx.route('posts.edit', $props.post.id)
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_7];
+      return [_hoisted_6];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.body), 1
+  , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.body), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                LIKES   "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     "preserve-scroll": "",
@@ -25382,13 +25353,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: _ctx.route('likes.toggle', $props.post.id)
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [$props.post.likes.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11)) : $props.post.likes.length === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.likes.length) + " Like   ", 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [$props.post.likes.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10)) : $props.post.likes.length === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.likes.length) + " Like   ", 1
       /* TEXT */
-      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.likes.length) + " Likes   ", 1
+      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.likes.length) + " Likes   ", 1
       /* TEXT */
-      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                DISLIKES    "), $props.post.dislikes.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14)) : $props.post.dislikes.length === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.dislikes.length) + " Dislike   ", 1
+      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                DISLIKES    "), $props.post.dislikes.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13)) : $props.post.dislikes.length === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.dislikes.length) + " Dislike   ", 1
       /* TEXT */
-      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.dislikes.length) + " Dislikes   ", 1
+      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.dislikes.length) + " Dislikes   ", 1
       /* TEXT */
       )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <div v-if=\"post.comments.length === 0\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <div v-else-if=\"post.comments.length === 1\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            {{ post.comments.length }} Dislike &nbsp;"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <div v-else>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            {{ post.comments.length }} Dislikes &nbsp;"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </div>")])];
     }),
@@ -25397,15 +25368,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ... "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img :src=\"avatar\" class=\"rounded-full avatar w-8 h-8 mt-1\" alt=\"avatar\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $options.showImage() + _ctx.$page.props.auth.user.avatar,
-    "class": "rounded-full avatar w-8 h-8 mt-1",
-    alt: "avatar"
-  }, null, 8
-  /* PROPS */
-  , _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.user.username), 1
+  , ["href"]), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ... "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img :src=\"avatar\" class=\"rounded-full avatar w-8 h-8 mt-1\" alt=\"avatar\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            :src=\"showImage() + $page.props.auth.user.avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"rounded-full avatar w-8 h-8 mt-1\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            alt=\"avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.user.username), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Like, {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Like, {
     post: $props.post
   }, null, 8
   /* PROPS */
