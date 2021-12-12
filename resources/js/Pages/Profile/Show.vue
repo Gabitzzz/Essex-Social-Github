@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-                    <div class="flex space-x-4 text-center mx-4 ">
+                    <div class="flex space-x-4 text-center mx-2 ">
                         <button @click="feed = !feed; gallery=false; about=false"
                                 class="flex-1 my-2  p-2 shadow-md font-semibold border-gray-300 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
                             Feed

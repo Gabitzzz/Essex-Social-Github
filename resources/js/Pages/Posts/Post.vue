@@ -2,12 +2,12 @@
     <div class="mx-auto sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
         <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
             <div class="flex">
-                <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
+                <div class="flex justify-items-start mx-2 mt-2 mb-2 ">
 <!--                    <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">-->
 
                                     <img
                                         :src="showImage() + post.user.avatar"
-                                        class="avatar rounded-full avatar w-12 h-12"
+                                        class="avatar rounded-full avatar w-10 h-10"
                                         alt="avatar"
                                     />
 
@@ -29,71 +29,74 @@
 
 
 
-            <div class="px-4 pb-4 border-b border-gray-200">
-                <p class="text-xl px-4 py-2">
+            <div class="px-2 pb-1 border-b border-gray-200">
+                <p class="text-xl px-2 py-2">
                     {{ post.body }}
                 </p>
 
                 <!--                LIKES   -->
-<!--                <inertia-link preserve-scroll-->
-<!--                              method="POST"-->
-<!--                              as="button"-->
-<!--                              :href="route('likes.toggle', post.id)"-->
-<!--                >-->
-<!--                    <div class="flex text-xs">-->
+                <inertia-link preserve-scroll
+                              method="POST"
+                              as="button"
+                              :href="route('likes.toggle', post.id)"
+                >
+                    <div class="flex text-xs">
+                        <div v-if="post.likes.length === 0">
 
-<!--                        <div v-if="post.likes.length === 0">-->
+                        </div>
 
-<!--                        </div>-->
+                        <div v-else-if="post.likes.length === 1">
+                            {{ post.likes.length }} Like &nbsp;
+                        </div>
 
-<!--                        <div v-else-if="post.likes.length === 1">-->
-<!--                            {{ post.likes.length }} Like &nbsp;-->
-<!--                        </div>-->
+                        <div v-else>
+                            {{ post.likes.length }} Likes &nbsp;
+                        </div>
 
-<!--                        <div v-else>-->
-<!--                            {{ post.likes.length }} Likes &nbsp;-->
-<!--                        </div>-->
+                        <!--                DISLIKES    -->
+                        <div v-if="post.dislikes.length === 0">
 
-<!--                        &lt;!&ndash;                DISLIKES    &ndash;&gt;-->
-<!--                        <div v-if="post.dislikes.length === 0">-->
+                        </div>
 
-<!--                        </div>-->
+                        <div v-else-if="post.dislikes.length === 1">
+                            {{ post.dislikes.length }} Dislike &nbsp;
+                        </div>
 
-<!--                        <div v-else-if="post.dislikes.length === 1">-->
-<!--                            {{ post.dislikes.length }} Dislike &nbsp;-->
-<!--                        </div>-->
+                        <div v-else>
+                            {{ post.dislikes.length }} Dislikes &nbsp;
+                        </div>
+                        <!--                        <div v-if="post.comments.length === 0">-->
 
-<!--                        <div v-else>-->
-<!--                            {{ post.dislikes.length }} Dislikes &nbsp;-->
-<!--                        </div>-->
+                        <!--                        </div>-->
 
+                        <!--                        <div v-else-if="post.comments.length === 1">-->
+                        <!--                            {{ post.comments.length }} Dislike &nbsp;-->
+                        <!--                        </div>-->
 
-<!--                        &lt;!&ndash;                        <div v-if="post.comments.length === 0">&ndash;&gt;-->
-
-<!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
-
-<!--                        &lt;!&ndash;                        <div v-else-if="post.comments.length === 1">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                            {{ post.comments.length }} Dislike &nbsp;&ndash;&gt;-->
-<!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
-
-<!--                        &lt;!&ndash;                        <div v-else>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                            {{ post.comments.length }} Dislikes &nbsp;&ndash;&gt;-->
-<!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                </inertia-link>-->
+                        <!--                        <div v-else>-->
+                        <!--                            {{ post.comments.length }} Dislikes &nbsp;-->
+                        <!--                        </div>-->
+                    </div>
+                </inertia-link>
 
                 <hr>
 
                 <div class="flex justify-between">
                     <!-- ... -->
-                    <div class="flex justify-self-star mt-2">
-                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">
-                        <p class="mt-2 ml-2">
+                    <div class="flex justify-self-star mt-1">
+<!--                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">-->
+                        <img
+                            :src="showImage() + $page.props.auth.user.avatar"
+                            class="avatar rounded-full avatar w-6 h-6 mt-1"
+                            alt="avatar"
+                        />
+
+                        <p class="mt-1 ml-2 text-sm">
                             {{ $page.props.auth.user.username }}
                         </p>
                     </div>
 
-                    <div class="flex justify-end mt-4">
+                    <div class="flex justify-end mt-2">
                         <div class="flex">
                             <Like :post="post"></Like>
 
