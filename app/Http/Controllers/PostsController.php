@@ -25,7 +25,7 @@ class PostsController extends Controller
 //        dd($comments);
 
         return Inertia::render('Posts/Index', [
-            'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->get()->first(),
+            'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->with('user')->get()->first(),
             'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
 //            'posts' => Post::with('user')->where("user_id", "=", $user->id)->get(),
         ]);
@@ -59,16 +59,19 @@ class PostsController extends Controller
 
     public function edit(Post $post)
     {
+
         return Inertia::render('Posts/Edit', [
-            'post' => [
-                'id' => $post->id,
-                'user_id' => $post->user_id,
-                'body' => $post->body,
-                'image' => $post->image,
-//                'avatar' => $user->avatar ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
-//                'cover' => $user->cover ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
-//                'description' => $user->description,
-            ]
+//            'post' => [
+//                'id' => $post->id,
+//                'user_id' => $post->user_id,
+//                'body' => $post->body,
+//                'image' => $post->image,
+////                'avatar' => $user->avatar ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
+////                'cover' => $user->cover ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
+////                'description' => $user->description,
+//            ],
+//        ]);
+            'post' => Post::with('user')->where("id", "=", $post->id)->get()->first(),
         ]);
     }
 

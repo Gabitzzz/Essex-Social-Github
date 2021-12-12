@@ -1,6 +1,6 @@
 <template>
     <BreezeAuthenticatedLayout>
-        <div v-for="(post, key) in posts" :key="key" class="mx-2">
+        <div v-for="(post, key) in posts" :key="key">
             <Post :post="post" :likeToggle="likeToggle" ></Post>
         </div>
 
@@ -17,7 +17,7 @@ export default {
     props: {
         posts: Array,
         likeToggle: Boolean,
-        user: Object,
+        // user: Object,
     },
     data() {
         return {

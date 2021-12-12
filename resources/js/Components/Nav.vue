@@ -5,8 +5,9 @@
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <!-- Logo -->
-                    <img :src="image" class="w-20 h-20"/>
-
+                    <inertia-link :href="route('home')">
+                        <img :src="image" class="w-20 h-20"/>
+                    </inertia-link>
                     <!--                         Navigation Links-->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <BreezeNavLink :href="route('home')" :active="route().current('home')">
@@ -28,15 +29,21 @@
                     <!-- Settings Dropdown -->
                     <div class="ml-3 relative">
                         <div class="hidden space-x-4 sm:-my-px sm:flex">
-                            <inertia-link class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25" :href="route('search')" style="border-radius: 15px;">
+                            <inertia-link
+                                class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                                :href="route('search')" style="border-radius: 15px;">
                                 <img :src="search" width="25" height="25" class="inline-block" alt="search">
                             </inertia-link>
 
-                            <inertia-link class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25" :href="route('posts.create')" style="border-radius: 15px;">
+                            <inertia-link
+                                class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                                :href="route('posts.create')" style="border-radius: 15px;">
                                 <img :src="plus" width="25" height="25" class="inline-block" alt="search">
                             </inertia-link>
 
-                            <inertia-link class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25" :href="route('notifications.show')" style="border-radius: 15px;">
+                            <inertia-link
+                                class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                                :href="route('notifications.show')" style="border-radius: 15px;">
                                 <img :src="notification" width="25" height="25" class="inline-block" alt="search">
                                 <div v-if="unreadNotifications.length > 0">
                                <span
@@ -46,10 +53,10 @@
                                 </div>
                             </inertia-link>
 
-<!--                            <button class="bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"-->
-<!--                                    style="border-radius: 15px;">-->
-<!--                                <img :src="plus" width="25" height="25" class="inline-block" alt="plus">-->
-<!--                            </button>-->
+                            <!--                            <button class="bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"-->
+                            <!--                                    style="border-radius: 15px;">-->
+                            <!--                                <img :src="plus" width="25" height="25" class="inline-block" alt="plus">-->
+                            <!--                            </button>-->
 
                             <BreezeNavLink :href="route('profile', $page.props.auth.user.username)"
                                            :active="route().current('profile')">
@@ -61,7 +68,9 @@
 
                 <!-- Hamburger -->
                 <div class=" flex items-center sm:hidden">
-                    <inertia-link class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25" :href="route('search')" style="border-radius: 15px;">
+                    <inertia-link
+                        class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                        :href="route('search')" style="border-radius: 15px;">
                         <img :src="search" width="25" height="25" class="inline-block" alt="search">
                     </inertia-link>
                 </div>

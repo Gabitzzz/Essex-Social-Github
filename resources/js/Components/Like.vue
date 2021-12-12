@@ -10,8 +10,13 @@
             </inertia-link>
         </div>
 
-        <div v-for="like in post.likes" :likes="likes">
-        </div>
+
+<!--        <div v-for="like in post.likes">-->
+<!--            <div v-if="like.id === $page.props.auth.user.id">-->
+
+<!--            </div>-->
+
+<!--        </div>-->
     </div>
 </template>
 

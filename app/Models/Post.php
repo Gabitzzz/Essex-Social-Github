@@ -12,6 +12,9 @@ class Post extends Model
 
     protected $guarded = [];
 
+    protected $appends = [
+        'timeAgo',
+    ];
 
     public function user()
     {
@@ -38,6 +41,11 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class, 'comments')->withTimestamps();
 
+    }
+
+    public function getTimeAgoAttribute()
+    {
+        return $this->created_at->diffForHumans();
     }
 
 
