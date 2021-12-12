@@ -8,9 +8,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
+
 
 
 class UsersController extends Controller
@@ -52,7 +54,7 @@ class UsersController extends Controller
             'username' => ['required', 'max:50'],
             'description' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')],
-            'password' => ['nullable'],
+            'password' => ['required'],
         ]);
 
         if ($request->hasFile('avatar')) {
@@ -92,11 +94,16 @@ class UsersController extends Controller
             'name' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')->ignore($user->id)],
             'password' => ['required', 'max:50'],
+//            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+
 //            'owner' => ['required', 'boolean'],
             'photo' => ['nullable', 'image'],
             'description' => ['nullable', 'max:250'],
             'avatar' => ['file'],
         ]);
+
+
+
 
         if ($request->hasFile('avatar')) {
             $attributes['avatar'] = $request->file('avatar')->store('avatar', 'public');
