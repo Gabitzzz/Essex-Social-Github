@@ -58,20 +58,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.banner{
 
-    background-image:
-        linear-gradient(to bottom, rgba(245, 246, 252, 0.01), #2a2a2e),
-        url('/public/img/background/forrest.jpg');
-    text-align: center;
-    color: #fff;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-</style>
