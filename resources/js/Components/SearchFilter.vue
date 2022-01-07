@@ -3,7 +3,7 @@
 
     <div class="p-4">
         <label for="search">Search</label>
-        <input id="search" type="text" v-model="term" @keyup="search" class="ml-2 px-2 py-1 text-sm rounded-border">
+        <input id="search" type="text" v-model="term" @keypress="search" class="ml-2 px-2 py-1 text-sm rounded-border">
     </div>
 
     <table>
