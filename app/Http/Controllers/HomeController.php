@@ -18,14 +18,10 @@ class HomeController extends Controller
 //            ->join('following', 'following.followed_id', '=', 'posts.user_id')
             ->with(['likes'])->latest()->get()->all();
 
-
-
-
         return Inertia::render('Home/Index', [
             'posts' => $posts,
             'likeToggle' => Post::select('likes.*')->where('user_id', auth()->id())->exists(),
         ]);
     }
-
 }
 

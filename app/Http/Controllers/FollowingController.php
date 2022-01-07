@@ -8,7 +8,6 @@ use Inertia\Inertia;
 
 class FollowingController extends Controller
 {
-
     public function index(User $user)
     {
         return Inertia::render('Follow/Following', [

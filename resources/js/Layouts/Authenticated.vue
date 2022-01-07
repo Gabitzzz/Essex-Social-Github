@@ -1,8 +1,5 @@
 <template>
     <div class="bg-gray-100">
-
-
-
         <Nav></Nav>
 
         <div class="h-screen">

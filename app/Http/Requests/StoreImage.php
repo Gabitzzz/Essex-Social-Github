@@ -24,7 +24,8 @@ class StoreImage extends FormRequest
     public function rules()
     {
         return [
-            'avatar' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384'
+            'avatar' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
+            'cover' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
         ];
     }
 }

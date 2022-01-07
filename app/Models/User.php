@@ -10,7 +10,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
-
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -26,7 +25,6 @@ class User extends Authenticatable
      */
 
     protected $guarded = [];
-
 
     /**
      * The attributes that should be hidden for serialization.
@@ -58,7 +56,6 @@ class User extends Authenticatable
             ->paginate(10);
     }
 
-
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -81,11 +78,8 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = Hash::needsRehash($password) ? Hash::make($password) : $password;
     }
-
-
 }

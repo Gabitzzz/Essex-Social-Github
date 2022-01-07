@@ -1,16 +1,7 @@
 <template>
-
-
     <Head title="Welcome"/>
 
-    <!--    <img :src="image" class="banner"/>-->
-
     <div class="flex items-center justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
-<!--        <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">-->
-<!--            <Link v-if="$page.props.auth.user" href="/dashboard" class="text-sm text-gray-700 underline">-->
-<!--                Dashboard-->
-<!--            </Link>-->
-<!--        </div>-->
         <div>
             <div class="flex items-center justify-center">
                 <BreezeApplicationLogo/>
@@ -128,7 +119,6 @@ import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue'
 import BreezeButton from '@/Components/Button.vue'
 import image from "/img/background/uni-1.jpeg"
 
-
 export default {
     data() {
         return {
@@ -147,6 +137,5 @@ export default {
         laravelVersion: String,
         phpVersion: String,
     },
-
 }
 </script>

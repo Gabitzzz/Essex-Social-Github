@@ -19,13 +19,9 @@ class PostLikeController extends Controller
         $user = User::where('id', auth()->id())->first();
         event(new SomeoneLikedEvent($user, auth()->user()));
 
+        //        dd(event(new SomeoneLikedEvent($user)));
 
-//        dd(event(new SomeoneLikedEvent($user)));
-
-//        return redirect()->back();
         return Redirect::back();
-
-
     }
 
     /**
@@ -35,7 +31,7 @@ class PostLikeController extends Controller
      */
     public function index()
     {
-
+//
     }
 
 

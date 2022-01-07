@@ -12,20 +12,16 @@
                         </a>
 
                         <a :href="route('profile', user.username)">
-                            {{user.username}}
+                            {{ user.username }}
                         </a>
                     </div>
 
                     <div v-if="$page.props.auth.user.id !== user.id" class="flex justify-center">
                         <FollowButton :user="user"></FollowButton>
                     </div>
-
                 </div>
             </div>
         </div>
-
-        <!--        <FollowButton :user="user"></FollowButton>-->
-
     </BreezeAuthenticatedLayout>
 
 </template>

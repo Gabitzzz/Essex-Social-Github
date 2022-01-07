@@ -12,29 +12,13 @@ use Inertia\Inertia;
 
 class CommentController extends Controller
 {
-
     public function index()
     {
-
-//        $post = Post::with('user')->get()->all();
-//
-//
-//
-////        $comments = Comment::all();
-//
-//        return Inertia::render('Posts/Index', [
-//            'post' => $post
-////            'comments' => $comments,
-//        ]);
+        //
     }
-
-    //
 
     public function store(Request $request, Post $post)
     {
-
-
-
         $attributes = request()->validate([
             'body' => 'required|max:255',
             'user_id' => ['nullable', Rule::exists('users', 'id')->where(function ($query) {
@@ -49,10 +33,6 @@ class CommentController extends Controller
             'body' => $attributes['body'],
 
         ]);
-
         return Redirect::route('post.show', $post->id)->with('success', 'Comment posted.');
-
     }
-
-
 }

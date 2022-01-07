@@ -3,17 +3,13 @@
         <BreezeAuthenticatedLayout>
             <form @submit.prevent="create">
                 <div class="mb-2">
-                        <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+                    <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
 
                         <p class="text-xl font-bold">CREATE POST</p>
-
-
                         <BreezeInput id="body" type="text" class="mt-1  py-10 block w-full" v-model="form.body"
                                      placeholder="Add new post"
                                      required autofocus autocomplete="name"/>
                     </div>
-
-
                 </div>
 
                 <div class=" mb-20 grid justify-items-center">
@@ -67,8 +63,8 @@ export default {
             }),
         }
     },
-    methods:{
-        create(){
+    methods: {
+        create() {
             this.form.post(this.route('posts.store'))
         },
     }

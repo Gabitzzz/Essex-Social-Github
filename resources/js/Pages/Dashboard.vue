@@ -81,7 +81,7 @@
                         <!-- Column Content -->
                         <div
                             class="flex-wrap content-center mx-1 my-1 max-2  overflow-hidden shadow-sm rounded-xl ">
-                            <button class=" p-2"
+                            <button class="p-2"
                                     style="border-radius: 15px; color: white;">
                                 <img :src="search" class="inline-block" alt="search">
                             </button>
@@ -92,27 +92,33 @@
                         <!-- Column Content -->
                         <div
                             class="flex-wrap content-center mx-1 my-1 max-2 logout overflow-hidden shadow-sm rounded-xl ">
-                            <button class="p-2"
-                                    style="border-radius: 15px; ">
-                                <img :src="logout" class="inline-block" alt="logout">
-                            </button>
+                            <!--                            <button class="p-2"-->
+                            <!--                                    :href="route('logout')"-->
+                            <!--                                    style="border-radius: 15px; ">-->
+                            <!--                                <img :src="logout" class="inline-block" alt="logout">-->
+                            <!--                            </button>-->
+
+                            <inertia-link class="py-2" style="border-radius: 15px;" :href="route('logout')"
+                                          method="delete" as="button">
+                                <img :src="logout" class="inline-block" style="width: 80%;" alt="logout">
+
+                            </inertia-link>
+
                         </div>
                     </div>
-
+                </div>
             </div>
         </div>
-
-        </div>
-
     </BreezeAuthenticatedLayout>
 </template>
 
 <script>
-import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
-import {Head} from '@inertiajs/inertia-vue3'
-import plus from "/img/Tab/plus.png"
-import search from "/img/Tab/search.png"
-import logout from "/images/logout.png"
+import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import {Head} from '@inertiajs/inertia-vue3';
+import plus from "/img/Tab/plus.png";
+import search from "/img/Tab/search.png";
+import logout from "/images/logout.png";
+import {InertiaLink} from "@inertiajs/inertia-vue3";
 
 export default {
     name: 'Dashboard',
@@ -121,23 +127,19 @@ export default {
             plus: plus,
             search: search,
             logout: logout,
-
         };
     },
-
     methods: {
         currentDate() {
             const current = new Date();
             const date = `${current.getDate()}.${current.getMonth() + 1}`;
-
-
             return date;
         }
-
     },
     components: {
         BreezeAuthenticatedLayout,
         Head,
+        InertiaLink,
     },
     props: ['user', 'profile'],
 }
@@ -152,20 +154,11 @@ export default {
     background-image: linear-gradient(to right, #1bad0a, #71f562);
 }
 
-@media only screen and (min-width: 640px) {
-    /*.calendar {*/
-    /*    max-height: 50px ;*/
-    /*}*/
-
-}
-
 .calendar {
     background-image: linear-gradient(to right, #b55b00, #ed9134);
 }
 
 .logout {
-
     background-image: linear-gradient(to right, #871714, #d4403d);
-
 }
 </style>

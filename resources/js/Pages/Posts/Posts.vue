@@ -3,7 +3,6 @@
         <div v-for="(post, key) in posts" :key="key">
             <Post :post="post" :likeToggle="likeToggle" ></Post>
         </div>
-
     </BreezeAuthenticatedLayout>
 </template>
 
@@ -17,7 +16,6 @@ export default {
     props: {
         posts: Array,
         likeToggle: Boolean,
-        // user: Object,
     },
     data() {
         return {
@@ -29,9 +27,6 @@ export default {
         BreezeAuthenticatedLayout,
         Post,
     },
-
-
-
 }
 </script>
 

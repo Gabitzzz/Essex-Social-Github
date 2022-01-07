@@ -2,10 +2,8 @@
     <BreezeAuthenticatedLayout>
         <div v-for="user in users" :key="users" >
             {{user.username}}
-
             {{ user.email }}
         </div>
-
     </BreezeAuthenticatedLayout>
 </template>
 

@@ -29,9 +29,14 @@ Route::get('/', function () {
 });
 
 
+Route::delete('logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
+    ->name('logout');
+
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware('auth')->name('dashboard');
+
 
 //  POSTS
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])
@@ -84,6 +89,7 @@ Route::get('/search', [\App\Http\Controllers\UsersController::class, 'search'])
     ->name('search')
     ->middleware('auth');
 
+
 //      FOLLOW
 Route::get('/users/{user:username}/followings', [\App\Http\Controllers\FollowingController::class, 'index'])
     ->name('followings')
@@ -93,16 +99,13 @@ Route::post('/users/{user:username}/followings/{id}', [\App\Http\Controllers\Fol
     ->name('followings.store')
     ->middleware('auth');
 
-
 Route::delete('/users/{user:username}/followings/{id}', [\App\Http\Controllers\FollowingController::class, 'destroy'])
     ->name('followings.delete')
     ->middleware('auth');
 
-
 Route::get('/users/{user:username}/followers', [\App\Http\Controllers\FollowersController::class, 'index'])
     ->name('followers')
     ->middleware('auth');
-
 
 Route::get('/users/{user:username}/followers/{id}', [\App\Http\Controllers\FollowersController::class, 'store'])
     ->name('followers.store')
@@ -111,6 +114,7 @@ Route::get('/users/{user:username}/followers/{id}', [\App\Http\Controllers\Follo
 Route::delete('/users/{user:username}/followers/{id}', [\App\Http\Controllers\FollowersController::class, 'destroy'])
     ->name('followers.delete')
     ->middleware('auth');
+
 
 //  LIKES
 Route::post('/posts/{post}/like', [\App\Http\Controllers\PostLikeController::class, 'toggle'])
@@ -121,8 +125,10 @@ Route::post('/posts/{post}/dislike', [\App\Http\Controllers\PostDislikeControlle
     ->middleware('auth')
     ->name('dislikes.toggle');
 
+
 //  COMMENTS
 Route::post('/posts/{post}/comment', [CommentController::class, 'store'])->name('comments.store');
+
 
 //  NOTIFICATIONS
 Route::get('/notifications', [\App\Http\Controllers\NotificationsController::class, 'index'])->name('notifications.show');

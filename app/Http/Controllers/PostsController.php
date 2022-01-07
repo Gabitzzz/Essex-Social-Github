@@ -59,7 +59,6 @@ class PostsController extends Controller
 
     public function edit(Post $post)
     {
-
         return Inertia::render('Posts/Edit', [
 //            'post' => [
 //                'id' => $post->id,
@@ -81,17 +80,12 @@ class PostsController extends Controller
             'body' => ['string', 'max:255'],
         ]);
         $post->update($attributes);
-
         return Redirect::route('home');
-
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
-
         return Redirect::route('home');
-
-
     }
 }

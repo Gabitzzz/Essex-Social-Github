@@ -4,12 +4,9 @@
 
         <div class="py-2 mx-2 mb-20">
             <div class=" mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-
                 <input type="search" v-model="params.search" aria-label="Search" placeholder="  Search..."
                        class=" w-full rounded-2xl border-gray-300 text-gray-600 shadow-sm focus:border-gray-300 focus:ring focus:ring-gray-200 focus:ring-opacity-50"
                        autofocus>
-                <!--                       class="block w-full rounded-2xl border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>-->
-
 
                 <h1 class="mx-5 my-4">
                     Search here for your Essex friends.
@@ -36,11 +33,10 @@
                     </tr>
                     </tbody>
                 </table>
-
             </div>
         </div>
-        <Tab></Tab>
 
+        <Tab></Tab>
     </div>
 </template>
 
@@ -49,10 +45,8 @@ import Tab from "@/Components/Tab";
 import Nav from "@/Components/Nav";
 import {pickBy, throttle} from "lodash";
 
-
 export default {
     name: "Index",
-
     data() {
         return {
             params: {
@@ -66,19 +60,16 @@ export default {
         Tab,
         Nav,
     },
-
     props: {
         users: Object,
         filters: Object,
     },
-
     methods: {
         sort(field) {
             this.params.field = field;
             this.params.direction = this.params.direction === 'asc' ? 'desc' : 'asc';
         },
     },
-
     watch: {
         params: {
             handler: throttle(function () {

@@ -31,7 +31,6 @@ class Post extends Model
         return $this->belongsToMany(User::class, 'likes')->withTimestamps();
     }
 
-
     public function dislikes(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(User::class, 'dislikes');
@@ -40,13 +39,11 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class, 'comments')->withTimestamps();
-
     }
 
     public function getTimeAgoAttribute()
     {
         return $this->created_at->diffForHumans();
     }
-
 
 }

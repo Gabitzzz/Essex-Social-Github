@@ -4,13 +4,10 @@
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
                 <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                     <form @submit.prevent="submit">
-
                         <div class="flex">
-
                             <inertia-link :href="route('profile', post.user.username)">
                                 <div class="flex justify-items-start mx-2 mt-2 mb-2 ">
                                     <!--                    <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">-->
-
                                     <img
                                         :src="showImage() + post.user.avatar"
                                         class="avatar rounded-full avatar w-10 h-10"
@@ -21,12 +18,11 @@
                                         <p class="ml-2">
                                             {{ post.user.username }}
                                         </p>
-                                        <span class="italic ml-2 align-text-top" style="font-size: 10px;">{{
-                                                post.timeAgo
-                                            }}</span>
 
+                                        <span class="italic ml-2 align-text-top" style="font-size: 10px;">
+                                         {{ post.timeAgo }}
+                                        </span>
                                     </div>
-
 
                                 </div>
                             </inertia-link>
@@ -39,17 +35,14 @@
                             >
                                 ...
                             </inertia-link>
-
-
                         </div>
 
                         <div class="p-1 mb-2 ">
                             <div>
                                 <BreezeInput id="body" type="text" class="mt-1 block w-full" v-model="form.body"
-                                             required autofocus autocomplete="name" />
+                                             required autofocus autocomplete="name"/>
                             </div>
                         </div>
-
 
                         <div class="mb-8 justify-items-center grid">
                             <div class="flex">
@@ -63,7 +56,6 @@
                                                 type="submit">
                                     UPDATE
                                 </loading-button>
-
                             </div>
 
                             <inertia-link preserve-scroll
@@ -74,12 +66,9 @@
                                 DELETE
                                 &#128465;
                             </inertia-link>
-
-
                         </div>
+
                     </form>
-
-
                 </div>
             </div>
         </BreezeAuthenticatedLayout>
@@ -111,10 +100,7 @@ export default {
             form: this.$inertia.form({
                 body: this.post.body,
                 _method: 'PUT',
-
             }),
-
-
         }
     },
     methods: {

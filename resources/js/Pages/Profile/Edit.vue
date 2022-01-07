@@ -1,18 +1,14 @@
 <template>
     <div>
-
         <BreezeAuthenticatedLayout>
             <div class="bg-gray-100">
                 <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                     <form @submit.prevent="submit">
                         <div class="p-8 mb-2 ">
-                            <!--                                                <div>-->
-                            <!--                                                    <AvatarInput v-model="form.avatar" default-src="avatar"></AvatarInput>-->
-                            <!--                                                </div>-->
                             <div>
                                 <input
                                     type="file"
-                                    @change="previewImage"
+                                    @change="previewAvatar"
                                     ref="photo"
                                     class="
                                         w-full
@@ -29,6 +25,30 @@
                                 <img
                                     v-if="url"
                                     :src="url"
+                                    class="w-full mt-4 h-80"
+                                />
+                            </div>
+
+                            <div>
+                                <input
+                                    type="file"
+                                    @change="previewCover"
+                                    ref="photo"
+                                    class="
+                                        w-full
+                                        px-4
+                                        py-2
+                                        mt-2
+                                        border
+                                        rounded-md
+                                        focus:outline-none
+                                        focus:ring-1
+                                        focus:ring-blue-600
+                                    "
+                                />
+                                <img
+                                    v-if="cover_url"
+                                    :src="cover_url"
                                     class="w-full mt-4 h-80"
                                 />
                             </div>
@@ -74,8 +94,6 @@
                                 <BreezeInput id="password_confirmation" type="password" class="mt-1 block w-full"
                                              v-model="form.password_confirmation" required autocomplete="new-password"/>
                             </div>
-
-
                         </div>
 
 
@@ -104,18 +122,9 @@ import BreezeInput from '@/Components/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {useForm} from "@inertiajs/inertia-vue3"
-import AvatarInput from "@/Components/AvatarInput";
-
 
 export default {
-
-
     name: "Edit",
-    metaInfo() {
-        return {
-            // title: 'this.form.username',
-        }
-    },
     components: {
         FileInput,
         TextInput,
@@ -123,9 +132,7 @@ export default {
         BreezeInput,
         BreezeLabel,
         BreezeAuthenticatedLayout,
-        AvatarInput,
     },
-
     remember: 'form',
     props: {
         username: Object,
@@ -134,6 +141,7 @@ export default {
     data() {
         return {
             url: null,
+            cover_url: null,
             form: this.$inertia.form({
                 name: this.user.name,
                 username: this.user.username,
@@ -142,12 +150,11 @@ export default {
                 password: null,
                 // avatar: this.user.avatar,
                 avatar: null,
+                cover: null,
                 _method: 'PUT',
-
             }),
         }
     },
-
 
     methods: {
         submit() {
@@ -159,11 +166,15 @@ export default {
                 preserveState: (page) => Object.keys(($page.props.errors).length)
             });
         },
-        previewImage(e) {
+        previewAvatar(e) {
             const file = e.target.files[0];
             this.url = URL.createObjectURL(file);
-        },
 
+        },
+        previewCover(e) {
+            const file = e.target.file[0];
+            this.cover_url = URL.createObjectURL(file);
+        }
     }
 }
 
@@ -175,8 +186,6 @@ export default {
     border-radius: 25px;
     color: ghostwhite;
     background-color: black;
-    /*width: 100%;*/
-    /*display: inline;*/
     text-align: center;
     font-size: 12px;
     font-family: 'Nunito', sans-serif;

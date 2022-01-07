@@ -1,15 +1,11 @@
 <template>
     <div>
         <BreezeAuthenticatedLayout>
-
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
                 <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                     <div class="flex">
-
                         <inertia-link :href="route('profile', post.user.username)">
                             <div class="flex justify-items-start mx-2 mt-2 mb-2 ">
-                                <!--                    <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">-->
-
                                 <img
                                     :src="showImage() + post.user.avatar"
                                     class="avatar rounded-full avatar w-10 h-10"
@@ -20,13 +16,10 @@
                                     <p class="ml-2">
                                         {{ post.user.username }}
                                     </p>
-                                    <span class="italic ml-2 align-text-top" style="font-size: 10px;">{{
-                                            post.timeAgo
-                                        }}</span>
-
+                                    <span class="italic ml-2 align-text-top" style="font-size: 10px;">
+                                        {{ post.timeAgo }}
+                                    </span>
                                 </div>
-
-
                             </div>
                         </inertia-link>
 
@@ -38,10 +31,7 @@
                         >
                             ...
                         </inertia-link>
-
-
                     </div>
-
 
                     <div class="px-2 pb-1 border-b border-gray-200">
                         <p class="text-xl px-2">
@@ -128,25 +118,18 @@
                     </div>
                 </div>
 
-
                 <form @submit.prevent="submit" class="w-full">
                     <div class="flex mt-5">
-                        <!--                        <img :src="avatar" class="rounded-full avatar w-10 h-10 mx-1" alt="avatar">-->
-
                         <img
                             :src="showImage() + $page.props.auth.user.avatar"
                             class="avatar rounded-full avatar w-10 h-10"
                             alt="avatar"
                         />
 
-
                         <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"
                                      placeholder="Say something.."
                                      required autofocus autocomplete="name"/>
 
-
-                        <!--                    <textarea name="post" rows="3" class="border rounded px-2 py-2 w-full"-->
-                        <!--                              :placeholder="`Post something  ...`" v-model="form.body"></textarea>-->
                         <button type="submit" class="button px-6 shadow-2xl"
                                 :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing">
@@ -165,8 +148,6 @@
                     <CommentItem :comment="comment"></CommentItem>
                 </div>
             </div>
-
-
         </BreezeAuthenticatedLayout>
     </div>
 </template>
@@ -197,7 +178,6 @@ export default {
     props: {
         post: Object,
         comments: Array,
-        // user: Object,
         likes: Array,
     },
     data() {
@@ -218,11 +198,9 @@ export default {
                 }
             })
         },
-
         showImage() {
             return "/storage/";
         },
-
         back() {
             window.history.back();
         },

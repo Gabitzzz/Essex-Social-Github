@@ -15,14 +15,12 @@ class NotificationsController extends Controller
         return Inertia::render('Notifications/Index');
     }
 
-
     /**
      * @param Request $request
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      *
      */
-
     public function store(Request $request, $id)
     {
         $notification = auth()->user()->unreadNotifications->find($id);
@@ -31,8 +29,6 @@ class NotificationsController extends Controller
         return Redirect::route('notifications.show', [
             'notification' => $notification
         ] );
-
-
     }
 
     public function update(Request $request)

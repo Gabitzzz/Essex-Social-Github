@@ -14,7 +14,6 @@ use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
 
-
 class UsersController extends Controller
 {
     public function index(User $user)
@@ -24,7 +23,7 @@ class UsersController extends Controller
             'posts' => Post::with('user')->where("user_id", "=", $user->id)->with('likes')->with('dislikes')->get(),
             'followToggle' => $user->followers()->where('follower_id', auth()->id())->exists(),
             'followers' => $user->followers()->withCount([
-                'followers as following' => function($q) {
+                'followers as following' => function ($q) {
                     return $q->where('follower_id', auth()->id());
                 }
             ])->withCasts(['following' => 'boolean'])
@@ -33,7 +32,7 @@ class UsersController extends Controller
                 'user' => $user
             ],
             'followings' => $user->followings()->withCount([
-                'followers as following' => function($q) {
+                'followers as following' => function ($q) {
                     return $q->where('follower_id', auth()->id());
                 }
             ])->withCasts(['following' => 'boolean'])
@@ -41,14 +40,11 @@ class UsersController extends Controller
             'can' => [
                 'createUser' => Auth::user()->can('create', User::class)
             ],
-
-
         ]);
     }
 
     public function store(StoreImage $request)
     {
-
         Request::validate([
             'name' => ['required', 'max:50'],
             'username' => ['required', 'max:50'],
@@ -61,17 +57,18 @@ class UsersController extends Controller
             $avatar_path = $request->file('avatar')->store('avatar', 'public');
         }
 
+        if ($request->hasFile('cover')) {
+            $cover_path = $request->file('cover')->store('cover', 'public');
+        }
+
         Auth::user()->account->users()->create([
             'name' => Request::get('name'),
             'username' => Request::get('username'),
             'email' => Request::get('email'),
             'description' => Request::get('description'),
             'avatar' => $avatar_path,
-//            'cover' => Request::get('cover'),
+            'cover' => $cover_path,
             'password' => Request::get('password'),
-//            'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
-
-//            'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
         ]);
         return Redirect::route('profile');
     }
@@ -94,37 +91,24 @@ class UsersController extends Controller
             'name' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')->ignore($user->id)],
             'password' => ['required', 'max:50'],
-//            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-
-//            'owner' => ['required', 'boolean'],
             'photo' => ['nullable', 'image'],
             'description' => ['nullable', 'max:250'],
             'avatar' => ['file'],
+            'cover' => ['file'],
         ]);
 
-
-
-
         if ($request->hasFile('avatar')) {
-            $attributes['avatar'] = $request->file('avatar')->store('avatar', 'public');
+            $attributes['avatar'] = $request->file('avatar')
+                ->store('avatar', 'public');
+//            $user->update(['avatar' => $request->file('avatar')->storePublicly('image', 'public')]);
+        }
+        if ($request->hasFile('cover')) {
+            $attributes['cover'] = $request->file('cober')
+                ->store('cover', 'public');
 //            $user->update(['avatar' => $request->file('avatar')->storePublicly('image', 'public')]);
         }
 
-
-
-//        if (!empty($request->avatar)) {
-//            $request->user()->updateProfilePhoto($request->avatar);
-//        }
-
-//        $user->update(\Illuminate\Support\Facades\Request::only('username', 'name', 'email'));
         $user->update($attributes);
-
-
-//        if ((new \Illuminate\Http\Request)->get('password')) {
-//            $user->update(['password' => Request::get('password')]);
-//        }
-
-//        return Redirect::back()->with('success', 'User updated.');
         return Redirect::route('dashboard');
     }
 
@@ -134,23 +118,23 @@ class UsersController extends Controller
         return Redirect::back()->with('success', 'User deleted.');
     }
 
-    public function explore(){
+    public function explore()
+    {
         return Inertia::render('Explore/Index', [
             'users' => User::all()
         ]);
     }
 
-    public function search(){
-
+    public function search()
+    {
         request()->validate([
             'direction' => ['in:asc,desc'],
             'field' => ['in:username, name']
         ]);
-
         $query = User::query();
 
         if (request('search')) {
-            $query->where('name', 'LIKE', '%'.request('search').'%');
+            $query->where('name', 'LIKE', '%' . request('search') . '%');
         }
 
         if (request()->has(['field', 'direction'])) {

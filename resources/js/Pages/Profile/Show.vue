@@ -7,9 +7,6 @@
                         <img :src="cover" class="cover rounded-lg" alt="cover"
                              style="min-height: 350px;">
                         <div class="flex justify-center">
-<!--                            <img :src="avatar" class="rounded-full avatar w-32 h-32" alt="avatar">-->
-                            <!--                            <img :src="$page.props.user.profile_photo_url" alt="">-->
-
                             <img
                                 :src="showImage() + user.avatar"
                                 class="rounded-full avatar w-32 h-32"
@@ -62,18 +59,18 @@
                                 </div>
 
                                 <div class="text-white text-center px-5">
-                                    <a :href="route('followings', user)">
-                                        {{ followings.data.length }}
-                                        <br>
-                                        Following
-                                    </a>
-                                </div>
-
-                                <div class="text-white text-center px-5">
                                     <a :href="route('followers', user)">
                                         {{ followers.data.length }}
                                         <br>
                                         Followers
+                                    </a>
+                                </div>
+
+                                <div class="text-white text-center px-5">
+                                    <a :href="route('followings', user)">
+                                        {{ followings.data.length }}
+                                        <br>
+                                        Following
                                     </a>
                                 </div>
                             </div>
@@ -101,7 +98,7 @@
                 </div>
 
                 <!--    FEED    -->
-                <div v-show="feed" class="py-2 mx-2 mb-2">
+                <div v-show="feed" class="py-2 mx-2">
                     <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                         <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
                             <h1 class="text-3xl text-white px-6 py-4 ">
@@ -110,10 +107,9 @@
                         </div>
                     </div>
 
-                    <div class="pb-20 mt-5">
+                    <div class="pb-20 mt-4">
                         <div v-for="post in posts" :posts="posts">
-                            <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-
+                            <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 my-4">
                                 <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                                     <div class="flex">
                                         <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
@@ -129,22 +125,16 @@
                                         >
                                             ...
                                         </inertia-link>
-
-
                                     </div>
-
 
                                     <div class="px-4 pb-4 border-b border-gray-200">
                                         <p class="text-xl px-4 py-2">
                                             {{ post.body }}
                                         </p>
 
-                                        <!--                                                    LIKES-->
-
+                                        <!--      LIKES-->
                                         <div class="flex text-xs">
-
                                             <div v-if="post.likes.length === 0">
-
                                             </div>
 
                                             <div v-else-if="post.likes.length === 1">
@@ -157,7 +147,6 @@
 
                                             <!--                DISLIKES    -->
                                             <div v-if="post.dislikes.length === 0">
-
                                             </div>
 
                                             <div v-else-if="post.dislikes.length === 1">
@@ -172,7 +161,6 @@
                                         <hr>
 
                                         <div class="flex justify-between">
-                                            <!-- ... -->
                                             <div class="flex justify-self-star mt-2">
                                                 <p class="mt-2 ml-2">
                                                     {{ $page.props.auth.user.username }}
@@ -182,19 +170,29 @@
                                             <div class="flex justify-end mt-4">
                                                 <div class="flex">
                                                     <Like :post="post"></Like>
-
                                                     <Dislike :post="post" class="ml-1"></Dislike>
-
+                                                    <!--    COMMENTS   -->
                                                     <InertiaLink :href="route('post.show', post.id)" :post="post.id"
                                                                  class="ml-1  h-6 w-6 rounded-full bg-blue-400">
                                                     </InertiaLink>
+                                                    <!--    COMMENTS   -->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!--  GALLERY -->
+                <div v-show="gallery" class="py-2 mx-2 mb-2">
+                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+                        <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+                            <h1 class="text-3xl text-white px-6 py-4 ">
+                                GALLERY
+                            </h1>
                         </div>
                     </div>
                 </div>
@@ -228,24 +226,25 @@
                         </div>
                     </div>
 
-                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 mt-5">
-                        <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-                            <div class="p-6 border-b border-gray-200">
-                                <p>
-                                    <strong>Username:</strong> {{ $page.props.user.username }}
-                                </p>
-                                <p>
-                                    <strong>Name:</strong> {{ $page.props.user.name }}
-                                </p>
-                                <p>
-                                    <strong>Email:</strong> {{ $page.props.user.email }}
-                                </p>
-                                <p>
-                                    <strong>Description:</strong> {{ $page.props.user.description }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 mt-5">-->
+<!--                        <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">-->
+<!--                            <div class="p-6 border-b border-gray-200">-->
+<!--                                <p>-->
+<!--                                    <strong>Username:</strong> {{ $page.props.user.username }}-->
+<!--                                </p>-->
+<!--                                <p>-->
+<!--                                    <strong>Name:</strong> {{ $page.props.user.name }}-->
+<!--                                </p>-->
+<!--                                <p>-->
+<!--                                    <strong>Email:</strong> {{ $page.props.user.email }}-->
+<!--                                </p>-->
+<!--                                <p>-->
+<!--                                    <strong>Description:</strong> {{ $page.props.user.description }}-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
                 </div>
             </div>
         </BreezeAuthenticatedLayout>
@@ -261,7 +260,6 @@ import FollowButton from "@/Components/FollowButton";
 import Like from "@/Components/Like";
 import Dislike from "@/Components/Dislike";
 
-
 export default {
     name: "Show",
     data() {
@@ -270,13 +268,9 @@ export default {
             about: false,
             feed: true,
             gallery: false,
-
-
         }
     },
-
     props: {
-        // username: Object,
         users: Array,
         user: Object,
         posts: Array,
@@ -287,7 +281,6 @@ export default {
         dislikes: Array,
 
     },
-
     components: {
         BreezeAuthenticatedLayout,
         InertiaLink,
@@ -295,7 +288,6 @@ export default {
         Like,
         Dislike,
     },
-
     methods: {
         showImage() {
             return "/storage/";
@@ -304,8 +296,6 @@ export default {
     // created() {
     //     debugger
     // },
-
-
 }
 </script>
 

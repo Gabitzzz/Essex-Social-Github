@@ -6,7 +6,6 @@
             <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                 <div class="flex">
                     <inertia-link :href="route('profile', post.user.username)">
-
                         <div class="flex justify-items-start mx-2 mt-2 mb-2 ">
                             <img
                                 :src="showImage() + post.user.avatar"
@@ -18,9 +17,9 @@
                                 <p class="ml-2">
                                     {{ post.user.username }}
                                 </p>
-                                <span class="italic ml-2 align-text-top" style="font-size: 10px;">{{
-                                        post.timeAgo
-                                    }}</span>
+                                <span class="italic ml-2 align-text-top" style="font-size: 10px;">
+                                       {{ post.timeAgo }}
+                                </span>
                             </div>
                         </div>
                     </inertia-link>

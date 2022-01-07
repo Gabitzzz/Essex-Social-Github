@@ -20,7 +20,6 @@ class FollowersController extends Controller
             'profile' => [
                 'user' => $user
             ],
-
         ]);
     }
 

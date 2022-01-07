@@ -1,12 +1,11 @@
 <template>
     <BreezeAuthenticatedLayout>
-<!--        <div>-->
-            <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+        <!--        <div>-->
+        <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
 
             <FollowingHeader :profile="profile"></FollowingHeader>
 
             <div v-for="user in followers.data" :key="user.id" class="flex p-4 border-b border-gray-200">
-                <!--                <img src="" alt="">-->
                 <div class="flex justify-between w-full ml-4">
                     <div class="flex flex-col">
                         <a :href="route('profile', user.username)">
@@ -22,8 +21,6 @@
                         <FollowButton :user="user"></FollowButton>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </BreezeAuthenticatedLayout>
@@ -49,9 +46,6 @@ export default {
         followers: Object,
         followings: Object,
     },
-    // created() {
-    //     debugger
-    // }
 }
 </script>
 
