@@ -1,5 +1,5 @@
 <template>
-    <div class="flex  mt-5  space-x-5">
+    <div class="flex  bg-gray-100 mt-5  space-x-5">
         <div class="flex-1">
             <div class="flex items-center">
 

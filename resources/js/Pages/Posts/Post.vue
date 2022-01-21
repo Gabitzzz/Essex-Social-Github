@@ -5,7 +5,7 @@
         <inertia-link preserve-scroll
                       :href="route('post.show', post.id)"
         >
-            <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+            <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                 <div class="flex">
                     <inertia-link :href="route('profile', post.user.username)">
                         <div class="flex justify-items-start mx-2 mt-2 mb-2 ">
@@ -125,7 +125,7 @@
                             <!--                                         required autofocus autocomplete="name"/>-->
 
                             <div class="bg-white h-8 w-full rounded-full shadow-md mt-2 text-xs ml-2 mr-2 border border-gray-300">
-                                <p class="mt-2 ml-4">
+                                <p class="mt-2 ml-4 text-gray-700">
                                     say something
                                 </p>
                             </div>

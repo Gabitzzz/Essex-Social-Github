@@ -2,7 +2,7 @@
     <div class="bg-gray-100">
         <Nav></Nav>
 
-        <div class="h-screen">
+        <div class=" ">
             <!-- Page Heading -->
             <header class=" shadow" v-if="$slots.header">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-gray-100 h-full">
         <BreezeAuthenticatedLayout>
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
                 <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
