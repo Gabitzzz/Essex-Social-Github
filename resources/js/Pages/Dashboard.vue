@@ -145,7 +145,7 @@
             </div>
 
 
-<!--            6 A ROW -->
+            <!--            6 A ROW -->
             <div class=" flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
 
                 <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">
@@ -183,7 +183,7 @@
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">
 
-<!--                        <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
+                        <!--                        <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
                         <img src="https://img.icons8.com/color/480/000000/compass--v2.png"/>
                     </div>
                 </div>
@@ -202,12 +202,71 @@
                 <div class="mt-10 max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2 py-2" style="font-family: 'Montserrat', sans-serif;">
                         <!--                        DASHBOARD-->
-                       Activity
+                        Activity
                     </h1>
                 </div>
-            </div>
 
+                <div
+                    class="flex overflow-x-auto pb-10 hide-scroll-bar"
+                >
+                    <div
+                        class="flex flex-nowrap  "
+                    >
+                        <div class="inline-block px-3">
+                            <div
+                                class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                            >
+                                <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+
+                            </div>
+                        </div>
+                        <div class="inline-block px-3">
+                            <div
+                                class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                            <img :src="leap" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+
+                        </div>
+                    </div>
+                    <div class="inline-block px-3">
+                        <div
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                        >
+                            <img :src="faser" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        </div>
+                    </div>
+                    <div class="inline-block px-3">
+                        <div
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                        >
+                            <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        </div>
+                    </div>
+                    <div class="inline-block px-3">
+                        <div
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                        ></div>
+                    </div>
+                    <div class="inline-block px-3">
+                        <div
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                        ></div>
+                    </div>
+                    <div class="inline-block px-3">
+                        <div
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                        ></div>
+                    </div>
+                    <div class="inline-block px-3">
+                        <div
+                            class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                        ></div>
+                    </div>
+                </div>
+            </div>
         </div>
+        </div>
+
+
     </BreezeAuthenticatedLayout>
 </template>
 
@@ -278,5 +337,14 @@ export default {
 
 .logout {
     background-image: linear-gradient(to right, #871714, #d4403d);
+}
+
+.hide-scroll-bar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+    display: none;
 }
 </style>
