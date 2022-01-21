@@ -1,5 +1,7 @@
 <template>
-    <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+    <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+
+
         <inertia-link preserve-scroll
                       :href="route('post.show', post.id)"
         >
@@ -88,30 +90,55 @@
 
                     <div class="flex justify-between">
                         <!-- ... -->
-                        <div class="flex justify-self-star mt-1">
-                            <!--                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">-->
+                        <!--                        <div class="flex justify-self-star mt-1">-->
+                        <!--                            &lt;!&ndash;                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">&ndash;&gt;-->
+
+
+                        <!--                            <p class="mt-1 ml-2 text-sm">-->
+                        <!--                               7 Likes-->
+                        <!--                            </p>-->
+                        <!--                        </div>-->
+
+                        <!--                        <div class="flex justify-end mt-2">-->
+                        <!--                            <div class="flex">-->
+                        <!--                                <Like :post="post"></Like>-->
+
+                        <!--                                <Dislike :post="post" class="ml-1"></Dislike>-->
+
+                        <!--                                <InertiaLink :href="route('post.show', post.id)" :post="post.id"-->
+                        <!--                                             class="ml-1  h-6 w-6 rounded-full bg-blue-400">-->
+                        <!--                                </InertiaLink>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                    </div>
+
+                    <div>
+                        <div class="flex">
                             <img
                                 :src="showImage() + $page.props.auth.user.avatar"
-                                class="avatar rounded-full avatar w-6 h-6 mt-1"
+                                class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"
                                 alt="avatar"
                             />
 
-                            <p class="mt-1 ml-2 text-sm">
-                                {{ $page.props.auth.user.username }}
-                            </p>
-                        </div>
+                            <!--                            <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"-->
+                            <!--                                         placeholder="Say something.."-->
+                            <!--                                         required autofocus autocomplete="name"/>-->
 
-                        <div class="flex justify-end mt-2">
-                            <div class="flex">
-                                <Like :post="post"></Like>
-
-                                <Dislike :post="post" class="ml-1"></Dislike>
-
-                                <InertiaLink :href="route('post.show', post.id)" :post="post.id"
-                                             class="ml-1  h-6 w-6 rounded-full bg-blue-400">
-                                </InertiaLink>
+                            <div class="bg-white h-8 w-full rounded-full shadow-md mt-2 text-xs ml-2 mr-2 border border-gray-300">
+                                <p class="mt-2 ml-4">
+                                    say something
+                                </p>
                             </div>
+
+                            <div class="flex mt-3">
+                                <Like :post="post" class="ml-1"></Like>
+
+                                <Dislike :post="post" class="ml-1 mr-1"></Dislike>
+                            </div>
+
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -127,6 +154,7 @@ import Dislike from "@/Components/Dislike";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import CombinedComments from "@/Components/CombinedComments";
 import PostForm from "@/Components/PostForm";
+import Input from "@/Components/Input";
 
 export default {
     name: "Post",
