@@ -24187,7 +24187,7 @@ var _hoisted_2 = {
   "class": "mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96"
 };
 var _hoisted_3 = {
-  "class": "mt-10 max-2 overflow-hidden rounded-xl font-bold"
+  "class": "mt-5 max-2 overflow-hidden rounded-xl font-bold"
 };
 var _hoisted_4 = {
   "class": "text-4xl px-2 py-2",
@@ -24268,7 +24268,7 @@ var _hoisted_25 = {
   "class": "flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-8 mb-8 hide-scroll-bar"
 };
 var _hoisted_26 = {
-  "class": "inline-block"
+  "class": "inline-block px-2"
 };
 var _hoisted_27 = {
   "class": "w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"

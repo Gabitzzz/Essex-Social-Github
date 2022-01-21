@@ -205,7 +205,7 @@
                     id="scrollContainer"
                     class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-8 mb-8 hide-scroll-bar"
                 >
-                    <div class="inline-block  ">
+                    <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
 
