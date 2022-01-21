@@ -57,9 +57,6 @@ class UsersController extends Controller
             $avatar_path = $request->file('avatar')->store('avatar', 'public');
         }
 
-        if ($request->hasFile('cover')) {
-            $cover_path = $request->file('cover')->store('cover', 'public');
-        }
 
         Auth::user()->account->users()->create([
             'name' => Request::get('name'),
@@ -67,7 +64,6 @@ class UsersController extends Controller
             'email' => Request::get('email'),
             'description' => Request::get('description'),
             'avatar' => $avatar_path,
-            'cover' => $cover_path,
             'password' => Request::get('password'),
         ]);
         return Redirect::route('profile');
@@ -94,7 +90,6 @@ class UsersController extends Controller
             'photo' => ['nullable', 'image'],
             'description' => ['nullable', 'max:250'],
             'avatar' => ['file'],
-            'cover' => ['file'],
         ]);
 
         if ($request->hasFile('avatar')) {
@@ -102,11 +97,7 @@ class UsersController extends Controller
                 ->store('avatar', 'public');
 //            $user->update(['avatar' => $request->file('avatar')->storePublicly('image', 'public')]);
         }
-        if ($request->hasFile('cover')) {
-            $attributes['cover'] = $request->file('cober')
-                ->store('cover', 'public');
-//            $user->update(['avatar' => $request->file('avatar')->storePublicly('image', 'public')]);
-        }
+
 
         $user->update($attributes);
         return Redirect::route('dashboard');

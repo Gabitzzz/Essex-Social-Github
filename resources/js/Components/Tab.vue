@@ -82,13 +82,13 @@
 
 
                 <a :href="route('profile', $page.props.auth.user.username )"
-                   class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
+                   class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-1 pb-1"
                 >
 <!--                    <img :src="profile" width="25" height="25" class="inline-block" alt="profile">-->
 
                     <img
                         :src="showImage() + $page.props.auth.user.avatar"
-                        class="inline-block rounded-full w-6 h-6"
+                        class="inline-block rounded-full w-8 h-8"
                         alt="avatar"
                     />
 

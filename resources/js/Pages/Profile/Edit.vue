@@ -29,29 +29,6 @@
                                 />
                             </div>
 
-                            <div>
-                                <input
-                                    type="file"
-                                    @change="previewCover"
-                                    ref="photo"
-                                    class="
-                                        w-full
-                                        px-4
-                                        py-2
-                                        mt-2
-                                        border
-                                        rounded-md
-                                        focus:outline-none
-                                        focus:ring-1
-                                        focus:ring-blue-600
-                                    "
-                                />
-                                <img
-                                    v-if="cover_url"
-                                    :src="cover_url"
-                                    class="w-full mt-4 h-80"
-                                />
-                            </div>
 
                             <div>
                                 <BreezeLabel for="username" value="Username" class="flex items-center justify-center"/>
@@ -141,16 +118,13 @@ export default {
     data() {
         return {
             url: null,
-            cover_url: null,
             form: this.$inertia.form({
                 name: this.user.name,
                 username: this.user.username,
                 email: this.user.email,
                 description: this.user.description,
                 password: null,
-                // avatar: this.user.avatar,
                 avatar: null,
-                cover: null,
                 _method: 'PUT',
             }),
         }
@@ -162,6 +136,7 @@ export default {
                 this.form.avatar = this.$refs.photo.files[0];
             }
 
+
             this.form.post(this.route('users.update', this.user.id), this.data, {
                 preserveState: (page) => Object.keys(($page.props.errors).length)
             });
@@ -171,10 +146,7 @@ export default {
             this.url = URL.createObjectURL(file);
 
         },
-        previewCover(e) {
-            const file = e.target.file[0];
-            this.cover_url = URL.createObjectURL(file);
-        }
+
     }
 }
 

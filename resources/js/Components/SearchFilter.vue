@@ -3,7 +3,7 @@
 
         <div class="p-4">
             <label for="search">Search</label>
-            <input id="search" type="text" v-on:keypress="capturePress($event)"  v-model="term" @keyup="search" autocomplete="off"
+            <input id="search" type="text" @keypress="capturePress"  v-model="term" @keyup="search" autocomplete="off"
                    class="ml-2 px-2 py-1 text-sm rounded-border">
         </div>
 
@@ -55,7 +55,7 @@ export default {
         },
 
         //in methods
-        capturePress: function(event) {
+        capturePress(event) {
             console.log(event.charCode);
         }
     }
