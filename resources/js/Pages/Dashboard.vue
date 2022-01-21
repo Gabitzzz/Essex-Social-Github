@@ -4,7 +4,7 @@
     <BreezeAuthenticatedLayout>
         <div class="py-2 mx-2 mb-20">
             <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-                <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
+                <div class="mt-10 max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2 py-2" style="font-family: 'Montserrat', sans-serif;">
                         <!--                        DASHBOARD-->
                         Welcome, {{ $page.props.auth.user.username }}
@@ -115,28 +115,28 @@
 
                 <div class="w-1/4 overflow-hidden sm:w-1/3 xl:w-3/12">
                     <!-- Column Content -->
-                    <div class="mx-1 max-2 overflow-hidden rounded-xl bg-gray-200 border border-gray-300">
+                    <div class="mx-1 mb-4 max-2 overflow-hidden rounded-xl bg-white shadow-md  ">
                         <img :src="essex_sport" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                     </div>
                 </div>
 
                 <div class="w-1/4 overflow-hidden sm:w-1/3 xl:w-3/12">
                     <!-- Column Content -->
-                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300 ">
+                    <div class="mx-1 max-2 bg-white overflow-hidden shadow-md rounded-xl shadow-md  ">
                         <img :src="essex_food" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                     </div>
                 </div>
 
                 <div class="w-1/4 overflow-hidden sm:w-1/3 xl:w-3/12">
                     <!-- Column Content -->
-                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden  rounded-xl border border-gray-300">
+                    <div class="mx-1 max-2 bg-white overflow-hidden  rounded-xl shadow-md  ">
                         <img :src="su" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                     </div>
                 </div>
 
                 <div class="w-1/4 overflow-hidden sm:w-1/3 xl:w-3/12">
                     <!-- Column Content -->
-                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">
+                    <div class="mx-1 max-2 bg-white overflow-hidden rounded-xl shadow-md   ">
 
                         <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
 
@@ -146,57 +146,57 @@
 
 
             <!--            6 A ROW -->
-<!--            <div class=" flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">-->
+            <!--            <div class=" flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">-->
 
-<!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-<!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-<!--                    <div class="mx-1 max-2 overflow-hidden rounded-xl bg-gray-200 border border-gray-300">-->
-<!--                        <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
-<!--                    </div>-->
-<!--                </div>-->
+            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
+            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
+            <!--                    <div class="mx-1 max-2 overflow-hidden rounded-xl bg-gray-200 border border-gray-300">-->
+            <!--                        <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
+            <!--                    </div>-->
+            <!--                </div>-->
 
-<!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-<!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-<!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300 ">-->
-<!--                        <img :src="leap" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
-<!--                    </div>-->
-<!--                </div>-->
+            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
+            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
+            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300 ">-->
+            <!--                        <img :src="leap" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
+            <!--                    </div>-->
+            <!--                </div>-->
 
-<!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-<!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-<!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden  rounded-xl border border-gray-300">-->
-<!--                        <img :src="faser" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
-<!--                    </div>-->
-<!--                </div>-->
+            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
+            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
+            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden  rounded-xl border border-gray-300">-->
+            <!--                        <img :src="faser" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
+            <!--                    </div>-->
+            <!--                </div>-->
 
-<!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-<!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-<!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">-->
+            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
+            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
+            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">-->
 
-<!--                        <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
+            <!--                        <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
 
 
-<!--                    </div>-->
-<!--                </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
 
-<!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-<!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-<!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">-->
+            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
+            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
+            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">-->
 
-<!--                        &lt;!&ndash;                        <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">&ndash;&gt;-->
-<!--                        <img src="https://img.icons8.com/color/480/000000/compass&#45;&#45;v2.png"/>-->
-<!--                    </div>-->
-<!--                </div>-->
+            <!--                        &lt;!&ndash;                        <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">&ndash;&gt;-->
+            <!--                        <img src="https://img.icons8.com/color/480/000000/compass&#45;&#45;v2.png"/>-->
+            <!--                    </div>-->
+            <!--                </div>-->
 
-<!--                <div class="mt-5 w-1/6 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-<!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-<!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">-->
+            <!--                <div class="mt-5 w-1/6 overflow-hidden sm:w-1/3 xl:w-2/12">-->
+            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
+            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">-->
 
-<!--                        <img :src="shutdown" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
+            <!--                        <img :src="shutdown" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
 
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
 
 
             <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
@@ -205,8 +205,6 @@
                     id="scrollContainer"
                     class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-8 mb-8 hide-scroll-bar"
                 >
-
-
                     <div class="inline-block  ">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
@@ -264,64 +262,6 @@
                         Activity
                     </h1>
                 </div>
-
-                <div
-                    class="flex overflow-x-auto pb-10 hide-scroll-bar"
-                >
-                    <div
-                        class="flex flex-nowrap  "
-                    >
-                        <div class="inline-block px-3">
-                            <div
-                                class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                            >
-                                <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
-
-                            </div>
-                        </div>
-                        <div class="inline-block px-3">
-                            <div
-                                class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                                <img :src="leap" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
-
-                            </div>
-                        </div>
-                        <div class="inline-block px-3">
-                            <div
-                                class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                            >
-                                <img :src="faser" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
-                            </div>
-                        </div>
-                        <div class="inline-block px-3">
-                            <div
-                                class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                            >
-                                <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
-                            </div>
-                        </div>
-                        <div class="inline-block px-3">
-                            <div
-                                class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                            ></div>
-                        </div>
-                        <div class="inline-block px-3">
-                            <div
-                                class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                            ></div>
-                        </div>
-                        <div class="inline-block px-3">
-                            <div
-                                class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                            ></div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-
             </div>
         </div>
 

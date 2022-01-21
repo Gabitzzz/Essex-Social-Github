@@ -24187,7 +24187,7 @@ var _hoisted_2 = {
   "class": "mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96"
 };
 var _hoisted_3 = {
-  "class": "mt-5 max-2 overflow-hidden rounded-xl font-bold"
+  "class": "mt-10 max-2 overflow-hidden rounded-xl font-bold"
 };
 var _hoisted_4 = {
   "class": "text-4xl px-2 py-2",
@@ -24236,28 +24236,28 @@ var _hoisted_12 = {
   "class": "w-1/4 overflow-hidden sm:w-1/3 xl:w-3/12"
 };
 var _hoisted_13 = {
-  "class": "mx-1 max-2 overflow-hidden rounded-xl bg-gray-200 border border-gray-300"
+  "class": "mx-1 mb-4 max-2 overflow-hidden rounded-xl bg-white shadow-md"
 };
 var _hoisted_14 = ["src"];
 var _hoisted_15 = {
   "class": "w-1/4 overflow-hidden sm:w-1/3 xl:w-3/12"
 };
 var _hoisted_16 = {
-  "class": "mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300"
+  "class": "mx-1 max-2 bg-white overflow-hidden shadow-md rounded-xl shadow-md"
 };
 var _hoisted_17 = ["src"];
 var _hoisted_18 = {
   "class": "w-1/4 overflow-hidden sm:w-1/3 xl:w-3/12"
 };
 var _hoisted_19 = {
-  "class": "mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300"
+  "class": "mx-1 max-2 bg-white overflow-hidden rounded-xl shadow-md"
 };
 var _hoisted_20 = ["src"];
 var _hoisted_21 = {
   "class": "w-1/4 overflow-hidden sm:w-1/3 xl:w-3/12"
 };
 var _hoisted_22 = {
-  "class": "mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300"
+  "class": "mx-1 max-2 bg-white overflow-hidden rounded-xl shadow-md"
 };
 var _hoisted_23 = ["src"];
 var _hoisted_24 = {
@@ -24319,71 +24319,6 @@ var _hoisted_44 = /*#__PURE__*/_withScopeId(function () {
       "font-family": "'Montserrat', sans-serif"
     }
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        DASHBOARD"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Activity ")])], -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_45 = {
-  "class": "flex overflow-x-auto pb-10 hide-scroll-bar"
-};
-var _hoisted_46 = {
-  "class": "flex flex-nowrap"
-};
-var _hoisted_47 = {
-  "class": "inline-block px-3"
-};
-var _hoisted_48 = {
-  "class": "w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-};
-var _hoisted_49 = ["src"];
-var _hoisted_50 = {
-  "class": "inline-block px-3"
-};
-var _hoisted_51 = {
-  "class": "w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-};
-var _hoisted_52 = ["src"];
-var _hoisted_53 = {
-  "class": "inline-block px-3"
-};
-var _hoisted_54 = {
-  "class": "w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-};
-var _hoisted_55 = ["src"];
-var _hoisted_56 = {
-  "class": "inline-block px-3"
-};
-var _hoisted_57 = {
-  "class": "w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-};
-var _hoisted_58 = ["src"];
-
-var _hoisted_59 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "inline-block px-3"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-  })], -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_60 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "inline-block px-3"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-  })], -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_61 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "inline-block px-3"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-  })], -1
   /* HOISTED */
   );
 });
@@ -24461,31 +24396,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         alt: "plus"
       }, null, 8
       /* PROPS */
-      , _hoisted_43)])])]), _hoisted_44, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: $data.moodle,
-        "class": "inline-block px-2 py-2 lg:px-4 lg:py-4",
-        alt: "plus"
-      }, null, 8
-      /* PROPS */
-      , _hoisted_49)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: $data.leap,
-        "class": "inline-block px-2 py-2 lg:px-4 lg:py-4",
-        alt: "plus"
-      }, null, 8
-      /* PROPS */
-      , _hoisted_52)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_53, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: $data.faser,
-        "class": "inline-block px-2 py-2 lg:px-4 lg:py-4",
-        alt: "plus"
-      }, null, 8
-      /* PROPS */
-      , _hoisted_55)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: $data.listen_again,
-        "class": "inline-block px-2 py-2 lg:px-4 lg:py-4",
-        alt: "plus"
-      }, null, 8
-      /* PROPS */
-      , _hoisted_58)])]), _hoisted_59, _hoisted_60, _hoisted_61])])])])];
+      , _hoisted_43)])])]), _hoisted_44])])];
     }),
     _: 1
     /* STABLE */
