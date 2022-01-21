@@ -27166,7 +27166,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/societies.png?b009c4c87cd894a6569ee271d51d3bc1");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/societies.png?1f760addf30d8f121825bfad40e7695a");
 
 /***/ }),
 
@@ -27181,7 +27181,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/su2.png?72affc88b70cc5a246c2c2bb57859845");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/su2.png?96af2d4604ad1048cdc3f37773bd596c");
 
 /***/ }),
 
