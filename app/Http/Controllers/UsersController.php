@@ -54,7 +54,7 @@ class UsersController extends Controller
         ]);
 
         if ($request->hasFile('avatar')) {
-            $avatar_path = $request->file('avatar')->store('avatar', 'public');
+            $avatar_path = $request->file('postImage')->store('post', 'public');
         }
 
 

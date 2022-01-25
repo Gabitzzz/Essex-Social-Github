@@ -18,7 +18,8 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('body');
-            $table->string('image')->nullable();
+            $table->text('image')->nullable();
+
             $table->timestamps();
         });
     }

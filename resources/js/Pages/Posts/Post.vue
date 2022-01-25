@@ -1,7 +1,5 @@
 <template>
     <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-
-
         <inertia-link preserve-scroll
                       :href="route('post.show', post.id)"
         >
@@ -14,6 +12,8 @@
                                 class="avatar rounded-full avatar w-10 h-10"
                                 alt="avatar"
                             />
+
+
 
                             <div>
                                 <p class="ml-2">
@@ -40,6 +40,14 @@
                     <p class="text-xl px-2">
                         {{ post.body }}
                     </p>
+
+                    <div v-if="post.image">
+                        <img
+                            :src="showImage() +  post.image"
+                            class="avatar  avatar w-full h-full"
+                            alt="avatar"
+                        />
+                    </div>
 
                     <!--                LIKES   -->
                     <inertia-link preserve-scroll
@@ -154,7 +162,6 @@ import Dislike from "@/Components/Dislike";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import CombinedComments from "@/Components/CombinedComments";
 import PostForm from "@/Components/PostForm";
-import Input from "@/Components/Input";
 
 export default {
     name: "Post",
@@ -193,9 +200,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
+

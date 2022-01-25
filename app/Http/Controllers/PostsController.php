@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\SomeonePostedEvent;
+use App\Http\Requests\StoreImage;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Post;
@@ -37,8 +38,10 @@ class PostsController extends Controller
     }
 
 
-    public function store()
+    public function store(StoreImage $request)
     {
+
+
         $attributes = request()->validate([
             'body' => 'required|max:255',
             'image' => 'nullable|image',
@@ -46,9 +49,18 @@ class PostsController extends Controller
                 $query->where('user_id', Auth::user()->id);
             })],
         ]);
+
+        $image_path = '';
+
+        if ($request->hasFile('image')) {
+            $image_path = $request->file('image')->store('post', 'public');
+        }
+
+
         Post::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body'],
+            'image' => $image_path,
 //            'image'=> $imagePath,
         ]);
         $user = User::where('id', auth()->id())->first();

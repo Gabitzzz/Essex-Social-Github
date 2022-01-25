@@ -1,24 +1,30 @@
 <template>
-    <div class="bg-gray-100">
+<div class="">
+    <div class="bg-gray-100" style="    min-height: 100vh;
+">
         <Nav></Nav>
 
         <div class=" ">
             <!-- Page Heading -->
-            <header class=" shadow" v-if="$slots.header">
+            <header class="shadow" v-if="$slots.header">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <slot name="header"/>
                 </div>
             </header>
 
             <!-- Page Content -->
-            <main>
-                <slot/>
+            <main class="">
+                <div>
+                    <slot/>
+
+                </div>
             </main>
         </div>
     </div>
     <div class="sm:hidden md:block">
         <Tab></Tab>
     </div>
+</div>
 </template>
 
 <script>
@@ -53,6 +59,12 @@ export default {
         }
     },
 }
+
 </script>
+
+<style>
+
+
+</style>
 
 

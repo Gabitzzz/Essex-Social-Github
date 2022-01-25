@@ -98,90 +98,19 @@
                 </div>
 
                 <!--    FEED    -->
-                <div v-show="feed" class="py-2 mx-2">
-                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-                        <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
-                            <h1 class="text-3xl text-white px-6 py-4 ">
+                <div v-show="feed" class="py-2">
+                    <div class="mx-auto mx-2 sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+                        <div class=" feed overflow-hidden shadow-sm rounded-xl shadow-xl mx-1">
+                            <h1 class="text-3xl text-white px-6 py-4">
                                 FEED
                             </h1>
                         </div>
                     </div>
 
                     <div class="pb-20 mt-4">
-                        <div v-for="post in posts" :posts="posts">
-                            <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 my-4">
-                                <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-                                    <div class="flex">
-                                        <div class="flex justify-items-start mx-4 mt-4 mb-2 ">
-                                            <p class="mt-2 ml-2">
-                                                {{ post.user.username }}
-                                            </p>
-                                        </div>
-                                        <inertia-link preserve-scroll
-                                                      v-if="post.user.id === $page.props.auth.user.id"
-                                                      class="mt-2"
-                                                      as="button"
-                                                      :href="route('posts.edit', post.id)"
-                                        >
-                                            ...
-                                        </inertia-link>
-                                    </div>
-
-                                    <div class="px-4 pb-4 border-b border-gray-200">
-                                        <p class="text-xl px-4 py-2">
-                                            {{ post.body }}
-                                        </p>
-
-                                        <!--      LIKES-->
-                                        <div class="flex text-xs">
-                                            <div v-if="post.likes.length === 0">
-                                            </div>
-
-                                            <div v-else-if="post.likes.length === 1">
-                                                {{ post.likes.length }} Like &nbsp;
-                                            </div>
-
-                                            <div v-else>
-                                                {{ post.likes.length }} Likes &nbsp;
-                                            </div>
-
-                                            <!--                DISLIKES    -->
-                                            <div v-if="post.dislikes.length === 0">
-                                            </div>
-
-                                            <div v-else-if="post.dislikes.length === 1">
-                                                {{ post.dislikes.length }} Dislike &nbsp;
-                                            </div>
-
-                                            <div v-else>
-                                                {{ post.dislikes.length }} Dislikes &nbsp;
-                                            </div>
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="flex justify-between">
-                                            <div class="flex justify-self-star mt-2">
-                                                <p class="mt-2 ml-2">
-                                                    {{ $page.props.auth.user.username }}
-                                                </p>
-                                            </div>
-
-                                            <div class="flex justify-end mt-4">
-                                                <div class="flex">
-                                                    <Like :post="post"></Like>
-                                                    <Dislike :post="post" class="ml-1"></Dislike>
-                                                    <!--    COMMENTS   -->
-                                                    <InertiaLink :href="route('post.show', post.id)" :post="post.id"
-                                                                 class="ml-1  h-6 w-6 rounded-full bg-blue-400">
-                                                    </InertiaLink>
-                                                    <!--    COMMENTS   -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div v-for="post in posts">
+                            <div v-if="$page.props.auth.user === $page.props.posts.user_id"></div>
+                            <Post :post="post" ></Post>
                         </div>
                     </div>
                 </div>
@@ -226,17 +155,6 @@
                         </div>
                     </div>
 
-<!--                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 mt-5">-->
-<!--                        <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">-->
-<!--                            <div class="p-6 border-b border-gray-200">-->
-<!--                                <p>-->
-<!--                                    <strong>Username:</strong> {{ $page.props.user.username }}-->
-<!--                                </p>-->
-<!--                                <p>-->
-<!--                                    <strong>Name:</strong> {{ $page.props.user.name }}-->
-<!--                                </p>-->
-<!--                                <p>-->
-<!--                                    <strong>Email:</strong> {{ $page.props.user.email }}-->
 <!--                                </p>-->
 <!--                                <p>-->
 <!--                                    <strong>Description:</strong> {{ $page.props.user.description }}-->
@@ -259,6 +177,7 @@ import {InertiaLink} from "@inertiajs/inertia-vue3";
 import FollowButton from "@/Components/FollowButton";
 import Like from "@/Components/Like";
 import Dislike from "@/Components/Dislike";
+import Post from "@/Pages/Posts/Post";
 
 export default {
     name: "Show",
@@ -273,6 +192,7 @@ export default {
     props: {
         users: Array,
         user: Object,
+        post: Object,
         posts: Array,
         followers: Object,
         followings: Object,
@@ -287,6 +207,7 @@ export default {
         FollowButton,
         Like,
         Dislike,
+        Post,
     },
     methods: {
         showImage() {
