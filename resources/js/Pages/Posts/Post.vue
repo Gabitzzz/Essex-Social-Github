@@ -8,13 +8,10 @@
                     <inertia-link :href="route('profile', post.user.username)">
                         <div class="flex justify-items-start mx-2 mt-2 mb-2 ">
                             <img
-                                :src="showImage() + post.user.avatar"
+                                :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"
                                 class="avatar rounded-full avatar w-10 h-10"
                                 alt="avatar"
                             />
-
-
-
                             <div>
                                 <p class="ml-2">
                                     {{ post.user.username }}
@@ -36,15 +33,16 @@
                     </inertia-link>
                 </div>
 
-                <div class="px-2 pb-1 border-b border-gray-200">
-                    <p class="text-xl px-2">
+                <div class="px-2 border-b border-gray-200">
+                    <p class="text-xl px-2 py-2">
                         {{ post.body }}
                     </p>
 
-                    <div v-if="post.image">
+                    <div v-if="post.image" class="flex justify-center">
+
                         <img
                             :src="showImage() +  post.image"
-                            class="avatar  avatar w-full h-full"
+                            class="avatar w-2/3 h-2/3"
                             alt="avatar"
                         />
                     </div>
@@ -132,7 +130,7 @@
                             <!--                                         placeholder="Say something.."-->
                             <!--                                         required autofocus autocomplete="name"/>-->
 
-                            <div class="bg-white h-8 w-full rounded-full shadow-md mt-2 text-xs ml-2 mr-2 border border-gray-300">
+                            <div class="bg-white h-8 w-full rounded-full shadow-md m-2 text-xs  border border-gray-300">
                                 <p class="mt-2 ml-4 text-gray-700">
                                     say something
                                 </p>

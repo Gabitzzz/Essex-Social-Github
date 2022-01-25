@@ -40,6 +40,8 @@ class UsersController extends Controller
             'can' => [
                 'createUser' => Auth::user()->can('create', User::class)
             ],
+
+
         ]);
     }
 

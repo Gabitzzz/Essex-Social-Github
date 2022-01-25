@@ -6,6 +6,23 @@
                     <form @submit.prevent="submit">
                         <div class="p-8 mb-2 ">
                             <div>
+                                <div class="flex justify-center">
+
+                                    <img
+                                        v-if="!url"
+                                        :src="'/storage/' + $page.props.user.avatar "
+                                        class="avatar rounded-full avatar w-1/2 h-1/2"
+                                        alt="avatar"
+                                    />
+
+                                    <img
+                                        v-if="url"
+                                        :src="url"
+                                        class="avatar rounded-full avatar w-1/2 h-1/2"
+
+                                    />
+                                </div>
+
                                 <input
                                     type="file"
                                     @change="previewAvatar"
@@ -22,11 +39,8 @@
                                         focus:ring-blue-600
                                     "
                                 />
-                                <img
-                                    v-if="url"
-                                    :src="url"
-                                    class="w-full mt-4 h-80"
-                                />
+
+
                             </div>
 
 
@@ -114,6 +128,7 @@ export default {
     props: {
         username: Object,
         user: Object,
+        defaultSrc: String,
     },
     data() {
         return {
@@ -124,7 +139,7 @@ export default {
                 email: this.user.email,
                 description: this.user.description,
                 password: null,
-                avatar: null,
+                avatar: this.user.avatar,
                 _method: 'PUT',
             }),
         }

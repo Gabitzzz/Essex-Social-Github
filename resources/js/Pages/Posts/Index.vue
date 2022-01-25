@@ -17,7 +17,6 @@
                                     alt="avatar"
                                 />
 
-
                                 <div>
                                     <p class="ml-2">
                                         {{ post.user.username }}
@@ -40,14 +39,14 @@
                     </div>
 
                     <div class="px-2 pb-1 border-b border-gray-200">
-                        <p class="text-xl px-2">
+                        <p class="text-xl px-2 py-2">
                             {{ post.body }}
                         </p>
 
-                        <div v-if="post.image">
+                        <div v-if="post.image" class="flex justify-center">
                             <img
                                 :src="showImage() +  post.image"
-                                class="avatar  avatar w-full h-full"
+                                class="avatar  avatar w-2/3 h-2/3"
                                 alt="avatar"
                             />
                         </div>
@@ -202,12 +201,21 @@ export default {
     },
     data() {
         return {
+            imageError: false,
+            defaultImage: require("/storage/default-avatar.png"),
+
             avatar: avatar,
             form: this.$inertia.form({
                 body: null,
             }),
         }
     },
+    computed: {
+        creatorImage() {
+            return this.imageError ? this.defaultImage : '/storage/default-avatar.png';
+        }
+    },
+
     methods: {
         submit() {
             this.form.post(this.route('comments.store', this.post), {
