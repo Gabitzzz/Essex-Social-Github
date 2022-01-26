@@ -35,6 +35,8 @@
 
             </div>
 
+
+
             <!--                <div class="sm:w-1/3 md:w-3/12 mt-5 sm:mt-0 rounded flex flex-wrap overflow-hidden ">-->
             <!--                    <div class="w-1/6 sm:w-1/3 md:w-1/3 2xl:w-1/6 ">-->
             <!--                        &lt;!&ndash; Column Content &ndash;&gt;-->
@@ -207,6 +209,36 @@
                     </h1>
                 </div>
             </div>
+
+            <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+
+                <div class=" grid grid-cols-3 gap-4 content-center ...">
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+                        <a :href="route('posts.create', $page.props.auth.user.username )"
+                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+                        >
+                            <img :src="post" width="40" height="40" class="inline-block" alt="plus">
+                        </a>
+                    </div>
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+
+                        <a :href="route('party.create', $page.props.auth.user.username )"
+                           class="w-full  justify-center inline-block text-center pt-2 pb-1"
+                        >
+                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">
+                        </a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+                        <a :href="route('posts.create', $page.props.auth.user.username )"
+                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+                        >
+                            <img :src="event" width="40" height="40" class="inline-block" alt="plus">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </BreezeAuthenticatedLayout>
 </template>
@@ -226,6 +258,9 @@ import leap from "/img/Dashboard/leap.jpeg";
 import faser from "/img/Dashboard/faser2.png";
 import shutdown from "/img/Dashboard/shutdown.png";
 import listen_again from "/img/Dashboard/listen_again.png";
+import post from "/img/Posts/post.png"
+import party from "/img/Posts/party.png"
+import event from "/img/Posts/event.png"
 
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 
@@ -245,6 +280,9 @@ export default {
             faser: faser,
             listen_again: listen_again,
             shutdown: shutdown,
+            post:post,
+            party: party,
+            event: event,
         };
     },
     methods: {
