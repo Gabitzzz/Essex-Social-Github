@@ -7,7 +7,6 @@
                         <div class="p-8 mb-2 ">
                             <div>
                                 <div class="flex justify-center">
-
                                     <img
                                         v-if="!url"
                                         :src="'/storage/' + $page.props.user.avatar "

@@ -2,8 +2,9 @@
 
 
     <BreezeAuthenticatedLayout>
+    <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
 
-        <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+    <!--        <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">-->
             <inertia-link preserve-scroll
                           :href="route('post.show', post.id)"
             >
@@ -123,8 +124,6 @@
                                 </div>
 
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -132,8 +131,7 @@
 
             </inertia-link>
 
-            <div class="mx-2 max-2    rounded-xl ">
-
+            <div class="mx-2 max-2 rounded-xl ">
                 <form @submit.prevent="submit" class="w-full">
                     <div class="flex mt-5">
 <!--                        <img-->

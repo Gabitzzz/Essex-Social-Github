@@ -1,6 +1,6 @@
 <template>
 <div class="">
-    <div class="bg-gray-100" style="    min-height: 100vh;
+    <div class="bg-gray-100" style="min-height: 100vh;
 ">
         <Nav></Nav>
 
@@ -16,7 +16,6 @@
             <main class="">
                 <div>
                     <slot/>
-
                 </div>
             </main>
         </div>
@@ -62,7 +61,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
 
 </style>

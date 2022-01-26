@@ -67,6 +67,11 @@ Route::get('/posts/{post}/delete', [\App\Http\Controllers\PostsController::class
     ->name('posts.destroy')
     ->middleware('auth');
 
+// PARTIES
+Route::get('create-party', [\App\Http\Controllers\PartyController::class, 'create'])
+    ->middleware('auth')
+    ->name('party.create');
+
 
 //  USERS
 Route::get('/users/{user:username}', [\App\Http\Controllers\UsersController::class, 'index'])

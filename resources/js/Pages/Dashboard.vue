@@ -5,9 +5,10 @@
         <div class="py-2 mx-2 mb-20">
             <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
-                    <h1 class="text-4xl px-2 py-2" style="font-family: 'Inter', sans-serif;">
+                    <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                         <!--                        DASHBOARD-->
-                        Welcome, {{ $page.props.auth.user.username }}
+                        Welcome {{ $page.props.auth.user.username }}
+
                     </h1>
                 </div>
             </div>
@@ -144,63 +145,7 @@
                 </div>
             </div>
 
-
-            <!--            6 A ROW -->
-            <!--            <div class=" flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">-->
-
-            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-            <!--                    <div class="mx-1 max-2 overflow-hidden rounded-xl bg-gray-200 border border-gray-300">-->
-            <!--                        <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300 ">-->
-            <!--                        <img :src="leap" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden  rounded-xl border border-gray-300">-->
-            <!--                        <img :src="faser" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">-->
-
-            <!--                        <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
-
-
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                <div class="mt-5 w-1/3 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">-->
-
-            <!--                        &lt;!&ndash;                        <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">&ndash;&gt;-->
-            <!--                        <img src="https://img.icons8.com/color/480/000000/compass&#45;&#45;v2.png"/>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                <div class="mt-5 w-1/6 overflow-hidden sm:w-1/3 xl:w-2/12">-->
-            <!--                    &lt;!&ndash; Column Content &ndash;&gt;-->
-            <!--                    <div class="mx-1 max-2 bg-gray-200 overflow-hidden rounded-xl border border-gray-300  ">-->
-
-            <!--                        <img :src="shutdown" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">-->
-
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-
-
             <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-
                 <div
                     id="scrollContainer"
                     class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-8 mb-8 hide-scroll-bar"
@@ -255,17 +200,14 @@
                     </div>
                 </div>
 
-
-                <div class="mt-6 max-2 overflow-hidden rounded-xl font-bold">
-                    <h1 class="text-4xl px-2 py-2"  style="font-family: 'Inter', sans-serif;">
+                <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
+                    <h1 class="text-4xl px-2 py-2"  style="font-family: 'Poppins', sans-serif;">
                         <!--                        DASHBOARD-->
                         Activity
                     </h1>
                 </div>
             </div>
         </div>
-
-
     </BreezeAuthenticatedLayout>
 </template>
 

@@ -9,7 +9,7 @@
                         <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                             <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                                 <!--                        DASHBOARD-->
-                                Create New Post
+                                Create New Party
                             </h1>
                         </div>
 
@@ -57,14 +57,14 @@
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
 
                 <div class=" grid grid-cols-3 gap-4 content-center ...">
-                    <div class="bg-white rounded-2xl bg-gray-300">
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
                         <a :href="route('posts.create', $page.props.auth.user.username )"
                            class="w-full justify-center inline-block text-center pt-2 pb-1"
                         >
                             <img :src="post" width="40" height="40" class="inline-block" alt="plus">
                         </a>
                     </div>
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+                    <div class="bg-white rounded-2xl bg-gray-300">
 
                         <a :href="route('party.create', $page.props.auth.user.username )"
                            class="w-full  justify-center inline-block text-center pt-2 pb-1"
