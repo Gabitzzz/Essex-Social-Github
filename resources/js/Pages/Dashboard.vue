@@ -74,7 +74,7 @@
             <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div
                     id="scrollContainer"
-                    class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-8 mb-8 hide-scroll-bar"
+                    class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-10 hide-scroll-bar"
                 >
                     <div class="inline-block px-2">
                         <div
@@ -146,7 +146,6 @@
                         </a>
                     </div>
                     <div class="bg-white rounded-2xl hover:bg-gray-300">
-
                         <a :href="route('party.create', $page.props.auth.user.username )"
                            class="w-full  justify-center inline-block text-center pt-2 pb-1"
                         >
@@ -179,11 +178,6 @@
                     </div>
 
                     <div class="bg-white rounded-2xl hover:bg-gray-300">
-<!--                        <a :href="route('logout', $page.props.auth.user.username )"-->
-<!--                           class=""-->
-<!--                        >-->
-<!--                        </a>-->
-
                         <form @submit.prevent="signout()">
                             <button as="button"
                                     type="submit" class="w-full justify-center inline-block text-center pt-2 pb-1">
@@ -191,6 +185,39 @@
                             </button>
                         </form>
                     </div>
+
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+                        <a :href="route('explore')"
+                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+                        >
+                            <img :src="explore" width="40" height="40" class="inline-block" alt="plus">
+                        </a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+                        <a :href="route('posts.create', $page.props.auth.user.username )"
+                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+                        >
+                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">
+                        </a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+                        <form @submit.prevent="signout()">
+                            <button as="button"
+                                    type="submit" class="w-full justify-center inline-block text-center pt-2 pb-1">
+                                <img :src="explore" width="40" height="40" class="inline-block" alt="plus">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="mt-10 max-2 overflow-hidden rounded-xl font-bold">
+                    <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                        <!--                        DASHBOARD-->
+                        Events
+                    </h1>
                 </div>
             </div>
 

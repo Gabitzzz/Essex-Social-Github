@@ -6,14 +6,14 @@
             <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                 <div class="flex">
                     <inertia-link :href="route('profile', post.user.username)">
-                        <div class="flex justify-items-start mx-2 mt-2 mb-2 ">
+                        <div class="flex justify-items-start m-2">
                             <img
                                 :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"
-                                class="avatar rounded-full avatar w-10 h-10"
+                                class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
                                 alt="avatar"
                             />
                             <div>
-                                <p class="ml-2">
+                                <p class="ml-2 mt-2">
                                     {{ post.user.username }}
                                 </p>
                                 <span class="italic ml-2 align-text-top" style="font-size: 10px;">
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="px-2 border-b border-gray-200">
-                    <p class="text-xl px-2 py-2">
+                    <p class="text-sm px-4">
                         {{ post.body }}
                     </p>
 
@@ -53,7 +53,7 @@
                                   as="button"
                                   :href="route('likes.toggle', post.id)"
                     >
-                        <div class="flex text-xs">
+                        <div class="flex text-xs px-4 mt-2">
                             <div v-if="post.likes.length === 0">
 
                             </div>
