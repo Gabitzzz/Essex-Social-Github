@@ -94,9 +94,9 @@ import BreezeInput from '@/Components/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {useForm} from "@inertiajs/inertia-vue3";
-import post from "/img/Posts/post.png"
-import party from "/img/Posts/party.png"
-import event from "/img/Posts/event.png"
+import post from "/img/Posts/post.png";
+import party from "/img/Posts/party.png";
+import event from "/img/Posts/event.png";
 
 
 export default {

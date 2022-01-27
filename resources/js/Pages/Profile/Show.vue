@@ -107,36 +107,38 @@
                         </div>
                     </div>
 
-                    <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+<!--                    ADD TAB         -->
+                    <div v-if="$page.props.auth.user.id === $page.props.user.id">
+                        <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
 
-                        <div class=" grid grid-cols-3 gap-4 content-center ...">
-                            <div class="bg-white rounded-2xl hover:bg-gray-300">
-                                <a :href="route('posts.create', $page.props.auth.user.username )"
-                                   class="w-full justify-center inline-block text-center pt-2 pb-1"
-                                >
-                                    <img :src="post_img" width="40" height="40" class="inline-block" alt="plus">
-                                </a>
-                            </div>
-                            <div class="bg-white rounded-2xl hover:bg-gray-300">
+                            <div class=" grid grid-cols-3 gap-4 content-center ...">
+                                <div class="bg-white rounded-2xl hover:bg-gray-300">
+                                    <a :href="route('posts.create', $page.props.auth.user.username )"
+                                       class="w-full justify-center inline-block text-center pt-2 pb-1"
+                                    >
+                                        <img :src="post_img" width="40" height="40" class="inline-block" alt="plus">
+                                    </a>
+                                </div>
+                                <div class="bg-white rounded-2xl hover:bg-gray-300">
 
-                                <a :href="route('party.create', $page.props.auth.user.username )"
-                                   class="w-full  justify-center inline-block text-center pt-2 pb-1"
-                                >
-                                    <img :src="party" width="40" height="40" class="inline-block" alt="plus">
-                                </a>
-                            </div>
+                                    <a :href="route('party.create', $page.props.auth.user.username )"
+                                       class="w-full  justify-center inline-block text-center pt-2 pb-1"
+                                    >
+                                        <img :src="party" width="40" height="40" class="inline-block" alt="plus">
+                                    </a>
+                                </div>
 
-                            <div class="bg-white rounded-2xl hover:bg-gray-300">
-                                <a :href="route('posts.create', $page.props.auth.user.username )"
-                                   class="w-full justify-center inline-block text-center pt-2 pb-1"
-                                >
-                                    <img :src="event" width="40" height="40" class="inline-block" alt="plus">
-                                </a>
+                                <div class="bg-white rounded-2xl hover:bg-gray-300">
+                                    <a :href="route('posts.create', $page.props.auth.user.username )"
+                                       class="w-full justify-center inline-block text-center pt-2 pb-1"
+                                    >
+                                        <img :src="event" width="40" height="40" class="inline-block" alt="plus">
+                                    </a>
+                                </div>
                             </div>
                         </div>
+
                     </div>
-
-
 
                     <div class="pb-20 mt-4">
                         <div v-for="post in posts">

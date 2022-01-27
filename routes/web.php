@@ -29,7 +29,7 @@ Route::get('/', function () {
 });
 
 
-Route::delete('logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
+Route::delete('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 
 
