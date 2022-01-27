@@ -29461,7 +29461,7 @@ var _withScopeId = function _withScopeId(n) {
 };
 
 var _hoisted_1 = {
-  "class": "py-2 mx-2"
+  "class": "py-2 mx-2 pb-32"
 };
 var _hoisted_2 = {
   "class": "mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96"
@@ -30272,7 +30272,7 @@ var _hoisted_9 = {
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ADD POST ");
 
 var _hoisted_11 = {
-  "class": "mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96"
+  "class": "mx-2 sm:mx-16 md:mx-24 pb-24 lg:mx-72 xl:mx-96"
 };
 var _hoisted_12 = {
   "class": "grid grid-cols-3 gap-4 content-center ..."

@@ -80,7 +80,7 @@
                 </div>
             </form>
 
-            <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+            <div class="mx-2 sm:mx-16 md:mx-24 pb-24 lg:mx-72 xl:mx-96">
 
                 <div class=" grid grid-cols-3 gap-4 content-center ...">
                     <div class="bg-white rounded-2xl hover:bg-gray-300">
