@@ -55,6 +55,7 @@ export default {
             unreadNotifications: this.$page.props.auth.unreadNotifications,
             readNotifications: this.$page.props.auth.readNotifications,
             notifications: this.$page.props.auth.notifications,
+
         }
     },
 }

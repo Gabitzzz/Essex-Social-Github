@@ -47,6 +47,8 @@ class HandleInertiaRequests extends Middleware
                 'readNotifications' => request()->user()->readNotifications,
                 'unreadNotifications' => request()->user()->unreadNotifications,
                 'user' => $user,
+//                'followers' => request()->user()->followers,
+//                'followings' => request()->user()->followings,
             ] : null;
             }
         ]);

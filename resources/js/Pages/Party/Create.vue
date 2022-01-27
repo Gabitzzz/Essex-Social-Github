@@ -46,7 +46,33 @@
                     </div>
                 </div>
 
-                <div class=" mb-20 grid justify-items-center">
+                <!--                <Calendar />-->
+                <!--                <DatePicker v-model="date" />-->
+                <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+
+                    <DatePicker v-model="date" mode="dateTime" is-expanded/>
+
+                    <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
+                        <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                            <!--                        DASHBOARD-->
+                            Invite people
+                        </h1>
+                    </div>
+
+                    <div v-for="follower in $page.props.followers.data" :key="follower.id" >
+
+                        <inertia-link class="px-6 py-4 flex items-center" :href="route('profile', follower.username)" tabindex="-1">
+                            {{ follower.name }}
+                        </inertia-link>
+                    </div>
+
+                    <pagination class="mt-6" :links="followers.links" />
+
+                </div>
+
+
+
+                <div class=" mb-10 grid justify-items-center">
                     <loading-button :loading="form.processing"
                                     class="button px-8 py-2 " type="submit">
                         ADD POST
@@ -93,10 +119,13 @@ import LoadingButton from "@/Components/LoadingButton";
 import BreezeInput from '@/Components/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import {useForm} from "@inertiajs/inertia-vue3";
-import post from "/img/Posts/post.png"
-import party from "/img/Posts/party.png"
-import event from "/img/Posts/event.png"
+import post from "/img/Posts/post.png";
+import party from "/img/Posts/party.png";
+import event from "/img/Posts/event.png";
+import Datepicker from 'vuejs-datepicker';
+import {Calendar, DatePicker} from 'v-calendar';
+import Pagination from '@/Components/Pagination';
+import {InertiaLink} from "@inertiajs/inertia-vue3";
 
 
 export default {
@@ -109,12 +138,15 @@ export default {
         TextInput,
         LoadingButton,
         BreezeInput,
-        BreezeLabel
+        BreezeLabel,
+        Calendar,
+        DatePicker,
+        Pagination,
+        InertiaLink,
     },
     props: {
-        posts: Object,
-        user: Object,
-
+        // users: Object,
+        followers: Object,
     },
 
     data() {
@@ -130,6 +162,7 @@ export default {
                 image: null,
 
             }),
+            date: new Date(),
         }
     },
 

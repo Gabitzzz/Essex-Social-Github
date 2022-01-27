@@ -28,6 +28,8 @@
         "webpack": "^5.63.0"
     },
     "dependencies": {
-        "@innologica/vue-dropdown-menu": "^0.1.4"
+        "@innologica/vue-dropdown-menu": "^0.1.4",
+        "v-calendar": "^3.0.0-alpha.6",
+        "vuejs-datepicker": "^1.6.2"
     }
 }

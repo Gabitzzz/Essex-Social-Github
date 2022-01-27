@@ -115,7 +115,6 @@ export default {
             plus: plus,
             notification: notification,
             unreadNotifications: this.$page.props.auth.unreadNotifications,
-
         }
     },
     methods:{
