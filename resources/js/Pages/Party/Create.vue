@@ -13,9 +13,14 @@
                             </h1>
                         </div>
 
-                        <BreezeInput id="body" type="text" class="mt-1 pb-10 block w-full bg-gray-100 "
+                        <BreezeInput id="body" type="text" class="mt-1 block w-full bg-gray-100 " style="border: none !important;"
+                                     v-model="form.title"
+                                     placeholder="Title of the party"
+                                     required autofocus autocomplete="name"/>
+
+                        <BreezeInput id="body" type="text" class="mt-1 pb-10 block w-full bg-gray-100 " style="border: none !important;"
                                      v-model="form.body"
-                                     placeholder="Add new post"
+                                     placeholder="Add a description"
                                      required autofocus autocomplete="name"/>
                     </div>
                 </div>
@@ -29,7 +34,6 @@
                                         px-4
                                         py-2
                                         mt-2
-                                        border
                                         rounded-md
                                         focus:outline-none
                                         focus:ring-1
@@ -50,7 +54,7 @@
                 <!--                <DatePicker v-model="date" />-->
                 <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
 
-                    <DatePicker v-model="date" mode="dateTime" is-expanded/>
+                    <DatePicker v-model="form.date" mode="dateTime" is-expanded/>
 
                     <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                         <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
@@ -66,7 +70,7 @@
                         </inertia-link>
                     </div>
 
-                    <pagination class="mt-6" :links="followers.links" />
+<!--                    <pagination class="mt-6" :links="followers.links" />-->
 
                 </div>
 
@@ -160,6 +164,8 @@ export default {
             form: this.$inertia.form({
                 body: null,
                 image: null,
+                title: null,
+                date: null,
 
             }),
             date: new Date(),
@@ -174,7 +180,7 @@ export default {
                 this.form.image = this.$refs.photo.files[0];
             }
 
-            this.form.post(this.route('posts.store'))
+            this.form.post(this.route('party.store'))
         },
 
         previewAvatar(e) {

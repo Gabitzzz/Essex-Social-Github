@@ -47,7 +47,7 @@ Route::get('create-post', [PostsController::class, 'create'])
     ->middleware('auth')
     ->name('posts.create');
 
-Route::post('add', [PostsController::class, 'store'])
+Route::post('add-post', [PostsController::class, 'store'])
     ->middleware('auth')
     ->name('posts.store');
 
@@ -72,6 +72,13 @@ Route::get('create-party', [\App\Http\Controllers\PartyController::class, 'creat
     ->middleware('auth')
     ->name('party.create');
 
+Route::get('/parties', [\App\Http\Controllers\PartyController::class, 'index'])
+    ->middleware('auth')
+    ->name('party.show');
+
+Route::post('add-party', [\App\Http\Controllers\PartyController::class, 'store'])
+    ->middleware('auth')
+    ->name('party.store');
 
 //  USERS
 Route::get('/users/{user:username}', [\App\Http\Controllers\UsersController::class, 'index'])
