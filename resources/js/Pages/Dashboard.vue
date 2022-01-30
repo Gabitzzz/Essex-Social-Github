@@ -2,7 +2,7 @@
     <Head title="Dashboard"/>
 
     <BreezeAuthenticatedLayout>
-        <div class="py-2 mx-2 pb-32">
+        <div class="mx-2 pb-32">
             <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
@@ -170,27 +170,20 @@
                     </div>
 
                     <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <a :href="route('posts.create', $page.props.auth.user.username )"
+                        <InertiaLink :href="route('party.show')"
                            class="w-full justify-center inline-block text-center pt-2 pb-1"
                         >
-                            <img :src="event" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
+                            <img :src="partylogo" width="40" height="40" class="inline-block" alt="plus">
+                        </InertiaLink>
                     </div>
 
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <form @submit.prevent="signout()">
-                            <button as="button"
-                                    type="submit" class="w-full justify-center inline-block text-center pt-2 pb-1">
-                                <img :src="logout" width="40" height="40" class="inline-block" alt="plus">
-                            </button>
-                        </form>
-                    </div>
+
 
                     <div class="bg-white rounded-2xl hover:bg-gray-300">
                         <a :href="route('explore')"
                            class="w-full justify-center inline-block text-center pt-2 pb-1"
                         >
-                            <img :src="explore" width="40" height="40" class="inline-block" alt="plus">
+                            <img :src="eventlogo" width="40" height="40" class="inline-block" alt="plus">
                         </a>
                     </div>
 
@@ -210,6 +203,15 @@
                             </button>
                         </form>
                     </div>
+
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+                        <form @submit.prevent="signout()">
+                            <button as="button"
+                                    type="submit" class="w-full justify-center inline-block text-center pt-2 pb-1">
+                                <img :src="logout" width="40" height="40" class="inline-block" alt="plus">
+                            </button>
+                        </form>
+                    </div>
                 </div>
 
 
@@ -219,6 +221,8 @@
                         Events
                     </h1>
                 </div>
+
+
             </div>
 
         </div>
@@ -230,6 +234,7 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {Head} from '@inertiajs/inertia-vue3';
 import plus from "/img/Tab/plus.png";
 import search from "/img/Tab/search.png";
+import partylogo from "/img/Tab/partypeople.png";
 import essex_sport from "/img/Dashboard/essex-sports.png";
 import essex_food from "/img/Dashboard/essex_food.png";
 import su from "/img/Dashboard/su2.png";
@@ -244,6 +249,7 @@ import party from "/img/Posts/party.png";
 import event from "/img/Posts/event.png";
 import explore from "/img/Tab/explore.png";
 import logout from "/img/Tab/logout.png";
+import eventlogo from "/img/Tab/eventlogo.png";
 
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 
@@ -267,6 +273,8 @@ export default {
             party: party,
             event: event,
             explore: explore,
+            partylogo: partylogo,
+            eventlogo: eventlogo,
         };
     },
     methods: {
