@@ -1,9 +1,9 @@
 <template>
 
 
-
-
-    <!--        <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">-->
+    <BreezeAuthenticatedLayout>
+        <div class="mt-5">
+            <!--        <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">-->
             <inertia-link preserve-scroll
                           :href="route('post.show', post.id)"
             >
@@ -133,11 +133,11 @@
             <div class="mx-2 max-2 rounded-xl ">
                 <form @submit.prevent="submit" class="w-full">
                     <div class="flex mt-5">
-<!--                        <img-->
-<!--                            :src="showImage() + $page.props.auth.user.avatar"-->
-<!--                            class="avatar rounded-full avatar md:ml-4 mr-1 md:mr-2 w-10 h-10"-->
-<!--                            alt="avatar"-->
-<!--                        />-->
+                        <!--                        <img-->
+                        <!--                            :src="showImage() + $page.props.auth.user.avatar"-->
+                        <!--                            class="avatar rounded-full avatar md:ml-4 mr-1 md:mr-2 w-10 h-10"-->
+                        <!--                            alt="avatar"-->
+                        <!--                        />-->
 
                         <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"
                                      placeholder="Say something.."
