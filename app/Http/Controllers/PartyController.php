@@ -13,11 +13,13 @@ use Inertia\Inertia;
 
 class PartyController extends Controller
 {
-    public function index()
+    public function index(User $user)
     {
         $parties = Party::select('parties.*')->latest()->get()->all();
         return Inertia::render('Party/Index', [
-            'parties' => $parties
+            'parties' => $parties,
+
+
         ]);
     }
 
@@ -50,7 +52,7 @@ class PartyController extends Controller
         $image_path = '';
 
         if ($request->hasFile('partyImg')) {
-            $image_path = $request->file('partyImg')->store('post', 'public');
+            $image_path = $request->file('partyImg')->store('party', 'public');
         }
 
 

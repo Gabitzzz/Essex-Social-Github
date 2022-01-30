@@ -73,13 +73,13 @@
                                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-black checked:border-black focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer">
 
                             <label class="form-check-label inline-block text-gray-800" for="defaultCheck1">
-                               PUBLIC
+                                PUBLIC
                             </label>
 
                         </div>
                         <div class="form-check form-check-inline ml-4">
                             <input
-                                v-model.number="typeOfTask"  type="radio" :value="2" id="scheduleCheck"
+                                v-model.number="typeOfTask" type="radio" :value="2" id="scheduleCheck"
                                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer">
 
                             <label class="form-check-label inline-block text-gray-800" for="scheduleCheck">
@@ -124,14 +124,13 @@
 
                         <div v-for="follower in $page.props.followers.data" :key="follower.id">
 
-                            <inertia-link class="px-6 py-4 flex items-center" :href="route('profile', follower.username)"
+                            <inertia-link class="px-6 py-4 flex items-center"
+                                          :href="route('profile', follower.username)"
                                           tabindex="-1">
                                 {{ follower.name }}
                             </inertia-link>
                         </div>
                     </div>
-
-
 
 
                     <!--                    <pagination class="mt-6" :links="followers.links" />-->
@@ -147,8 +146,8 @@
                 </div>
             </form>
 
+            <!--            ADD TAB     -->
             <div class="mx-2 sm:mx-16 md:mx-24 pb-24 lg:mx-72 xl:mx-96">
-
                 <div class=" grid grid-cols-3 gap-4 content-center ...">
                     <div class="bg-white rounded-2xl hover:bg-gray-300">
                         <a :href="route('posts.create', $page.props.auth.user.username )"
@@ -243,7 +242,6 @@ export default {
 
 
     methods: {
-
 
 
         submit() {
