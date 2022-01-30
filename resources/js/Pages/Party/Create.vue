@@ -9,7 +9,7 @@
                         <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                             <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                                 <!--                        DASHBOARD-->
-                                Create New Party
+                                Organize a party
                             </h1>
                         </div>
 
@@ -138,6 +138,7 @@
                 </div>
 
 
+
                 <div class=" mb-10 grid justify-items-center">
                     <loading-button :loading="form.processing"
                                     class="button px-8 py-2 " type="submit">
@@ -174,6 +175,7 @@
                     </div>
                 </div>
             </div>
+
         </BreezeAuthenticatedLayout>
     </div>
 </template>
@@ -192,7 +194,6 @@ import Datepicker from 'vuejs-datepicker';
 import {Calendar, DatePicker} from 'v-calendar';
 import Pagination from '@/Components/Pagination';
 import {InertiaLink} from "@inertiajs/inertia-vue3";
-
 
 export default {
     name: "Create",

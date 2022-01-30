@@ -11,6 +11,7 @@
                         </div>
 
                         <BreezeInput id="body" type="text" class="mt-1 pb-10 block w-full bg-gray-100 "
+                                     style="border: none !important;"
                                      v-model="form.body"
                                      placeholder="Add new post"
                                      required autofocus autocomplete="name"/>
@@ -32,6 +33,7 @@
                                         focus:ring-1
                                         focus:ring-blue-600
                                     "
+                        style="border: none !important;"
                     />
 
                     <div class="flex flex-col justify-center items-center">

@@ -105,45 +105,16 @@
                                 FEED
                             </h1>
                         </div>
-                    </div>
 
-<!--                    ADD TAB         -->
-                    <div v-if="$page.props.auth.user.id === $page.props.user.id">
-                        <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
-
-                            <div class=" grid grid-cols-3 gap-4 content-center ...">
-                                <div class="bg-white rounded-2xl hover:bg-gray-300">
-                                    <a :href="route('posts.create', $page.props.auth.user.username )"
-                                       class="w-full justify-center inline-block text-center pt-2 pb-1"
-                                    >
-                                        <img :src="post_img" width="40" height="40" class="inline-block" alt="plus">
-                                    </a>
-                                </div>
-                                <div class="bg-white rounded-2xl hover:bg-gray-300">
-
-                                    <a :href="route('party.create', $page.props.auth.user.username )"
-                                       class="w-full  justify-center inline-block text-center pt-2 pb-1"
-                                    >
-                                        <img :src="party" width="40" height="40" class="inline-block" alt="plus">
-                                    </a>
-                                </div>
-
-                                <div class="bg-white rounded-2xl hover:bg-gray-300">
-                                    <a :href="route('posts.create', $page.props.auth.user.username )"
-                                       class="w-full justify-center inline-block text-center pt-2 pb-1"
-                                    >
-                                        <img :src="event" width="40" height="40" class="inline-block" alt="plus">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
+                    <!--                    ADD TAB         -->
+                    <div v-if="$page.props.auth.user.id === $page.props.user.id" class="mt-4">
+                        <AddTab></AddTab>
                     </div>
 
                     <div class="pb-20 mt-4">
                         <div v-for="post in posts">
                             <div v-if="$page.props.auth.user === $page.props.posts.user_id"></div>
-                            <Post :post="post" ></Post>
+                            <Post :post="post"></Post>
                         </div>
                     </div>
                 </div>
@@ -188,15 +159,16 @@
                         </div>
                     </div>
 
-<!--                                </p>-->
-<!--                                <p>-->
-<!--                                    <strong>Description:</strong> {{ $page.props.user.description }}-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                                </p>-->
+                    <!--                                <p>-->
+                    <!--                                    <strong>Description:</strong> {{ $page.props.user.description }}-->
+                    <!--                                </p>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
                 </div>
+            </div>
             </div>
         </BreezeAuthenticatedLayout>
     </div>
@@ -214,6 +186,7 @@ import Post from "@/Pages/Posts/Post";
 import post_img from "/img/Posts/post.png";
 import party from "/img/Posts/party.png";
 import event from "/img/Posts/event.png";
+import AddTab from "@/Components/AddTab";
 
 export default {
     name: "Show",
@@ -247,6 +220,7 @@ export default {
         Like,
         Dislike,
         Post,
+        AddTab
     },
     methods: {
         showImage() {
