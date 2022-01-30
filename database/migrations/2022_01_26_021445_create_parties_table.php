@@ -19,7 +19,7 @@ class CreatePartiesTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->string('date');
-            $table->text('image')->nullable();
+            $table->text('partyImg')->nullable();
             $table->timestamps();
         });
     }

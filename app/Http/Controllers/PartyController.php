@@ -41,7 +41,7 @@ class PartyController extends Controller
             'body' => 'required|max:255',
             'title' => 'required|max:255',
             'date' => 'required|max:255',
-            'image' => 'nullable|image',
+            'partyImg' => 'nullable|image',
             'user_id' => ['nullable', Rule::exists('users', 'id')->where(function ($query) {
                 $query->where('user_id', Auth::user()->id);
             })],
@@ -49,8 +49,8 @@ class PartyController extends Controller
 
         $image_path = '';
 
-        if ($request->hasFile('image')) {
-            $image_path = $request->file('image')->store('post', 'public');
+        if ($request->hasFile('partyImg')) {
+            $image_path = $request->file('partyImg')->store('post', 'public');
         }
 
 
@@ -60,7 +60,7 @@ class PartyController extends Controller
             'title' => $attributes['title'],
             'body' => $attributes['body'],
             'date' => $attributes['date'],
-            'image' => $image_path,
+            'partyImg' => $image_path,
 //            'image'=> $imagePath,
         ]);
         $user = User::where('id', auth()->id())->first();

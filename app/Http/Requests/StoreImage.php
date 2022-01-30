@@ -27,6 +27,7 @@ class StoreImage extends FormRequest
             'avatar' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
             'cover' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
             'image' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
+            'partyImg' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
 
         ];
     }
