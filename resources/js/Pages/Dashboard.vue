@@ -6,10 +6,15 @@
             <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                        <!--                        DASHBOARD-->
                         Welcome {{ $page.props.auth.user.username }}
-
                     </h1>
+
+                    <p class="px-2  text-sm lg:text-md"
+                       style="font-weight:lighter;">
+                        This is your Dashboard. <br>
+                        Here you will find some shortcuts that will help you.
+                        <br>
+                    </p>
                 </div>
             </div>
 
@@ -126,7 +131,7 @@
                 </div>
 
                 <div class=" max-2 overflow-hidden rounded-xl font-bold">
-                    <h1 class="text-4xl px-2 pb-2" style="font-family: 'Poppins', sans-serif;">
+                    <h1 class="text-4xl px-2" style="font-family: 'Poppins', sans-serif;">
                         <!--                        DASHBOARD-->
                         Activity
                     </h1>
@@ -135,77 +140,6 @@
 
             <!--            TABS        -->
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96 ">
-
-<!--                <div class=" grid grid-cols-3 gap-4 content-center">-->
-<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
-<!--                        <a :href="route('posts.create', $page.props.auth.user.username )"-->
-<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
-<!--                        >-->
-<!--                            <img :src="post" width="40" height="40" class="inline-block" alt="plus">-->
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
-<!--                        <a :href="route('party.create', $page.props.auth.user.username )"-->
-<!--                           class="w-full  justify-center inline-block text-center pt-2 pb-1"-->
-<!--                        >-->
-<!--                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">-->
-<!--                        </a>-->
-<!--                    </div>-->
-
-<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
-<!--                        <a :href="route('posts.create', $page.props.auth.user.username )"-->
-<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
-<!--                        >-->
-<!--                            <img :src="event" width="40" height="40" class="inline-block" alt="plus">-->
-<!--                        </a>-->
-<!--                    </div>-->
-
-<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
-<!--                        <a :href="route('explore')"-->
-<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
-<!--                        >-->
-<!--                            <img :src="explore" width="40" height="40" class="inline-block" alt="plus">-->
-<!--                        </a>-->
-<!--                    </div>-->
-
-<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
-<!--                        <InertiaLink :href="route('party.show')"-->
-<!--                                     class="w-full justify-center inline-block text-center pt-2 pb-1"-->
-<!--                        >-->
-<!--                            <img :src="partylogo" width="40" height="40" class="inline-block" alt="plus">-->
-<!--                        </InertiaLink>-->
-<!--                    </div>-->
-
-
-<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
-<!--                        <a :href="route('explore')"-->
-<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
-<!--                        >-->
-<!--                            <img :src="eventlogo" width="40" height="40" class="inline-block" alt="plus">-->
-<!--                        </a>-->
-<!--                    </div>-->
-
-<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
-<!--                        <a :href="route('posts.create', $page.props.auth.user.username )"-->
-<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
-<!--                        >-->
-<!--                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">-->
-<!--                        </a>-->
-<!--                    </div>-->
-
-<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
-<!--                        <form @submit.prevent="signout()">-->
-<!--                            <button as="button"-->
-<!--                                    type="submit" class="w-full justify-center inline-block text-center pt-2 pb-1">-->
-<!--                                <img :src="explore" width="40" height="40" class="inline-block" alt="plus">-->
-<!--                            </button>-->
-<!--                        </form>-->
-<!--                    </div>-->
-
-
-<!--                </div>-->
-
-
                 <div
                     id="scrollContainer2"
                     class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mt-5  pb-5 hide-scroll-bar"
@@ -277,7 +211,7 @@
                 </div>
 
 
-                <div class="mt-10 max-2 overflow-hidden rounded-xl font-bold">
+                <div class=" max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                         <!--                        DASHBOARD-->
                         Events
