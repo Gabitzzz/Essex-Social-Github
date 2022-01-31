@@ -2,7 +2,7 @@
         <inertia-link preserve-scroll
                       :href="route('post.show', post.id)"
         >
-            <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+            <div class=" max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                 <div class="flex">
                     <inertia-link :href="route('profile', post.user.username)">
                         <div class="flex justify-items-start m-2">

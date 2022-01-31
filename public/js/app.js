@@ -27485,7 +27485,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "mx-2 mb-4 grid grid-cols-3 gap-4 content-center ..."
+  "class": "mb-4 grid grid-cols-3 gap-4 content-center ..."
 };
 var _hoisted_2 = {
   "class": "bg-white rounded-2xl hover:bg-gray-300"
@@ -29710,7 +29710,7 @@ var _withScopeId = function _withScopeId(n) {
 };
 
 var _hoisted_1 = {
-  "class": "mx-2 pb-16"
+  "class": "pb-16"
 };
 var _hoisted_2 = {
   "class": "mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96"
@@ -31798,7 +31798,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md"
+  "class": "max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md"
 };
 var _hoisted_2 = {
   "class": "flex"
@@ -32395,10 +32395,10 @@ var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_32 = {
   key: 0,
-  "class": "mt-4"
+  "class": "mt-4 mx-2"
 };
 var _hoisted_33 = {
-  "class": "pb-20 mt-4"
+  "class": "pb-20 mt-4 mx-2"
 };
 var _hoisted_34 = {
   key: 0
@@ -32601,7 +32601,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         , ["post"])]);
       }), 256
       /* UNKEYED_FRAGMENT */
-      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("  GALLERY "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, _hoisted_37, 512
+      ))])])], 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.feed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("  GALLERY "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, _hoisted_37, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.gallery]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    ABOUT   "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [_hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [_hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.user.username), 1
       /* TEXT */
@@ -32611,11 +32613,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [_hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.user.description), 1
       /* TEXT */
-      )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                </p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                    <strong>Description:</strong> {{ $page.props.user.description }}"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                </p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>")], 512
+      )])])])])], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.about]])], 512
-      /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.feed]])])];
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.about]])])];
     }),
     _: 1
     /* STABLE */

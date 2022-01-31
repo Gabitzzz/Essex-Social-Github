@@ -4,7 +4,6 @@
             <div class="bg-gray-100">
                 <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                     <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
-
                         <div v-if="user.cover === null">
                             <img :src="cover" class="cover rounded-lg" alt="cover"
                                  style="min-height: 350px;">
@@ -116,16 +115,17 @@
                         </div>
 
                         <!--                    ADD TAB         -->
-                        <div v-if="$page.props.auth.user.id === $page.props.user.id" class="mt-4">
+                        <div v-if="$page.props.auth.user.id === $page.props.user.id" class="mt-4 mx-2">
                             <AddTab></AddTab>
                         </div>
 
-                        <div class="pb-20 mt-4">
+                        <div class="pb-20 mt-4 mx-2">
                             <div v-for="post in posts">
                                 <div v-if="$page.props.auth.user === $page.props.posts.user_id"></div>
                                 <Post :post="post"></Post>
                             </div>
                         </div>
+                    </div>
                     </div>
 
                     <!--  GALLERY -->
@@ -168,16 +168,9 @@
                             </div>
                         </div>
 
-                        <!--                                </p>-->
-                        <!--                                <p>-->
-                        <!--                                    <strong>Description:</strong> {{ $page.props.user.description }}-->
-                        <!--                                </p>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-                        <!--                    </div>-->
+
 
                     </div>
-                </div>
             </div>
         </BreezeAuthenticatedLayout>
     </div>
