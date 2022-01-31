@@ -40,8 +40,6 @@ class UsersController extends Controller
             'can' => [
                 'createUser' => Auth::user()->can('create', User::class)
             ],
-
-
         ]);
     }
 
@@ -56,9 +54,12 @@ class UsersController extends Controller
         ]);
 
         if ($request->hasFile('avatar')) {
-            $avatar_path = $request->file('postImage')->store('post', 'public');
+            $avatar_path = $request->file('avatar')->store('avatar', 'public');
         }
 
+        if ($request->hasFile('cover')) {
+            $cover_path = $request->file('cover')->store('cover', 'public');
+        }
 
         Auth::user()->account->users()->create([
             'name' => Request::get('name'),
@@ -66,40 +67,37 @@ class UsersController extends Controller
             'email' => Request::get('email'),
             'description' => Request::get('description'),
             'avatar' => $avatar_path,
+            'cover' => $cover_path,
             'password' => Request::get('password'),
         ]);
         return Redirect::route('profile');
     }
 
-    public function edit(User $user)
+    public function edit()
     {
         return Inertia::render('Profile/Edit', ['user' => auth()->user()]);
     }
 
     public function update(User $user, StoreImage $request)
     {
-
-//        if ($request->hasFile('avatar')) {
-//            $avatar_path = $request->file('avatar')->store('image', 'public');
-//        }
-
         $attributes = request()->validate([
-//            'avatar' => ['sometimes', 'max:1024'],
             'username' => ['required', 'max:50'],
             'name' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')->ignore($user->id)],
             'password' => ['required', 'max:50'],
-            'photo' => ['nullable', 'image'],
             'description' => ['nullable', 'max:250'],
             'avatar' => ['file'],
+            'cover' => ['file'],
         ]);
-
         if ($request->hasFile('avatar')) {
             $attributes['avatar'] = $request->file('avatar')
                 ->store('avatar', 'public');
-//            $user->update(['avatar' => $request->file('avatar')->storePublicly('image', 'public')]);
         }
 
+        if ($request->hasFile('cover')) {
+            $attributes['cover'] = $request->file('cover')
+                ->store('cover', 'public');
+        }
 
         $user->update($attributes);
         return Redirect::route('dashboard');
@@ -138,7 +136,6 @@ class UsersController extends Controller
             'users' => $query->paginate()->withQueryString(),
             'filters' => request()->all(['search', 'field', 'direction'])
         ]);
-
     }
 
 

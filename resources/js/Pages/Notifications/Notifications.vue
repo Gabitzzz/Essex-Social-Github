@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <NotificationItem v-for="unread in unreads"
                           :key="unread.id"
                           :unread="unread"
@@ -20,9 +21,10 @@
 
 <script>
 import NotificationItem from "@/Pages/Notifications/NotificationItem";
+
 export default {
     name: "Notifications",
-    components:{
+    components: {
         NotificationItem,
     },
     props: ['unreads', 'reads']

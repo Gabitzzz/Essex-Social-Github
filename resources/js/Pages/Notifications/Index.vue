@@ -1,6 +1,14 @@
 <template>
     <div>
         <BreezeAuthenticatedLayout>
+
+            <div class="mx-2 mt-5 max-2 overflow-hidden rounded-xl font-bold">
+                <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                    Notifications
+                </h1>
+            </div>
+
+
             <div class="py-2 mx-2 mb-20">
                 <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                     <div class="mt-4" v-if="unreadNotifications.length > 0">
@@ -32,7 +40,7 @@
 
             </div>
         </BreezeAuthenticatedLayout>
-    </div>
+    </div>v
 </template>
 
 <script>

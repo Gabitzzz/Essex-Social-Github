@@ -3,6 +3,12 @@
         <BreezeAuthenticatedLayout>
             <div class="bg-gray-100">
                 <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+
+                    <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
+                        <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                            Edit your Profile
+                        </h1>
+                    </div>
                     <form @submit.prevent="submit">
                         <div class="p-8 mb-2 ">
                             <div>
@@ -37,11 +43,49 @@
                                         focus:ring-1
                                         focus:ring-blue-600
                                     "
+
                                 />
 
 
                             </div>
 
+                            <!--                            UPLOAD COVER                -->
+                            <div>
+                                <div class="flex justify-center">
+                                    <img
+                                        v-if="!coverUrl"
+                                        :src="'/storage/' + $page.props.user.cover "
+                                        class="avatar rounded-full avatar w-1/2 h-1/2"
+                                        alt="cover"
+                                    />
+
+                                    <img
+                                        v-if="coverUrl"
+                                        :src="coverUrl"
+                                        class="cover rounded-full avatar w-1/2 h-1/2"
+
+                                    />
+                                </div>
+
+                                <input
+                                    type="file"
+                                    @change="previewCover"
+                                    ref="coverPhoto"
+                                    class="
+                                        w-full
+                                        px-4
+                                        py-2
+                                        mt-2
+                                        border
+                                        rounded-md
+                                        focus:outline-none
+                                        focus:ring-1
+                                        focus:ring-blue-600
+                                    "
+                                />
+
+
+                            </div>
 
                             <div>
                                 <BreezeLabel for="username" value="Username" class="flex items-center justify-center"/>
@@ -125,12 +169,11 @@ export default {
     },
     remember: 'form',
     props: {
-        username: Object,
         user: Object,
-        defaultSrc: String,
     },
     data() {
         return {
+            coverUrl: null,
             url: null,
             form: this.$inertia.form({
                 name: this.user.name,
@@ -139,6 +182,7 @@ export default {
                 description: this.user.description,
                 password: null,
                 avatar: this.user.avatar,
+                cover: this.user.cover,
                 _method: 'PUT',
             }),
         }
@@ -150,14 +194,24 @@ export default {
                 this.form.avatar = this.$refs.photo.files[0];
             }
 
+            if (this.$refs.coverPhoto) {
+                this.form.cover = this.$refs.coverPhoto.files[0];
+            }
+
 
             this.form.post(this.route('users.update', this.user.id), this.data, {
                 preserveState: (page) => Object.keys(($page.props.errors).length)
             });
         },
+
         previewAvatar(e) {
             const file = e.target.files[0];
             this.url = URL.createObjectURL(file);
+
+        },
+        previewCover(e) {
+            const file = e.target.files[0];
+            this.coverUrl = URL.createObjectURL(file);
 
         },
 
@@ -178,4 +232,3 @@ export default {
 }
 
 </style>
-

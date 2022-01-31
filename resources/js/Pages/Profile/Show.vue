@@ -4,8 +4,17 @@
             <div class="bg-gray-100">
                 <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                     <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
-                        <img :src="cover" class="cover rounded-lg" alt="cover"
-                             style="min-height: 350px;">
+
+                        <div v-if="user.cover === null">
+                            <img :src="cover" class="cover rounded-lg" alt="cover"
+                                 style="min-height: 350px;">
+                        </div>
+
+                        <div v-else>
+                            <img :src="showImage() + user.cover" class="cover rounded-lg" alt="cover"
+                                 style="min-height: 350px;">
+                        </div>
+
                         <div class="flex justify-center">
                             <img
                                 :src="showImage() + user.avatar"
@@ -106,69 +115,69 @@
                             </h1>
                         </div>
 
-                    <!--                    ADD TAB         -->
-                    <div v-if="$page.props.auth.user.id === $page.props.user.id" class="mt-4">
-                        <AddTab></AddTab>
-                    </div>
-
-                    <div class="pb-20 mt-4">
-                        <div v-for="post in posts">
-                            <div v-if="$page.props.auth.user === $page.props.posts.user_id"></div>
-                            <Post :post="post"></Post>
+                        <!--                    ADD TAB         -->
+                        <div v-if="$page.props.auth.user.id === $page.props.user.id" class="mt-4">
+                            <AddTab></AddTab>
                         </div>
-                    </div>
-                </div>
 
-                <!--  GALLERY -->
-                <div v-show="gallery" class="py-2 mx-2 mb-2">
-                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-                        <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
-                            <h1 class="text-3xl text-white px-6 py-4 ">
-                                GALLERY
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-
-                <!--    ABOUT   -->
-                <div v-show="about" class="py-2 mx-2 mb-2">
-                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-                        <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
-                            <h1 class="text-3xl text-white px-6 py-4 ">
-                                ABOUT
-                            </h1>
-                        </div>
-                    </div>
-
-                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 mt-5">
-                        <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-                            <div class="p-6 border-b border-gray-200">
-                                <p>
-                                    <strong>Username:</strong> {{ $page.props.user.username }}
-                                </p>
-                                <p>
-                                    <strong>Name:</strong> {{ $page.props.user.name }}
-                                </p>
-                                <p>
-                                    <strong>Email:</strong> {{ $page.props.user.email }}
-                                </p>
-                                <p>
-                                    <strong>Description:</strong> {{ $page.props.user.description }}
-                                </p>
+                        <div class="pb-20 mt-4">
+                            <div v-for="post in posts">
+                                <div v-if="$page.props.auth.user === $page.props.posts.user_id"></div>
+                                <Post :post="post"></Post>
                             </div>
                         </div>
                     </div>
 
-                    <!--                                </p>-->
-                    <!--                                <p>-->
-                    <!--                                    <strong>Description:</strong> {{ $page.props.user.description }}-->
-                    <!--                                </p>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
+                    <!--  GALLERY -->
+                    <div v-show="gallery" class="py-2 mx-2 mb-2">
+                        <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+                            <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+                                <h1 class="text-3xl text-white px-6 py-4 ">
+                                    GALLERY
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!--    ABOUT   -->
+                    <div v-show="about" class="py-2 mx-2 mb-2">
+                        <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+                            <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+                                <h1 class="text-3xl text-white px-6 py-4 ">
+                                    ABOUT
+                                </h1>
+                            </div>
+                        </div>
+
+                        <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 mt-5">
+                            <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+                                <div class="p-6 border-b border-gray-200">
+                                    <p>
+                                        <strong>Username:</strong> {{ $page.props.user.username }}
+                                    </p>
+                                    <p>
+                                        <strong>Name:</strong> {{ $page.props.user.name }}
+                                    </p>
+                                    <p>
+                                        <strong>Email:</strong> {{ $page.props.user.email }}
+                                    </p>
+                                    <p>
+                                        <strong>Description:</strong> {{ $page.props.user.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--                                </p>-->
+                        <!--                                <p>-->
+                        <!--                                    <strong>Description:</strong> {{ $page.props.user.description }}-->
+                        <!--                                </p>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                    </div>-->
+
+                    </div>
                 </div>
-            </div>
             </div>
         </BreezeAuthenticatedLayout>
     </div>

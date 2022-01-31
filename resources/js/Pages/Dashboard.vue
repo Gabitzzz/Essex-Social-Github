@@ -36,7 +36,6 @@
             </div>
 
 
-
             <!--                4 A ROW     -->
             <div class="mt-5 flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
 
@@ -71,10 +70,10 @@
                 </div>
             </div>
 
-            <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+            <div class=" mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div
                     id="scrollContainer"
-                    class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-10 hide-scroll-bar"
+                    class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-8 hide-scroll-bar"
                 >
                     <div class="inline-block px-2">
                         <div
@@ -126,8 +125,8 @@
                     </div>
                 </div>
 
-                <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
-                    <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                <div class=" max-2 overflow-hidden rounded-xl font-bold">
+                    <h1 class="text-4xl px-2 pb-2" style="font-family: 'Poppins', sans-serif;">
                         <!--                        DASHBOARD-->
                         Activity
                     </h1>
@@ -137,80 +136,143 @@
             <!--            TABS        -->
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96 ">
 
-                <div class=" grid grid-cols-3 gap-4 content-center">
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <a :href="route('posts.create', $page.props.auth.user.username )"
-                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+<!--                <div class=" grid grid-cols-3 gap-4 content-center">-->
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
+<!--                        <a :href="route('posts.create', $page.props.auth.user.username )"-->
+<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="post" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
+<!--                        <a :href="route('party.create', $page.props.auth.user.username )"-->
+<!--                           class="w-full  justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
+<!--                        <a :href="route('posts.create', $page.props.auth.user.username )"-->
+<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="event" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
+<!--                        <a :href="route('explore')"-->
+<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="explore" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
+<!--                        <InertiaLink :href="route('party.show')"-->
+<!--                                     class="w-full justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="partylogo" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </InertiaLink>-->
+<!--                    </div>-->
+
+
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
+<!--                        <a :href="route('explore')"-->
+<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="eventlogo" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
+<!--                        <a :href="route('posts.create', $page.props.auth.user.username )"-->
+<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
+<!--                        <form @submit.prevent="signout()">-->
+<!--                            <button as="button"-->
+<!--                                    type="submit" class="w-full justify-center inline-block text-center pt-2 pb-1">-->
+<!--                                <img :src="explore" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                            </button>-->
+<!--                        </form>-->
+<!--                    </div>-->
+
+
+<!--                </div>-->
+
+
+                <div
+                    id="scrollContainer2"
+                    class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mt-5  pb-5 hide-scroll-bar"
+                >
+                    <div class="inline-block pr-2">
+                        <div
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
+
                         >
-                            <img :src="post" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
+                            <img :src="post" class="inline-block px-4 py-4  lg:px-8 lg:py-8" alt="plus">
+                        </div>
                     </div>
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <a :href="route('party.create', $page.props.auth.user.username )"
-                           class="w-full  justify-center inline-block text-center pt-2 pb-1"
+
+                    <div class="inline-block px-2">
+                        <div
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
+                            <img :src="party" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                        </div>
                     </div>
 
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <a :href="route('posts.create', $page.props.auth.user.username )"
-                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+                    <div class="inline-block px-2">
+                        <div
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-                            <img :src="event" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
+                            <img :src="event" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                        </div>
                     </div>
 
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <a :href="route('explore')"
-                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+                    <div class="inline-block px-2">
+                        <div
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-                            <img :src="explore" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
+                            <img :src="explore" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                        </div>
                     </div>
 
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <InertiaLink :href="route('party.show')"
-                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+                    <div class="inline-block px-2">
+                        <div
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-                            <img :src="partylogo" width="40" height="40" class="inline-block" alt="plus">
-                        </InertiaLink>
+                            <img :src="partylogo" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                        </div>
                     </div>
 
-
-
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <a :href="route('explore')"
-                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+                    <div class="inline-block px-2">
+                        <div
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-                            <img :src="eventlogo" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
+
+                            <img :src="eventlogo" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                        </div>
                     </div>
 
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <a :href="route('posts.create', $page.props.auth.user.username )"
-                           class="w-full justify-center inline-block text-center pt-2 pb-1"
+                    <div class="inline-block px-2">
+
+                        <div
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
-                    </div>
+                            <form @submit.prevent="signout()">
+                                <button as="button"
+                                        type="submit" class="justify-center inline-block text-center">
+                                    <img :src="logout" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="logout">
+                                </button>
+                            </form>
+                        </div>
 
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <form @submit.prevent="signout()">
-                            <button as="button"
-                                    type="submit" class="w-full justify-center inline-block text-center pt-2 pb-1">
-                                <img :src="explore" width="40" height="40" class="inline-block" alt="plus">
-                            </button>
-                        </form>
-                    </div>
-
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <form @submit.prevent="signout()">
-                            <button as="button"
-                                    type="submit" class="w-full justify-center inline-block text-center pt-2 pb-1">
-                                <img :src="logout" width="40" height="40" class="inline-block" alt="plus">
-                            </button>
-                        </form>
                     </div>
                 </div>
 

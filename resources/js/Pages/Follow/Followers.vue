@@ -5,16 +5,26 @@
 
             <FollowingHeader :profile="profile"></FollowingHeader>
 
-            <div v-for="user in followers.data" :key="user.id" class="flex p-4 border-b border-gray-200">
-                <div class="flex justify-between w-full ml-4">
-                    <div class="flex flex-col">
-                        <a :href="route('profile', user.username)">
-                            {{ user.name }}
-                        </a>
+            <div v-for="user in followers.data" :key="user.id" class="flex py-4 mx-2 border-b border-gray-200">
+                <div class="flex justify-between w-full">
 
-                        <a :href="route('profile', user.username)">
-                            {{ user.username }}
-                        </a>
+                    <div class="flex">
+
+                        <img
+                            :src="showImage() + user.avatar"
+                            class="avatar rounded-full avatar w-12 h-12 mr-4 "
+                            alt="avatar"
+                        />
+
+                        <div class="flex flex-col">
+                            <a :href="route('profile', user.username)" class="text-md">
+                                {{ user.name }}
+                            </a>
+
+                            <a :href="route('profile', user.username)" class="text-xs">
+                                {{ user.username }}
+                            </a>
+                        </div>
                     </div>
 
                     <div v-if="$page.props.auth.user.id !== user.id" class="flex justify-center">
@@ -46,6 +56,11 @@ export default {
         followers: Object,
         followings: Object,
     },
+    methods:{
+        showImage() {
+            return "/storage/";
+        },
+    }
 }
 </script>
 
