@@ -212,16 +212,42 @@
                         <div
                             class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
                         >
-                            <InertiaLink :href="route('party.show')"
+                            <InertiaLink :href="route('followers', $page.props.auth.user)"
                                          class=" justify-center inline-block text-center"
                             >
-                                <img :src="partylogo" class="inline-block" alt="plus">
+                                <img :src="followerslogo" class="inline-block p-1" alt="plus">
                             </InertiaLink>
                         </div>
 
-                        <p class="text-md p-2 md:mx-0" style="font-family: 'Poppins', sans-serif;">
-                            Followers
-                        </p>
+                        <InertiaLink :href="route('followers', $page.props.auth.user)"
+                                     class=" justify-center inline-block text-center"
+                        >
+                            <p class="text-md p-2 md:mx-0 font-light" style="font-family: 'Poppins', sans-serif;">
+                                Followers
+                            </p>
+                        </InertiaLink>
+                    </div>
+
+                    <div class="flex mt-2">
+
+                        <div
+                            class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
+                        >
+                            <InertiaLink :href="route('followings', $page.props.auth.user)"
+                                         class=" justify-center inline-block text-center"
+                            >
+                                <img :src="followinglogo" class="inline-block p-1" alt="plus">
+                            </InertiaLink>
+                        </div>
+
+                        <InertiaLink :href="route('followings', $page.props.auth.user)"
+                                     class=" justify-center inline-block text-center"
+                        >
+                            <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
+                                Following
+                            </p>
+                        </InertiaLink>
+
                     </div>
 
                     <div class="flex mt-2">
@@ -232,24 +258,7 @@
                             <InertiaLink :href="route('party.show')"
                                          class=" justify-center inline-block text-center"
                             >
-                                <img :src="partylogo" class="inline-block" alt="plus">
-                            </InertiaLink>
-                        </div>
-
-                        <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
-                            Following
-                        </p>
-                    </div>
-
-                    <div class="flex mt-2">
-
-                        <div
-                            class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
-                        >
-                            <InertiaLink :href="route('party.show')"
-                                         class=" justify-center inline-block text-center"
-                            >
-                                <img :src="partylogo" class="inline-block" alt="plus">
+                                <img :src="societieslogo" class="inline-block p-1" alt="plus">
                             </InertiaLink>
                         </div>
 
@@ -265,7 +274,7 @@
                             <InertiaLink :href="route('party.show')"
                                          class=" justify-center inline-block text-center"
                             >
-                                <img :src="partylogo" class="inline-block" alt="plus">
+                                <img :src="degree" class="inline-block p-1" alt="plus">
                             </InertiaLink>
                         </div>
 
@@ -301,6 +310,10 @@ import essex_food from "/img/Dashboard/essex_food.png";
 import su from "/img/Dashboard/su2.png";
 import moodle from "/img/Dashboard/moodle.png";
 import societies from "/img/Dashboard/societies.png";
+import followerslogo from "/img/Dashboard/followerslogo.png";
+import followinglogo from "/img/Dashboard/followinglogo.png";
+import societieslogo from "/img/Dashboard/societieslogo.png";
+import degree from "/img/Dashboard/degree.png";
 import leap from "/img/Dashboard/leap.jpeg";
 import faser from "/img/Dashboard/faser2.png";
 import shutdown from "/img/Dashboard/shutdown.png";
@@ -341,6 +354,10 @@ export default {
             explore: explore,
             partylogo: partylogo,
             eventlogo: eventlogo,
+            followerslogo: followerslogo,
+            followinglogo: followinglogo,
+            societieslogo: societieslogo,
+            degree: degree,
         };
     },
 
