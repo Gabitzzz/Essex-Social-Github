@@ -75,6 +75,7 @@
                 </div>
             </div>
 
+            <!--            SLIDER      -->
             <div class=" mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div
                     id="scrollContainer"
@@ -149,7 +150,10 @@
                             class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
 
                         >
-                            <img :src="post" class="inline-block px-4 py-4  lg:px-8 lg:py-8" alt="plus">
+                            <a :href="route('posts.create', $page.props.auth.user.username )"
+                               class="">
+                                <img :src="post" class="inline-block px-4 py-4  lg:px-8 lg:py-8" alt="plus">
+                            </a>
                         </div>
                     </div>
 
@@ -157,7 +161,11 @@
                         <div
                             class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-                            <img :src="party" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            <a :href="route('party.create', $page.props.auth.user.username )"
+                               class=""
+                            >
+                                <img :src="party" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            </a>
                         </div>
                     </div>
 
@@ -173,7 +181,11 @@
                         <div
                             class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-                            <img :src="explore" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            <a :href="route('explore')"
+                               class="     "
+                            >
+                                <img :src="explore" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            </a>
                         </div>
                     </div>
 
@@ -181,7 +193,11 @@
                         <div
                             class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-                            <img :src="partylogo" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            <InertiaLink :href="route('party.show')"
+                                         class=" justify-center inline-block text-center"
+                            >
+                                <img :src="partylogo" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            </InertiaLink>
                         </div>
                     </div>
 
@@ -211,7 +227,7 @@
                 </div>
 
 
-                <div class=" max-2 overflow-hidden rounded-xl font-bold">
+                <div class="max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                         <!--                        DASHBOARD-->
                         Events
