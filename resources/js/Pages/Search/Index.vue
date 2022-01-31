@@ -8,27 +8,46 @@
                        class=" w-full rounded-2xl border-gray-300 text-gray-600 shadow-sm focus:border-gray-300 focus:ring focus:ring-gray-200 focus:ring-opacity-50"
                        autofocus>
 
-                <h1 class="mx-5 my-4">
+                <h1 class="m-4">
                     Search here for your Essex friends.
                 </h1>
 
-                <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                <table class="min-w-full divide-y divide-gray-200 table-fixed mx-4">
                     <thead class="">
 
                     </thead>
 
                     <tbody class="bg-white divide-y divide-gray-200">
                     <tr v-for="(user, index) in users.data" :key="user.id">
-                        <td class="py-4 px-6 whitespace-nowrap mt-10">
+                        <td class=" text-sm text-gray-500 ">
+                              <div class="flex">
+                                  <img
+                                      :src="showImage() + user.avatar"
+                                      class="avatar rounded-full avatar w-10 h-10  my-2"
+                                      alt="avatar"
+                                  />
 
-                            <a class="text-sm font-semibold text-gray-900"
-                               :href="route('profile', user.username)">
-                                {{ user.username }}
-                            </a>
+                                  <a class="text-sm font-semibold text-gray-900 px-2 py-4"
+                                     :href="route('profile', user.username)">
+                                      {{ user.username }}
+                                  </a>
+
+                                  <a class="text-sm  font-semibold text-gray-500 px-8 py-4"
+                                     :href="route('profile', user.username)">
+                                      {{ user.name }}
+                                  </a>
+
+
+                              </div>
+                        </td>
+s
+                        <td class="px-6 py-4 whitespace-nowrap mt-10">
+
                         </td>
 
+
+
                         <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
-                            {{ user.name }}
                         </td>
                     </tr>
                     </tbody>
@@ -68,6 +87,9 @@ export default {
         sort(field) {
             this.params.field = field;
             this.params.direction = this.params.direction === 'asc' ? 'desc' : 'asc';
+        },
+        showImage() {
+            return "/storage/";
         },
     },
     watch: {

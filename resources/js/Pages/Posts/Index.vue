@@ -3,7 +3,7 @@
 
     <BreezeAuthenticatedLayout>
         <div class="mt-5">
-            <!--        <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">-->
+                    <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
             <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                 <div class="flex">
                     <inertia-link :href="route('profile', post.user.username)">
@@ -148,7 +148,7 @@
                 </form>
 
             </div>
-
+                    </div>
             <div v-for="(comment, index) in comments" :key="index">
                 <CommentItem :comment="comment"></CommentItem>
             </div>
