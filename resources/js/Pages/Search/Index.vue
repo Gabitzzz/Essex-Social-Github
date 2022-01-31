@@ -1,68 +1,73 @@
 <template>
-    <div>
-        <Nav></Nav>
+    <BreezeAuthenticatedLayout>
 
-        <div class="py-2 mx-2 mb-20">
-            <div class=" mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-                <input type="search" v-model="params.search" aria-label="Search" placeholder="  Search..."
-                       class=" w-full rounded-2xl border-gray-300 text-gray-600 shadow-sm focus:border-gray-300 focus:ring focus:ring-gray-200 focus:ring-opacity-50"
-                       autofocus>
+        <div>
 
-                <h1 class="m-4">
-                    Search here for your Essex friends.
-                </h1>
+            <div class="py-2 mx-2 mb-20">
+                <div class=" mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
 
-                <table class="min-w-full divide-y divide-gray-200 table-fixed mx-4">
-                    <thead class="">
-
-                    </thead>
-
-                    <tbody class="bg-white divide-y divide-gray-200">
-                    <tr v-for="(user, index) in users.data" :key="user.id">
-                        <td class=" text-sm text-gray-500 ">
-                              <div class="flex">
-                                  <img
-                                      :src="showImage() + user.avatar"
-                                      class="avatar rounded-full avatar w-10 h-10  my-2"
-                                      alt="avatar"
-                                  />
-
-                                  <a class="text-sm font-semibold text-gray-900 px-2 py-4"
-                                     :href="route('profile', user.username)">
-                                      {{ user.username }}
-                                  </a>
-
-                                  <a class="text-sm  font-semibold text-gray-500 px-8 py-4"
-                                     :href="route('profile', user.username)">
-                                      {{ user.name }}
-                                  </a>
+                    <div class="mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold">
+                        <h1 class="text-4xl pb-2  " style="font-family: 'Poppins', sans-serif;">
+                            Search
+                        </h1>
+                    </div>
 
 
-                              </div>
-                        </td>
-s
-                        <td class="px-6 py-4 whitespace-nowrap mt-10">
+                    <h1 class="mx-2 mb-2">
+                        Search here for your Essex friends.
+                    </h1>
 
-                        </td>
+                    <input type="search" v-model="params.search" aria-label="Search" placeholder="  Search..."
+                           class="w-full mb-2 rounded-2xl border-gray-200 text-gray-600 shadow-sm focus:border-gray-300 focus:ring focus:ring-gray-200 focus:ring-opacity-50"
+                           autofocus>
 
 
+                    <table class="w-full divide-y divide-gray-200  ">
+                        <thead class="">
 
-                        <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody class="bg-gray-100 divide-y divide-gray-200">
+                        <tr v-for="(user, index) in users.data" :key="user.id">
+                            <td class=" text-sm text-gray-500 ">
+                                <img
+                                    :src="showImage() + user.avatar"
+                                    class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
+                                    alt="avatar"
+                                />
+                            </td>
+
+                            <td class=" text-sm text-gray-500 ">
+                                <a class="text-sm font-semibold text-gray-900 px-2 py-4"
+                                   :href="route('profile', user.username)" >
+                                    {{ user.username }}
+                                </a>
+                            </td>
+
+                            <td class=" text-sm text-gray-500 ">
+                                <a class="text-sm font-semibold text-gray-500 px-8 py-4"
+                                   :href="route('profile', user.username)" >
+                                    {{ user.name }}
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
 
-        <Tab></Tab>
-    </div>
+            <Tab></Tab>
+        </div>
+    </BreezeAuthenticatedLayout>
+
 </template>
 
 <script>
 import Tab from "@/Components/Tab";
 import Nav from "@/Components/Nav";
 import {pickBy, throttle} from "lodash";
+import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+
 
 export default {
     name: "Index",
@@ -78,6 +83,7 @@ export default {
     components: {
         Tab,
         Nav,
+        BreezeAuthenticatedLayout,
     },
     props: {
         users: Object,

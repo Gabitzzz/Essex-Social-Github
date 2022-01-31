@@ -24,12 +24,7 @@
                 <td>
                     {{ user.id }}
                 </td>
-                <td>
-                    {{ user.username }}
-                </td>
-                <td>
-                    {{ user.name }}
-                </td>
+
 
             </tr>
         </table>
