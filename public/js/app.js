@@ -29719,7 +29719,7 @@ var _hoisted_3 = {
   "class": "mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold"
 };
 var _hoisted_4 = {
-  "class": "text-4xl py-2",
+  "class": "text-4xl mx-2 py-2",
   style: {
     "font-family": "'Poppins', sans-serif"
   }
@@ -29771,7 +29771,7 @@ var _hoisted_11 = {
   "class": "text-3xl text-white px-6 pb-4"
 };
 var _hoisted_12 = {
-  "class": "mt-5 flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96"
+  "class": "mt-5 px-2 flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96"
 };
 var _hoisted_13 = {
   "class": "w-1/4 overflow-hidden xl:w-3/12"
