@@ -1,6 +1,6 @@
 <template>
 <div class="">
-    <div class="bg-gray-100" style="min-height: 100vh;
+    <div class="bg-gray-100 pb-20" style="min-height: 150vh;
 ">
         <Nav></Nav>
 
