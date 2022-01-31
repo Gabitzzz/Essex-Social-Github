@@ -5,7 +5,7 @@
         <div class=" pb-16">
             <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div class="mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold">
-                    <h1 class="text-4xl mx-2  py-2" style="font-family: 'Poppins', sans-serif;">
+                    <h1 class="text-4xl mx-2 md:mx-0 py-2" style="font-family: 'Poppins', sans-serif;">
                         Welcome {{ $page.props.auth.user.username }}
                     </h1>
 
@@ -23,7 +23,6 @@
                     <!-- Column Content -->
                     <div class="mx-1 max-2 weather overflow-hidden rounded-xl shadow-lg">
                         <h1 class="text-3xl text-white px-4 py-4 ">
-                            <!--                        DASHBOARD-->
                             Colchester <br>
                             17°
                         </h1>
@@ -37,11 +36,9 @@
                         <h1 class="text-3xl text-white px-6 pb-4 ">{{ currentDate() }}</h1>
                     </div>
                 </div>
-
             </div>
 
-
-            <!--                4 A ROW     -->
+            <!--                ROW WITH 4 CARDS     -->
             <div class="mt-5 px-2 flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
 
                 <div class="w-1/4 overflow-hidden xl:w-3/12">
@@ -68,88 +65,74 @@
                 <div class="w-1/4 overflow-hidden xl:w-3/12">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden rounded-2xl shadow-md   ">
-
                         <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
-
                     </div>
                 </div>
             </div>
 
-            <!--            SLIDER      -->
+            <!--            BIG SLIDER      -->
             <div class=" mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 ">
                 <div
                     id="scrollContainer"
-                    class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-8  hide-scroll-bar"
-                >
+                    class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-8  hide-scroll-bar">
                     <div class="inline-block px-2">
                         <div
-                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-
-                        >
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
-                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                        >
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <img :src="leap" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
-                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                        >
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <img :src="faser" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
-                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                        >
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
-                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                        >
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
-                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                        >
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!--            ACTIVITY TABS        -->
+            <!--            ACTIVITIES SLIDER        -->
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96 ">
-
                 <div class=" max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2" style="font-family: 'Poppins', sans-serif;">
-                        <!--                        DASHBOARD-->
-                        Activity
+                        Activities
                     </h1>
                 </div>
 
                 <div
                     id="scrollContainer2"
-                    class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mt-5  pb-5 hide-scroll-bar"
-                >
+                    class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mt-5  pb-5 hide-scroll-bar">
                     <div class="inline-block pr-2">
                         <div
                             class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
-
                         >
                             <a :href="route('posts.create', $page.props.auth.user.username )"
                                class="">
@@ -160,10 +143,8 @@
 
                     <div class="inline-block px-2">
                         <div
-                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
-                        >
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out">
                             <a :href="route('party.create', $page.props.auth.user.username )"
-                               class=""
                             >
                                 <img :src="party" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
                             </a>
@@ -172,18 +153,15 @@
 
                     <div class="inline-block px-2">
                         <div
-                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
-                        >
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out">
                             <img :src="event" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
-                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
-                        >
+                            class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out">
                             <a :href="route('explore')"
-                               class="     "
                             >
                                 <img :src="explore" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
                             </a>
@@ -223,27 +201,91 @@
                                 </button>
                             </form>
                         </div>
+                    </div>
+                </div>
+                <!--                END OF SLIDER       -->
 
+                <!--                SHORTCUTS       -->
+                <div class=" px-2 max-2 ml-4 overflow-hidden rounded-xl font-bold">
+                    <div class="flex mt-2">
+
+                        <div
+                            class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
+                        >
+                            <InertiaLink :href="route('party.show')"
+                                         class=" justify-center inline-block text-center"
+                            >
+                                <img :src="partylogo" class="inline-block" alt="plus">
+                            </InertiaLink>
+                        </div>
+
+                        <p class="text-md p-2 md:mx-0" style="font-family: 'Poppins', sans-serif;">
+                            Followers
+                        </p>
                     </div>
 
+                    <div class="flex mt-2">
 
+                        <div
+                            class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
+                        >
+                            <InertiaLink :href="route('party.show')"
+                                         class=" justify-center inline-block text-center"
+                            >
+                                <img :src="partylogo" class="inline-block" alt="plus">
+                            </InertiaLink>
+                        </div>
+
+                        <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
+                            Following
+                        </p>
+                    </div>
+
+                    <div class="flex mt-2">
+
+                        <div
+                            class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
+                        >
+                            <InertiaLink :href="route('party.show')"
+                                         class=" justify-center inline-block text-center"
+                            >
+                                <img :src="partylogo" class="inline-block" alt="plus">
+                            </InertiaLink>
+                        </div>
+
+                        <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
+                            Societies
+                        </p>
+                    </div>
+
+                    <div class="flex mt-2">
+                        <div
+                            class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
+                        >
+                            <InertiaLink :href="route('party.show')"
+                                         class=" justify-center inline-block text-center"
+                            >
+                                <img :src="partylogo" class="inline-block" alt="plus">
+                            </InertiaLink>
+                        </div>
+
+                        <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
+                            Degree
+                        </p>
+                    </div>
                 </div>
 
-                <div class="max-2 overflow-hidden rounded-xl font-bold">
+
+                <!--            EVENTS      -->
+                <div class="max-2 mt-5 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                        <!--                        DASHBOARD-->
                         Events
                     </h1>
 
                     <Parties></Parties>
 
                 </div>
-
-
-
             </div>
-
-
         </div>
     </BreezeAuthenticatedLayout>
 </template>
@@ -344,7 +386,6 @@ export default {
 .hide-scroll-bar::-webkit-scrollbar {
     display: none;
 }
-
 
 
 </style>
