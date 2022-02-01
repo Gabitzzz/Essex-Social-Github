@@ -12,11 +12,27 @@
 
                         <img :src="showImage() + party.partyImg"
                              class="object-cover rounded-lg w-full" alt="cover"
-                             style="max-height: 200px;  filter: brightness(40%);">
+                             style="max-height: 250px;  filter: brightness(30%);">
 
 
 
-                    <figcaption class="absolute text-lg text-white px-4 -mt-40 " style="left:0;  right: 0;">
+
+
+                    <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
+
+                        <div class="text-right text-lg ">
+
+                            <p class="">
+                                {{ party.date }}
+                            </p>
+
+                            <p class="text-3xl text-red-600 ">
+                                <strong>
+                                    {{ party.time }}
+                                </strong>
+                            </p>
+                        </div>
+
                         <div>
                             <h3 class=" text-3xl text-center text-white "
                                 style="font-family: 'Poppins', sans-serif;">
@@ -28,22 +44,25 @@
                                 {{ party.body }}
                             </h1>
 
-                            <p class="text-center">
-                                {{ party.date }}
-                            </p>
+
+
+
+
+
+
 
                             <div class="flex justify-center mt-4">
-                                <inertia-link v-if="!$page.props.followToggle"
+                                <inertia-link v-if="!$page.props.inviteToggle"
                                               as="button"
                                               class="follow button shadow-2xl  items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
                                               style="font-size: 80%;"
-
                                               preserve-scroll
+                                              :href="`/parties/${party.id}/join/${party.id}`"
                                               method="POST">
                                     Join
                                 </inertia-link>
 
-                                <inertia-link v-if="$page.props.followToggle"
+                                <inertia-link v-if="$page.props.inviteToggle"
                                               as="button"
                                               @mouseover="showUnfollow = true"
                                               @mouseleave="showUnfollow = false"
@@ -76,16 +95,25 @@ export default {
     name: "Party",
     props: {
         party: Object,
+        inviteToggle: Boolean,
+        invites: Object,
     },
     components: {
         InertiaLink,
+    },
+    data(){
+        return{
+        }
     },
 
     methods: {
         showImage() {
             return "/storage/";
         },
-    }
+
+
+    },
+
 
 }
 </script>
@@ -103,6 +131,6 @@ body{
 }
 
 .cover {
-    filter: brightness(50%);
+    filter: brightness(30%);
 }
 </style>

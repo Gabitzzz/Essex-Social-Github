@@ -28,16 +28,22 @@
 <script>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import Parties from "@/Pages/Party/Parties";
+
 export default {
     name: "Index",
-    components:{
+    components: {
         BreezeAuthenticatedLayout,
         Parties
+    },
+    data() {
+        return {}
     },
     props: {
         parties: Array,
         user: Object,
-    }
+    },
+
+
 }
 </script>
 

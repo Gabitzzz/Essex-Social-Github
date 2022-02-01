@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePartiesTable extends Migration
+class CreatePartyInvitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreatePartiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('parties', function (Blueprint $table) {
+        Schema::create('party_invites', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('party_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('title');
-            $table->string('body');
-            $table->string('date');
-            $table->string('time');
-            $table->text('partyImg')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreatePartiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parties');
+        Schema::dropIfExists('party_invites');
     }
 }

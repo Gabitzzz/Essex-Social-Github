@@ -26767,6 +26767,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      modelConfig: {
+        type: 'string',
+        masks: {
+          L: 'YYYY-MM-DD HH:MM' // Uses 'iso' if missing
+
+        }
+      },
       // avatar: avatar,
       post: _img_Posts_post_png__WEBPACK_IMPORTED_MODULE_6__["default"],
       party: _img_Posts_party_png__WEBPACK_IMPORTED_MODULE_7__["default"],
@@ -26834,6 +26841,9 @@ __webpack_require__.r(__webpack_exports__);
     BreezeAuthenticatedLayout: _Layouts_Authenticated_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Parties: _Pages_Party_Parties__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  data: function data() {
+    return {};
+  },
   props: {
     parties: Array,
     user: Object
@@ -26886,10 +26896,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Party",
   props: {
-    party: Object
+    party: Object,
+    inviteToggle: Boolean,
+    invites: Object
   },
   components: {
     InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.InertiaLink
+  },
+  data: function data() {
+    return {};
   },
   methods: {
     showImage: function showImage() {
@@ -30993,17 +31008,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "w-full mx-2 md:w-1/2 mt-4 h-80"
       }, null, 8
       /* PROPS */
-      , _hoisted_6)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <Calendar />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <DatePicker v-model=\"date\" />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DatePicker, {
+      , _hoisted_6)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <Calendar />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <DatePicker v-model=\"date\" />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <DatePicker v-model=\"form.date\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                mode=\"dateTime\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                is-expanded"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                :model-config=\"modelConfig\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                :min-date='new Date()'"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                required autofocus autocomplete=\"date\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DatePicker, {
         modelValue: $data.form.date,
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $data.form.date = $event;
         }),
-        mode: "dateTime",
         "is-expanded": "",
-        "min-date": new Date(),
-        required: "",
-        autofocus: "",
-        autocomplete: "date"
+        is24hr: "",
+        format: "YYYY-MM-DD",
+        masks: {
+          L: 'YYYY-MM-DD'
+        },
+        mode: "dateTime",
+        "min-date": new Date()
       }, null, 8
       /* PROPS */
       , ["modelValue", "min-date"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    PUBLIC OR PRIVATE SWITCH        "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -31234,29 +31251,35 @@ var _hoisted_2 = {
 };
 var _hoisted_3 = ["src"];
 var _hoisted_4 = {
-  "class": "absolute text-lg text-white px-4 -mt-40",
+  "class": "absolute text-lg text-white px-4 -mt-56",
   style: {
     "left": "0",
     "right": "0"
   }
 };
 var _hoisted_5 = {
+  "class": "text-right text-lg"
+};
+var _hoisted_6 = {
+  "class": ""
+};
+var _hoisted_7 = {
+  "class": "text-3xl text-red-600"
+};
+var _hoisted_8 = {
   "class": "text-3xl text-center text-white",
   style: {
     "font-family": "'Poppins', sans-serif"
   }
 };
-var _hoisted_6 = {
+var _hoisted_9 = {
   "class": "text-center"
 };
-var _hoisted_7 = {
-  "class": "text-center"
-};
-var _hoisted_8 = {
+var _hoisted_10 = {
   "class": "flex justify-center mt-4"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Join ");
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Join ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
@@ -31266,18 +31289,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "object-cover rounded-lg w-full",
     alt: "cover",
     style: {
-      "max-height": "200px",
-      "filter": "brightness(40%)"
+      "max-height": "250px",
+      "filter": "brightness(30%)"
     }
   }, null, 8
   /* PROPS */
-  , _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("figcaption", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.title), 1
+  , _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("figcaption", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.date), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.body), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.time), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.date), 1
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.title), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [!_ctx.$page.props.followToggle ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.body), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [!_ctx.$page.props.inviteToggle ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
     key: 0,
     as: "button",
     "class": "follow button shadow-2xl items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150",
@@ -31285,15 +31310,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "font-size": "80%"
     },
     "preserve-scroll": "",
+    href: "/parties/".concat($props.party.id, "/join/").concat($props.party.id),
     method: "POST"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_9];
+      return [_hoisted_11];
     }),
     _: 1
     /* STABLE */
 
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.$page.props.followToggle ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
+  }, 8
+  /* PROPS */
+  , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.$page.props.inviteToggle ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
     key: 1,
     as: "button",
     onMouseover: _cache[0] || (_cache[0] = function ($event) {
@@ -31986,7 +32014,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md"
+  "class": "mb-4 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md"
 };
 var _hoisted_2 = {
   "class": "flex"
@@ -33355,7 +33383,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-28f728c4]{\n    background-size: 100%;\n}\n.party-title[data-v-28f728c4] {\n\n    top: 25%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}\n.cover[data-v-28f728c4] {\n    filter: brightness(50%);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-28f728c4]{\n    background-size: 100%;\n}\n.party-title[data-v-28f728c4] {\n\n    top: 25%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}\n.cover[data-v-28f728c4] {\n    filter: brightness(30%);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

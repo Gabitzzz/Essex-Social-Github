@@ -80,6 +80,15 @@ Route::post('add-party', [\App\Http\Controllers\PartyController::class, 'store']
     ->middleware('auth')
     ->name('party.store');
 
+
+Route::post('/users/{user:username}/followings/{id}', [\App\Http\Controllers\FollowingController::class, 'store'])
+    ->name('followings.store')
+    ->middleware('auth');
+
+Route::post('/parties/{party:id}/join/{id}', [\App\Http\Controllers\PartyInviteController::class, 'store'])
+    ->name('party.join')
+    ->middleware('auth');
+
 //  USERS
 Route::get('/users/{user:username}', [\App\Http\Controllers\UsersController::class, 'index'])
     ->name('profile')

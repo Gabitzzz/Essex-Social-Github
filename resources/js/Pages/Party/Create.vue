@@ -56,12 +56,25 @@
                 <!--                <DatePicker v-model="date" />-->
                 <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
 
-                    <DatePicker v-model="form.date"
-                                mode="dateTime"
-                                is-expanded
-                                :min-date='new Date()'
-                                required autofocus autocomplete="date"
-                    />
+<!--                    <DatePicker v-model="form.date"-->
+<!--                                mode="dateTime"-->
+<!--                                is-expanded-->
+<!--                                :model-config="modelConfig"-->
+<!--                                :min-date='new Date()'-->
+<!--                                required autofocus autocomplete="date"-->
+<!--                    />-->
+
+                    <DatePicker
+                        v-model="form.date"
+                        is-expanded
+                        is24hr
+                        format="YYYY-MM-DD"
+                        :masks="{ L: 'YYYY-MM-DD' }"
+                        mode="dateTime"
+                        :min-date='new Date()'
+
+                    >
+                    </DatePicker>
 
 
                     <!--                    PUBLIC OR PRIVATE SWITCH        -->
@@ -218,6 +231,13 @@ export default {
 
     data() {
         return {
+            modelConfig: {
+                type: 'string',
+                masks: {
+
+                 L:   'YYYY-MM-DD HH:MM', // Uses 'iso' if missing
+                }
+            },
             // avatar: avatar,
             post: post,
             party: party,

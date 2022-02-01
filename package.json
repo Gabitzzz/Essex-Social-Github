@@ -29,7 +29,9 @@
     },
     "dependencies": {
         "@innologica/vue-dropdown-menu": "^0.1.4",
+        "@popperjs/core": "^2.11.2",
         "moment": "^2.29.1",
+        "popper.js": "^1.16.1",
         "v-calendar": "^3.0.0-alpha.6",
         "vue-moment": "^4.1.0",
         "vuejs-datepicker": "^1.6.2"
