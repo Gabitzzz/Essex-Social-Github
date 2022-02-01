@@ -80,13 +80,21 @@ Route::post('add-party', [\App\Http\Controllers\PartyController::class, 'store']
     ->middleware('auth')
     ->name('party.store');
 
+Route::get('/parties/{party}', [\App\Http\Controllers\PartyController::class, 'display'])
+    ->middleware('auth')
+    ->name('party.item');
 
-Route::post('/users/{user:username}/followings/{id}', [\App\Http\Controllers\FollowingController::class, 'store'])
-    ->name('followings.store')
+
+Route::get('/parties/{party:id}/invites', [\App\Http\Controllers\PartyInviteController::class, 'index'])
+    ->name('invite.show')
     ->middleware('auth');
 
-Route::post('/parties/{party:id}/join/{id}', [\App\Http\Controllers\PartyInviteController::class, 'store'])
-    ->name('party.join')
+Route::post('/parties/{party:id}/invites/{id}', [\App\Http\Controllers\PartyInviteController::class, 'store'])
+    ->name('invite.join')
+    ->middleware('auth');
+
+Route::delete('/parties/{party:id}/invites/{id}', [\App\Http\Controllers\PartyInviteController::class, 'destroy'])
+    ->name('invite.delete')
     ->middleware('auth');
 
 //  USERS

@@ -27,8 +27,8 @@ class Party extends Model
 
     public function invites()
     {
-        return $this->belongsToMany(Party::class, 'party_invites', 'party_id', 'user_id')
-            ->withTimestamps();
+        return $this->belongsToMany(Party::class, 'party_invites', 'party_id', 'user_id');
+//            ->withTimestamps();
     }
 
 }

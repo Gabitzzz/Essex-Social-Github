@@ -15,17 +15,57 @@ use Inertia\Inertia;
 class PartyController extends Controller
 {
 
-    public function index(User $user)
+    public function index(Party $party, User $user)
     {
 
 
         $parties = Party::select('parties.*')->latest()->get()->all();
-        return Inertia::render('Party/Index', [
+
+        return Inertia::render('Party/Parties', [
+
             'parties' => $parties,
+            'invites' => $party->invites()->withCount([
+                'invites as party_invites' => function ($q) {
+                    return $q->where('party_id', 'id');
+                }
+            ])->withCasts(['party_invites' => 'boolean'])->paginate(),
 
 
         ]);
+
+
     }
+
+    public function display(Party $party, User $user)
+    {
+        return Inertia::render('Party/Index', [
+            'party' => $party,
+            'inviteToggle' => $party->where('user_id', auth()->id())->exists(),
+
+
+//            'followers' => $user->followers()->withCount([
+//                'followers as following' => function ($q) {
+//                    return $q->where('follower_id', auth()->id());
+//                }
+//            ])->withCasts(['following' => 'boolean'])
+//                ->paginate(),
+//            'profile' => [
+//                'user' => $user
+//            ],
+
+
+            'invites' => $party->invites()->withCount([
+                'invites as party_invites' => function ($q) {
+                    return $q->where('party_id', 'party');
+                }
+            ])->withCasts(['party_invites' => 'boolean'])->paginate(),
+
+
+        ]);
+
+
+    }
+
 
     public function create(User $user)
     {

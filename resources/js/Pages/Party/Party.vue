@@ -1,5 +1,8 @@
 <template>
     <div>
+        <inertia-link preserve-scroll
+                      :href="route('party.item', party)"
+        >
 
 <!--       -->
 
@@ -51,36 +54,12 @@
 
 
 
-                            <div class="flex justify-center mt-4">
-                                <inertia-link v-if="!$page.props.inviteToggle"
-                                              as="button"
-                                              class="follow button shadow-2xl  items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
-                                              style="font-size: 80%;"
-                                              preserve-scroll
-                                              :href="`/parties/${party.id}/join/${party.id}`"
-                                              method="POST">
-                                    Join
-                                </inertia-link>
-
-                                <inertia-link v-if="$page.props.inviteToggle"
-                                              as="button"
-                                              @mouseover="showUnfollow = true"
-                                              @mouseleave="showUnfollow = false"
-                                              class="follow button shadow-2xl  items-center px-3 py-1 bg-white border border-transparent
-                                                        rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-red-600 hover:text-white
-                                                        active:bg-green-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray
-                                                        transition ease-in-out duration-150 w-40"
-                                              style="font-size: 80%;"
-                                              preserve-scroll
-                                              method="DELETE">
-                                    {{ showUnfollow ? 'Cancel' : '✓ Joining' }}
-                                </inertia-link>
-                            </div>
                         </div>
                     </figcaption>
                 </div>
 
         </div>
+        </inertia-link>
     </div>
 
 </template>
@@ -95,8 +74,9 @@ export default {
     name: "Party",
     props: {
         party: Object,
-        inviteToggle: Boolean,
         invites: Object,
+        followers: Object,
+        inviteToggle: Boolean,
     },
     components: {
         InertiaLink,

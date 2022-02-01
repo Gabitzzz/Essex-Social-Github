@@ -13,7 +13,6 @@
                             <img :src="showImage() + user.cover" class="cover rounded-lg" alt="cover"
                                  style="min-height: 350px;">
                         </div>
-
                         <div class="flex justify-center">
                             <img
                                 :src="showImage() + user.avatar"
@@ -50,7 +49,7 @@
                                               @mouseleave="showUnfollow = false"
                                               class="follow button shadow-2xl  items-center px-3 py-1 bg-white border border-transparent
                                                         rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-red-600 hover:text-white
-                                                        active:bg-green-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray
+                                                         active:bg-green-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray
                                                         transition ease-in-out duration-150 w-40"
                                               style="font-size: 80%;"
                                               :href="`/users/${$page.props.auth.user.username}/followings/${user.id}`"
