@@ -4,6 +4,7 @@
     <BreezeAuthenticatedLayout>
         <div class="pb-16 2xl:mx-96">
             <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+
                 <div class="mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl mx-2 md:mx-0 py-2" style="font-family: 'Poppins', sans-serif;">
                         Welcome {{ $page.props.auth.user.username }}
@@ -18,6 +19,7 @@
                 </div>
             </div>
 
+
             <div class="mt-5 flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div class="w-1/2 overflow-hidden sm:w-1/Q xl:w-6/12">
                     <!-- Column Content -->
@@ -27,6 +29,8 @@
                             17°
                         </h1>
                     </div>
+
+
                 </div>
 
                 <div class="w-1/2 sm:w-1/2 overflow-hidden md:w-6/12">
@@ -39,33 +43,42 @@
             </div>
 
             <!--                ROW WITH 4 CARDS     -->
-            <div class="mt-5 px-2 flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+            <div class="mt-5  flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
 
                 <div class="w-1/4 overflow-hidden xl:w-3/12">
                     <!-- Column Content -->
                     <div class="mx-1 mb-4 max-2 overflow-hidden rounded-2xl bg-white shadow-md  ">
-                        <img :src="essex_sport" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        <a href="https://www.essex.ac.uk/sport">
+                            <img :src="essex_sport" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        </a>
                     </div>
                 </div>
 
                 <div class="w-1/4 overflow-hidden  xl:w-3/12">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden shadow-md rounded-2xl shadow-md  ">
-                        <img :src="essex_food" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        <a href="https://www.essex.ac.uk/information/food-and-drink/food-and-drink-at-colchester-campus">
+                            <img :src="essex_food" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        </a>
                     </div>
                 </div>
 
                 <div class="w-1/4 overflow-hidden xl:w-3/12">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden  rounded-2xl shadow-md  ">
-                        <img :src="su" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+
+                        <a href="https://www.essexstudent.com/campus/">
+                            <img :src="su" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        </a>
                     </div>
                 </div>
 
                 <div class="w-1/4 overflow-hidden xl:w-3/12">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden rounded-2xl shadow-md   ">
-                        <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        <a href="https://www.essexstudent.com/societies/">
+                            <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -78,28 +91,36 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            <a href="https://moodle.essex.ac.uk/">
+                                <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            </a>
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <img :src="leap" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            <a href="https://leap.essex.ac.uk/student">
+                                <img :src="leap" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            </a>
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <img :src="faser" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            <a href="https://faser.essex.ac.uk/">
+                                <img :src="faser" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            </a>
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            <a href="https://listenagain.essex.ac.uk/">
+                                <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            </a>
                         </div>
                     </div>
 
@@ -291,7 +312,7 @@
                         Events
                     </h1>
 
-                    <Parties></Parties>
+                    <!--                    <Parties></Parties>-->
 
                 </div>
             </div>
@@ -326,6 +347,7 @@ import logout from "/img/Tab/logout.png";
 import eventlogo from "/img/Tab/eventlogo.png";
 import Parties from "@/Pages/Party/Parties";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
+// import VueWeather from "vue-weather-widget";
 
 export default {
     name: 'Dashboard',

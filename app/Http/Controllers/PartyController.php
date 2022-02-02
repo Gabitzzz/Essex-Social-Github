@@ -8,6 +8,7 @@ use App\Models\Party;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
@@ -38,10 +39,25 @@ class PartyController extends Controller
 
     public function display(Party $party, User $user)
     {
+//        $inviteToggle = $party->invites()->where('user_id', '=', auth()->id())->exists();
+
+//
+//        $inviteToggle = $party->invites()->where('user_id', '=', null)
+//            ->whereHas('users', function ($user){
+//                $user->where('user_id', auth()->id());
+//            })->get();
+
+//        $inviteToggle = $party->invites()->where('user_id', auth()->id())->exists();
+
+//        $invites = DB::table('party_invites')
+//            ->join('users', 'party_invites.user_id', '=', 'users.id')
+//            ->where('party_invites.id', 'party.id')
+//            ->first();
+
         return Inertia::render('Party/Index', [
             'party' => $party,
-            'inviteToggle' => $party->where('user_id', auth()->id())->exists(),
-
+            'inviteToggle' => $party->invites()->where('party_id', auth()->id())->exists(),
+//            'inviteToggle' => $inviteToggle,
 
 //            'followers' => $user->followers()->withCount([
 //                'followers as following' => function ($q) {
@@ -55,11 +71,10 @@ class PartyController extends Controller
 
 
             'invites' => $party->invites()->withCount([
-                'invites as party_invites' => function ($q) {
-                    return $q->where('party_id', 'party');
-                }
+
             ])->withCasts(['party_invites' => 'boolean'])->paginate(),
 
+//        'invites' => $invites,
 
         ]);
 

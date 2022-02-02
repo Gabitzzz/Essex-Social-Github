@@ -30,23 +30,39 @@
                         <tbody class="bg-gray-100 divide-y divide-gray-200">
                         <tr v-for="(user, index) in users.data" :key="user.id">
                             <td class=" text-sm text-gray-500 ">
-                                <img
-                                    :src="showImage() + user.avatar"
-                                    class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
-                                    alt="avatar"
-                                />
+                                <!--                                <img-->
+                                <!--                                    :src="showImage() + user.avatar"-->
+                                <!--                                    class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"-->
+                                <!--                                    alt="avatar"-->
+                                <!--                                />-->
+
+                                <div v-if="user.avatar === null">
+                                    <img
+                                        :src="defaultProfile"
+                                        class="avatar  avatar w-10 h-10 ml-2 my-2"
+                                        alt="default"
+                                    />
+                                </div>
+
+                                <div v-else>
+                                    <img
+                                        :src="showImage() + user.avatar"
+                                        class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
+                                        alt="avatar"
+                                    />
+                                </div>
                             </td>
 
                             <td class=" text-sm text-gray-500 ">
                                 <a class="text-sm font-semibold text-gray-900 px-2 py-4"
-                                   :href="route('profile', user.username)" >
+                                   :href="route('profile', user.username)">
                                     {{ user.username }}
                                 </a>
                             </td>
 
                             <td class=" text-sm text-gray-500 ">
                                 <a class="text-sm font-semibold text-gray-500 px-8 py-4"
-                                   :href="route('profile', user.username)" >
+                                   :href="route('profile', user.username)">
                                     {{ user.name }}
                                 </a>
                             </td>
@@ -67,6 +83,7 @@ import Tab from "@/Components/Tab";
 import Nav from "@/Components/Nav";
 import {pickBy, throttle} from "lodash";
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import defaultProfile from "/img/Posts/defaultProfile.png";
 
 
 export default {
@@ -78,6 +95,7 @@ export default {
                 field: this.filters.field,
                 direction: this.filters.direction,
             },
+            defaultProfile: defaultProfile,
         };
     },
     components: {

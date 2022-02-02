@@ -84,13 +84,21 @@
                 <a :href="route('profile', $page.props.auth.user.username )"
                    class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-1 pb-1"
                 >
-<!--                    <img :src="profile" width="25" height="25" class="inline-block" alt="profile">-->
-
-                    <img
-                        :src="showImage() + $page.props.auth.user.avatar"
-                        class="inline-block rounded-full w-8 h-8"
-                        alt="avatar"
-                    />
+                    <!--                    <img :src="profile" width="25" height="25" class="inline-block" alt="profile">-->
+                    <div v-if="$page.props.auth.user.avatar === null">
+                        <img
+                            :src="defaultProfile"
+                            class="inline-block avatar w-8 h-8 "
+                            alt="default"
+                        />
+                    </div>
+                    <div v-else>
+                        <img
+                            :src="showImage() + $page.props.auth.user.avatar"
+                            class="inline-block rounded-full w-8 h-8"
+                            alt="avatar"
+                        />
+                    </div>
 
                     <span class="tab tab-whishlist block text-xs">
                     </span>
@@ -105,6 +113,7 @@
 import profile from "/img/Tab/user.png"
 import plus from "/img/Tab/plus.png"
 import notification from "/img/Tab/notification.png"
+import defaultProfile from "/img/Posts/defaultProfile.png";
 
 
 export default {
@@ -115,9 +124,10 @@ export default {
             plus: plus,
             notification: notification,
             unreadNotifications: this.$page.props.auth.unreadNotifications,
+            defaultProfile: defaultProfile,
         }
     },
-    methods:{
+    methods: {
         showImage() {
             return "/storage/";
         },

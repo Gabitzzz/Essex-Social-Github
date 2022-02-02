@@ -13,12 +13,24 @@
                             <img :src="showImage() + user.cover" class="cover rounded-lg" alt="cover"
                                  style="min-height: 350px;">
                         </div>
+
                         <div class="flex justify-center">
-                            <img
-                                :src="showImage() + user.avatar"
-                                class="rounded-full avatar w-32 h-32"
-                                alt="avatar"
-                            />
+
+                            <div v-if="user.avatar === null">
+                                <img
+                                    :src="defaultProfile"
+                                    class=" avatar w-32 h-32 "
+                                    alt="default"
+                                />
+                            </div>
+
+                            <div v-else>
+                                <img
+                                    :src="showImage() + user.avatar"
+                                    class="rounded-full avatar w-32 h-32"
+                                    alt="avatar"
+                                />
+                            </div>
 
                             <p style="text-align: center;" class="text-2xl username">
                                 {{ $page.props.user.username }}
@@ -125,51 +137,50 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!--  GALLERY -->
+                <div v-show="gallery" class="py-2 mx-2 mb-2">
+                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+                        <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+                            <h1 class="text-3xl text-white px-6 py-4 ">
+                                GALLERY
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!--    ABOUT   -->
+                <div v-show="about" class="py-2 mx-2 mb-2">
+                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+                        <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+                            <h1 class="text-3xl text-white px-6 py-4 ">
+                                ABOUT
+                            </h1>
+                        </div>
                     </div>
 
-                    <!--  GALLERY -->
-                    <div v-show="gallery" class="py-2 mx-2 mb-2">
-                        <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-                            <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
-                                <h1 class="text-3xl text-white px-6 py-4 ">
-                                    GALLERY
-                                </h1>
+                    <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 mt-5">
+                        <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+                            <div class="p-6 border-b border-gray-200">
+                                <p>
+                                    <strong>Username:</strong> {{ $page.props.user.username }}
+                                </p>
+                                <p>
+                                    <strong>Name:</strong> {{ $page.props.user.name }}
+                                </p>
+                                <p>
+                                    <strong>Email:</strong> {{ $page.props.user.email }}
+                                </p>
+                                <p>
+                                    <strong>Description:</strong> {{ $page.props.user.description }}
+                                </p>
                             </div>
                         </div>
                     </div>
 
-                    <!--    ABOUT   -->
-                    <div v-show="about" class="py-2 mx-2 mb-2">
-                        <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-                            <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
-                                <h1 class="text-3xl text-white px-6 py-4 ">
-                                    ABOUT
-                                </h1>
-                            </div>
-                        </div>
 
-                        <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 mt-5">
-                            <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-                                <div class="p-6 border-b border-gray-200">
-                                    <p>
-                                        <strong>Username:</strong> {{ $page.props.user.username }}
-                                    </p>
-                                    <p>
-                                        <strong>Name:</strong> {{ $page.props.user.name }}
-                                    </p>
-                                    <p>
-                                        <strong>Email:</strong> {{ $page.props.user.email }}
-                                    </p>
-                                    <p>
-                                        <strong>Description:</strong> {{ $page.props.user.description }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
+                </div>
             </div>
         </BreezeAuthenticatedLayout>
     </div>
@@ -179,6 +190,7 @@
 <script>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import cover from "/img/background/forrest.jpg";
+import defaultProfile from "/img/Posts/defaultProfile.png";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import FollowButton from "@/Components/FollowButton";
 import Like from "@/Components/Like";
@@ -200,6 +212,8 @@ export default {
             post_img: post_img,
             party: party,
             event: event,
+            defaultProfile: defaultProfile,
+
         }
     },
     props: {
@@ -212,6 +226,7 @@ export default {
         followToggle: Boolean,
         likes: Array,
         dislikes: Array,
+
 
     },
     components: {

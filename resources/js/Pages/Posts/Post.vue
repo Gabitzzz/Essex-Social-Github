@@ -1,154 +1,177 @@
 <template>
-        <inertia-link preserve-scroll
-                      :href="route('post.show', post.id)"
-        >
-            <div class="mb-4 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-                <div class="flex">
-                    <inertia-link :href="route('profile', post.user.username)">
-                        <div class="flex justify-items-start m-2">
+    <inertia-link preserve-scroll
+                  :href="route('post.show', post.id)"
+    >
+        <div class="mb-4 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+            <div class="flex">
+                <inertia-link :href="route('profile', post.user.username)">
+                    <div class="flex justify-items-start m-2">
+                        <div v-if="post.user.avatar === null">
+
+                            <img
+                                :src="defaultProfile"
+                                class="avatar  avatar w-10 h-10 ml-2 my-2"
+                                alt="default"
+                            />
+                        </div>
+
+                        <div v-else>
                             <img
                                 :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"
                                 class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
                                 alt="avatar"
                             />
-                            <div>
-                                <p class="ml-2 mt-2">
-                                    {{ post.user.username }}
-                                </p>
-                                <span class="italic ml-2 align-text-top" style="font-size: 10px;">
+                        </div>
+                        <div>
+                            <p class="ml-2 mt-2">
+                                {{ post.user.username }}
+                            </p>
+                            <span class="italic ml-2 align-text-top" style="font-size: 10px;">
                                        {{ post.timeAgo }}
                                 </span>
-                            </div>
                         </div>
-                    </inertia-link>
+                    </div>
+                </inertia-link>
 
-                    <inertia-link preserve-scroll
-                                  v-if="post.user.id === $page.props.auth.user.id"
-                                  class="   "
-                                  as="button"
-                                  :href="route('posts.edit', post.id)"
-                    >
-                        ...
-                    </inertia-link>
+                <inertia-link preserve-scroll
+                              v-if="post.user.id === $page.props.auth.user.id"
+                              class="   "
+                              as="button"
+                              :href="route('posts.edit', post.id)"
+                >
+                    ...
+                </inertia-link>
+            </div>
+
+            <div class="px-2 border-b border-gray-200">
+                <p class="text-sm px-4">
+                    {{ post.body }}
+                </p>
+
+                <div v-if="post.image" class="flex justify-center">
+
+                    <img
+                        :src="showImage() +  post.image"
+                        class="avatar w-2/3 h-2/3"
+                        alt="avatar"
+                    />
                 </div>
 
-                <div class="px-2 border-b border-gray-200">
-                    <p class="text-sm px-4">
-                        {{ post.body }}
-                    </p>
+                <!--                LIKES   -->
+                <inertia-link preserve-scroll
+                              method="POST"
+                              as="button"
+                              :href="route('likes.toggle', post.id)"
+                >
+                    <div class="flex text-xs px-4 mt-2">
+                        <div v-if="post.likes.length === 0">
 
-                    <div v-if="post.image" class="flex justify-center">
-
-                        <img
-                            :src="showImage() +  post.image"
-                            class="avatar w-2/3 h-2/3"
-                            alt="avatar"
-                        />
-                    </div>
-
-                    <!--                LIKES   -->
-                    <inertia-link preserve-scroll
-                                  method="POST"
-                                  as="button"
-                                  :href="route('likes.toggle', post.id)"
-                    >
-                        <div class="flex text-xs px-4 mt-2">
-                            <div v-if="post.likes.length === 0">
-
-                            </div>
-
-                            <div v-else-if="post.likes.length === 1">
-                                {{ post.likes.length }} Like &nbsp;
-                            </div>
-
-                            <div v-else>
-                                {{ post.likes.length }} Likes &nbsp;
-                            </div>
-
-                            <!--                DISLIKES    -->
-                            <div v-if="post.dislikes.length === 0">
-
-                            </div>
-
-                            <div v-else-if="post.dislikes.length === 1">
-                                {{ post.dislikes.length }} Dislike &nbsp;
-                            </div>
-
-                            <div v-else>
-                                {{ post.dislikes.length }} Dislikes &nbsp;
-                            </div>
-                            <!--                        <div v-if="post.comments.length === 0">-->
-
-                            <!--                        </div>-->
-
-                            <!--                        <div v-else-if="post.comments.length === 1">-->
-                            <!--                            {{ post.comments.length }} Dislike &nbsp;-->
-                            <!--                        </div>-->
-
-                            <!--                        <div v-else>-->
-                            <!--                            {{ post.comments.length }} Dislikes &nbsp;-->
-                            <!--                        </div>-->
                         </div>
-                    </inertia-link>
 
-                    <hr>
+                        <div v-else-if="post.likes.length === 1">
+                            {{ post.likes.length }} Like &nbsp;
+                        </div>
 
-                    <div class="flex justify-between">
-                        <!-- ... -->
-                        <!--                        <div class="flex justify-self-star mt-1">-->
-                        <!--                            &lt;!&ndash;                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">&ndash;&gt;-->
+                        <div v-else>
+                            {{ post.likes.length }} Likes &nbsp;
+                        </div>
 
+                        <!--                DISLIKES    -->
+                        <div v-if="post.dislikes.length === 0">
 
-                        <!--                            <p class="mt-1 ml-2 text-sm">-->
-                        <!--                               7 Likes-->
-                        <!--                            </p>-->
+                        </div>
+
+                        <div v-else-if="post.dislikes.length === 1">
+                            {{ post.dislikes.length }} Dislike &nbsp;
+                        </div>
+
+                        <div v-else>
+                            {{ post.dislikes.length }} Dislikes &nbsp;
+                        </div>
+                        <!--                        <div v-if="post.comments.length === 0">-->
+
                         <!--                        </div>-->
 
-                        <!--                        <div class="flex justify-end mt-2">-->
-                        <!--                            <div class="flex">-->
-                        <!--                                <Like :post="post"></Like>-->
+                        <!--                        <div v-else-if="post.comments.length === 1">-->
+                        <!--                            {{ post.comments.length }} Dislike &nbsp;-->
+                        <!--                        </div>-->
 
-                        <!--                                <Dislike :post="post" class="ml-1"></Dislike>-->
-
-                        <!--                                <InertiaLink :href="route('post.show', post.id)" :post="post.id"-->
-                        <!--                                             class="ml-1  h-6 w-6 rounded-full bg-blue-400">-->
-                        <!--                                </InertiaLink>-->
-                        <!--                            </div>-->
+                        <!--                        <div v-else>-->
+                        <!--                            {{ post.comments.length }} Dislikes &nbsp;-->
                         <!--                        </div>-->
                     </div>
+                </inertia-link>
 
-                    <div>
-                        <div class="flex">
-                            <img
-                                :src="showImage() + $page.props.auth.user.avatar"
-                                class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"
-                                alt="avatar"
-                            />
+                <hr>
 
-                            <!--                            <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"-->
-                            <!--                                         placeholder="Say something.."-->
-                            <!--                                         required autofocus autocomplete="name"/>-->
+                <div class="flex justify-between">
+                    <!-- ... -->
+                    <!--                        <div class="flex justify-self-star mt-1">-->
+                    <!--                            &lt;!&ndash;                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">&ndash;&gt;-->
 
-                            <div class="bg-white h-8 w-full rounded-full shadow-md m-2 text-xs  border border-gray-300">
-                                <p class="mt-2 ml-4 text-gray-700">
-                                    say something
-                                </p>
-                            </div>
 
-                            <div class="flex mt-3">
-                                <Like :post="post" class="ml-1"></Like>
+                    <!--                            <p class="mt-1 ml-2 text-sm">-->
+                    <!--                               7 Likes-->
+                    <!--                            </p>-->
+                    <!--                        </div>-->
 
-                                <Dislike :post="post" class="ml-1 mr-1"></Dislike>
-                            </div>
+                    <!--                        <div class="flex justify-end mt-2">-->
+                    <!--                            <div class="flex">-->
+                    <!--                                <Like :post="post"></Like>-->
 
+                    <!--                                <Dislike :post="post" class="ml-1"></Dislike>-->
+
+                    <!--                                <InertiaLink :href="route('post.show', post.id)" :post="post.id"-->
+                    <!--                                             class="ml-1  h-6 w-6 rounded-full bg-blue-400">-->
+                    <!--                                </InertiaLink>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                </div>
+
+                <div>
+                    <div class="flex">
+                        <!--                        <img-->
+                        <!--                            :src="showImage() + $page.props.auth.user.avatar"-->
+                        <!--                            class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"-->
+                        <!--                            alt="avatar"-->
+                        <!--                        />-->
+
+                        <img v-if="$page.props.auth.user.avatar === null"
+                             :src="defaultProfile"
+                             class="avatar  avatar w-8 h-8 mt-2  ml-2"
+                             alt="default"
+                        />
+
+                        <img v-else
+                             :src="showImage() + $page.props.auth.user.avatar"
+                             class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"
+                        />
+
+
+
+                        <!--                            <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"-->
+                        <!--                                         placeholder="Say something.."-->
+                        <!--                                         required autofocus autocomplete="name"/>-->
+
+                        <div class="bg-white h-8 w-full rounded-full shadow-md m-2 text-xs  border border-gray-300">
+                            <p class="mt-2 ml-4 text-gray-700">
+                                say something
+                            </p>
+                        </div>
+
+                        <div class="flex mt-3">
+                            <Like :post="post" class="ml-1"></Like>
+
+                            <Dislike :post="post" class="ml-1 mr-1"></Dislike>
                         </div>
 
 
                     </div>
                 </div>
             </div>
+        </div>
 
-        </inertia-link>
+    </inertia-link>
 </template>
 
 <script>
@@ -158,6 +181,8 @@ import Dislike from "@/Components/Dislike";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import CombinedComments from "@/Components/CombinedComments";
 import PostForm from "@/Components/PostForm";
+import defaultProfile from "/img/Posts/defaultProfile.png";
+
 
 export default {
     name: "Post",
@@ -174,6 +199,7 @@ export default {
             dislikeForm: this.$inertia.form({
                 userPosts: this.post
             }),
+            defaultProfile: defaultProfile,
         }
     },
     components: {

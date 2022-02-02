@@ -8,11 +8,22 @@
                 <div class="flex">
                     <inertia-link :href="route('profile', post.user.username)">
                         <div class="flex justify-items-start m-2">
-                            <img
-                                :src="showImage() + post.user.avatar"
-                                class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
-                                alt="avatar"
-                            />
+                            <div v-if="post.user.avatar === null">
+
+                                <img
+                                    :src="defaultProfile"
+                                    class="avatar  avatar w-10 h-10 ml-2 my-2"
+                                    alt="default"
+                                />
+                            </div>
+
+                            <div v-else>
+                                <img
+                                    :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"
+                                    class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
+                                    alt="avatar"
+                                />
+                            </div>
 
                             <div>
                                 <p class="ml-2 mt-2">
@@ -89,18 +100,21 @@
 
                     <div>
                         <div class="flex">
-                            <img
-                                :src="showImage() + $page.props.auth.user.avatar"
-                                class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"
-                                alt="avatar"
+                            <img v-if="$page.props.auth.user.avatar === null"
+                                 :src="defaultProfile"
+                                 class="avatar  avatar w-8 h-8 mt-2  ml-2"
+                                 alt="default"
                             />
 
-                            <div
-                                class="h-8 w-full rounded-full  mt-2 text-xs ml-2 mr-2 ">
+                            <img v-else
+                                 :src="showImage() + $page.props.auth.user.avatar"
+                                 class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"
+                            />
+
+                            <div class="bg-white h-8 w-full ">
                                 <p class="mt-2 ml-4 text-gray-700">
                                 </p>
                             </div>
-
                             <div class="flex mt-3">
 
                                 <InertiaLink @click="back"
@@ -162,6 +176,7 @@ import Like from "@/Components/Like";
 import Dislike from "@/Components/Dislike";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import backButton from "/img/Tab/left-arrow.png";
+import defaultProfile from "/img/Posts/defaultProfile.png";
 
 
 export default {
@@ -185,14 +200,13 @@ export default {
     data() {
         return {
             imageError: false,
-            defaultImage: require("/storage/default-avatar.png"),
-
             avatar: avatar,
             backButton: backButton,
             form: this.$inertia.form({
                 body: null,
 
             }),
+            defaultProfile: defaultProfile,
         }
     },
     computed: {

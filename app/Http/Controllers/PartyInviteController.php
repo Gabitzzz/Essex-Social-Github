@@ -21,7 +21,7 @@ class PartyInviteController extends Controller
 
             'invites' => $party->invites()->withCount([
                 'invites as party_invites' => function ($q) {
-                    return $q->where('party_id', 'party.id');
+                    return $q->where('user_id', auth()->id());
                 }
             ])->withCasts(['party_invites' => 'boolean'])
                 ->paginate(),
