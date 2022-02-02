@@ -5,10 +5,14 @@
         <div class="pb-16 2xl:mx-96">
             <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
 
-                <div class="mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold">
+                <div class=" mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl mx-2 md:mx-0 py-2" style="font-family: 'Poppins', sans-serif;">
                         Welcome {{ $page.props.auth.user.username }}
                     </h1>
+
+
+
+
 
                     <p class="px-2  text-sm lg:text-md"
                        style="font-weight:lighter;">

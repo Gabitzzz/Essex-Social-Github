@@ -27622,7 +27622,7 @@ var _hoisted_1 = ["src"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
     src: $data.image,
-    "class": "w-40 h-40"
+    "class": "w-40 h-40 transform transition-all animate-pulse transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300"
   }, null, 8
   /* PROPS */
   , _hoisted_1);
