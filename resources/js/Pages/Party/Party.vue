@@ -3,23 +3,11 @@
         <inertia-link preserve-scroll
                       :href="route('party.item', party)"
         >
-
-<!--       -->
-
-
-        <div class="mx-2 mb-4 shadows-lg  ">
-                    <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
-
-                    <!--                <img class="" src="https://images.unsplash.com/photo-1570169797118-99f5f90c4e25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">-->
-
-
-                        <img :src="showImage() + party.partyImg"
-                             class="object-cover rounded-lg w-full" alt="cover"
-                             style="max-height: 250px;  filter: brightness(30%);">
-
-
-
-
+            <div class="mx-2 mb-4 shadows-lg  ">
+                <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
+                    <img :src="showImage() + party.partyImg"
+                         class="object-cover rounded-lg w-full" alt="cover"
+                         style="max-height: 250px;  filter: brightness(30%);">
 
                     <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
 
@@ -43,22 +31,28 @@
                             </h3>
                         </div>
                         <div>
-                            <h1 class="text-center">
+                            <h1 class="text-center mt-2">
                                 {{ party.body }}
                             </h1>
+                        </div>
 
 
+                        <div class="flex  mt-12 ">
+                            <img
+                                :src="pin"
+                                class="avatar  avatar w-6 h-6 mt-2  "
+                                alt="default"
+                            />
 
+                            <p class="text-center text-sm mt-2 ml-2">
 
-
-
-
-
+                                location
+                            </p>
                         </div>
                     </figcaption>
                 </div>
 
-        </div>
+            </div>
         </inertia-link>
     </div>
 
@@ -68,6 +62,7 @@
 
 
 import {InertiaLink} from "@inertiajs/inertia-vue3";
+import pin from "/img/Posts/pin.png";
 
 
 export default {
@@ -81,8 +76,9 @@ export default {
     components: {
         InertiaLink,
     },
-    data(){
-        return{
+    data() {
+        return {
+            pin: pin,
         }
     },
 
@@ -99,7 +95,7 @@ export default {
 </script>
 
 <style scoped>
-body{
+body {
     background-size: 100%;
 }
 

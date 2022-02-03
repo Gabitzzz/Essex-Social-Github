@@ -24,6 +24,8 @@
             </div>
 
 
+
+
             <div class="mt-5 flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div class="w-1/2 overflow-hidden sm:w-1/Q xl:w-6/12">
                     <!-- Column Content -->

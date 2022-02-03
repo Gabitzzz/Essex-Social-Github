@@ -50,42 +50,42 @@
                             </div>
 
                             <!--                            UPLOAD COVER                -->
-                            <div>
-                                <div class="flex justify-center">
-                                    <img
-                                        v-if="!coverUrl"
-                                        :src="'/storage/' + $page.props.user.cover "
-                                        class="avatar rounded-full avatar w-1/2 h-1/2"
-                                        alt="cover"
-                                    />
+<!--                            <div>-->
+<!--                                <div class="flex justify-center">-->
+<!--                                    <img-->
+<!--                                        v-if="!coverUrl"-->
+<!--                                        :src="'/storage/' + $page.props.user.cover "-->
+<!--                                        class="avatar rounded-full avatar w-1/2 h-1/2"-->
+<!--                                        alt="cover"-->
+<!--                                    />-->
 
-                                    <img
-                                        v-if="coverUrl"
-                                        :src="coverUrl"
-                                        class="cover rounded-full avatar w-1/2 h-1/2"
+<!--                                    <img-->
+<!--                                        v-if="coverUrl"-->
+<!--                                        :src="coverUrl"-->
+<!--                                        class="cover rounded-full avatar w-1/2 h-1/2"-->
 
-                                    />
-                                </div>
+<!--                                    />-->
+<!--                                </div>-->
 
-                                <input
-                                    type="file"
-                                    @change="previewCover"
-                                    ref="coverPhoto"
-                                    class="
-                                        w-full
-                                        px-4
-                                        py-2
-                                        mt-2
-                                        border
-                                        rounded-md
-                                        focus:outline-none
-                                        focus:ring-1
-                                        focus:ring-blue-600
-                                    "
-                                />
+<!--                                <input-->
+<!--                                    type="file"-->
+<!--                                    @change="previewCover"-->
+<!--                                    ref="coverPhoto"-->
+<!--                                    class="-->
+<!--                                        w-full-->
+<!--                                        px-4-->
+<!--                                        py-2-->
+<!--                                        mt-2-->
+<!--                                        border-->
+<!--                                        rounded-md-->
+<!--                                        focus:outline-none-->
+<!--                                        focus:ring-1-->
+<!--                                        focus:ring-blue-600-->
+<!--                                    "-->
+<!--                                />-->
 
 
-                            </div>
+<!--                            </div>-->
 
                             <div>
                                 <BreezeLabel for="username" value="Username" class="flex items-center justify-center"/>
@@ -182,7 +182,7 @@ export default {
                 description: this.user.description,
                 password: null,
                 avatar: this.user.avatar,
-                cover: this.user.cover,
+                // cover: this.user.cover,
                 _method: 'PUT',
             }),
         }

@@ -22,6 +22,7 @@
                                 alt="avatar"
                             />
                         </div>
+
                         <div>
                             <p class="ml-2 mt-2">
                                 {{ post.user.username }}
@@ -29,26 +30,37 @@
                             <span class="italic ml-2 align-text-top" style="font-size: 10px;">
                                        {{ post.timeAgo }}
                                 </span>
+
                         </div>
+
                     </div>
                 </inertia-link>
 
-                <inertia-link preserve-scroll
-                              v-if="post.user.id === $page.props.auth.user.id"
-                              class="   "
-                              as="button"
-                              :href="route('posts.edit', post.id)"
-                >
-                    ...
-                </inertia-link>
+                <div class="flex">
+                    <inertia-link preserve-scroll
+                                  v-if="post.user.id === $page.props.auth.user.id"
+                                  class=" -mt-6  "
+                                  as="button"
+                                  :href="route('posts.edit', post.id)"
+                    >
+                        ...
+                    </inertia-link>
+                </div>
+
+                <div class="m-4">
+                    <p class="text-center text-gray-600">
+                        location
+                    </p>
+                </div>
+
             </div>
 
-            <div class="px-2 border-b border-gray-200">
+            <div class="px-4 border-b border-gray-200">
                 <p class="text-sm px-4">
                     {{ post.body }}
                 </p>
 
-                <div v-if="post.image" class="flex justify-center">
+                <div v-if="post.image" class="mt-2 flex justify-center">
 
                     <img
                         :src="showImage() +  post.image"
@@ -56,6 +68,7 @@
                         alt="avatar"
                     />
                 </div>
+
 
                 <!--                LIKES   -->
                 <inertia-link preserve-scroll
@@ -146,7 +159,6 @@
                              :src="showImage() + $page.props.auth.user.avatar"
                              class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"
                         />
-
 
 
                         <!--                            <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"-->
