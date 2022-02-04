@@ -143,35 +143,26 @@
 
                 <div>
                     <div class="flex">
-                        <!--                        <img-->
-                        <!--                            :src="showImage() + $page.props.auth.user.avatar"-->
-                        <!--                            class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"-->
-                        <!--                            alt="avatar"-->
-                        <!--                        />-->
+                        <div class="flex-auto w-8">
+                            <img v-if="$page.props.auth.user.avatar === null"
+                                 :src="defaultProfile"
+                                 class="avatar w-8 h-8 mt-2 ml-2"
+                                 alt="default"
+                            />
 
-                        <img v-if="$page.props.auth.user.avatar === null"
-                             :src="defaultProfile"
-                             class="avatar  avatar w-8 h-8 mt-2  ml-2"
-                             alt="default"
-                        />
+                            <img v-else
+                                 :src="showImage() + $page.props.auth.user.avatar"
+                                 class="avatar rounded-full avatar w-8 h-8 mt-2"
+                            />
+                        </div>
 
-                        <img v-else
-                             :src="showImage() + $page.props.auth.user.avatar"
-                             class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"
-                        />
-
-
-                        <!--                            <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"-->
-                        <!--                                         placeholder="Say something.."-->
-                        <!--                                         required autofocus autocomplete="name"/>-->
-
-                        <div class="bg-white h-8 w-full rounded-full shadow-md m-2 text-xs  border border-gray-300">
+                        <div class="bg-white h-8 rounded-full shadow-md m-2 text-xs  border border-gray-300 flex-auto w-4/5 ">
                             <p class="mt-2 ml-4 text-gray-700">
                                 say something
                             </p>
                         </div>
 
-                        <div class="flex mt-3">
+                        <div class="flex mt-3 flex-auto w-16">
                             <Like :post="post" class="ml-1"></Like>
 
                             <Dislike :post="post" class="ml-1 mr-1"></Dislike>

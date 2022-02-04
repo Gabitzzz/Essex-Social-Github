@@ -32352,19 +32352,22 @@ var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_26 = {
   "class": "flex"
 };
-var _hoisted_27 = ["src"];
+var _hoisted_27 = {
+  "class": "flex-auto w-8"
+};
 var _hoisted_28 = ["src"];
+var _hoisted_29 = ["src"];
 
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "bg-white h-8 w-full rounded-full shadow-md m-2 text-xs border border-gray-300"
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "bg-white h-8 rounded-full shadow-md m-2 text-xs border border-gray-300 flex-auto w-4/5"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "mt-2 ml-4 text-gray-700"
 }, " say something ")], -1
 /* HOISTED */
 );
 
-var _hoisted_30 = {
-  "class": "flex mt-3"
+var _hoisted_31 = {
+  "class": "flex mt-3 flex-auto w-16"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
@@ -32450,20 +32453,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["href"]), _hoisted_24, _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            :src=\"showImage() + $page.props.auth.user.avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"avatar rounded-full avatar w-8 h-8 mt-2 ml-2\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            alt=\"avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        />"), _ctx.$page.props.auth.user.avatar === null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+      , ["href"]), _hoisted_24, _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_ctx.$page.props.auth.user.avatar === null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
         key: 0,
         src: $data.defaultProfile,
-        "class": "avatar avatar w-8 h-8 mt-2 ml-2",
+        "class": "avatar w-8 h-8 mt-2 ml-2",
         alt: "default"
       }, null, 8
       /* PROPS */
-      , _hoisted_27)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+      , _hoisted_28)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
         key: 1,
         src: $options.showImage() + _ctx.$page.props.auth.user.avatar,
-        "class": "avatar rounded-full avatar w-8 h-8 mt-2 ml-2"
+        "class": "avatar rounded-full avatar w-8 h-8 mt-2"
       }, null, 8
       /* PROPS */
-      , _hoisted_28)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <BreezeInput id=\"body\" type=\"text\" class=\"block w-full h-10 mx-1\" v-model=\"form.body\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                         placeholder=\"Say something..\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                         required autofocus autocomplete=\"name\"/>"), _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Like, {
+      , _hoisted_29))]), _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Like, {
         post: $props.post,
         "class": "ml-1"
       }, null, 8
