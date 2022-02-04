@@ -117,30 +117,6 @@
 
                 <hr>
 
-                <div class="flex justify-between">
-                    <!-- ... -->
-                    <!--                        <div class="flex justify-self-star mt-1">-->
-                    <!--                            &lt;!&ndash;                        <img :src="avatar" class="rounded-full avatar w-8 h-8 mt-1" alt="avatar">&ndash;&gt;-->
-
-
-                    <!--                            <p class="mt-1 ml-2 text-sm">-->
-                    <!--                               7 Likes-->
-                    <!--                            </p>-->
-                    <!--                        </div>-->
-
-                    <!--                        <div class="flex justify-end mt-2">-->
-                    <!--                            <div class="flex">-->
-                    <!--                                <Like :post="post"></Like>-->
-
-                    <!--                                <Dislike :post="post" class="ml-1"></Dislike>-->
-
-                    <!--                                <InertiaLink :href="route('post.show', post.id)" :post="post.id"-->
-                    <!--                                             class="ml-1  h-6 w-6 rounded-full bg-blue-400">-->
-                    <!--                                </InertiaLink>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                </div>
-
                 <div>
                     <div class="flex">
                         <div class="flex-auto w-8">

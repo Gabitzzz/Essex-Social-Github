@@ -16,14 +16,14 @@
                                     <img
                                         v-if="!url"
                                         :src="'/storage/' + $page.props.user.avatar "
-                                        class="avatar rounded-full avatar w-1/2 h-1/2"
+                                        class="avatar rounded-full avatar w-32 h-32"
                                         alt="avatar"
                                     />
 
                                     <img
                                         v-if="url"
                                         :src="url"
-                                        class="avatar rounded-full avatar w-1/2 h-1/2"
+                                        class="avatar rounded-full avatar w-32 h-32"
 
                                     />
                                 </div>
@@ -37,7 +37,6 @@
                                         px-4
                                         py-2
                                         mt-2
-                                        border
                                         rounded-md
                                         focus:outline-none
                                         focus:ring-1

@@ -3,124 +3,121 @@
 
     <BreezeAuthenticatedLayout>
         <div class="mt-5">
-                    <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-            <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-                <div class="flex">
-                    <inertia-link :href="route('profile', post.user.username)">
-                        <div class="flex justify-items-start m-2">
-                            <div v-if="post.user.avatar === null">
+            <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+                <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+                    <div class="flex">
+                        <inertia-link :href="route('profile', post.user.username)">
+                            <div class="flex justify-items-start m-2">
+                                <div v-if="post.user.avatar === null">
 
-                                <img
-                                    :src="defaultProfile"
-                                    class="avatar  avatar w-10 h-10 ml-2 my-2"
-                                    alt="default"
-                                />
-                            </div>
+                                    <img
+                                        :src="defaultProfile"
+                                        class="avatar  avatar w-10 h-10 ml-2 my-2"
+                                        alt="default"
+                                    />
+                                </div>
 
-                            <div v-else>
-                                <img
-                                    :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"
-                                    class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
-                                    alt="avatar"
-                                />
-                            </div>
+                                <div v-else>
+                                    <img
+                                        :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"
+                                        class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
+                                        alt="avatar"
+                                    />
+                                </div>
 
-                            <div>
-                                <p class="ml-2 mt-2">
-                                    {{ post.user.username }}
-                                </p>
-                                <span class="italic ml-2 align-text-top" style="font-size: 10px;">
+                                <div>
+                                    <p class="ml-2 mt-2">
+                                        {{ post.user.username }}
+                                    </p>
+                                    <span class="italic ml-2 align-text-top" style="font-size: 10px;">
                                        {{ post.timeAgo }}
                                 </span>
+                                </div>
                             </div>
-                        </div>
-                    </inertia-link>
+                        </inertia-link>
 
-                    <inertia-link preserve-scroll
-                                  v-if="post.user.id === $page.props.auth.user.id"
-                                  class="   "
-                                  as="button"
-                                  :href="route('posts.edit', post.id)"
-                    >
-                        ...
-                    </inertia-link>
-                </div>
-
-                <div class="px-2 pb-1 border-b border-gray-200">
-                    <p class="text-sm px-4">
-                        {{ post.body }}
-                    </p>
-
-                    <div v-if="post.image" class="flex justify-center">
-                        <img
-                            :src="showImage() +  post.image"
-                            class="avatar  avatar w-2/3 h-2/3"
-                            alt="avatar"
-                        />
+                        <inertia-link preserve-scroll
+                                      v-if="post.user.id === $page.props.auth.user.id"
+                                      class="   "
+                                      as="button"
+                                      :href="route('posts.edit', post.id)"
+                        >
+                            ...
+                        </inertia-link>
                     </div>
 
-                    <!--                LIKES   -->
-                    <inertia-link preserve-scroll
-                                  method="POST"
-                                  as="button"
-                                  :href="route('likes.toggle', post.id)"
-                    >
-                        <div class="flex text-xs px-4 mt-2">
-                            <div v-if="post.likes.length === 0">
+                    <div class="px-2 pb-1 border-b border-gray-200">
+                        <p class="text-sm px-4">
+                            {{ post.body }}
+                        </p>
 
-                            </div>
-
-                            <div v-else-if="post.likes.length === 1">
-                                {{ post.likes.length }} Like &nbsp;
-                            </div>
-
-                            <div v-else>
-                                {{ post.likes.length }} Likes &nbsp;
-                            </div>
-
-                            <!--                DISLIKES    -->
-                            <div v-if="post.dislikes.length === 0">
-
-                            </div>
-
-                            <div v-else-if="post.dislikes.length === 1">
-                                {{ post.dislikes.length }} Dislike &nbsp;
-                            </div>
-
-                            <div v-else>
-                                {{ post.dislikes.length }} Dislikes &nbsp;
-                            </div>
+                        <div v-if="post.image" class="flex justify-center">
+                            <img
+                                :src="showImage() +  post.image"
+                                class="avatar  avatar w-2/3 h-2/3"
+                                alt="avatar"
+                            />
                         </div>
-                    </inertia-link>
 
-                    <hr>
+                        <!--                LIKES   -->
+                        <inertia-link preserve-scroll
+                                      method="POST"
+                                      as="button"
+                                      :href="route('likes.toggle', post.id)"
+                        >
+                            <div class="flex text-xs px-4 mt-2">
+                                <div v-if="post.likes.length === 0">
 
-                    <div class="flex justify-between">
-                    </div>
+                                </div>
 
-                    <div>
+                                <div v-else-if="post.likes.length === 1">
+                                    {{ post.likes.length }} Like &nbsp;
+                                </div>
+
+                                <div v-else>
+                                    {{ post.likes.length }} Likes &nbsp;
+                                </div>
+
+                                <!--                DISLIKES    -->
+                                <div v-if="post.dislikes.length === 0">
+
+                                </div>
+
+                                <div v-else-if="post.dislikes.length === 1">
+                                    {{ post.dislikes.length }} Dislike &nbsp;
+                                </div>
+
+                                <div v-else>
+                                    {{ post.dislikes.length }} Dislikes &nbsp;
+                                </div>
+                            </div>
+                        </inertia-link>
+
+                        <hr>
+
+
                         <div class="flex">
-                            <img v-if="$page.props.auth.user.avatar === null"
-                                 :src="defaultProfile"
-                                 class="avatar  avatar w-8 h-8 mt-2  ml-2"
-                                 alt="default"
-                            />
+                            <div class="flex-auto w-16">
+                                <img v-if="$page.props.auth.user.avatar === null"
+                                     :src="defaultProfile"
+                                     class="avatar w-8 h-8 mt-2 ml-2"
+                                     alt="default"
+                                />
 
-                            <img v-else
-                                 :src="showImage() + $page.props.auth.user.avatar"
-                                 class="avatar rounded-full avatar w-8 h-8 mt-2 ml-2"
-                            />
-
-                            <div class="bg-white h-8 w-full ">
-                                <p class="mt-2 ml-4 text-gray-700">
-                                </p>
+                                <img v-else
+                                     :src="showImage() + $page.props.auth.user.avatar"
+                                     class="avatar rounded-full avatar w-8 h-8 mt-2"
+                                />
                             </div>
-                            <div class="flex mt-3">
+
+                            <div class="bg-white h-8 rounded-full  m-2 text-xs    flex-auto w-4/5 ">
+                            </div>
+
+                            <div class="flex mt-3 flex-auto w-24">
 
                                 <InertiaLink @click="back"
                                              class="ml-1  h-6 w-6 rounded-full  text-center text-white font-extrabold">
                                     <img :src="backButton" alt="">
-
                                 </InertiaLink>
 
                                 <Like :post="post" class="ml-1"></Like>
@@ -128,35 +125,36 @@
                                 <Dislike :post="post" class="ml-1 mr-1"></Dislike>
                             </div>
 
+
                         </div>
+
                     </div>
                 </div>
-            </div>
 
-            <div class="mx-2 max-2 rounded-xl ">
-                <form @submit.prevent="submit" class="w-full">
-                    <div class="flex mt-5">
-                        <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"
-                                     placeholder="Say something.."
-                                     required autofocus autocomplete="name"/>
+                <div class="mx-2 max-2 rounded-xl ">
+                    <form @submit.prevent="submit" class="w-full">
+                        <div class="flex mt-5">
+                            <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"
+                                         placeholder="Say something.."
+                                         required autofocus autocomplete="name"/>
 
-                        <button type="submit"
-                                class="button px-6 shadow-2xl  md:mx-2"
-                                :class="{ 'opacity-25': form.processing }"
-                                :disabled="form.processing">
-                            SUBMIT
-                        </button>
-                    </div>
-
-                    <div class="flex justify-between my-3">
-                        <div>
-
+                            <button type="submit"
+                                    class="button px-6 shadow-2xl  md:mx-2"
+                                    :class="{ 'opacity-25': form.processing }"
+                                    :disabled="form.processing">
+                                SUBMIT
+                            </button>
                         </div>
-                    </div>
-                </form>
 
+                        <div class="flex justify-between my-3">
+                            <div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
             </div>
-                    </div>
             <div v-for="(comment, index) in comments" :key="index">
                 <CommentItem :comment="comment"></CommentItem>
             </div>
