@@ -17,9 +17,10 @@ class CreatePartiesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->string('body');
+            $table->string('description');
             $table->string('date');
             $table->string('time');
+            $table->string('location');
             $table->text('partyImg')->nullable();
             $table->timestamps();
         });

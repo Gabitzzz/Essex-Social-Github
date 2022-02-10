@@ -16,13 +16,13 @@
                         <BreezeInput id="body" type="text" class="mt-1 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.title"
-                                     placeholder="Title of the party"
+                                     placeholder="Party Name"
                                      required autofocus autocomplete="title"/>
 
-                        <BreezeInput id="body" type="text" class="mt-1 pb-10 block w-full bg-gray-100 "
+                        <BreezeInput id="body" type="text" class="mt-4 pb-10 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.body"
-                                     placeholder="Add a description"
+                                     placeholder="Party Description"
                                      required autofocus autocomplete="body"/>
                     </div>
                 </div>
@@ -52,17 +52,8 @@
                     </div>
                 </div>
 
-                <!--                <Calendar />-->
-                <!--                <DatePicker v-model="date" />-->
                 <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
-
-<!--                    <DatePicker v-model="form.date"-->
-<!--                                mode="dateTime"-->
-<!--                                is-expanded-->
-<!--                                :model-config="modelConfig"-->
-<!--                                :min-date='new Date()'-->
-<!--                                required autofocus autocomplete="date"-->
-<!--                    />-->
+                    <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Select date</p>
 
                     <DatePicker
                         v-model="form.date"
@@ -76,6 +67,16 @@
                     >
                     </DatePicker>
 
+
+                    <div class="flex mt-4 lg:mx-4 ">
+                        <img :src="location2" width="40" alt="plus">
+
+                        <BreezeInput id="body" type="text" class=" ml-2 block w-full bg-gray-100 "
+                                     style="border: none !important;"
+                                     v-model="form.location"
+                                     placeholder="Location"
+                                     required autofocus autocomplete="location"/>
+                    </div>
 
                     <!--                    PUBLIC OR PRIVATE SWITCH        -->
                     <div class="flex justify-center mt-5" style="font-family: 'Poppins', sans-serif;">
@@ -151,7 +152,6 @@
                 </div>
 
 
-
                 <div class=" mb-10 grid justify-items-center">
                     <loading-button :loading="form.processing"
                                     class="button px-8 py-2 " type="submit">
@@ -207,6 +207,8 @@ import Datepicker from 'vuejs-datepicker';
 import {Calendar, DatePicker} from 'v-calendar';
 import Pagination from '@/Components/Pagination';
 import {InertiaLink} from "@inertiajs/inertia-vue3";
+import location2 from "/img/Party/location2.png";
+
 
 export default {
     name: "Create",
@@ -235,13 +237,14 @@ export default {
                 type: 'string',
                 masks: {
 
-                 L:   'YYYY-MM-DD HH:MM', // Uses 'iso' if missing
+                    L: 'YYYY-MM-DD HH:MM', // Uses 'iso' if missing
                 }
             },
             // avatar: avatar,
             post: post,
             party: party,
             event: event,
+            location2: location2,
             url: null,
             userPosts: this.posts,
             form: this.$inertia.form({
@@ -249,6 +252,7 @@ export default {
                 title: null,
                 date: null,
                 partyImg: null,
+                location: null,
 
             }),
             date: new Date(),
@@ -303,4 +307,5 @@ export default {
     font-size: 12px;
     font-family: 'Nunito', sans-serif;
 }
+
 </style>

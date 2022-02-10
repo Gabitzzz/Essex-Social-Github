@@ -4,7 +4,7 @@
     >
         <div class="mb-4 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
             <div class="flex">
-                <inertia-link :href="route('profile', post.user.username)">
+                <inertia-link :href="route('profile', post.user.username)" class="w-full">
                     <div class="flex justify-items-start m-2">
                         <div v-if="post.user.avatar === null">
 
@@ -36,7 +36,21 @@
                     </div>
                 </inertia-link>
 
-                <div class="flex">
+                <div class="w-full mt-4 ">
+                    <div v-if="post.location" class="flex ml-8">
+                        <img
+                            :src="location"
+                            class="avatar  avatar w-6 h-6 ml-2 "
+                            alt="default"
+                        />
+
+                        <p class="text-center text-gray-600 ml-2 ">
+                            {{post.location}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mr-4" style="">
                     <inertia-link preserve-scroll
                                   v-if="post.user.id === $page.props.auth.user.id"
                                   class=" -mt-6  "
@@ -47,11 +61,6 @@
                     </inertia-link>
                 </div>
 
-                <div class="m-4">
-                    <p class="text-center text-gray-600">
-                        location
-                    </p>
-                </div>
 
             </div>
 
@@ -122,7 +131,7 @@
                         <div class="flex-auto w-8">
                             <img v-if="$page.props.auth.user.avatar === null"
                                  :src="defaultProfile"
-                                 class="avatar w-8 h-8 mt-2 ml-2"
+                                 class="avatar w-8 h-8 mt-2 "
                                  alt="default"
                             />
 
@@ -132,7 +141,8 @@
                             />
                         </div>
 
-                        <div class="bg-white h-8 rounded-full shadow-md m-2 text-xs  border border-gray-300 flex-auto w-4/5 ">
+                        <div
+                            class="bg-white h-8 rounded-full shadow-md m-2 text-xs  border border-gray-300 flex-auto w-4/5 ">
                             <p class="mt-2 ml-4 text-gray-700">
                                 say something
                             </p>
@@ -161,6 +171,8 @@ import {InertiaLink} from "@inertiajs/inertia-vue3";
 import CombinedComments from "@/Components/CombinedComments";
 import PostForm from "@/Components/PostForm";
 import defaultProfile from "/img/Posts/defaultProfile.png";
+import location from "/img/Posts/location3.png";
+
 
 
 export default {
@@ -168,6 +180,7 @@ export default {
     data() {
         return {
             avatar: avatar,
+            location:location,
             form: this.$inertia.form({
                 body: this.body,
                 user_id: this.post.user_id,

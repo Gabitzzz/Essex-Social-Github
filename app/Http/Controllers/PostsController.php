@@ -44,6 +44,7 @@ class PostsController extends Controller
 
         $attributes = request()->validate([
             'body' => 'required|max:255',
+            'location' => 'nullable|max:255',
             'image' => 'nullable|image',
             'user_id' => ['nullable', Rule::exists('users', 'id')->where(function ($query) {
                 $query->where('user_id', Auth::user()->id);
@@ -60,6 +61,7 @@ class PostsController extends Controller
         Post::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body'],
+            'location' => $attributes['location'],
             'image' => $image_path,
 //            'image'=> $imagePath,
         ]);

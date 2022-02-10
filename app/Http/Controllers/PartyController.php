@@ -102,6 +102,7 @@ class PartyController extends Controller
             'body' => 'required|max:255',
             'title' => 'required|max:255',
             'date' => 'required|max:255',
+            'location' => 'required|max:255',
             'time' => 'nullable|max:255',
             'partyImg' => 'nullable|image',
             'user_id' => ['nullable', Rule::exists('users', 'id')->where(function ($query) {
@@ -126,6 +127,7 @@ class PartyController extends Controller
                 'user_id' => auth()->id(),
                 'title' => $attributes['title'],
                 'body' => $attributes['body'],
+                'location' => $attributes['location'],
                 'date' => $parsed_date,
                 'time' => $parsed_time,
                 'partyImg' => $image_path,

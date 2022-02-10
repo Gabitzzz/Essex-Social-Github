@@ -43,6 +43,16 @@
                             class="w-full mx-2 md:w-1/2 mt-4 h-80"
                         />
                     </div>
+
+                    <div class="flex mt-4 ">
+                        <img :src="location2" width="40" alt="location">
+
+                        <BreezeInput id="location" type="text" class=" ml-2 block w-full bg-gray-100 "
+                                     style="border: none !important;"
+                                     v-model="form.location"
+                                     placeholder="Location"
+                                     />
+                    </div>
                 </div>
 
                 <div class=" mb-20 grid justify-items-center">
@@ -96,6 +106,8 @@ import {useForm} from "@inertiajs/inertia-vue3";
 import post from "/img/Posts/post.png";
 import party from "/img/Posts/party.png";
 import event from "/img/Posts/event.png";
+import location2 from "/img/Party/location2.png";
+
 
 
 export default {
@@ -127,8 +139,9 @@ export default {
             form: this.$inertia.form({
                 body: null,
                 image: null,
-
+                location:null,
             }),
+            location2: location2,
         }
     },
 
