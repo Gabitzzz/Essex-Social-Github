@@ -78,22 +78,41 @@
                 </div>
             </div>
 
-            <div class="flex mx-6 mt-4  ">
-                <div class="px-4  flex ">
+            <div class="flex mx-4 mt-4  ">
+                <div class=" w-1/4  flex ">
+                </div>
+
+            </div>
+
+            <div class="flex justify-between mx-4">
+                <div class="flex ">
                     <img
                         :src="pin"
                         class="avatar  avatar w-10 h-10 mt-2  "
                         alt="default"
                     />
 
-                    <div class="bg-white rounded-full my-2">
-                        <p class="text-center text-xl py-1 px-4 ">
-                            {{ party.location}}
+                    <div class="bg-white rounded-full my-2 ">
+                        <p class="text-center text-nd py-1 px-4  ">
+                            {{ party.location }}
                         </p>
                     </div>
                 </div>
 
-                <div class="flex">sal</div>
+                <div class="flex  ">
+                    <img
+                        :src="pin"
+                        class="avatar  avatar w-10 h-10 mt-2  "
+                        alt="default"
+                    />
+
+                    <div class="bg-white rounded-full my-2 ">
+                        <p class="text-center text-md py-1 px-4  ">
+                            Organized by {{ party.location }}
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
