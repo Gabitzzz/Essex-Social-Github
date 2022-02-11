@@ -26858,6 +26858,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Party_Parties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Party/Parties */ "./resources/js/Pages/Party/Parties.vue");
 /* harmony import */ var _Pages_Party_Party__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Party/Party */ "./resources/js/Pages/Party/Party.vue");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _img_Posts_pin_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../img/Posts/pin.png */ "./public/img/Posts/pin.png");
+
 
 
 
@@ -26871,7 +26873,9 @@ __webpack_require__.r(__webpack_exports__);
     Party: _Pages_Party_Party__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
-    return {};
+    return {
+      pin: _img_Posts_pin_png__WEBPACK_IMPORTED_MODULE_4__["default"]
+    };
   },
   props: {
     party: Object,
@@ -31381,6 +31385,26 @@ var _hoisted_11 = {
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Join ");
 
+var _hoisted_13 = {
+  "class": "flex mx-6 mt-4"
+};
+var _hoisted_14 = {
+  "class": "px-4 flex"
+};
+var _hoisted_15 = ["src"];
+var _hoisted_16 = {
+  "class": "bg-white rounded-full my-2"
+};
+var _hoisted_17 = {
+  "class": "text-center text-xl py-1 px-4"
+};
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex"
+}, "sal", -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
@@ -31452,7 +31476,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])])];
+      , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+        src: $data.pin,
+        "class": "avatar avatar w-10 h-10 mt-2",
+        alt: "default"
+      }, null, 8
+      /* PROPS */
+      , _hoisted_15), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.location), 1
+      /* TEXT */
+      )])]), _hoisted_18])])];
     }),
     _: 1
     /* STABLE */

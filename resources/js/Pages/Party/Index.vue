@@ -77,6 +77,24 @@
                     </figcaption>
                 </div>
             </div>
+
+            <div class="flex mx-6 mt-4  ">
+                <div class="px-4  flex ">
+                    <img
+                        :src="pin"
+                        class="avatar  avatar w-10 h-10 mt-2  "
+                        alt="default"
+                    />
+
+                    <div class="bg-white rounded-full my-2">
+                        <p class="text-center text-xl py-1 px-4 ">
+                            {{ party.location}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex">sal</div>
+            </div>
         </div>
 
 
@@ -88,6 +106,8 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import Parties from "@/Pages/Party/Parties";
 import Party from "@/Pages/Party/Party";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
+import pin from "/img/Posts/pin.png";
+
 
 export default {
     name: "Index",
@@ -98,7 +118,10 @@ export default {
         Party,
     },
     data() {
-        return {}
+        return {
+            pin: pin,
+
+        }
     },
     props: {
         party: Object,
