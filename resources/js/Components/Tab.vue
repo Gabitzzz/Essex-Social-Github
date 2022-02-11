@@ -88,7 +88,9 @@
                     <div v-if="$page.props.auth.user.avatar === null">
                         <img
                             :src="defaultProfile"
-                            class="inline-block avatar w-8 h-8 "
+                            class="inline-block avatar py-1"
+                            width="25"
+                            height="25"
                             alt="default"
                         />
                     </div>

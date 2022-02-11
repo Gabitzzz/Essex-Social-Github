@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\SomeonePostedEvent;
 use App\Http\Requests\StoreImage;
 use App\Models\Party;
+use App\Models\PartyInvite;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,20 +17,15 @@ use Inertia\Inertia;
 class PartyController extends Controller
 {
 
-    public function index(Party $party, User $user)
+    public function index()
     {
 
 
-        $parties = Party::select('parties.*')->latest()->get()->all();
+        $parties = Party::with('invites')->latest()->get()->all();
 
         return Inertia::render('Party/Parties', [
 
             'parties' => $parties,
-            'invites' => $party->invites()->withCount([
-                'invites as party_invites' => function ($q) {
-                    return $q->where('party_id', 'id');
-                }
-            ])->withCasts(['party_invites' => 'boolean'])->paginate(),
 
 
         ]);
@@ -39,42 +35,17 @@ class PartyController extends Controller
 
     public function display(Party $party, User $user)
     {
-//        $inviteToggle = $party->invites()->where('user_id', '=', auth()->id())->exists();
 
-//
-//        $inviteToggle = $party->invites()->where('user_id', '=', null)
-//            ->whereHas('users', function ($user){
-//                $user->where('user_id', auth()->id());
-//            })->get();
 
-//        $inviteToggle = $party->invites()->where('user_id', auth()->id())->exists();
-
-//        $invites = DB::table('party_invites')
-//            ->join('users', 'party_invites.user_id', '=', 'users.id')
-//            ->where('party_invites.id', 'party.id')
-//            ->first();
+        $var = $party::with('invites')->where("id", "=", $party->id)->get()->first();
 
         return Inertia::render('Party/Index', [
-            'party' => $party,
-            'inviteToggle' => $party->invites()->where('party_id', auth()->id())->exists(),
-//            'inviteToggle' => $inviteToggle,
-
-//            'followers' => $user->followers()->withCount([
-//                'followers as following' => function ($q) {
-//                    return $q->where('follower_id', auth()->id());
-//                }
-//            ])->withCasts(['following' => 'boolean'])
-//                ->paginate(),
-//            'profile' => [
-//                'user' => $user
-//            ],
+            'party' => $var,
+//            'party' => $party,
 
 
-            'invites' => $party->invites()->withCount([
+            'inviteToggle' => $party->invites()->where('party_invites.user_id', auth()->id())->exists(),
 
-            ])->withCasts(['party_invites' => 'boolean'])->paginate(),
-
-//        'invites' => $invites,
 
         ]);
 
@@ -99,7 +70,7 @@ class PartyController extends Controller
 
 
         $attributes = request()->validate([
-            'body' => 'required|max:255',
+            'description' => 'required|max:255',
             'title' => 'required|max:255',
             'date' => 'required|max:255',
             'location' => 'required|max:255',
@@ -126,7 +97,7 @@ class PartyController extends Controller
             Party::create([
                 'user_id' => auth()->id(),
                 'title' => $attributes['title'],
-                'body' => $attributes['body'],
+                'description' => $attributes['description'],
                 'location' => $attributes['location'],
                 'date' => $parsed_date,
                 'time' => $parsed_time,
@@ -136,7 +107,7 @@ class PartyController extends Controller
             $user = User::where('id', auth()->id())->first();
 //        $user->notify(new SomeonePosted($user, auth()->user()));
             event(new SomeonePostedEvent($user, auth()->user()));
-            return Redirect::route('home');
+            return Redirect::route('party.show');
         }
 
     }

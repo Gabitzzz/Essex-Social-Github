@@ -3,44 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Party;
+use App\Models\PartyInvite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PartyInviteController extends Controller
 {
 
 
-    public function index(Party $party)
-    {
 
-
-//        $inviteToggle = $party->invites()->where('user_id', auth()->id())->exists();
-
-        return Inertia::render('Follow/Following', [
-//            'inviteToggle' => $party->invites()->where('user_id', auth()->id())->exists(),
-//            'inviteToggle' => $inviteToggle,
-
-            'invites' => $party->invites()->withCount([
-                'invites as party_invites' => function ($q) {
-                    return $q->where('user_id', auth()->id());
-                }
-            ])->withCasts(['party_invites' => 'boolean'])
-                ->paginate(),
-            'profile' => [
-                'user' => $party
-            ]
-        ]);
-    }
 
 
     public function store(Party $party, $id)
     {
-        $party->invites()->attach($id);
+
+        $partyInvite = new PartyInvite();
+
+        $partyInvite->user_id = Auth::user()->id;
+        $partyInvite->party_id = $id;
+
+        $partyInvite->save();
+
+
+
         return redirect()->back();
     }
 
-    public function destroy(Party $party, $id)
+
+    public function destroy(Party $party,  $id)
     {
-        $party->invites()->detach($id);
+        $party->invites()->where('party_id', '=', $id)->where('user_id', Auth::user()->id)->delete();
         return redirect()->back();
     }
 

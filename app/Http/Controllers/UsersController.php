@@ -29,7 +29,7 @@ class UsersController extends Controller
             ])->withCasts(['following' => 'boolean'])
                 ->paginate(),
             'profile' => [
-                'user' => $user
+                'user' => $user,
             ],
             'followings' => $user->followings()->withCount([
                 'followers as following' => function ($q) {

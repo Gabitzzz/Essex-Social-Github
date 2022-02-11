@@ -102,8 +102,8 @@ export default {
     },
     props: {
         party: Object,
-        invites: Object,
         inviteToggle: Boolean,
+        invites: Array,
     },
     methods: {
         showImage() {

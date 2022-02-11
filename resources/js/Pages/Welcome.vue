@@ -21,9 +21,14 @@
                 </div>
 
                 <div class="flex items-center justify-center mt-4">
-                    <h1>
-                        β Developed by Litcan Gabriel
-                    </h1>
+                    <Link :href="route('login')">
+                        Open Beta version
+                    </Link>
+                </div>
+
+                <div class="flex items-center justify-center mt-4">
+
+                    WTF is this?
                 </div>
             </div>
         </div>

@@ -6,7 +6,36 @@
             <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                     <div class="flex">
-                        <inertia-link :href="route('profile', post.user.username)">
+<!--                        <inertia-link :href="route('profile', post.user.username)">-->
+<!--                            <div class="flex justify-items-start m-2">-->
+<!--                                <div v-if="post.user.avatar === null">-->
+
+<!--                                    <img-->
+<!--                                        :src="defaultProfile"-->
+<!--                                        class="avatar  avatar w-10 h-10 ml-2 my-2"-->
+<!--                                        alt="default"-->
+<!--                                    />-->
+<!--                                </div>-->
+
+<!--                                <div v-else>-->
+<!--                                    <img-->
+<!--                                        :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"-->
+<!--                                        class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"-->
+<!--                                        alt="avatar"-->
+<!--                                    />-->
+<!--                                </div>-->
+
+<!--                                <div>-->
+<!--                                    <p class="ml-2 mt-2">-->
+<!--                                        {{ post.user.username }}-->
+<!--                                    </p>-->
+<!--                                    <span class="italic ml-2 align-text-top" style="font-size: 10px;">-->
+<!--                                       {{ post.timeAgo }}-->
+<!--                                </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </inertia-link>-->
+                        <inertia-link :href="route('profile', post.user.username)" class="w-full">
                             <div class="flex justify-items-start m-2">
                                 <div v-if="post.user.avatar === null">
 
@@ -32,21 +61,41 @@
                                     <span class="italic ml-2 align-text-top" style="font-size: 10px;">
                                        {{ post.timeAgo }}
                                 </span>
+
                                 </div>
+
                             </div>
                         </inertia-link>
 
-                        <inertia-link preserve-scroll
-                                      v-if="post.user.id === $page.props.auth.user.id"
-                                      class="   "
-                                      as="button"
-                                      :href="route('posts.edit', post.id)"
-                        >
-                            ...
-                        </inertia-link>
+
+                        <div class="w-full mt-4 ">
+                            <div v-if="post.location" class="flex ml-8">
+                                <img
+                                    :src="location"
+                                    class="avatar  avatar w-6 h-6 ml-2 "
+                                    alt="default"
+                                />
+
+                                <p class="text-center text-gray-600 ml-2 ">
+                                    {{post.location}}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mr-4" style="">
+                            <inertia-link preserve-scroll
+                                          v-if="post.user.id === $page.props.auth.user.id"
+                                          class=" -mt-6  "
+                                          as="button"
+                                          :href="route('posts.edit', post.id)"
+                            >
+                                ...
+                            </inertia-link>
+                        </div>
+
                     </div>
 
-                    <div class="px-2 pb-1 border-b border-gray-200">
+                    <div class="px-4 pb-1 border-b border-gray-200">
                         <p class="text-sm px-4">
                             {{ post.body }}
                         </p>
@@ -96,11 +145,12 @@
                         <hr>
 
 
+
                         <div class="flex">
-                            <div class="flex-auto w-16">
+                            <div class="flex-auto w-12">
                                 <img v-if="$page.props.auth.user.avatar === null"
                                      :src="defaultProfile"
-                                     class="avatar w-8 h-8 mt-2 ml-2"
+                                     class="avatar w-8 h-8 mt-2 "
                                      alt="default"
                                 />
 
@@ -110,11 +160,11 @@
                                 />
                             </div>
 
-                            <div class="bg-white h-8 rounded-full  m-2 text-xs    flex-auto w-4/5 ">
+                            <div
+                                class="bg-white h-8   my-2 text-xs    flex-auto w-full ">
                             </div>
 
                             <div class="flex mt-3 flex-auto w-24">
-
                                 <InertiaLink @click="back"
                                              class="ml-1  h-6 w-6 rounded-full  text-center text-white font-extrabold">
                                     <img :src="backButton" alt="">
@@ -122,11 +172,12 @@
 
                                 <Like :post="post" class="ml-1"></Like>
 
-                                <Dislike :post="post" class="ml-1 mr-1"></Dislike>
+                                <Dislike :post="post" class="ml-1"></Dislike>
                             </div>
 
 
                         </div>
+
 
                     </div>
                 </div>
@@ -175,6 +226,8 @@ import Dislike from "@/Components/Dislike";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import backButton from "/img/Tab/left-arrow.png";
 import defaultProfile from "/img/Posts/defaultProfile.png";
+import location from "/img/Posts/location3.png";
+
 
 
 export default {
@@ -205,6 +258,7 @@ export default {
 
             }),
             defaultProfile: defaultProfile,
+            location: location,
         }
     },
     computed: {

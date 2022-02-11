@@ -128,7 +128,7 @@
 
                 <div>
                     <div class="flex">
-                        <div class="flex-auto w-8">
+                        <div class="flex-auto w-12">
                             <img v-if="$page.props.auth.user.avatar === null"
                                  :src="defaultProfile"
                                  class="avatar w-8 h-8 mt-2 "
@@ -142,16 +142,16 @@
                         </div>
 
                         <div
-                            class="bg-white h-8 rounded-full shadow-md m-2 text-xs  border border-gray-300 flex-auto w-4/5 ">
+                            class="bg-white h-8 rounded-full shadow-md my-2 text-xs  border border-gray-300 flex-auto w-full ">
                             <p class="mt-2 ml-4 text-gray-700">
-                                say something
+                                leave a comment
                             </p>
                         </div>
 
                         <div class="flex mt-3 flex-auto w-16">
                             <Like :post="post" class="ml-1"></Like>
 
-                            <Dislike :post="post" class="ml-1 mr-1"></Dislike>
+                            <Dislike :post="post" class="ml-1"></Dislike>
                         </div>
 
 

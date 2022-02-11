@@ -13,17 +13,17 @@
                             </h1>
                         </div>
 
-                        <BreezeInput id="body" type="text" class="mt-1 block w-full bg-gray-100 "
+                        <BreezeInput id="title" type="text" class="mt-1 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.title"
                                      placeholder="Party Name"
                                      required autofocus autocomplete="title"/>
 
-                        <BreezeInput id="body" type="text" class="mt-4 pb-10 block w-full bg-gray-100 "
+                        <BreezeInput id="description" type="text" class="mt-4 pb-10 block w-full bg-gray-100 "
                                      style="border: none !important;"
-                                     v-model="form.body"
+                                     v-model="form.description"
                                      placeholder="Party Description"
-                                     required autofocus autocomplete="body"/>
+                                     required autofocus autocomplete="description"/>
                     </div>
                 </div>
                 <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
@@ -71,7 +71,7 @@
                     <div class="flex mt-4 lg:mx-4 ">
                         <img :src="location2" width="40" alt="plus">
 
-                        <BreezeInput id="body" type="text" class=" ml-2 block w-full bg-gray-100 "
+                        <BreezeInput id="location" type="text" class=" ml-2 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.location"
                                      placeholder="Location"
@@ -248,7 +248,7 @@ export default {
             url: null,
             userPosts: this.posts,
             form: this.$inertia.form({
-                body: null,
+                description: null,
                 title: null,
                 date: null,
                 partyImg: null,

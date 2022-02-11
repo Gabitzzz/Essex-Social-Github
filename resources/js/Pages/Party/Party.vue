@@ -32,7 +32,7 @@
                         </div>
                         <div>
                             <h1 class="text-center mt-2">
-                                {{ party.body }}
+                                {{ party.description }}
                             </h1>
                         </div>
 
@@ -46,7 +46,7 @@
 
                             <p class="text-center text-sm mt-2 ml-2">
 
-                                location
+                                {{ party.location}}
                             </p>
                         </div>
                     </figcaption>

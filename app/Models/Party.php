@@ -25,10 +25,10 @@ class Party extends Model
         return $this->created_at->diffForHumans();
     }
 
+
     public function invites()
     {
-        return $this->belongsToMany(Party::class, 'party_invites', 'party_id', 'user_id')
-            ->withTimestamps();
+        return $this->hasMany(PartyInvite::class);
     }
 }
 
