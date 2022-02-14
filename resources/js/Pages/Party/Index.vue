@@ -7,7 +7,22 @@
                          class="object-cover rounded-lg w-full" alt="cover"
                          style="max-height: 250px;  filter: brightness(30%);">
 
+
                     <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
+
+
+
+                        <div v-if="party.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6" style="right: 0;">
+                            <inertia-link preserve-scroll class="-mt-6" :href="route('parties.edit', party.id)">
+                                <!--                                      v-if="post.user.id === $page.props.auth.user.id"-->
+                                <!--                                      class=" -mt-6  "-->
+                                <!--                                      as="button"-->
+                                <!--                                      :href="route('posts.edit', post.id)"-->
+
+                                ...
+                            </inertia-link>
+                        </div>
+
                         <div class="text-right text-lg ">
                             <p class="">
                                 {{ party.date }}

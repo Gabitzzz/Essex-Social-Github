@@ -84,7 +84,11 @@ Route::get('/parties/{party}', [\App\Http\Controllers\PartyController::class, 'd
     ->middleware('auth')
     ->name('party.item');
 
+Route::get('/parties/{party}/edit', [\App\Http\Controllers\PartyController::class, 'edit'])
+    ->name('parties.edit')
+    ->middleware('auth');
 
+//  PARTY INVITES
 Route::get('/parties/{party:id}/invites', [\App\Http\Controllers\PartyInviteController::class, 'index'])
     ->name('invite.show')
     ->middleware('auth');

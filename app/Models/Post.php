@@ -16,10 +16,12 @@ class Post extends Model
         'timeAgo',
     ];
 
+//    FOR EDITING POSTS
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+//    END
 
     public function users()
     {

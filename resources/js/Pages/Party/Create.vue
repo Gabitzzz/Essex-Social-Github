@@ -203,7 +203,6 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import post from "/img/Posts/post.png";
 import party from "/img/Posts/party.png";
 import event from "/img/Posts/event.png";
-import Datepicker from 'vuejs-datepicker';
 import {Calendar, DatePicker} from 'v-calendar';
 import Pagination from '@/Components/Pagination';
 import {InertiaLink} from "@inertiajs/inertia-vue3";

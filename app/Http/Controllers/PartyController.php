@@ -19,15 +19,10 @@ class PartyController extends Controller
 
     public function index()
     {
-
-
         $parties = Party::with('invites')->latest()->get()->all();
 
         return Inertia::render('Party/Parties', [
-
             'parties' => $parties,
-
-
         ]);
 
 
@@ -35,27 +30,16 @@ class PartyController extends Controller
 
     public function display(Party $party, User $user)
     {
-
-
         $var = $party::with('invites')->where("id", "=", $party->id)->get()->first();
 
         return Inertia::render('Party/Index', [
             'party' => $var,
-//            'party' => $party,
-
-
             'inviteToggle' => $party->invites()->where('party_invites.user_id', auth()->id())->exists(),
-
-
         ]);
-
-
     }
-
 
     public function create(User $user)
     {
-
         $followers = User::orderBy('id', 'desc')
             ->paginate(5);
 
@@ -67,8 +51,6 @@ class PartyController extends Controller
 
     public function store(StoreImage $request)
     {
-
-
         $attributes = request()->validate([
             'description' => 'required|max:255',
             'title' => 'required|max:255',
@@ -86,9 +68,7 @@ class PartyController extends Controller
         $parsed_date = Carbon::parse($date)->format('d F');
         $parsed_time = Carbon::parse($date)->format('H:i');
 
-
         $image_path = '';
-
         if ($request->hasFile('partyImg')) {
             $image_path = $request->file('partyImg')->store('party', 'public');
         }
@@ -109,6 +89,11 @@ class PartyController extends Controller
             event(new SomeonePostedEvent($user, auth()->user()));
             return Redirect::route('party.show');
         }
+    }
 
+    public function edit(Party $party){
+        return Inertia::render('Party/Edit', [
+            'party' => Party::with('user')->where("id", "=", $party->id)->get()->first(),
+            ]);
     }
 }

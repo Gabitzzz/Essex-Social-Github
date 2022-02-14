@@ -15,6 +15,13 @@ class Party extends Model
         'timeAgo',
     ];
 
+//    FOR EDITING PARTIES
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+//    END
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'parties');
