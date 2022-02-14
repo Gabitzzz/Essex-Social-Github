@@ -1,25 +1,14 @@
 <template>
     <BreezeAuthenticatedLayout>
-
-        <!--       -->
-
         <div class=" my-4 pb-20 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
-
             <div class="mx-2 mb-4 shadows-lg  ">
                 <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
-
-                    <!--                <img class="" src="https://images.unsplash.com/photo-1570169797118-99f5f90c4e25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">-->
-
-
                     <img :src="showImage() + party.partyImg"
                          class="object-cover rounded-lg w-full" alt="cover"
                          style="max-height: 250px;  filter: brightness(30%);">
 
-
                     <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
-
                         <div class="text-right text-lg ">
-
                             <p class="">
                                 {{ party.date }}
                             </p>
@@ -29,8 +18,6 @@
                                     {{ party.time }}
                                 </strong>
                             </p>
-
-
                         </div>
 
                         <div>
@@ -39,11 +26,11 @@
                                 {{ party.title }}
                             </h3>
                         </div>
+
                         <div>
                             <h1 class="text-center">
                                 {{ party.body }}
                             </h1>
-
 
                             <div class="flex justify-center mt-4">
                                 <inertia-link v-if="!$page.props.inviteToggle"
@@ -70,8 +57,6 @@
                                               method="DELETE">
                                     {{ showLeave ? 'Cancel' : '✓ Joining' }}
                                 </inertia-link>
-
-
                             </div>
                         </div>
                     </figcaption>
@@ -81,7 +66,6 @@
             <div class="flex mx-4 mt-4  ">
                 <div class=" w-1/4  flex ">
                 </div>
-
             </div>
 
             <div class="flex justify-between mx-4">
@@ -99,7 +83,7 @@
                     </div>
                 </div>
 
-                <div class="flex  ">
+                <div class="flex">
                     <img
                         :src="pin"
                         class="avatar  avatar w-10 h-10 mt-2  "
@@ -112,11 +96,8 @@
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
-
-
     </BreezeAuthenticatedLayout>
 </template>
 
@@ -139,7 +120,6 @@ export default {
     data() {
         return {
             pin: pin,
-
         }
     },
     props: {
@@ -151,12 +131,9 @@ export default {
         showImage() {
             return "/storage/";
         },
-
-
     },
-
-
 }
+
 </script>
 
 <style scoped>

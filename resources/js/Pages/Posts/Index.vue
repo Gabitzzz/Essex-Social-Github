@@ -6,39 +6,9 @@
             <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                 <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                     <div class="flex">
-<!--                        <inertia-link :href="route('profile', post.user.username)">-->
-<!--                            <div class="flex justify-items-start m-2">-->
-<!--                                <div v-if="post.user.avatar === null">-->
-
-<!--                                    <img-->
-<!--                                        :src="defaultProfile"-->
-<!--                                        class="avatar  avatar w-10 h-10 ml-2 my-2"-->
-<!--                                        alt="default"-->
-<!--                                    />-->
-<!--                                </div>-->
-
-<!--                                <div v-else>-->
-<!--                                    <img-->
-<!--                                        :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"-->
-<!--                                        class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"-->
-<!--                                        alt="avatar"-->
-<!--                                    />-->
-<!--                                </div>-->
-
-<!--                                <div>-->
-<!--                                    <p class="ml-2 mt-2">-->
-<!--                                        {{ post.user.username }}-->
-<!--                                    </p>-->
-<!--                                    <span class="italic ml-2 align-text-top" style="font-size: 10px;">-->
-<!--                                       {{ post.timeAgo }}-->
-<!--                                </span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </inertia-link>-->
                         <inertia-link :href="route('profile', post.user.username)" class="w-full">
                             <div class="flex justify-items-start m-2">
                                 <div v-if="post.user.avatar === null">
-
                                     <img
                                         :src="defaultProfile"
                                         class="avatar  avatar w-10 h-10 ml-2 my-2"
@@ -60,13 +30,10 @@
                                     </p>
                                     <span class="italic ml-2 align-text-top" style="font-size: 10px;">
                                        {{ post.timeAgo }}
-                                </span>
-
+                                    </span>
                                 </div>
-
                             </div>
                         </inertia-link>
-
 
                         <div class="w-full mt-4 ">
                             <div v-if="post.location" class="flex ml-8">
@@ -77,7 +44,7 @@
                                 />
 
                                 <p class="text-center text-gray-600 ml-2 ">
-                                    {{post.location}}
+                                    {{ post.location }}
                                 </p>
                             </div>
                         </div>
@@ -92,7 +59,6 @@
                                 ...
                             </inertia-link>
                         </div>
-
                     </div>
 
                     <div class="px-4 pb-1 border-b border-gray-200">
@@ -144,8 +110,6 @@
 
                         <hr>
 
-
-
                         <div class="flex">
                             <div class="flex-auto w-12">
                                 <img v-if="$page.props.auth.user.avatar === null"
@@ -160,8 +124,7 @@
                                 />
                             </div>
 
-                            <div
-                                class="bg-white h-8   my-2 text-xs    flex-auto w-full ">
+                            <div class="bg-white h-8 my-2 text-xs flex-auto w-full ">
                             </div>
 
                             <div class="flex mt-3 flex-auto w-24">
@@ -171,14 +134,9 @@
                                 </InertiaLink>
 
                                 <Like :post="post" class="ml-1"></Like>
-
                                 <Dislike :post="post" class="ml-1"></Dislike>
                             </div>
-
-
                         </div>
-
-
                     </div>
                 </div>
 
@@ -199,13 +157,12 @@
 
                         <div class="flex justify-between my-3">
                             <div>
-
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
+
             <div v-for="(comment, index) in comments" :key="index">
                 <CommentItem :comment="comment"></CommentItem>
             </div>
@@ -227,7 +184,6 @@ import {InertiaLink} from "@inertiajs/inertia-vue3";
 import backButton from "/img/Tab/left-arrow.png";
 import defaultProfile from "/img/Posts/defaultProfile.png";
 import location from "/img/Posts/location3.png";
-
 
 
 export default {

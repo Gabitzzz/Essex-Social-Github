@@ -10,9 +10,7 @@
                          style="max-height: 250px;  filter: brightness(30%);">
 
                     <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
-
                         <div class="text-right text-lg ">
-
                             <p class="">
                                 {{ party.date }}
                             </p>
@@ -30,12 +28,12 @@
                                 {{ party.title }}
                             </h3>
                         </div>
+
                         <div>
                             <h1 class="text-center mt-2">
                                 {{ party.description }}
                             </h1>
                         </div>
-
 
                         <div class="flex  mt-12 ">
                             <img
@@ -51,11 +49,9 @@
                         </div>
                     </figcaption>
                 </div>
-
             </div>
         </inertia-link>
     </div>
-
 </template>
 
 <script>

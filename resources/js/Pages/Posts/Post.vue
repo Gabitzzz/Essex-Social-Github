@@ -7,7 +7,6 @@
                 <inertia-link :href="route('profile', post.user.username)" class="w-full">
                     <div class="flex justify-items-start m-2">
                         <div v-if="post.user.avatar === null">
-
                             <img
                                 :src="defaultProfile"
                                 class="avatar  avatar w-10 h-10 ml-2 my-2"
@@ -30,9 +29,7 @@
                             <span class="italic ml-2 align-text-top" style="font-size: 10px;">
                                        {{ post.timeAgo }}
                                 </span>
-
                         </div>
-
                     </div>
                 </inertia-link>
 
@@ -60,8 +57,6 @@
                         ...
                     </inertia-link>
                 </div>
-
-
             </div>
 
             <div class="px-4 border-b border-gray-200">
@@ -70,14 +65,12 @@
                 </p>
 
                 <div v-if="post.image" class="mt-2 flex justify-center">
-
                     <img
                         :src="showImage() +  post.image"
                         class="avatar w-2/3 h-2/3"
                         alt="avatar"
                     />
                 </div>
-
 
                 <!--                LIKES   -->
                 <inertia-link preserve-scroll
@@ -87,7 +80,6 @@
                 >
                     <div class="flex text-xs px-4 mt-2">
                         <div v-if="post.likes.length === 0">
-
                         </div>
 
                         <div v-else-if="post.likes.length === 1">
@@ -100,7 +92,6 @@
 
                         <!--                DISLIKES    -->
                         <div v-if="post.dislikes.length === 0">
-
                         </div>
 
                         <div v-else-if="post.dislikes.length === 1">
@@ -110,17 +101,6 @@
                         <div v-else>
                             {{ post.dislikes.length }} Dislikes &nbsp;
                         </div>
-                        <!--                        <div v-if="post.comments.length === 0">-->
-
-                        <!--                        </div>-->
-
-                        <!--                        <div v-else-if="post.comments.length === 1">-->
-                        <!--                            {{ post.comments.length }} Dislike &nbsp;-->
-                        <!--                        </div>-->
-
-                        <!--                        <div v-else>-->
-                        <!--                            {{ post.comments.length }} Dislikes &nbsp;-->
-                        <!--                        </div>-->
                     </div>
                 </inertia-link>
 
@@ -150,16 +130,12 @@
 
                         <div class="flex mt-3 flex-auto w-16">
                             <Like :post="post" class="ml-1"></Like>
-
                             <Dislike :post="post" class="ml-1"></Dislike>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-
     </inertia-link>
 </template>
 
@@ -172,8 +148,6 @@ import CombinedComments from "@/Components/CombinedComments";
 import PostForm from "@/Components/PostForm";
 import defaultProfile from "/img/Posts/defaultProfile.png";
 import location from "/img/Posts/location3.png";
-
-
 
 export default {
     name: "Post",

@@ -15,7 +15,6 @@
                         </div>
 
                         <div class="flex justify-center">
-
                             <div v-if="user.avatar === null">
                                 <img
                                     :src="defaultProfile"
@@ -97,6 +96,7 @@
                     </div>
                 </div>
 
+                <!--                FEED / GALLERY / ABOUT BUTTONS      -->
                 <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
                     <div class="flex space-x-4 text-center mx-2 ">
                         <button @click="feed = !feed; gallery=false; about=false"
