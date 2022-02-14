@@ -96,4 +96,39 @@ class PartyController extends Controller
             'party' => Party::with('user')->where("id", "=", $party->id)->get()->first(),
             ]);
     }
+
+    public function update(Party $party)
+    {
+
+
+        $attributes = request()->validate([
+            'title' => ['string', 'max:255'],
+            'description' => ['string', 'max:255'],
+            'location' => ['string', 'max:255'],
+            'date' => ['required', 'max:255'],
+            'time' => ['nullable', 'max:255'],
+        ]);
+
+        $date = $attributes['date'];
+        $parsed_date = Carbon::parse($date)->format('d F');
+        $parsed_time = Carbon::parse($date)->format('H:i');
+
+        $party->update([
+            'title' => $attributes['title'],
+            'description' => $attributes['description'],
+            'location' => $attributes['location'],
+            'date' => $parsed_date,
+            'time' => $parsed_time,
+        ]);
+        return Redirect::route('party.show');
+    }
+
+    public function destroy(Party $party)
+    {
+        $party->delete();
+        return Redirect::route('party.show');
+    }
+
+
+
 }

@@ -88,6 +88,15 @@ Route::get('/parties/{party}/edit', [\App\Http\Controllers\PartyController::clas
     ->name('parties.edit')
     ->middleware('auth');
 
+Route::put('/parties/{party}', [\App\Http\Controllers\PartyController::class, 'update'])
+    ->name('parties.update')
+    ->middleware('auth');
+
+Route::get('/parties/{party}/delete', [\App\Http\Controllers\PartyController::class, 'destroy'])
+    ->name('parties.destroy')
+    ->middleware('auth');
+
+
 //  PARTY INVITES
 Route::get('/parties/{party:id}/invites', [\App\Http\Controllers\PartyInviteController::class, 'index'])
     ->name('invite.show')
