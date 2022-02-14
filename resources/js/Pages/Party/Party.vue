@@ -5,9 +5,16 @@
         >
             <div class="mx-2 mb-4 shadows-lg  ">
                 <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
-                    <img :src="showImage() + party.partyImg"
+
+                    <img v-if="party.partyImg"
+                         :src="showImage() + party.partyImg"
                          class="object-cover rounded-lg w-full" alt="cover"
                          style="max-height: 250px;  filter: brightness(30%);">
+                    <img v-else
+                         class="object-cover rounded-lg w-full" alt="cover"
+                         :src="partyCover"
+                         style="max-height: 250px;  filter: brightness(30%);">
+
 
                     <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
                         <div class="text-right text-lg ">
@@ -30,22 +37,43 @@
                         </div>
 
                         <div>
-                            <h1 class="text-center mt-2">
-                                {{ party.description }}
-                            </h1>
+<!--                            <p class=" text-center  ">-->
+<!--                                &lt;!&ndash;                                {{ shortText }}&ndash;&gt;-->
+<!--                                organized by {{ party.user.username }}-->
+
+<!--                            </p>-->
+
+                            <div class=" text-center pb-12  ">
+                                <!--                                {{ shortText }}-->
+                                <div v-if="party.invites.length === 0" class="mb-7">
+                                    <!--                                    {{party.invites.length}}-->
+
+                                </div>
+                                <div v-else-if="party.invites.length === 1">
+                                    {{party.invites.length}} person is coming
+                                </div>
+                                <div v-else>
+                                    {{party.invites.length}} people are coming
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="flex  mt-12 ">
-                            <img
-                                :src="pin"
-                                class="avatar  avatar w-6 h-6 mt-2  "
-                                alt="default"
-                            />
+                        <div class="flex justify-between">
+                            <div class="flex">
+                                <img
+                                    :src="pin"
+                                    class="avatar  avatar w-6 h-6 mt-2  "
+                                    alt="default"
+                                />
 
-                            <p class="text-center text-sm mt-2 ml-2">
+                                <p class="text-center text-sm mt-2 ml-2">
+                                    {{ party.location }}
+                                </p>
+                            </div>
 
-                                {{ party.location}}
-                            </p>
+                                                        <p class="text-sm mt-2">
+                                                            organized by {{party.user.username}}
+                                                        </p>
                         </div>
                     </figcaption>
                 </div>
@@ -59,7 +87,7 @@
 
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import pin from "/img/Posts/pin.png";
-
+import partyCover from "/img/Party/partyCover.jpg";
 
 export default {
     name: "Party",
@@ -68,13 +96,17 @@ export default {
         invites: Object,
         followers: Object,
         inviteToggle: Boolean,
+
     },
     components: {
         InertiaLink,
     },
     data() {
+
         return {
             pin: pin,
+            partyCover: partyCover,
+            description: this.party.description,
         }
     },
 
@@ -83,8 +115,19 @@ export default {
             return "/storage/";
         },
 
-
     },
+    computed: {
+        shortText() {
+            return this.description.substr(0, 75)
+        }
+    }
+    // computed: {
+    //     truncate: function(data,num){
+    //         const reqdString =
+    //             data.split("").slice(0, num).join("");
+    //         return reqdString;
+    //     }
+    // }
 
 
 }
@@ -105,4 +148,5 @@ body {
 .cover {
     filter: brightness(30%);
 }
+
 </style>

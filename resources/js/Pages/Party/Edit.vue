@@ -12,6 +12,66 @@
                         </h1>
                     </div>
 
+                    <div>
+                        <p class="mx-4  text-lg" style="font-family: 'Poppins', sans-serif;">
+                            Change Cover
+                        </p>
+
+                        <input
+                            type="file"
+                            @change="previewCover"
+                            ref="photo"
+                            class="
+                                        w-full
+                                        px-4
+                                        py-2
+                                        mt-2
+                                        rounded-md
+                                        focus:outline-none
+                                        focus:ring-1
+                                        focus:ring-blue-600
+                                    "
+                        />
+
+
+<!--                        <div class="flex justify-center">-->
+<!--                            <img v-if="party.partyImg && !url"-->
+<!--                                 :src="showImage() + party.partyImg"-->
+<!--                                 class="w-1/2 mx-10  mt-4 "-->
+<!--                                 alt="cover"-->
+<!--                                 style="max-height: 250px;  filter: brightness(50%);">-->
+<!--                        </div>-->
+
+<!--                        <div class="flex  justify-center items-center">-->
+<!--                            <img-->
+<!--                                v-if="url"-->
+<!--                                :src="url"-->
+<!--                                class="w-1/2 mx-10  mt-4 "-->
+<!--                            />-->
+<!--                        </div>-->
+
+                        <img
+                            v-if="!url"
+                            :src="'/storage/' + $page.props.party.partyImg "
+                            class="avatar rounded-full avatar w-32 h-32"
+                            alt="avatar"
+                        />
+
+                        <img
+                            v-if="url"
+                            :src="url"
+                            class="avatar rounded-full avatar w-32 h-32">
+
+
+                        <!--                        <img-->
+<!--                            v-if="!url"-->
+<!--                            :src="'/storage/' + form.partyImg"-->
+<!--                            class="flex justify-center   "-->
+<!--                            alt="avatar"-->
+<!--                        />-->
+                    </div>
+
+
                     <inertia-link preserve-scroll
                                   class="mt-1 px-8 py-2 rounded-full bg-red-500 text-center text-white"
                                   style="font-size: 10px;"
@@ -22,7 +82,7 @@
                     </inertia-link>
 
 
-                    <img :src="'/storage/' + $page.props.party.partyImg" alt="">
+<!--                    <img :src="'/storage/' + $page.props.party.partyImg" alt="">-->
 
                     <BreezeInput id="title" type="text" class="mt-1 block w-full bg-gray-100 "
                                  style="border: none !important;"
@@ -37,43 +97,21 @@
                                  required autofocus autocomplete="description"/>
                 </div>
             </div>
-            <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
-                <input
-                    type="file"
-                    @change="previewAvatar"
-                    ref="photo"
-                    class="
-                                        w-full
-                                        px-4
-                                        py-2
-                                        mt-2
-                                        rounded-md
-                                        focus:outline-none
-                                        focus:ring-1
-                                        focus:ring-blue-600
-                                    "
-                />
 
-                <div class="flex flex-col justify-center items-center">
-                    <img
-                        v-if="url"
-                        :src="url"
-                        class="w-full mx-2 md:w-1/2 mt-4 h-80"
-                    />
-                </div>
-            </div>
 
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
                 <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Current date</p>
-                <p class="">
-                    {{ party.date }}
-                </p>
+                <div class="mx-4">
+                    <p>
+                        {{ party.date }}
+                    </p>
 
-                <p class="text-3xl text-red-600 ">
-                    <strong>
-                        {{ party.time }}
-                    </strong>
-                </p>
+                    <p class="text-3xl text-red-600 ">
+                        <strong>
+                            {{ party.time }}
+                        </strong>
+                    </p>
+                </div>
             </div>
 
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
@@ -222,8 +260,6 @@ export default {
                 location: this.party.location,
                 _method: 'PUT',
             }),
-            // date: this.party.date,
-            // time: this.party.time,
             url: null,
             location2: location2,
 
@@ -231,9 +267,20 @@ export default {
     },
     methods: {
         submit() {
+            if (this.$refs.photo) {
+                this.form.partyImg = this.$refs.photo.files[0];
+            }
+
             this.form.post(this.route('parties.update', this.party.id), this.data, {
                 preserveState: (page) => Object.keys(($page.props.errors).length)
             });
+        },
+        previewCover(e) {
+            const file = e.target.files[0];
+            this.url = URL.createObjectURL(file);
+        },
+        showImage() {
+            return "/storage/";
         },
     }
 }

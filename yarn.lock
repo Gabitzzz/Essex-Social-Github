@@ -951,6 +951,11 @@
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.2.tgz"
   "version" "2.11.2"
 
+"@sparing-software/v-clamp@^1.0.1":
+  "integrity" "sha512-Ip6mgsBXmXvi3dsKhd+ama9wAl91IcY0laQLaF27YmIDx59YamHjZ14Sj8PtbBcknZ3o2riDRdlXEspGYI7eLA=="
+  "resolved" "https://registry.npmjs.org/@sparing-software/v-clamp/-/v-clamp-1.0.1.tgz"
+  "version" "1.0.1"
+
 "@tailwindcss/forms@^0.2.1":
   "integrity" "sha512-czfvEdY+J2Ogfd6RUSr/ZSUmDxTujr34M++YLnp2cCPC3oJ4kFvFMaRXA6cEXKw7F1hJuapdjXRjsXIEXGgORg=="
   "resolved" "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.2.1.tgz"
@@ -3235,6 +3240,11 @@
   "integrity" "sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg=="
   "resolved" "https://registry.npmjs.org/html-tags/-/html-tags-3.1.0.tgz"
   "version" "3.1.0"
+
+"html-truncate@^1.2.2":
+  "integrity" "sha1-2y4zHc8cugvUMqUH0W6YhgnyV18="
+  "resolved" "https://registry.npmjs.org/html-truncate/-/html-truncate-1.2.2.tgz"
+  "version" "1.2.2"
 
 "htmlparser2@^4.1.0":
   "integrity" "sha512-4zDq1a1zhE4gQso/c5LP1OtrhYTncXNSpvJYtWJBtXAETPlMfi3IFNjGuQbYLuVY4ZR0QMqRVvo4Pdy9KLyP8Q=="
@@ -5725,6 +5735,11 @@
   "resolved" "https://registry.npmjs.org/vue-skycons/-/vue-skycons-4.1.1.tgz"
   "version" "4.1.1"
 
+"vue-snip@^1.3.0":
+  "integrity" "sha512-4OILdKYPWG5/FYvpFGR066Ql5nPUwAz/PLBfKHVL5cem5VUyrafuYzW/0NjMZj4ZRPLtVPTVhp55XAtJ199eXA=="
+  "resolved" "https://registry.npmjs.org/vue-snip/-/vue-snip-1.3.0.tgz"
+  "version" "1.3.0"
+
 "vue-style-loader@^4.1.3":
   "integrity" "sha512-sFuh0xfbtpRlKfm39ss/ikqs9AbKCoXZBpHeVZ8Tx650o0k0q/YCM7FRvigtxpACezfq6af+a7JeqVTWvncqDg=="
   "resolved" "https://registry.npmjs.org/vue-style-loader/-/vue-style-loader-4.1.3.tgz"
@@ -5732,6 +5747,13 @@
   dependencies:
     "hash-sum" "^1.0.2"
     "loader-utils" "^1.0.2"
+
+"vue-truncate-collapsed@^3.0.1":
+  "integrity" "sha512-Xg4YPpJnvlm+72Y0MgcH27ZnJYD2v9sVLzmvoj5R+fNNxXKqVfpnihjcYUZA0zkSD4fbWUr43IRGEzRQFTqzPg=="
+  "resolved" "https://registry.npmjs.org/vue-truncate-collapsed/-/vue-truncate-collapsed-3.0.1.tgz"
+  "version" "3.0.1"
+  dependencies:
+    "html-truncate" "^1.2.2"
 
 "vue-weather-widget@^4.3.1":
   "integrity" "sha512-Ba7RkqfBPwKpahYx/vTLa+JdeM+fuXnOamRbPA21Eczjz5nDwRcYqDsRII7MjXYOuKVMMZLiAEKuRHRuQqkbKA=="

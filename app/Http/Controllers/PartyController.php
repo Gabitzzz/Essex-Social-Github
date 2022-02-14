@@ -19,10 +19,19 @@ class PartyController extends Controller
 
     public function index()
     {
-        $parties = Party::with('invites')->latest()->get()->all();
+//        $parties = Party::with('invites')->latest()->get()->all();
+
+        $parties = Party::select('parties.*')
+            ->with('invites')
+            ->with('user')
+//            ->join('following', 'following.followed_id', '=', 'posts.user_id')
+            ->latest()->get()->all();
 
         return Inertia::render('Party/Parties', [
             'parties' => $parties,
+//            'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->with('user')->get()->first(),
+
+//            'parties'=> Party::with('invites')->with('users')->latest()->get()->all(),
         ]);
 
 
@@ -30,7 +39,7 @@ class PartyController extends Controller
 
     public function display(Party $party, User $user)
     {
-        $var = $party::with('invites')->where("id", "=", $party->id)->get()->first();
+        $var = $party::with('invites')->where("id", "=", $party->id)->with('user')->get()->first();
 
         return Inertia::render('Party/Index', [
             'party' => $var,
@@ -97,29 +106,34 @@ class PartyController extends Controller
             ]);
     }
 
-    public function update(Party $party)
+    public function update(Party $party, StoreImage $request)
     {
-
-
         $attributes = request()->validate([
             'title' => ['string', 'max:255'],
             'description' => ['string', 'max:255'],
             'location' => ['string', 'max:255'],
+
+            'partyImg' => ['nullable','file'],
+        ]);
+        $time_attributes = request()->validate([
             'date' => ['required', 'max:255'],
             'time' => ['nullable', 'max:255'],
-        ]);
+            ]);
 
-        $date = $attributes['date'];
+        if ($request->hasFile('partyImg')) {
+            $attributes['partyImg'] = $request->file('partyImg')
+                ->store('partyImg', 'public');
+        }
+
+        $date = $time_attributes['date'];
         $parsed_date = Carbon::parse($date)->format('d F');
         $parsed_time = Carbon::parse($date)->format('H:i');
 
         $party->update([
-            'title' => $attributes['title'],
-            'description' => $attributes['description'],
-            'location' => $attributes['location'],
             'date' => $parsed_date,
             'time' => $parsed_time,
         ]);
+        $party->update($attributes);
         return Redirect::route('party.show');
     }
 

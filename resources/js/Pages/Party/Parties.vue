@@ -38,7 +38,9 @@ export default {
     },
     props: {
         parties: Array,
-    }
+        users: Array,
+    },
+
 }
 </script>
 

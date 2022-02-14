@@ -7,6 +7,7 @@ import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 
 
+
 InertiaProgress.init({
     // The delay after which the progress bar will
     // appear during navigation, in milliseconds.
