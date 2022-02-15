@@ -9,20 +9,20 @@
                         <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                             <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                                 <!--                        DASHBOARD-->
-                                Organize a Party
+                                Create an Event
                             </h1>
                         </div>
 
                         <BreezeInput id="title" type="text" class="mt-1 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.title"
-                                     placeholder="Party Name"
+                                     placeholder="event Name"
                                      required autofocus autocomplete="title"/>
 
                         <BreezeInput id="description" type="text" class="mt-4 pb-10 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.description"
-                                     placeholder="Party Description"
+                                     placeholder="event Description"
                                      required autofocus autocomplete="description"/>
                     </div>
                 </div>
@@ -106,12 +106,12 @@
                         <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                             <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                                 <!--                        DASHBOARD-->
-                                Public Party
+                                Public event
                             </h1>
                             <p class="text-sm px-2 " style="font-family: 'Poppins', sans-serif; font-weight: 100;">
                                 <i>
                                     Public parties can be seen and joined by everyone.
-                                    Your party will appear on the activity page.
+                                    Your event will appear on the activity page.
                                     <br>
                                 </i>
                             </p>
@@ -124,13 +124,13 @@
                         <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                             <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                                 <!--                        DASHBOARD-->
-                                Private Party
+                                Private event
                             </h1>
                             <p class="text-sm px-2" style="font-family: 'Poppins', sans-serif; font-weight: 100;">
                                 <i>
                                     Private parties work only with invitation.
                                     <br>
-                                    Select friends that you want to attend the party.
+                                    Select friends that you want to attend the event.
                                 </i>
                             </p>
 
@@ -170,7 +170,7 @@
                             <img :src="post" width="40" height="40" class="inline-block" alt="plus">
                         </a>
                     </div>
-                    <div class="bg-white rounded-2xl bg-gray-300">
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
 
                         <a :href="route('party.create', $page.props.auth.user.username )"
                            class="w-full  justify-center inline-block text-center pt-2 pb-1"
@@ -179,7 +179,7 @@
                         </a>
                     </div>
 
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+                    <div class="bg-white rounded-2xl bg-gray-300">
                         <a :href="route('event.create', $page.props.auth.user.username )"
                            class="w-full justify-center inline-block text-center pt-2 pb-1"
                         >
@@ -250,7 +250,7 @@ export default {
                 description: null,
                 title: null,
                 date: null,
-                partyImg: null,
+                eventImg: null,
                 location: null,
 
             }),
@@ -270,10 +270,10 @@ export default {
 
         submit() {
             if (this.$refs.photo) {
-                this.form.partyImg = this.$refs.photo.files[0];
+                this.form.eventImg = this.$refs.photo.files[0];
             }
 
-            this.form.post(this.route('party.store'))
+            this.form.post(this.route('event.store'))
         },
 
         previewAvatar(e) {

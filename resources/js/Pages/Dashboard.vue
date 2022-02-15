@@ -181,7 +181,12 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                            <img :src="event" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            <InertiaLink :href="route('event.create')"
+                                         class=" justify-center inline-block text-center"
+                            >
+                                <img :src="event" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+
+                            </InertiaLink>
                         </div>
                     </div>
 
@@ -211,8 +216,11 @@
                         <div
                             class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
-
-                            <img :src="eventlogo" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            <InertiaLink :href="route('event.show')"
+                                         class=" justify-center inline-block text-center"
+                            >
+                                <img :src="eventlogo" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            </InertiaLink>
                         </div>
                     </div>
 
