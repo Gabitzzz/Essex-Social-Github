@@ -85,29 +85,71 @@ Route::get('/parties/{party}', [\App\Http\Controllers\PartyController::class, 'd
     ->name('party.item');
 
 Route::get('/parties/{party}/edit', [\App\Http\Controllers\PartyController::class, 'edit'])
-    ->name('parties.edit')
+    ->name('party.edit')
     ->middleware('auth');
 
 Route::put('/parties/{party}', [\App\Http\Controllers\PartyController::class, 'update'])
-    ->name('parties.update')
+    ->name('party.update')
     ->middleware('auth');
 
 Route::get('/parties/{party}/delete', [\App\Http\Controllers\PartyController::class, 'destroy'])
-    ->name('parties.destroy')
+    ->name('party.destroy')
     ->middleware('auth');
-
 
 //  PARTY INVITES
 Route::get('/parties/{party:id}/invites', [\App\Http\Controllers\PartyInviteController::class, 'index'])
-    ->name('invite.show')
+    ->name('party.invite.show')
     ->middleware('auth');
 
 Route::post('/parties/{party:id}/invites/{id}', [\App\Http\Controllers\PartyInviteController::class, 'store'])
-    ->name('invite.join')
+    ->name('party.invite.join')
     ->middleware('auth');
 
 Route::delete('/parties/{party:id}/invites/{id}', [\App\Http\Controllers\PartyInviteController::class, 'destroy'])
-    ->name('invite.delete')
+    ->name('party.invite.delete')
+    ->middleware('auth');
+
+
+// EVENTS
+Route::get('create-event', [\App\Http\Controllers\EventController::class, 'create'])
+    ->middleware('auth')
+    ->name('event.create');
+
+Route::get('/events', [\App\Http\Controllers\EventController::class, 'index'])
+    ->middleware('auth')
+    ->name('event.show');
+
+Route::post('add-event', [\App\Http\Controllers\EventController::class, 'store'])
+    ->middleware('auth')
+    ->name('event.store');
+
+Route::get('/events/{event}', [\App\Http\Controllers\EventController::class, 'display'])
+    ->middleware('auth')
+    ->name('event.item');
+
+Route::get('/events/{event}/edit', [\App\Http\Controllers\EventController::class, 'edit'])
+    ->name('event.edit')
+    ->middleware('auth');
+
+Route::put('/events/{event}', [\App\Http\Controllers\EventController::class, 'update'])
+    ->name('event.update')
+    ->middleware('auth');
+
+Route::get('/events/{event}/delete', [\App\Http\Controllers\EventController::class, 'destroy'])
+    ->name('event.destroy')
+    ->middleware('auth');
+
+//  EVENT INVITES
+Route::get('/events/{event:id}/invites', [\App\Http\Controllers\EventInviteController::class, 'index'])
+    ->name('event.invite.show')
+    ->middleware('auth');
+
+Route::post('/events/{event:id}/invites/{id}', [\App\Http\Controllers\EventInviteController::class, 'store'])
+    ->name('event.invite.join')
+    ->middleware('auth');
+
+Route::delete('/events/{event:id}/invites/{id}', [\App\Http\Controllers\EventInviteController::class, 'destroy'])
+    ->name('event.invite.delete')
     ->middleware('auth');
 
 //  USERS

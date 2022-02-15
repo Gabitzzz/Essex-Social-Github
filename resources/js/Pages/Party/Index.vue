@@ -18,7 +18,7 @@
 
 
                         <div v-if="party.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6" style="right: 0;">
-                            <inertia-link preserve-scroll class="-mt-6" :href="route('parties.edit', party.id)">
+                            <inertia-link preserve-scroll class="-mt-6" :href="route('party.edit', party.id)">
                                 <!--                                      v-if="post.user.id === $page.props.auth.user.id"-->
                                 <!--                                      class=" -mt-6  "-->
                                 <!--                                      as="button"-->
@@ -105,8 +105,8 @@
                 </div>
             </div>
 
-            <div class="flex justify-between mx-4">
-                <div class="flex ">
+            <div class=" mx-4">
+                <div class="flex  ">
                     <img
                         :src="pin"
                         class="avatar  avatar w-10 h-10 mt-2  "
@@ -114,7 +114,7 @@
                     />
 
                     <div class="bg-white rounded-full my-2 ">
-                        <p class="text-center text-nd py-2 px-4  ">
+                        <p class="text-center md:text-nd py-2 px-4  ">
                             {{ party.location }}
                         </p>
                     </div>

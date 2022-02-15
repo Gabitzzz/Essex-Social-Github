@@ -7,7 +7,7 @@
                 <BreezeApplicationLogo/>
             </div>
 
-            <div class="">
+            <div>
                 <div class="flex items-center mt-4">
                     <Link :href="route('register')" class="button px-8 py-2">
                         REGISTER
@@ -19,18 +19,20 @@
                         LOG IN
                     </Link>
                 </div>
-
-                <div class="flex items-center justify-center mt-4">
-                    <Link :href="route('login')">
-                        Open Beta version
-                    </Link>
-                </div>
-
-                <div class="flex items-center justify-center mt-4">
-
-                    WTF is this?
-                </div>
             </div>
+
+            <div class=" text-center items-center justify-center mt-20">
+                <p>
+                    Open Beta
+
+                </p>
+                <p>
+                    Developed by <a href="https://litcangabriel.com/">Lițcan N. Gabriel</a>
+
+                </p>
+            </div>
+
+
         </div>
     </div>
 </template>

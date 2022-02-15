@@ -14,7 +14,7 @@
 
                            <inertia-link preserve-scroll
                                          class=" p-4 rounded-full bg-red-500 text-center text-white"
-                                         :href="route('parties.destroy', party.id)"
+                                         :href="route('party.destroy', party.id)"
                            >
 
 <!--                               &#128465;-->
@@ -282,7 +282,7 @@ export default {
                 this.form.partyImg = this.$refs.photo.files[0];
             }
 
-            this.form.post(this.route('parties.update', this.party.id), this.data, {
+            this.form.post(this.route('party.update', this.party.id), this.data, {
                 preserveState: (page) => Object.keys(($page.props.errors).length)
             });
         },
