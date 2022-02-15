@@ -6,10 +6,21 @@
 
 
                     <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
-                        <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                            <!--                        DASHBOARD-->
-                            Edit party
-                        </h1>
+                       <div class="flex justify-between">
+                           <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                               <!--                        DASHBOARD-->
+                               Edit party
+                           </h1>
+
+                           <inertia-link preserve-scroll
+                                         class=" p-4 rounded-full bg-red-500 text-center text-white"
+                                         :href="route('parties.destroy', party.id)"
+                           >
+
+<!--                               &#128465;-->
+                               X
+                           </inertia-link>
+                       </div>
                     </div>
 
                     <div>
@@ -50,17 +61,19 @@
 <!--                            />-->
 <!--                        </div>-->
 
-                        <img
-                            v-if="!url"
-                            :src="'/storage/' + $page.props.party.partyImg "
-                            class="avatar rounded-full avatar w-32 h-32"
-                            alt="avatar"
-                        />
+                     <div class="flex justify-center my-4">
+                         <img
+                             v-if="!url"
+                             :src="'/storage/' + $page.props.party.partyImg "
+                             class="w-1/2 "
+                             alt="avatar"
+                         />
 
-                        <img
-                            v-if="url"
-                            :src="url"
-                            class="avatar rounded-full avatar w-32 h-32">
+                         <img
+                             v-if="url"
+                             :src="url"
+                             class="w-1/2    ">
+                     </div>
 
 
                         <!--                        <img-->
@@ -72,17 +85,11 @@
                     </div>
 
 
-                    <inertia-link preserve-scroll
-                                  class="mt-1 px-8 py-2 rounded-full bg-red-500 text-center text-white"
-                                  style="font-size: 10px;"
-                                  :href="route('parties.destroy', party.id)"
-                    >
-                        DELETE
-                        &#128465;
-                    </inertia-link>
+
 
 
 <!--                    <img :src="'/storage/' + $page.props.party.partyImg" alt="">-->
+                    <BreezeLabel for="name" value="Party Name" class="flex items-center " />
 
                     <BreezeInput id="title" type="text" class="mt-1 block w-full bg-gray-100 "
                                  style="border: none !important;"
@@ -90,7 +97,8 @@
                                  placeholder="Party Name"
                                  required autofocus autocomplete="title"/>
 
-                    <BreezeInput id="description" type="text" class="mt-4 pb-10 block w-full bg-gray-100 "
+                    <BreezeLabel for="name" value="Party Description" class="flex items-center mt-4 " />
+                    <BreezeInput id="description" type="text" class=" pb-10 block w-full bg-gray-100 "
                                  style="border: none !important;"
                                  v-model="form.description"
                                  placeholder="Party Description"
@@ -216,8 +224,8 @@
 
             <div class=" mb-10 grid justify-items-center">
                 <loading-button :loading="form.processing"
-                                class="button px-8 py-2 " type="submit">
-                    ADD POST
+                                class="button px-8 mt-4 py-2 bg-black text-white rounded-2xl" type="submit">
+                    UPDATE PARTY
                 </loading-button>
             </div>
         </form>
@@ -234,6 +242,8 @@ import {Calendar, DatePicker} from 'v-calendar';
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import LoadingButton from "@/Components/LoadingButton";
 import location2 from "/img/Party/location2.png";
+import BreezeLabel from '@/Components/Label.vue'
+
 
 
 export default {
@@ -245,6 +255,7 @@ export default {
         Calendar,
         InertiaLink,
         LoadingButton,
+        BreezeLabel
     },
     props: {
         party: Object,

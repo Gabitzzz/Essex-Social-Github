@@ -9,7 +9,7 @@
                         <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                             <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                                 <!--                        DASHBOARD-->
-                                Organize a party
+                                Organize a Party
                             </h1>
                         </div>
 
@@ -47,7 +47,7 @@
                         <img
                             v-if="url"
                             :src="url"
-                            class="w-full mx-2 md:w-1/2 mt-4 h-80"
+                            class="w-1/2 mt-4"
                         />
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                         <BreezeInput id="location" type="text" class=" ml-2 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.location"
-                                     placeholder="Location"
+                                     placeholder="Location*"
                                      required autofocus autocomplete="location"/>
                     </div>
 

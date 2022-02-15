@@ -26858,6 +26858,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _Components_LoadingButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/LoadingButton */ "./resources/js/Components/LoadingButton.vue");
 /* harmony import */ var _img_Party_location2_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../img/Party/location2.png */ "./public/img/Party/location2.png");
+/* harmony import */ var _Components_Label_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Label.vue */ "./resources/js/Components/Label.vue");
+
 
 
 
@@ -26872,7 +26874,8 @@ __webpack_require__.r(__webpack_exports__);
     DatePicker: v_calendar__WEBPACK_IMPORTED_MODULE_2__.DatePicker,
     Calendar: v_calendar__WEBPACK_IMPORTED_MODULE_2__.Calendar,
     InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.InertiaLink,
-    LoadingButton: _Components_LoadingButton__WEBPACK_IMPORTED_MODULE_4__["default"]
+    LoadingButton: _Components_LoadingButton__WEBPACK_IMPORTED_MODULE_4__["default"],
+    BreezeLabel: _Components_Label_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   props: {
     party: Object
@@ -31082,7 +31085,7 @@ var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
     style: {
       "font-family": "'Poppins', sans-serif"
     }
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        DASHBOARD"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Organize a party ")])], -1
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        DASHBOARD"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Organize a Party ")])], -1
   /* HOISTED */
   );
 });
@@ -31282,7 +31285,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [$data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
         key: 0,
         src: $data.url,
-        "class": "w-full mx-2 md:w-1/2 mt-4 h-80"
+        "class": "w-1/2 mt-4"
       }, null, 8
       /* PROPS */
       , _hoisted_6)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DatePicker, {
@@ -31317,7 +31320,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.form.location = $event;
         }),
-        placeholder: "Location",
+        placeholder: "Location*",
         required: "",
         autofocus: "",
         autocomplete: "location"
@@ -31451,19 +31454,25 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_3 = {
   "class": "mt-5 max-2 overflow-hidden rounded-xl font-bold"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+var _hoisted_4 = {
+  "class": "flex justify-between"
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-4xl px-2 py-2",
   style: {
     "font-family": "'Poppins', sans-serif"
   }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        DASHBOARD"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Edit party ")])], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        DASHBOARD"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Edit party ")], -1
 /* HOISTED */
 );
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" X ");
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "mx-4 text-lg",
   style: {
     "font-family": "'Poppins', sans-serif"
@@ -31472,16 +31481,16 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_5 = ["src"];
-var _hoisted_6 = ["src"];
-
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" DELETE 🗑 ");
-
 var _hoisted_8 = {
+  "class": "flex justify-center my-4"
+};
+var _hoisted_9 = ["src"];
+var _hoisted_10 = ["src"];
+var _hoisted_11 = {
   "class": "mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "mx-4 my-2 text-lg",
   style: {
     "font-family": "'Poppins', sans-serif"
@@ -31490,17 +31499,17 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_10 = {
+var _hoisted_13 = {
   "class": "mx-4"
 };
-var _hoisted_11 = {
+var _hoisted_14 = {
   "class": "text-3xl text-red-600"
 };
-var _hoisted_12 = {
+var _hoisted_15 = {
   "class": "mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96"
 };
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "mx-4 my-2 text-lg",
   style: {
     "font-family": "'Poppins', sans-serif"
@@ -31509,18 +31518,20 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_14 = {
+var _hoisted_17 = {
   "class": "flex mt-4 lg:mx-4"
 };
-var _hoisted_15 = ["src"];
-var _hoisted_16 = {
+var _hoisted_18 = ["src"];
+var _hoisted_19 = {
   "class": "mb-10 grid justify-items-center"
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ADD POST ");
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" UPDATE PARTY ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
+
+  var _component_BreezeLabel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BreezeLabel");
 
   var _component_BreezeInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BreezeInput");
 
@@ -31536,7 +31547,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
           return $options.submit && $options.submit.apply($options, arguments);
         }, ["prevent"]))
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+        "preserve-scroll": "",
+        "class": "p-4 rounded-full bg-red-500 text-center text-white",
+        href: _ctx.route('parties.destroy', $props.party.id)
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                               &#128465;"), _hoisted_6];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["href"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "file",
         onChange: _cache[0] || (_cache[0] = function () {
           return $options.previewCover && $options.previewCover.apply($options, arguments);
@@ -31545,36 +31569,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "w-full px-4 py-2 mt-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
       }, null, 544
       /* HYDRATE_EVENTS, NEED_PATCH */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <div class=\"flex justify-center\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <img v-if=\"party.partyImg && !url\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                 :src=\"showImage() + party.partyImg\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                 class=\"w-1/2 mx-10  mt-4 \""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                 alt=\"cover\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                 style=\"max-height: 250px;  filter: brightness(50%);\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <div class=\"flex  justify-center items-center\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                v-if=\"url\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                :src=\"url\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                class=\"w-1/2 mx-10  mt-4 \""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </div>"), !$data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <div class=\"flex justify-center\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <img v-if=\"party.partyImg && !url\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                 :src=\"showImage() + party.partyImg\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                 class=\"w-1/2 mx-10  mt-4 \""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                 alt=\"cover\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                 style=\"max-height: 250px;  filter: brightness(50%);\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <div class=\"flex  justify-center items-center\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                v-if=\"url\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                :src=\"url\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                class=\"w-1/2 mx-10  mt-4 \""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [!$data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
         key: 0,
         src: '/storage/' + _ctx.$page.props.party.partyImg,
-        "class": "avatar rounded-full avatar w-32 h-32",
+        "class": "w-1/2",
         alt: "avatar"
       }, null, 8
       /* PROPS */
-      , _hoisted_5)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+      , _hoisted_9)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
         key: 1,
         src: $data.url,
-        "class": "avatar rounded-full avatar w-32 h-32"
+        "class": "w-1/2"
       }, null, 8
       /* PROPS */
-      , _hoisted_6)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            v-if=\"!url\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            :src=\"'/storage/' + form.partyImg\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"flex justify-center   \""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            alt=\"avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        />")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        "preserve-scroll": "",
-        "class": "mt-1 px-8 py-2 rounded-full bg-red-500 text-center text-white",
-        style: {
-          "font-size": "10px"
-        },
-        href: _ctx.route('parties.destroy', $props.party.id)
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_7];
-        }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <img :src=\"'/storage/' + $page.props.party.partyImg\" alt=\"\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
+      , _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            v-if=\"!url\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            :src=\"'/storage/' + form.partyImg\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"flex justify-center   \""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            alt=\"avatar\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        />")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <img :src=\"'/storage/' + $page.props.party.partyImg\" alt=\"\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeLabel, {
+        "for": "name",
+        value: "Party Name",
+        "class": "flex items-center"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
         id: "title",
         type: "text",
         "class": "mt-1 block w-full bg-gray-100",
@@ -31591,10 +31603,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         autocomplete: "title"
       }, null, 8
       /* PROPS */
-      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeLabel, {
+        "for": "name",
+        value: "Party Description",
+        "class": "flex items-center mt-4"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
         id: "description",
         type: "text",
-        "class": "mt-4 pb-10 block w-full bg-gray-100",
+        "class": "pb-10 block w-full bg-gray-100",
         style: {
           "border": "none !important"
         },
@@ -31608,11 +31624,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         autocomplete: "description"
       }, null, 8
       /* PROPS */
-      , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.date), 1
+      , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.date), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.time), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.time), 1
       /* TEXT */
-      )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DatePicker, {
+      )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DatePicker, {
         modelValue: $data.form.date,
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $data.form.date = $event;
@@ -31627,13 +31643,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "min-date": new Date()
       }, null, 8
       /* PROPS */
-      , ["modelValue", "min-date"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      , ["modelValue", "min-date"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
         src: $data.location2,
         width: "40",
         alt: "plus"
       }, null, 8
       /* PROPS */
-      , _hoisted_15), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
+      , _hoisted_18), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
         id: "location",
         type: "text",
         "class": "ml-2 block w-full bg-gray-100",
@@ -31650,13 +31666,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         autocomplete: "location"
       }, null, 8
       /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    PUBLIC OR PRIVATE SWITCH        "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <div class=\"flex justify-center mt-5\" style=\"font-family: 'Poppins', sans-serif;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"form-check form-check-inline\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <input"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            v-model.number=\"typeOfTask\" :value=\"1\" id=\"defaultCheck1\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            type=\"radio\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-black checked:border-black focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <label class=\"form-check-label inline-block text-gray-800\" for=\"defaultCheck1\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            PUBLIC"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"form-check form-check-inline ml-4\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <input"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            v-model.number=\"typeOfTask\" type=\"radio\" :value=\"2\" id=\"scheduleCheck\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <label class=\"form-check-label inline-block text-gray-800\" for=\"scheduleCheck\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            PRIVATE"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <div v-if=\"typeOfTask === 1\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"mt-5 max-2 overflow-hidden rounded-xl font-bold\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <h1 class=\"text-4xl px-2 py-2\" style=\"font-family: 'Poppins', sans-serif;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            &lt;!&ndash;                        DASHBOARD&ndash;&gt;"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            Public Party"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </h1>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <p class=\"text-sm px-2 \" style=\"font-family: 'Poppins', sans-serif; font-weight: 100;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <i>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Public parties can be seen and joined by everyone."), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Your party will appear on the activity page."), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <br>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </i>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <div v-if=\"typeOfTask === 2\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"mt-5 max-2 overflow-hidden rounded-xl font-bold\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <h1 class=\"text-4xl px-2 py-2\" style=\"font-family: 'Poppins', sans-serif;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            &lt;!&ndash;                        DASHBOARD&ndash;&gt;"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            Private Party"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </h1>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <p class=\"text-sm px-2\" style=\"font-family: 'Poppins', sans-serif; font-weight: 100;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <i>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Private parties work only with invitation."), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <br>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Select friends that you want to attend the party."), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </i>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div v-for=\"follower in $page.props.followers.data\" :key=\"follower.id\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <inertia-link class=\"px-6 py-4 flex items-center\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                      :href=\"route('profile', follower.username)\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                      tabindex=\"-1\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            {{ follower.name }}"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </inertia-link>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <pagination class=\"mt-6\" :links=\"followers.links\" />")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_loading_button, {
+      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    PUBLIC OR PRIVATE SWITCH        "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <div class=\"flex justify-center mt-5\" style=\"font-family: 'Poppins', sans-serif;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"form-check form-check-inline\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <input"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            v-model.number=\"typeOfTask\" :value=\"1\" id=\"defaultCheck1\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            type=\"radio\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-black checked:border-black focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <label class=\"form-check-label inline-block text-gray-800\" for=\"defaultCheck1\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            PUBLIC"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"form-check form-check-inline ml-4\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <input"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            v-model.number=\"typeOfTask\" type=\"radio\" :value=\"2\" id=\"scheduleCheck\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            class=\"form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <label class=\"form-check-label inline-block text-gray-800\" for=\"scheduleCheck\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            PRIVATE"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <div v-if=\"typeOfTask === 1\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"mt-5 max-2 overflow-hidden rounded-xl font-bold\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <h1 class=\"text-4xl px-2 py-2\" style=\"font-family: 'Poppins', sans-serif;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            &lt;!&ndash;                        DASHBOARD&ndash;&gt;"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            Public Party"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </h1>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <p class=\"text-sm px-2 \" style=\"font-family: 'Poppins', sans-serif; font-weight: 100;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <i>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Public parties can be seen and joined by everyone."), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Your party will appear on the activity page."), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <br>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </i>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <div v-if=\"typeOfTask === 2\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"mt-5 max-2 overflow-hidden rounded-xl font-bold\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <h1 class=\"text-4xl px-2 py-2\" style=\"font-family: 'Poppins', sans-serif;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            &lt;!&ndash;                        DASHBOARD&ndash;&gt;"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            Private Party"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </h1>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <p class=\"text-sm px-2\" style=\"font-family: 'Poppins', sans-serif; font-weight: 100;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <i>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Private parties work only with invitation."), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <br>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Select friends that you want to attend the party."), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </i>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div v-for=\"follower in $page.props.followers.data\" :key=\"follower.id\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <inertia-link class=\"px-6 py-4 flex items-center\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                      :href=\"route('profile', follower.username)\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                      tabindex=\"-1\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            {{ follower.name }}"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </inertia-link>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <pagination class=\"mt-6\" :links=\"followers.links\" />")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_loading_button, {
         loading: $data.form.processing,
-        "class": "button px-8 py-2",
+        "class": "button px-8 mt-4 py-2 bg-black text-white rounded-2xl",
         type: "submit"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_17];
+          return [_hoisted_20];
         }),
         _: 1
         /* STABLE */
