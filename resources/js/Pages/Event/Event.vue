@@ -4,19 +4,19 @@
                       :href="route('event.item', event)"
         >
             <div class="mx-2 mb-4 shadows-lg  ">
-                <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
+                <div class="rounded-lg shadow-md bg-white pb-6" style="position: relative;">
 
                     <img v-if="event.eventImg"
                          :src="showImage() + event.eventImg"
-                         class="object-cover rounded-lg w-full" alt="cover"
-                         style="max-height: 250px;  filter: brightness(30%);">
+                         class="object-cover rounded-t-lg  w-full" alt="cover"
+                         style="max-height: 150px;  filter: brightness(30%);">
                     <img v-else
-                         class="object-cover rounded-lg w-full" alt="cover"
+                         class="object-cover rounded-t-lg w-full" alt="cover"
                          :src="eventCover"
-                         style="max-height: 250px;  filter: brightness(30%);">
+                         style="max-height: 150px;  filter: brightness(30%);">
 
 
-                    <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
+                    <figcaption class="absolute text-lg text-white px-4 -mt-32 " style="left:0;  right: 0;">
                         <div class="text-right text-lg ">
                             <p class="">
                                 {{ event.date }}
@@ -29,40 +29,14 @@
                             </p>
                         </div>
 
-                        <div>
-                            <h3 class=" text-3xl text-center text-white "
-                                style="font-family: 'Poppins', sans-serif;">
-                                {{ event.title }}
-                            </h3>
-                        </div>
 
-                        <div>
-<!--                            <p class=" text-center  ">-->
-<!--                                &lt;!&ndash;                                {{ shortText }}&ndash;&gt;-->
-<!--                                organized by {{ party.user.username }}-->
 
-<!--                            </p>-->
 
-                            <div class=" text-center pb-12  ">
-                                <!--                                {{ shortText }}-->
-                                <div v-if="event.invites.length === 0" class="mb-7">
-                                    <!--                                    {{party.invites.length}}-->
-
-                                </div>
-                                <div v-else-if="event.invites.length === 1">
-                                    {{event.invites.length}} person is coming
-                                </div>
-                                <div v-else>
-                                    {{event.invites.length}} people are coming
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex justify-between">
+                        <div class="flex justify-between mt-6  ">
                             <div class="flex">
                                 <img
                                     :src="pin"
-                                    class="avatar  avatar w-6 h-6 mt-2  "
+                                    class="avatar  avatar w-6 h-6 mt-1"
                                     alt="default"
                                 />
 
@@ -71,11 +45,40 @@
                                 </p>
                             </div>
 
-                                                        <p class="text-sm mt-2">
-                                                            organized by {{event.user.username}}
-                                                        </p>
+                            <p class="text-sm mt-2">
+                                organized by {{ event.user.username }}
+                            </p>
                         </div>
                     </figcaption>
+
+                    <div>
+                        <h3 class=" text-3xl text-center mt-6  "
+                            style="font-family: 'Poppins', sans-serif;">
+                            {{ event.title }}
+                        </h3>
+                    </div>
+
+                    <div class=" text-center text-sm   ">
+                        <div v-if="event.invites.length === 0" class="">
+                        </div>
+                        <div v-else-if="event.invites.length === 1">
+                            {{ event.invites.length }} person is coming
+                        </div>
+                        <div v-else>
+                            {{ event.invites.length }} people are coming
+                        </div>
+                    </div>
+
+                    <div>
+                        <!--                            <p class=" text-center  ">-->
+                        <!--                                &lt;!&ndash;                                {{ shortText }}&ndash;&gt;-->
+                        <!--                                organized by {{ party.user.username }}-->
+
+                        <!--                            </p>-->
+
+                    </div>
+
+
                 </div>
             </div>
         </inertia-link>

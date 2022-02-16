@@ -43,7 +43,7 @@
 
 <!--                            </p>-->
 
-                            <div class=" text-center pb-12  ">
+                            <div class=" text-center pb-12 mt-2 text-sm  ">
                                 <!--                                {{ shortText }}-->
                                 <div v-if="party.invites.length === 0" class="mb-7">
                                     <!--                                    {{party.invites.length}}-->
@@ -58,7 +58,7 @@
                             </div>
                         </div>
 
-                        <div class="flex justify-between">
+                        <div class="flex justify-between mt-2">
                             <div class="flex">
                                 <img
                                     :src="pin"
