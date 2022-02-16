@@ -25,9 +25,9 @@ class EventInviteController extends Controller
     }
 
 
-    public function destroy(Party $party,  $id)
+    public function destroy(Event $event,  $id)
     {
-        $party->invites()->where('party_id', '=', $id)->where('user_id', Auth::user()->id)->delete();
+        $event->invites()->where('event_id', '=', $id)->where('user_id', Auth::user()->id)->delete();
         return redirect()->back();
     }
 }

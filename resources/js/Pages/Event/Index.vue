@@ -2,21 +2,18 @@
     <BreezeAuthenticatedLayout>
         <div class=" my-4 pb-20 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
             <div class="mx-2 mb-4 shadows-lg  ">
-                <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
+                <div class="rounded-lg shadow-md bg-white border-gray-20 pb-6" style="position: relative;">
                     <img v-if="event.eventImg"
                          :src="showImage() + event.eventImg"
                          class="object-cover rounded-lg w-full" alt="cover"
-                         style="max-height: 250px;  filter: brightness(30%);">
+                         style="max-height: 150px;  filter: brightness(30%);">
                     <img v-else
                          class="object-cover rounded-lg w-full" alt="cover"
                          :src="eventCover"
-                         style="max-height: 250px;  filter: brightness(30%);">
+                         style="max-height: 150px;  filter: brightness(30%);">
 
 
                     <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
-
-
-
                         <div v-if="event.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6" style="right: 0;">
                             <inertia-link preserve-scroll class="-mt-6" :href="route('event.edit', event.id)">
                                 <!--                                      v-if="post.user.id === $page.props.auth.user.id"-->
@@ -40,19 +37,14 @@
                             </p>
                         </div>
 
-                        <div>
-                            <h3 class=" text-3xl text-center text-white "
-                                style="font-family: 'Poppins', sans-serif;">
-                                {{ event.title }}
-                            </h3>
-                        </div>
+
 
                         <div>
                             <h1 class="text-center">
                                 {{ event.body }}
                             </h1>
 
-                            <div class="flex justify-center mt-4">
+                            <div class="flex justify-center mt-20 ">
                                 <inertia-link v-if="!$page.props.inviteToggle"
                                               as="button"
                                               class="follow button shadow-2xl  items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
@@ -81,7 +73,7 @@
 
                             </div>
 
-                            <div class="flex justify-center mt-12 text-sm">
+                            <div class="flex justify-center  text-sm mt-4">
                                 <div v-if="event.invites.length === 0">
 <!--                                    {{party.invites.length}}-->
 
@@ -97,6 +89,13 @@
 
                         </div>
                     </figcaption>
+
+                    <div>
+                        <h3 class=" text-3xl text-center mt-6 "
+                            style="font-family: 'Poppins', sans-serif;">
+                            {{ event.title }}
+                        </h3>
+                    </div>
                 </div>
             </div>
 
@@ -122,7 +121,7 @@
 
                 <div class="flex">
                     <img
-                        :src="dj"
+                        :src="organizer"
                         class="avatar  avatar w-10 h-10 mt-2  "
                         alt="default"
                     />
@@ -169,7 +168,7 @@ import {InertiaLink} from "@inertiajs/inertia-vue3";
 import pin from "/img/Posts/pin.png";
 import eventCover from "/img/Party/partyCover.jpg";
 import quote from "/img/Party/quote.png";
-import dj from "/img/Party/dj.png";
+import organizer from "/img/Party/organizer.png";
 import backButton from "/img/Tab/left-arrow.png";
 
 
@@ -186,7 +185,7 @@ export default {
             pin: pin,
             eventCover: eventCover,
             quote: quote,
-            dj: dj,
+            organizer: organizer,
             backButton: backButton,
 
         }
