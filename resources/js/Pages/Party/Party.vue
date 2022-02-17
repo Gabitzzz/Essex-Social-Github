@@ -1,6 +1,6 @@
 <template>
     <div>
-        <inertia-link preserve-scroll
+        <inertia-link
                       :href="route('party.item', party)"
         >
             <div class="mx-2 mb-4 shadows-lg  ">

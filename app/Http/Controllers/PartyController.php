@@ -44,9 +44,10 @@ class PartyController extends Controller
 
         return Inertia::render('Party/Index', [
             'party' => $var,
-
             'inviteToggle' => $party->invites()->where('party_invites.user_id', auth()->id())->exists(),
         ]);
+
+
     }
 
     public function create(User $user)

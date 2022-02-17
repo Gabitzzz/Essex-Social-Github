@@ -12,7 +12,7 @@
                                Edit party
                            </h1>
 
-                           <inertia-link preserve-scroll
+                           <inertia-link
                                          class=" p-4 rounded-full bg-red-500 text-center text-white"
                                          :href="route('party.destroy', party.id)"
                            >
