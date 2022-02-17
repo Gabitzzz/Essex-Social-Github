@@ -37,26 +37,19 @@
                         </div>
 
                         <div>
-<!--                            <p class=" text-center  ">-->
-<!--                                &lt;!&ndash;                                {{ shortText }}&ndash;&gt;-->
-<!--                                organized by {{ party.user.username }}-->
+                            <div class=" text-center pb-12 mt-2 text-sm  ">
+                                <div v-if="party.invites.length === 0" class="mb-7">
 
-<!--                            </p>-->
-
-<!--                            <div class=" text-center pb-12 mt-2 text-sm  ">-->
-<!--                                &lt;!&ndash;                                {{ shortText }}&ndash;&gt;-->
-<!--                                <div v-if="party.invites.length === 0" class="mb-7">-->
-<!--                                    &lt;!&ndash;                                    {{party.invites.length}}&ndash;&gt;-->
-
-<!--                                </div>-->
-<!--                                <div v-else-if="party.invites.length === 1">-->
-<!--                                    {{party.invites.length}} person is coming-->
-<!--                                </div>-->
-<!--                                <div v-else>-->
-<!--                                    {{party.invites.length}} people are coming-->
-<!--                                </div>-->
-<!--                            </div>-->
+                                </div>
+                                <div v-else-if="invites.length === 1">
+                                    {{ party.invites.length }} person is coming
+                                </div>
+                                <div v-else>
+                                    {{ party.invites.length }} people are coming
+                                </div>
+                            </div>
                         </div>
+
 
                         <div class="flex justify-between mt-2">
                             <div class="flex">
@@ -71,9 +64,9 @@
                                 </p>
                             </div>
 
-                                                        <p class="text-sm mt-2">
-                                                            organized by {{ party.user_id}}
-                                                        </p>
+<!--                            <p class="text-sm mt-2">-->
+<!--                                organized by {{ username }}-->
+<!--                            </p>-->
                         </div>
                     </figcaption>
                 </div>
@@ -93,9 +86,10 @@ export default {
     name: "Party",
     props: {
         party: Object,
-        invites: Object,
+        invites: Array,
         followers: Object,
         inviteToggle: Boolean,
+        username: String,
 
     },
     components: {
@@ -106,7 +100,7 @@ export default {
         return {
             pin: pin,
             partyCover: partyCover,
-            description: this.party.description,
+            // description: this.party.description,
         }
     },
 

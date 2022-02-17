@@ -17,7 +17,7 @@
 
             <div>
                 <div v-for="(party, key) in parties" :key="key">
-                    <Party :party="party" ></Party>
+                    <Party :party="party" :invites="invites" :username="party.user.username"  ></Party>
                 </div>
             </div>
         </div>
@@ -39,6 +39,7 @@ export default {
     props: {
         parties: Array,
         users: Array,
+        invites: Array,
     },
 
 }

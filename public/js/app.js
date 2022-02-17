@@ -26406,8 +26406,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_Tab_explore_png__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../../../img/Tab/explore.png */ "./public/img/Tab/explore.png");
 /* harmony import */ var _img_Tab_logout_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../../../img/Tab/logout.png */ "./public/img/Tab/logout.png");
 /* harmony import */ var _img_Tab_eventlogo_png__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../../../img/Tab/eventlogo.png */ "./public/img/Tab/eventlogo.png");
-/* harmony import */ var _Pages_Party_Parties__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @/Pages/Party/Parties */ "./resources/js/Pages/Party/Parties.vue");
-/* harmony import */ var _Pages_Party_Party__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @/Pages/Party/Party */ "./resources/js/Pages/Party/Party.vue");
+/* harmony import */ var _Pages_Party_Party__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @/Pages/Party/Party */ "./resources/js/Pages/Party/Party.vue");
+/* harmony import */ var _Pages_Event_Event__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @/Pages/Event/Event */ "./resources/js/Pages/Event/Event.vue");
 
 
 
@@ -26442,7 +26442,8 @@ __webpack_require__.r(__webpack_exports__);
     user: Object,
     profile: Object,
     parties: Array,
-    invites: Array // invites: Array,
+    // events: Array,
+    partyInvites: Array // eventInvites: Array,
 
   },
   data: function data() {
@@ -26486,8 +26487,8 @@ __webpack_require__.r(__webpack_exports__);
     BreezeAuthenticatedLayout: _Layouts_Authenticated_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head,
     InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.InertiaLink,
-    Parties: _Pages_Party_Parties__WEBPACK_IMPORTED_MODULE_24__["default"],
-    Party: _Pages_Party_Party__WEBPACK_IMPORTED_MODULE_25__["default"]
+    Party: _Pages_Party_Party__WEBPACK_IMPORTED_MODULE_24__["default"],
+    Event: _Pages_Event_Event__WEBPACK_IMPORTED_MODULE_25__["default"]
   }
 });
 
@@ -27351,7 +27352,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     parties: Array,
-    users: Array
+    users: Array,
+    invites: Array
   }
 });
 
@@ -27378,9 +27380,10 @@ __webpack_require__.r(__webpack_exports__);
   name: "Party",
   props: {
     party: Object,
-    invites: Object,
+    invites: Array,
     followers: Object,
-    inviteToggle: Boolean
+    inviteToggle: Boolean,
+    username: String
   },
   components: {
     InertiaLink: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.InertiaLink
@@ -27388,8 +27391,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       pin: _img_Posts_pin_png__WEBPACK_IMPORTED_MODULE_1__["default"],
-      partyCover: _img_Party_partyCover_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
-      description: this.party.description
+      partyCover: _img_Party_partyCover_jpg__WEBPACK_IMPORTED_MODULE_2__["default"] // description: this.party.description,
+
     };
   },
   methods: {
@@ -30881,17 +30884,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["href"])]), _hoisted_97])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            EVENTS      "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_98, [_hoisted_99, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.parties, function (party) {
+      , ["href"])]), _hoisted_97])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            EVENTS      "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_98, [_hoisted_99, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.partyInvites, function (party) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-          key: party.parties
+          key: party
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Party, {
-          party: party
+          party: party,
+          invites: $props.partyInvites
         }, null, 8
         /* PROPS */
-        , ["party"])]);
+        , ["party", "invites"])]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))])])])];
+      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div v-for=\"event in events\" :key=\"event.events\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <Event :event=\"event\"></Event>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>")])])])];
     }),
     _: 1
     /* STABLE */
@@ -33473,9 +33477,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         alt: "default"
       }, null, 8
       /* PROPS */
-      , _hoisted_35)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.description), 1
-      /* TEXT */
-      )])])])];
+      , _hoisted_35)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                   {{party.description}}")])])])];
     }),
     _: 1
     /* STABLE */
@@ -33534,10 +33536,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: key
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Party, {
-          party: party
+          party: party,
+          invites: $props.invites,
+          username: party.user.username
         }, null, 8
         /* PROPS */
-        , ["party"])]);
+        , ["party", "invites", "username"])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])];
@@ -33601,25 +33605,28 @@ var _hoisted_9 = {
     "font-family": "'Poppins', sans-serif"
   }
 };
-
-var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <p class=\" text-center  \">"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                &lt;!&ndash;                                {{ shortText }}&ndash;&gt;"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                organized by {{ party.user.username }}"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </p>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <div class=\" text-center pb-12 mt-2 text-sm  \">"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                &lt;!&ndash;                                {{ shortText }}&ndash;&gt;"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <div v-if=\"party.invites.length === 0\" class=\"mb-7\">"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                    &lt;!&ndash;                                    {{party.invites.length}}&ndash;&gt;"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                </div>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <div v-else-if=\"party.invites.length === 1\">"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                    {{party.invites.length}} person is coming"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                </div>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <div v-else>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                    {{party.invites.length}} people are coming"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                </div>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </div>")], -1
-  /* HOISTED */
-  );
-});
-
+var _hoisted_10 = {
+  "class": "text-center pb-12 mt-2 text-sm"
+};
 var _hoisted_11 = {
-  "class": "flex justify-between mt-2"
+  key: 0,
+  "class": "mb-7"
 };
 var _hoisted_12 = {
-  "class": "flex"
+  key: 1
 };
-var _hoisted_13 = ["src"];
+var _hoisted_13 = {
+  key: 2
+};
 var _hoisted_14 = {
-  "class": "text-center text-sm mt-2 ml-2"
+  "class": "flex justify-between mt-2"
 };
 var _hoisted_15 = {
-  "class": "text-sm mt-2"
+  "class": "flex"
+};
+var _hoisted_16 = ["src"];
+var _hoisted_17 = {
+  "class": "text-center text-sm mt-2 ml-2"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
@@ -33657,17 +33664,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.title), 1
       /* TEXT */
-      )]), _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [$props.party.invites.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11)) : $props.invites.length === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.invites.length) + " person is coming ", 1
+      /* TEXT */
+      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.invites.length) + " people are coming ", 1
+      /* TEXT */
+      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
         src: $data.pin,
         "class": "avatar avatar w-6 h-6 mt-2",
         alt: "default"
       }, null, 8
       /* PROPS */
-      , _hoisted_13), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.location), 1
+      , _hoisted_16), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.location), 1
       /* TEXT */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_15, " organized by " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.party.user_id), 1
-      /* TEXT */
-      )])])])])];
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <p class=\"text-sm mt-2\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                organized by {{ username }}"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </p>")])])])])];
     }),
     _: 1
     /* STABLE */

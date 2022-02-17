@@ -153,7 +153,7 @@
                        />
                    </div>
 
-                   {{party.description}}
+<!--                   {{party.description}}-->
                </div>
             </div>
 

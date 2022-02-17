@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PartyInviteController extends Controller
 {
-
-
-
-
-
     public function store(Party $party, $id)
     {
 

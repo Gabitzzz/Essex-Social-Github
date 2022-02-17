@@ -321,9 +321,15 @@
                         Events
                     </h1>
 
-                    <div v-for="party in parties" :key="party.parties">
-                        <Party :party="party" ></Party>
+                    <div v-for="party in partyInvites" :key="party">
+                        <Party :party="party" :invites="partyInvites"></Party>
+
                     </div>
+
+
+                    <!--                    <div v-for="event in events" :key="event.events">-->
+                    <!--                        <Event :event="event"></Event>-->
+                    <!--                    </div>-->
 
 
                 </div>
@@ -357,8 +363,8 @@ import event from "/img/Posts/event.png";
 import explore from "/img/Tab/explore.png";
 import logout from "/img/Tab/logout.png";
 import eventlogo from "/img/Tab/eventlogo.png";
-import Parties from "@/Pages/Party/Parties";
 import Party from "@/Pages/Party/Party";
+import Event from "@/Pages/Event/Event";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 // import VueWeather from "vue-weather-widget";
 
@@ -368,8 +374,9 @@ export default {
         user: Object,
         profile: Object,
         parties: Array,
-        invites: Array,
-        // invites: Array,
+        // events: Array,
+        partyInvites: Array,
+        // eventInvites: Array,
 
     },
     data() {
@@ -415,8 +422,8 @@ export default {
         BreezeAuthenticatedLayout,
         Head,
         InertiaLink,
-        Parties,
         Party,
+        Event,
     },
 
 }

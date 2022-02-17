@@ -29,6 +29,7 @@ class PartyController extends Controller
 
         return Inertia::render('Party/Parties', [
             'parties' => $parties,
+            'invites' => PartyInvite::all(),
 //            'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->with('user')->get()->first(),
 
 //            'parties'=> Party::with('invites')->with('users')->latest()->get()->all(),
@@ -43,6 +44,7 @@ class PartyController extends Controller
 
         return Inertia::render('Party/Index', [
             'party' => $var,
+
             'inviteToggle' => $party->invites()->where('party_invites.user_id', auth()->id())->exists(),
         ]);
     }
@@ -100,10 +102,11 @@ class PartyController extends Controller
         }
     }
 
-    public function edit(Party $party){
+    public function edit(Party $party)
+    {
         return Inertia::render('Party/Edit', [
             'party' => Party::with('user')->where("id", "=", $party->id)->get()->first(),
-            ]);
+        ]);
     }
 
     public function update(Party $party, StoreImage $request)
@@ -113,12 +116,12 @@ class PartyController extends Controller
             'description' => ['string', 'max:255'],
             'location' => ['string', 'max:255'],
 
-            'partyImg' => ['nullable','file'],
+            'partyImg' => ['nullable', 'file'],
         ]);
         $time_attributes = request()->validate([
             'date' => ['required', 'max:255'],
             'time' => ['nullable', 'max:255'],
-            ]);
+        ]);
 
         if ($request->hasFile('partyImg')) {
             $attributes['partyImg'] = $request->file('partyImg')
@@ -142,7 +145,6 @@ class PartyController extends Controller
         $party->delete();
         return Redirect::route('party.show');
     }
-
 
 
 }
