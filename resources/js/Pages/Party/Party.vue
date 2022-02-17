@@ -43,19 +43,19 @@
 
 <!--                            </p>-->
 
-                            <div class=" text-center pb-12 mt-2 text-sm  ">
-                                <!--                                {{ shortText }}-->
-                                <div v-if="party.invites.length === 0" class="mb-7">
-                                    <!--                                    {{party.invites.length}}-->
+<!--                            <div class=" text-center pb-12 mt-2 text-sm  ">-->
+<!--                                &lt;!&ndash;                                {{ shortText }}&ndash;&gt;-->
+<!--                                <div v-if="party.invites.length === 0" class="mb-7">-->
+<!--                                    &lt;!&ndash;                                    {{party.invites.length}}&ndash;&gt;-->
 
-                                </div>
-                                <div v-else-if="party.invites.length === 1">
-                                    {{party.invites.length}} person is coming
-                                </div>
-                                <div v-else>
-                                    {{party.invites.length}} people are coming
-                                </div>
-                            </div>
+<!--                                </div>-->
+<!--                                <div v-else-if="party.invites.length === 1">-->
+<!--                                    {{party.invites.length}} person is coming-->
+<!--                                </div>-->
+<!--                                <div v-else>-->
+<!--                                    {{party.invites.length}} people are coming-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
 
                         <div class="flex justify-between mt-2">
@@ -72,7 +72,7 @@
                             </div>
 
                                                         <p class="text-sm mt-2">
-                                                            organized by {{party.user.username}}
+                                                            organized by {{ party.user_id}}
                                                         </p>
                         </div>
                     </figcaption>

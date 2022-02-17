@@ -92,4 +92,8 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = Hash::needsRehash($password) ? Hash::make($password) : $password;
     }
+
+    public function partyInvites(){
+        return $this->hasMany(PartyInvite::class);
+    }
 }

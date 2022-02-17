@@ -11,9 +11,6 @@
                     </h1>
 
 
-
-
-
                     <p class="px-2  text-sm lg:text-md"
                        style="font-weight:lighter;">
                         This is your Dashboard. <br>
@@ -22,8 +19,6 @@
                     </p>
                 </div>
             </div>
-
-
 
 
             <div class="mt-5 flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
@@ -326,7 +321,10 @@
                         Events
                     </h1>
 
-                    <!--                    <Parties></Parties>-->
+                    <div v-for="party in parties" :key="party.parties">
+                        <Party :party="party" ></Party>
+                    </div>
+
 
                 </div>
             </div>
@@ -360,15 +358,19 @@ import explore from "/img/Tab/explore.png";
 import logout from "/img/Tab/logout.png";
 import eventlogo from "/img/Tab/eventlogo.png";
 import Parties from "@/Pages/Party/Parties";
+import Party from "@/Pages/Party/Party";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 // import VueWeather from "vue-weather-widget";
 
 export default {
     name: 'Dashboard',
     props: {
-        parties: Array,
         user: Object,
         profile: Object,
+        parties: Array,
+        invites: Array,
+        // invites: Array,
+
     },
     data() {
         return {
@@ -397,6 +399,7 @@ export default {
         };
     },
 
+
     methods: {
         currentDate() {
             const current = new Date();
@@ -413,7 +416,9 @@ export default {
         Head,
         InertiaLink,
         Parties,
+        Party,
     },
+
 }
 </script>
 

@@ -35,7 +35,7 @@ class Party extends Model
 
     public function invites()
     {
-        return $this->hasMany(PartyInvite::class);
+        return $this->hasMany(PartyInvite::class, 'party_id', 'id');
     }
 }
 
