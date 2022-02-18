@@ -315,31 +315,59 @@
                 </div>
 
 
-                <!--            EVENTS      -->
-                <div class="max-2 mt-5 overflow-hidden rounded-xl font-bold">
+                <!--          PARTIES     -->
+                <div>
                     <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                         Your Parties
                     </h1>
 
-                    <div v-for="party in parties" :key="party" class="mt-5">
-                        <Party :party="party" :invites="party.invites" ></Party>
-                    </div>
+                    <div
+                        id="scrollContainer3"
+                        class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start  pb-5 hide-scroll-bar">
+                        <div v-for="party in parties" :key="party" class="mt-5">
 
-                    <h1 class="text-4xl px-2 py-2 mt-10 mb-5" style="font-family: 'Poppins', sans-serif;">
+                            <div class="inline-block  ">
+                                <div
+                                    class="w-screen   max-w-sm md:max-w-xl overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
+                                >
+                                    <Party :party="party" :invites="party.invites"></Party>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                         Your Events
                     </h1>
 
-                    <div v-for="event in events" :key="event">
-                        <Event :event="event" :invites="event.invites" ></Event>
+                    <div
+                        id="scrollContainer4"
+                        class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start  pb-5 hide-scroll-bar">
+                        <div v-for="event in events" :key="event" class="mt-5">
+
+                            <div class="inline-block  ">
+                                <div
+                                    class="w-screen   max-w-sm md:max-w-xl overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
+                                >
+                                    <Event :event="event" :invites="event.invites"></Event>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-
-                    <!--                    <div v-for="event in events" :key="event.events">-->
-                    <!--                        <Event :event="event"></Event>-->
-                    <!--                    </div>-->
-
-
                 </div>
+
+
+
+
+                <!--                    <div v-for="event in events" :key="event.events">-->
+                <!--                        <Event :event="event"></Event>-->
+                <!--                    </div>-->
+
+
             </div>
         </div>
     </BreezeAuthenticatedLayout>

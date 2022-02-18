@@ -1,6 +1,6 @@
 <template>
     <div>
-        <inertia-link preserve-scroll
+        <inertia-link
                       :href="route('event.item', event)"
         >
             <div class="mx-2 mb-4 shadows-lg  ">
@@ -90,7 +90,7 @@
 
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import pin from "/img/Posts/pin.png";
-import eventCover from "/img/Party/partyCover.jpg";
+import eventCover from "/img/Party/eventCover.jpg";
 
 export default {
     name: "Event",

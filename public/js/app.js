@@ -26695,7 +26695,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _img_Posts_pin_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../img/Posts/pin.png */ "./public/img/Posts/pin.png");
-/* harmony import */ var _img_Party_partyCover_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../img/Party/partyCover.jpg */ "./public/img/Party/partyCover.jpg");
+/* harmony import */ var _img_Party_eventCover_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../img/Party/eventCover.jpg */ "./public/img/Party/eventCover.jpg");
 
 
 
@@ -26713,7 +26713,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       pin: _img_Posts_pin_png__WEBPACK_IMPORTED_MODULE_1__["default"],
-      eventCover: _img_Party_partyCover_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+      eventCover: _img_Party_eventCover_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
       description: this.event.description
     };
   },
@@ -30598,11 +30598,7 @@ var _hoisted_97 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_98 = {
-  "class": "max-2 mt-5 overflow-hidden rounded-xl font-bold"
-};
-
-var _hoisted_99 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_98 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
     "class": "text-4xl px-2 py-2",
     style: {
@@ -30613,9 +30609,20 @@ var _hoisted_99 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_100 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_99 = {
+  id: "scrollContainer3",
+  "class": "flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-5 hide-scroll-bar"
+};
+var _hoisted_100 = {
+  "class": "inline-block"
+};
+var _hoisted_101 = {
+  "class": "w-screen max-w-sm md:max-w-xl overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
+};
+
+var _hoisted_102 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-    "class": "text-4xl px-2 py-2 mt-10 mb-5",
+    "class": "text-4xl px-2 py-2",
     style: {
       "font-family": "'Poppins', sans-serif"
     }
@@ -30624,6 +30631,16 @@ var _hoisted_100 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
+var _hoisted_103 = {
+  id: "scrollContainer4",
+  "class": "flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-5 hide-scroll-bar"
+};
+var _hoisted_104 = {
+  "class": "inline-block"
+};
+var _hoisted_105 = {
+  "class": "w-screen max-w-sm md:max-w-xl overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
@@ -30896,30 +30913,31 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["href"])]), _hoisted_97])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            EVENTS      "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_98, [_hoisted_99, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.parties, function (party) {
+      , ["href"])]), _hoisted_97])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("          PARTIES     "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_98, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_99, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.parties, function (party) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: party,
           "class": "mt-5"
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Party, {
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_100, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_101, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Party, {
           party: party,
           invites: party.invites
         }, null, 8
         /* PROPS */
-        , ["party", "invites"])]);
+        , ["party", "invites"])])])]);
       }), 128
       /* KEYED_FRAGMENT */
-      )), _hoisted_100, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.events, function (event) {
+      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_102, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_103, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.events, function (event) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-          key: event
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Event, {
+          key: event,
+          "class": "mt-5"
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_104, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_105, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Event, {
           event: event,
           invites: event.invites
         }, null, 8
         /* PROPS */
-        , ["event", "invites"])]);
+        , ["event", "invites"])])])]);
       }), 128
       /* KEYED_FRAGMENT */
-      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div v-for=\"event in events\" :key=\"event.events\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <Event :event=\"event\"></Event>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>")])])])];
+      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div v-for=\"event in events\" :key=\"event.events\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <Event :event=\"event\"></Event>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>")])])];
     }),
     _: 1
     /* STABLE */
@@ -31658,7 +31676,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-    "preserve-scroll": "",
     href: _ctx.route('event.item', $props.event)
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -36452,6 +36469,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/dj.png?0bf5cc39763da0f990c2661f0797c412");
+
+/***/ }),
+
+/***/ "./public/img/Party/eventCover.jpg":
+/*!*****************************************!*\
+  !*** ./public/img/Party/eventCover.jpg ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/eventCover.jpg?807c0f78bd90e041566a7d7239b5501d");
 
 /***/ }),
 
