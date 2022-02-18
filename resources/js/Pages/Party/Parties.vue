@@ -17,7 +17,7 @@
 
             <div>
                 <div v-for="(party, key) in parties" :key="key">
-                    <Party :party="party" :invites="invites" :username="party.user.username"  ></Party>
+                    <Party :party="party" :invites="party.invites" :username="party.user.username"  ></Party>
                 </div>
             </div>
         </div>

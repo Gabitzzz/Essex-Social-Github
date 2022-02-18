@@ -16,44 +16,43 @@ class DashboardController extends Controller
 {
 
 
-    public function index(PartyInvite $party)
+    public function index(Party $party, User $user)
     {
 
-//        $par = Party::with('invites','user')
-//            ->where("user_id", "=", Auth::id())
-//            ->get();
+        $partyInvites = PartyInvite::all();
 
 
-        $par = Party::select('parties.*')
-            ->with('invites')
-            ->with('user')
-            ->latest()->get()->all();
+        $parties = Party::with('invites')
 
-//        $partyInvites = PartyInvite::with('party', 'user')
-//            ->where("user_id", "=", Auth::id())
-//            ->get();
+            ->join('party_invites', 'parties.id','=','party_invites.party_id')
+            ->join('users', 'parties.user_id','=','users.id')
+            ->where('party_invites.user_id','=', Auth::id())
+            ->select('parties.*',  'users.username')
+            ->get();
+
+
+
+
+
+
 
 
         $eventInvites = EventInvite::with('event', 'user')
             ->where("user_id", "=", Auth::id())
             ->get();
 
-        $parties = Party::with('invites', 'user')
-            ->get();
 
         $events = Event::with('invites', 'user')
             ->get();
 
-        $myEvents = Party::with('invites')
-            ->get();
 
+//        $var = $party::with('invites')->where("id", "=", $party->id)->with('user')->get()->first();
 
 
         return Inertia::render('Dashboard', [
-            'parties' => $myEvents,
+            'parties' => $parties,
             'events' => $events,
-//            'partyInvites' =>  $myEvents->where('invites.user_id', '=', Auth::id()),
-            'partyInvites' => $par,
+            'partyInvites' => $partyInvites,
             'eventInvites' => $eventInvites,
 
 

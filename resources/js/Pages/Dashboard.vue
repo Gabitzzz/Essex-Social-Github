@@ -321,8 +321,8 @@
                         Events
                     </h1>
 
-                    <div v-for="party in partyInvites" :key="party">
-                        <Party :party="party" :invites="partyInvites"></Party>
+                    <div v-for="party in parties" :key="party">
+                        <Party :party="party" :invites="party.invites" ></Party>
 
                     </div>
 
@@ -371,8 +371,6 @@ import {InertiaLink} from "@inertiajs/inertia-vue3";
 export default {
     name: 'Dashboard',
     props: {
-        user: Object,
-        profile: Object,
         parties: Array,
         // events: Array,
         partyInvites: Array,

@@ -38,14 +38,14 @@
 
                         <div>
                             <div class=" text-center pb-12 mt-2 text-sm  ">
-                                <div v-if="party.invites.length === 0" class="mb-7">
+                                <div v-if="invites.length === 0" class="mb-7">
 
                                 </div>
                                 <div v-else-if="invites.length === 1">
-                                    {{ party.invites.length }} person is coming
+                                    {{ invites.length }} person is coming
                                 </div>
                                 <div v-else>
-                                    {{ party.invites.length }} people are coming
+                                    {{ invites.length }} people are coming
                                 </div>
                             </div>
                         </div>
@@ -64,9 +64,9 @@
                                 </p>
                             </div>
 
-<!--                            <p class="text-sm mt-2">-->
-<!--                                organized by {{ username }}-->
-<!--                            </p>-->
+                            <p class="text-sm mt-2">
+                                organized by {{ party.username }}
+                            </p>
                         </div>
                     </figcaption>
                 </div>
