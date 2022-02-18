@@ -317,13 +317,14 @@
 
                 <!--          PARTIES     -->
                 <div class="mt-5">
-                    <div class="flex justify-between items-center">
-                        <h1 class="text-4xl px-2 font-bold" style="font-family: 'Poppins', sans-serif;">
+                    <div class="flex justify-between items-center  px-2">
+                        <h1 class="text-4xl  font-bold" style="font-family: 'Poppins', sans-serif;">
                             Your Parties
                         </h1>
 
 
-                        <inertia-link :href="route('party.show')">
+                        <inertia-link :href="route('party.show')"
+                                      class="mx-2">
                             SEE ALL
 
                         </inertia-link>
@@ -346,19 +347,18 @@
                 </div>
 
 
-                <div>
-                    <div class="flex justify-between items-center">
-                        <h1 class="text-4xl px-2 font-bold" style="font-family: 'Poppins', sans-serif;">
+                <div class="">
+                    <div class="flex justify-between items-center px-2">
+                        <h1 class="text-4xl  font-bold" style="font-family: 'Poppins', sans-serif;">
                             Your Events
                         </h1>
 
-                        <inertia-link :href="route('event.show')">
+                        <inertia-link :href="route('event.show')"
+                                      class="mx-2">
                             SEE ALL
 
                         </inertia-link>
 
-<!--                        <p class="">-->
-<!--                        </p>-->
                     </div>
 
                     <div
@@ -377,8 +377,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
 
                 <!--                    <div v-for="event in events" :key="event.events">-->
