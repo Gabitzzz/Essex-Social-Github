@@ -28,12 +28,17 @@ class DashboardController extends Controller
             ->join('users', 'parties.user_id','=','users.id')
             ->where('party_invites.user_id','=', Auth::id())
             ->select('parties.*',  'users.username')
+            ->latest()
             ->get();
 
+        $events = Event::with('invites')
 
-
-
-
+            ->join('event_invites', 'events.id','=','event_invites.event_id')
+            ->join('users', 'events.user_id','=','users.id')
+            ->where('event_invites.user_id','=', Auth::id())
+            ->select('events.*',  'users.username')
+            ->latest()
+            ->get();
 
 
 
@@ -42,8 +47,8 @@ class DashboardController extends Controller
             ->get();
 
 
-        $events = Event::with('invites', 'user')
-            ->get();
+//        $events = Event::with('invites', 'user')
+//            ->get();
 
 
 //        $var = $party::with('invites')->where("id", "=", $party->id)->with('user')->get()->first();

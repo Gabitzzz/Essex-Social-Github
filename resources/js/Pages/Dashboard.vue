@@ -318,12 +318,19 @@
                 <!--            EVENTS      -->
                 <div class="max-2 mt-5 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                        Events
+                        Your Parties
                     </h1>
 
-                    <div v-for="party in parties" :key="party">
+                    <div v-for="party in parties" :key="party" class="mt-5">
                         <Party :party="party" :invites="party.invites" ></Party>
+                    </div>
 
+                    <h1 class="text-4xl px-2 py-2 mt-10 mb-5" style="font-family: 'Poppins', sans-serif;">
+                        Your Events
+                    </h1>
+
+                    <div v-for="event in events" :key="event">
+                        <Event :event="event" :invites="event.invites" ></Event>
                     </div>
 
 
@@ -372,6 +379,7 @@ export default {
     name: 'Dashboard',
     props: {
         parties: Array,
+        events: Array,
         // events: Array,
         partyInvites: Array,
         // eventInvites: Array,

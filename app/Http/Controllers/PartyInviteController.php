@@ -32,3 +32,4 @@ class PartyInviteController extends Controller
     }
 
 }
+

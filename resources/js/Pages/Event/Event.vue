@@ -46,7 +46,7 @@
                             </div>
 
                             <p class="text-sm mt-2">
-                                organized by {{ event.user.username }}
+                                organized by {{ event.username }}
                             </p>
                         </div>
                     </figcaption>
