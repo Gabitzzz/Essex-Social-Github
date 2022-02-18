@@ -316,10 +316,18 @@
 
 
                 <!--          PARTIES     -->
-                <div>
-                    <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                        Your Parties
-                    </h1>
+                <div class="mt-5">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-4xl px-2 font-bold" style="font-family: 'Poppins', sans-serif;">
+                            Your Parties
+                        </h1>
+
+
+                        <inertia-link :href="route('party.show')">
+                            SEE ALL
+
+                        </inertia-link>
+                    </div>
 
                     <div
                         id="scrollContainer3"
@@ -339,9 +347,19 @@
 
 
                 <div>
-                    <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                        Your Events
-                    </h1>
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-4xl px-2 font-bold" style="font-family: 'Poppins', sans-serif;">
+                            Your Events
+                        </h1>
+
+                        <inertia-link :href="route('event.show')">
+                            SEE ALL
+
+                        </inertia-link>
+
+<!--                        <p class="">-->
+<!--                        </p>-->
+                    </div>
 
                     <div
                         id="scrollContainer4"
