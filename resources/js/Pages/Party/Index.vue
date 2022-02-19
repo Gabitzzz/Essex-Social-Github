@@ -16,8 +16,8 @@
                     <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
 
 
-
-                        <div v-if="party.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6" style="right: 0;">
+                        <div v-if="party.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6"
+                             style="right: 0;">
                             <inertia-link preserve-scroll class="-mt-6" :href="route('party.edit', party.id)">
                                 <!--                                      v-if="post.user.id === $page.props.auth.user.id"-->
                                 <!--                                      class=" -mt-6  "-->
@@ -81,29 +81,38 @@
 
                             </div>
 
-                            <div class="flex justify-center mt-12 text-sm">
-                                <div v-if="party.invites.length === 0">
-<!--                                    {{party.invites.length}}-->
 
-                                </div>
-                                <div v-else-if="party.invites.length === 1">
-                                    {{party.invites.length}} person is coming
-                                </div>
-                                <div v-else>
-                                    {{party.invites.length}} people are coming
+                            <inertia-link :href="route('party.members', party)" >
+
+                                <div class="flex justify-center mt-12 text-sm">
+                                    <div v-if="party.invites.length === 0">
+                                        <!--                                    {{party.invites.length}}-->
+
+                                    </div>
+                                    <div v-else-if="party.invites.length === 1">
+                                        {{ party.invites.length }} person is coming
+                                    </div>
+                                    <div v-else>
+                                        {{ party.invites.length }} people are coming
+                                    </div>
                                 </div>
 
-                            </div>
+                            </inertia-link>
 
                         </div>
                     </figcaption>
                 </div>
             </div>
 
-            <div class="flex mx-4 mt-4">
-                <div class=" w-1/4 flex ">
-                </div>
+            <div class="flex justify-end mx-4  ">
+                <InertiaLink @click="back"
+                             class="ml-1 h-6 w-6 rounded-full">
+                    <img :src="backButton" alt="">
+                </InertiaLink>
+
             </div>
+
+
 
             <div class=" mx-4">
                 <div class="flex  ">
@@ -135,26 +144,20 @@
                 </div>
             </div>
 
-           <div class="flex justify-end mx-4 mt-8">
-               <InertiaLink @click="back"
-                            class="ml-1 h-6 w-6 rounded-full">
-                   <img :src="backButton" alt="">
-               </InertiaLink>
 
-           </div>
 
-            <div class=" mx-4 mt-8">
-               <div class="text-center bg-white p-4 md:px-8 md:mx-16 rounded-xl">
-                   <div class="flex justify-center mb-4">
-                       <img
-                           :src="quote"
-                           class="avatar text-center w-10 h-10 mt-2  "
-                           alt="default"
-                       />
-                   </div>
+            <div class=" m-4">
+                <div class="text-center bg-white p-4 md:px-8 md:mx-16 rounded-xl">
+                    <div class="flex justify-center mb-4">
+                        <img
+                            :src="quote"
+                            class="avatar text-center w-10 h-10 mt-2  "
+                            alt="default"
+                        />
+                    </div>
 
-                   {{party.description}}
-               </div>
+                    {{ party.description }}
+                </div>
             </div>
 
         </div>
@@ -171,7 +174,6 @@ import partyCover from "/img/Party/partyCover.jpg";
 import quote from "/img/Party/quote.png";
 import dj from "/img/Party/dj.png";
 import backButton from "/img/Tab/left-arrow.png";
-
 
 
 export default {

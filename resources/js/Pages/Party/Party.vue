@@ -8,7 +8,7 @@
 
                     <img v-if="party.partyImg"
                          :src="showImage() + party.partyImg"
-                         class="object-cover rounded-lg w-full" alt="cover"
+                         class="object-cover rounded-lg w-full " alt="cover"
                          style="max-height: 250px;  filter: brightness(30%);">
                     <img v-else
                          class="object-cover rounded-lg w-full" alt="cover"

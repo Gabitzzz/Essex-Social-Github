@@ -2,20 +2,23 @@
     <BreezeAuthenticatedLayout>
         <div class=" my-4 pb-20 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
             <div class="mx-2 mb-4 shadows-lg  ">
-                <div class="rounded-lg shadow-md bg-white border-gray-20 pb-6" style="position: relative;">
-                    <img v-if="event.eventImg"
-                         :src="showImage() + event.eventImg"
-                         class="object-cover rounded-t-lg w-full" alt="cover"
-                         style="max-height: 150px;  filter: brightness(30%);">
+                <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
+                    <img v-if="party.partyImg"
+                         :src="showImage() + party.partyImg"
+                         class="object-cover rounded-lg w-full" alt="cover"
+                         style="max-height: 250px;  filter: brightness(30%);">
                     <img v-else
-                         class="object-cover rounded-t-lg w-full" alt="cover"
-                         :src="eventCover"
-                         style="max-height: 150px;  filter: brightness(30%);">
+                         class="object-cover rounded-lg w-full" alt="cover"
+                         :src="partyCover"
+                         style="max-height: 250px;  filter: brightness(30%);">
 
 
                     <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
-                        <div v-if="event.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6" style="right: 0;">
-                            <inertia-link preserve-scroll class="-mt-6" :href="route('event.edit', event.id)">
+
+
+                        <div v-if="party.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6"
+                             style="right: 0;">
+                            <inertia-link preserve-scroll class="-mt-6" :href="route('party.edit', party.id)">
                                 <!--                                      v-if="post.user.id === $page.props.auth.user.id"-->
                                 <!--                                      class=" -mt-6  "-->
                                 <!--                                      as="button"-->
@@ -27,30 +30,35 @@
 
                         <div class="text-right text-lg ">
                             <p class="">
-                                {{ event.date }}
+                                {{ party.date }}
                             </p>
 
                             <p class="text-3xl text-red-600 ">
                                 <strong>
-                                    {{ event.time }}
+                                    {{ party.time }}
                                 </strong>
                             </p>
                         </div>
 
-
+                        <div>
+                            <h3 class=" text-3xl text-center text-white "
+                                style="font-family: 'Poppins', sans-serif;">
+                                {{ party.title }}
+                            </h3>
+                        </div>
 
                         <div>
                             <h1 class="text-center">
-                                {{ event.body }}
+                                {{ party.body }}
                             </h1>
 
-                            <div class="flex justify-center mt-20 ">
+                            <div class="flex justify-center mt-4">
                                 <inertia-link v-if="!$page.props.inviteToggle"
                                               as="button"
                                               class="follow button shadow-2xl  items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
                                               style="font-size: 80%;"
                                               preserve-scroll
-                                              :href="`/events/${event.id}/invites/${event.id}`"
+                                              :href="`/parties/${party.id}/invites/${party.id}`"
                                               method="POST">
                                     Join
                                 </inertia-link>
@@ -64,7 +72,7 @@
                                                         active:bg-green-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray
                                                         transition ease-in-out duration-150 w-40"
                                               style="font-size: 80%;"
-                                              :href="`/events/${event.id}/invites/${event.id}`"
+                                              :href="`/parties/${party.id}/invites/${party.id}`"
                                               preserve-scroll
                                               method="DELETE">
                                     {{ showLeave ? 'Cancel' : '✓ Joining' }}
@@ -73,88 +81,77 @@
 
                             </div>
 
-                            <div class="flex justify-center  text-sm mt-4">
-                                <div v-if="event.invites.length === 0">
-<!--                                    {{party.invites.length}}-->
+                            <div class="flex justify-center mt-12 text-sm">
+                                <div v-if="invites.length === 0">
+                                    <!--                                    {{party.invites.length}}-->
 
                                 </div>
-                                <div v-else-if="event.invites.length === 1">
-                                    {{event.invites.length}} person is coming
+                                <div v-else-if="invites.length === 1">
+                                    {{ invites.length }} person is coming
                                 </div>
                                 <div v-else>
-                                    {{event.invites.length}} people are coming
+                                    {{ invites.length }} people are coming
                                 </div>
-
                             </div>
+
 
                         </div>
                     </figcaption>
-
-                    <div>
-                        <h3 class=" text-3xl text-center mt-6 "
-                            style="font-family: 'Poppins', sans-serif;">
-                            {{ event.title }}
-                        </h3>
-                    </div>
                 </div>
             </div>
 
-            <div class="flex mx-4 mt-4">
-                <div class=" w-1/4 flex ">
-                </div>
+
+            <div class="flex justify-between mx-4 ">
+
+                <h2 class="text-2xl font-bold " style="font-family: 'Poppins', sans-serif;">
+                    Members
+                </h2>
+
+                <InertiaLink @click="back"
+                             class="ml-1 h-6 w-6 rounded-full">
+                    <img :src="backButton" alt="">
+                </InertiaLink>
+
             </div>
-
-            <div class=" mx-4">
-                <div class="flex  ">
-                    <img
-                        :src="pin"
-                        class="avatar  avatar w-10 h-10 mt-2  "
-                        alt="default"
-                    />
-
-                    <div class="bg-white rounded-full my-2 ">
-                        <p class="text-center md:text-nd py-2 px-4  ">
-                            {{ event.location }}
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex">
-                    <img
-                        :src="organizer"
-                        class="avatar  avatar w-10 h-10 mt-2  "
-                        alt="default"
-                    />
-
-                    <div class="bg-white rounded-full my-2 ml-1 ">
-                        <p class="text-center text-md py-2 px-4  ">
-                            Organized by {{ event.user.username }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-           <div class="flex justify-end mx-4 mt-8">
-               <InertiaLink @click="back"
-                            class="ml-1 h-6 w-6 rounded-full">
-                   <img :src="backButton" alt="">
-               </InertiaLink>
-
-           </div>
 
             <div class=" mx-4 mt-8">
-               <div class="text-center bg-white p-4 md:px-8 md:mx-16 rounded-xl">
-                   <div class="flex justify-center mb-4">
-                       <img
-                           :src="quote"
-                           class="avatar text-center w-10 h-10 mt-2  "
-                           alt="default"
-                       />
-                   </div>
+                <div class=" bg-white p-4 md:px-8 md:mx-16 rounded-xl">
 
-                   {{event.description}}
-               </div>
+
+
+                    <div v-for="invite in invites" :key="invite" class="mt-5  items-center border-b border-gray-200 ">
+                        <inertia-link class="-mt-6" :href="route('profile', invite.user.username)">
+
+                           <div class="flex items-center justify-between my-2">
+                               <div class="flex items-center  ">
+                                   <div v-if="invite.user.avatar === null">
+                                       <img :src="defaultProfile" class="cover rounded-lg w-8" alt="cover">
+                                   </div>
+
+                                   <div v-else>
+                                       <img :src="showImage() + invite.user.avatar" class="cover rounded-full w-8"
+                                            alt="cover">
+                                   </div>
+
+                                   <p class="mx-2">
+                                       {{ invite.user.username }}
+                                   </p>
+
+
+                               </div>
+
+                               <p class="mx-2">
+                                   {{ invite.user.name }}
+                               </p>
+                           </div>
+
+
+                        </inertia-link>
+
+                    </div>
+                </div>
             </div>
+
 
         </div>
     </BreezeAuthenticatedLayout>
@@ -162,36 +159,38 @@
 
 <script>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import Events from "@/Pages/Event/Events";
-import Event from "@/Pages/Event/Event";
+import Parties from "@/Pages/Party/Parties";
+import Party from "@/Pages/Party/Party";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import pin from "/img/Posts/pin.png";
-import eventCover from "/img/Party/partyCover.jpg";
+import partyCover from "/img/Party/partyCover.jpg";
 import quote from "/img/Party/quote.png";
-import organizer from "/img/Party/organizer.png";
+import dj from "/img/Party/dj.png";
 import backButton from "/img/Tab/left-arrow.png";
-
+import defaultProfile from "/img/Posts/defaultProfile.png";
 
 
 export default {
-    name: "Index",
+    name: "Members",
     components: {
         BreezeAuthenticatedLayout,
+        Parties,
         InertiaLink,
-        Event,
+        Party,
     },
     data() {
         return {
             pin: pin,
-            eventCover: eventCover,
+            partyCover: partyCover,
             quote: quote,
-            organizer: organizer,
+            dj: dj,
             backButton: backButton,
+            defaultProfile: defaultProfile,
 
         }
     },
     props: {
-        event: Object,
+        party: Object,
         inviteToggle: Boolean,
         invites: Array,
     },

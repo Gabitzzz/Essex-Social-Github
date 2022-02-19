@@ -396,7 +396,7 @@ import plus from "/img/Tab/plus.png";
 import search from "/img/Tab/search.png";
 import partylogo from "/img/Tab/partypeople.png";
 import essex_sport from "/img/Dashboard/essex-sports.png";
-import essex_food from "/img/Dashboard/essex_food.png";
+import essex_food from "/img/Dashboard/essex_food3.png";
 import su from "/img/Dashboard/su2.png";
 import moodle from "/img/Dashboard/moodle.png";
 import societies from "/img/Dashboard/societies.png";

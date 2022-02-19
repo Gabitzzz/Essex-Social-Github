@@ -42,9 +42,12 @@ class PartyController extends Controller
     {
         $var = $party::with('invites')->where("id", "=", $party->id)->with('user')->get()->first();
 
+        $invites = PartyInvite::with('user')->where("party_id", "=", $party->id)->get();
+
         return Inertia::render('Party/Index', [
             'party' => $var,
             'inviteToggle' => $party->invites()->where('party_invites.user_id', auth()->id())->exists(),
+            'invites' => $invites,
         ]);
 
 
@@ -145,6 +148,17 @@ class PartyController extends Controller
     {
         $party->delete();
         return Redirect::route('party.show');
+    }
+
+    public function members(Party $party){
+        $invites = PartyInvite::with('user')->where("party_id", "=", $party->id)->get();
+
+        return Inertia::render('Party/Members', [
+            'party' => $party,
+            'inviteToggle' => $party->invites()->where('party_invites.user_id', auth()->id())->exists(),
+            'invites' => $invites,
+        ]);
+
     }
 
 

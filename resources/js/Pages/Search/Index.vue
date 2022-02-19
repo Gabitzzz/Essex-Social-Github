@@ -27,7 +27,7 @@
 
                         </thead>
 
-                        <tbody class="bg-gray-100 divide-y divide-gray-200">
+                        <tbody class="bg-gray-100  divide-gray-200">
                         <tr v-for="(user, index) in users.data" :key="user.id">
                             <td class=" text-sm text-gray-500 ">
                                 <!--                                <img-->

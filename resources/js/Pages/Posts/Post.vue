@@ -17,7 +17,7 @@
                         <div v-else>
                             <img
                                 :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"
-                                class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
+                                class="avatar rounded-full avatar w-10 h-10 ml-2 my-2 "
                                 alt="avatar"
                             />
                         </div>

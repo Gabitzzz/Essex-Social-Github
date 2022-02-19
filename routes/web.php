@@ -96,6 +96,10 @@ Route::get('/parties/{party}/delete', [\App\Http\Controllers\PartyController::cl
     ->name('party.destroy')
     ->middleware('auth');
 
+Route::get('/parties/{party:id}/members', [\App\Http\Controllers\PartyController::class, 'members'])
+    ->name('party.members')
+    ->middleware('auth');
+
 //  PARTY INVITES
 Route::get('/parties/{party:id}/invites', [\App\Http\Controllers\PartyInviteController::class, 'index'])
     ->name('party.invite.show')

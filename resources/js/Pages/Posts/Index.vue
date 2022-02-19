@@ -66,12 +66,12 @@
                             {{ post.body }}
                         </p>
 
-                        <div v-if="post.image" class="flex justify-center">
+                        <div v-if="post.image" class="flex justify-center mt-2">
                             <img
                                 :src="showImage() +  post.image"
-                                class="avatar  avatar w-2/3 h-2/3"
-                                alt="avatar"
-                            />
+                                class="avatar  avatar w-2/3 h-2/3
+                                    transform transition-all  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-150  duration-300"/>
+
                         </div>
 
                         <!--                LIKES   -->
