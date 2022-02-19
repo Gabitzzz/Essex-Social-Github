@@ -36,15 +36,15 @@
                         </inertia-link>
 
                         <div class="w-full mt-4 ">
-                            <div v-if="post.location" class="flex ml-8">
+                            <div v-if="post.location" class="flex ml-8 items-center">
                                 <img
                                     :src="location"
-                                    class="avatar  avatar w-6 h-6 ml-2 "
+                                    class="avatar  avatar w-4 h-4 ml-2 "
                                     alt="default"
                                 />
 
-                                <p class="text-center text-gray-600 ml-2 ">
-                                    {{ post.location }}
+                                <p class="text-center text-sm text-gray-600 ml-1 ">
+                                    {{post.location}}
                                 </p>
                             </div>
                         </div>

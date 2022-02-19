@@ -3,24 +3,20 @@
         <form @submit.prevent="submit">
             <div class="mb-2">
                 <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
-
-
                     <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
-                       <div class="flex justify-between">
-                           <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                               <!--                        DASHBOARD-->
-                               Edit party
-                           </h1>
+                        <div class="flex justify-between items-center">
+                            <h1 class="text-4xl p-2" style="font-family: 'Poppins', sans-serif;">
+                                Edit Party
+                            </h1>
 
-                           <inertia-link
-                                         class=" p-4 rounded-full bg-red-500 text-center text-white"
-                                         :href="route('party.destroy', party.id)"
-                           >
+                            <inertia-link preserve-scroll
+                                          class="p-2 rounded-full bg-red-500 text-center text-white text-xs"
+                                          :href="route('party.destroy', party.id)"
+                            >
 
-<!--                               &#128465;-->
-                               X
-                           </inertia-link>
-                       </div>
+                                DELETE
+                            </inertia-link>
+                        </div>
                     </div>
 
                     <div>
@@ -62,17 +58,32 @@
 <!--                        </div>-->
 
                      <div class="flex justify-center my-4">
-                         <img
-                             v-if="!url"
-                             :src="'/storage/' + $page.props.party.partyImg "
-                             class="w-1/2 "
-                             alt="avatar"
-                         />
 
-                         <img
-                             v-if="url"
-                             :src="url"
-                             class="w-1/2    ">
+
+                         <div class="flex justify-center"
+                             v-if="!$page.props.party.partyImg && !url">
+                             <img
+                                 :src="partyCover"
+                                 class="w-1/2">
+                         </div>
+
+                         <div class="flex justify-center" v-else>
+                             <img
+                                 v-if="!url && $page.props.party.partyImg"
+                                 :src="'/storage/' + $page.props.party.partyImg "
+                                 class="w-1/2 "
+                                 alt="avatar"
+                             />
+
+                             <img
+                                 v-if="url"
+                                 :src="url"
+                                 class="w-1/2">
+                         </div>
+
+
+
+
                      </div>
 
 
@@ -107,20 +118,7 @@
             </div>
 
 
-            <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
-                <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Current date</p>
-                <div class="mx-4">
-                    <p>
-                        {{ party.date }}
-                    </p>
 
-                    <p class="text-3xl text-red-600 ">
-                        <strong>
-                            {{ party.time }}
-                        </strong>
-                    </p>
-                </div>
-            </div>
 
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
                 <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Select new date</p>
@@ -243,6 +241,7 @@ import {InertiaLink} from "@inertiajs/inertia-vue3";
 import LoadingButton from "@/Components/LoadingButton";
 import location2 from "/img/Party/location2.png";
 import BreezeLabel from '@/Components/Label.vue'
+import partyCover from "/img/Party/partyCover.jpg";
 
 
 
@@ -267,12 +266,14 @@ export default {
                 description: this.party.description,
                 title: this.party.title,
                 date: this.party.date,
+                day: this.party.day,
                 partyImg: this.party.partyImg,
                 location: this.party.location,
                 _method: 'PUT',
             }),
             url: null,
             location2: location2,
+            partyCover: partyCover,
 
         }
     },

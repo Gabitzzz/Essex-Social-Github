@@ -19,7 +19,7 @@
                     <figcaption class="absolute text-lg text-white px-4 -mt-32 " style="left:0;  right: 0;">
                         <div class="text-right text-lg ">
                             <p class="">
-                                {{ event.date }}
+                                {{ event.day }}
                             </p>
 
                             <p class="text-3xl text-red-600 ">
@@ -46,7 +46,7 @@
                             </div>
 
                             <p class="text-sm mt-2">
-                                organized by {{ event.username }}
+                                organized by {{ event.username ?? event.user.username }}
                             </p>
                         </div>
                     </figcaption>

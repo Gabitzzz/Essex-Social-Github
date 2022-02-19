@@ -72,6 +72,7 @@ class PartyController extends Controller
             'date' => 'required|max:255',
             'location' => 'required|max:255',
             'time' => 'nullable|max:255',
+            'day' => 'nullable|max:255',
             'partyImg' => 'nullable|image',
             'user_id' => ['nullable', Rule::exists('users', 'id')->where(function ($query) {
                 $query->where('user_id', Auth::user()->id);
@@ -80,7 +81,7 @@ class PartyController extends Controller
 
 //        DATE PARSE
         $date = $attributes['date'];
-        $parsed_date = Carbon::parse($date)->format('d F');
+        $parsed_day = Carbon::parse($date)->format('d F');
         $parsed_time = Carbon::parse($date)->format('H:i');
 
         $image_path = '';
@@ -94,7 +95,8 @@ class PartyController extends Controller
                 'title' => $attributes['title'],
                 'description' => $attributes['description'],
                 'location' => $attributes['location'],
-                'date' => $parsed_date,
+                'date' => $attributes['date'],
+                'day' => $parsed_day,
                 'time' => $parsed_time,
                 'partyImg' => $image_path,
 //            'image'=> $imagePath,
@@ -119,12 +121,12 @@ class PartyController extends Controller
             'title' => ['string', 'max:255'],
             'description' => ['string', 'max:255'],
             'location' => ['string', 'max:255'],
-
+            'date' => ['required', 'max:255'],
             'partyImg' => ['nullable', 'file'],
         ]);
         $time_attributes = request()->validate([
-            'date' => ['required', 'max:255'],
             'time' => ['nullable', 'max:255'],
+            'day' => ['nullable', 'max:255'],
         ]);
 
         if ($request->hasFile('partyImg')) {
@@ -132,12 +134,14 @@ class PartyController extends Controller
                 ->store('partyImg', 'public');
         }
 
-        $date = $time_attributes['date'];
-        $parsed_date = Carbon::parse($date)->format('d F');
-        $parsed_time = Carbon::parse($date)->format('H:i');
+        $day = $attributes['date'];
+        $time = $attributes['date'];
+
+        $parsed_day = Carbon::parse($day)->format('d F');
+        $parsed_time = Carbon::parse($time)->format('H:i');
 
         $party->update([
-            'date' => $parsed_date,
+            'day' => $parsed_day,
             'time' => $parsed_time,
         ]);
         $party->update($attributes);
@@ -158,7 +162,6 @@ class PartyController extends Controller
             'inviteToggle' => $party->invites()->where('party_invites.user_id', auth()->id())->exists(),
             'invites' => $invites,
         ]);
-
     }
 
 

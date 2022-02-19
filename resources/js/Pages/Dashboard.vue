@@ -330,7 +330,14 @@
                         </inertia-link>
                     </div>
 
-                    <div
+                    <div v-if="parties.length === 0">
+                        <p class="mx-2 my-4 "  style="font-family: 'Poppins', sans-serif; font-weight: 100 !important;">
+                            You haven't join to any Party yet!
+
+                        </p>
+                    </div>
+
+                    <div else
                         id="scrollContainer3"
                         class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start  pb-5 hide-scroll-bar">
                         <div v-for="party in parties" :key="party" class="mt-5">
@@ -349,7 +356,7 @@
 
                 <div class="">
                     <div class="flex justify-between items-center px-2">
-                        <h1 class="text-4xl  font-bold" style="font-family: 'Poppins', sans-serif;">
+                        <h1 class="text-4xl font-bold" style="font-family: 'Poppins', sans-serif;">
                             Your Events
                         </h1>
 
@@ -361,7 +368,14 @@
 
                     </div>
 
-                    <div
+                    <div v-if="events.length === 0">
+                        <p class="mx-2 my-4 "  style="font-family: 'Poppins', sans-serif; font-weight: 100 !important;">
+                            You haven't join to any Event yet!
+
+                        </p>
+                    </div>
+
+                    <div v-else
                         id="scrollContainer4"
                         class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start  pb-5 hide-scroll-bar">
                         <div v-for="event in events" :key="event" class="mt-5">
@@ -425,7 +439,7 @@ export default {
         parties: Array,
         events: Array,
         // events: Array,
-        partyInvites: Array,
+        // partyInvites: Array,
         // eventInvites: Array,
 
     },

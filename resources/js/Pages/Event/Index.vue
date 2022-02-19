@@ -13,21 +13,16 @@
                          style="max-height: 150px;  filter: brightness(30%);">
 
 
-                    <figcaption class="absolute text-lg text-white px-4 -mt-56 " style="left:0;  right: 0;">
+                    <figcaption class="absolute text-lg text-white px-4 -mt-32 " style="left:0;  right: 0;">
                         <div v-if="event.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6" style="right: 0;">
                             <inertia-link preserve-scroll class="-mt-6" :href="route('event.edit', event.id)">
-                                <!--                                      v-if="post.user.id === $page.props.auth.user.id"-->
-                                <!--                                      class=" -mt-6  "-->
-                                <!--                                      as="button"-->
-                                <!--                                      :href="route('posts.edit', post.id)"-->
-
                                 ...
                             </inertia-link>
                         </div>
 
                         <div class="text-right text-lg ">
                             <p class="">
-                                {{ event.date }}
+                                {{ event.day }}
                             </p>
 
                             <p class="text-3xl text-red-600 ">
@@ -44,7 +39,7 @@
                                 {{ event.body }}
                             </h1>
 
-                            <div class="flex justify-center mt-20 ">
+                            <div class="flex justify-center  ">
                                 <inertia-link v-if="!$page.props.inviteToggle"
                                               as="button"
                                               class="follow button shadow-2xl  items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
@@ -73,7 +68,9 @@
 
                             </div>
 
-                            <div class="flex justify-center  text-sm mt-4">
+                            <inertia-link :href="route('event.members', event)" >
+
+                            <div class="flex justify-center  text-sm mt-2">
                                 <div v-if="event.invites.length === 0">
 <!--                                    {{party.invites.length}}-->
 
@@ -86,6 +83,7 @@
                                 </div>
 
                             </div>
+                            </inertia-link>
 
                         </div>
                     </figcaption>
@@ -99,10 +97,13 @@
                 </div>
             </div>
 
-            <div class="flex mx-4 mt-4">
-                <div class=" w-1/4 flex ">
-                </div>
+            <div class="flex justify-end mx-4">
+                <InertiaLink @click="back"
+                             class="ml-1 h-6 w-6 rounded-full">
+                    <img :src="backButton" alt="">
+                </InertiaLink>
             </div>
+
 
             <div class=" mx-4">
                 <div class="flex  ">
@@ -134,13 +135,7 @@
                 </div>
             </div>
 
-           <div class="flex justify-end mx-4 mt-8">
-               <InertiaLink @click="back"
-                            class="ml-1 h-6 w-6 rounded-full">
-                   <img :src="backButton" alt="">
-               </InertiaLink>
 
-           </div>
 
             <div class=" mx-4 mt-8">
                <div class="text-center bg-white p-4 md:px-8 md:mx-16 rounded-xl">
@@ -166,7 +161,7 @@ import Events from "@/Pages/Event/Events";
 import Event from "@/Pages/Event/Event";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import pin from "/img/Posts/pin.png";
-import eventCover from "/img/Party/partyCover.jpg";
+import eventCover from "/img/Party/eventCover.jpg";
 import quote from "/img/Party/quote.png";
 import organizer from "/img/Party/organizer.png";
 import backButton from "/img/Tab/left-arrow.png";
@@ -194,6 +189,8 @@ export default {
         event: Object,
         inviteToggle: Boolean,
         invites: Array,
+        showLeave: Boolean,
+
     },
     methods: {
         showImage() {

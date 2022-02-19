@@ -1,18 +1,31 @@
 <template>
     <div>
         <BreezeAuthenticatedLayout>
+            <form @submit.prevent="submit">
+
             <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
                 <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-                    <form @submit.prevent="submit">
-                        <div class="flex">
+                        <div class="flex justify-between">
                             <inertia-link :href="route('profile', post.user.username)">
-                                <div class="flex justify-items-start mx-2 mt-2 mb-2 ">
+                                <div class="flex justify-items-start mx-2 mt-2 mb-2 items-center ">
                                     <!--                    <img :src="avatar" class="rounded-full avatar w-12 h-12" alt="avatar">-->
-                                    <img
-                                        :src="showImage() + post.user.avatar"
-                                        class="avatar rounded-full avatar w-10 h-10"
-                                        alt="avatar"
-                                    />
+
+
+                                    <div v-if="post.user.avatar === null">
+                                        <img
+                                            :src="defaultProfile"
+                                            class="avatar  avatar w-10 h-10 ml-2 my-2"
+                                            alt="default"
+                                        />
+                                    </div>
+
+                                    <div v-else>
+                                        <img
+                                            :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"
+                                            class="avatar rounded-full avatar w-10 h-10 ml-2 my-2 "
+                                            alt="avatar"
+                                        />
+                                    </div>
 
                                     <div>
                                         <p class="ml-2">
@@ -24,53 +37,68 @@
                                         </span>
                                     </div>
 
+<!--                                    <inertia-link preserve-scroll-->
+<!--                                                  v-if="post.user.id === $page.props.auth.user.id"-->
+<!--                                                  class=" -mt-6  "-->
+<!--                                                  as="button"-->
+<!--                                                  :href="route('posts.edit', post.id)"-->
+<!--                                    >-->
+<!--                                        ...-->
+<!--                                    </inertia-link>-->
+
+
                                 </div>
                             </inertia-link>
 
-                            <inertia-link preserve-scroll
-                                          v-if="post.user.id === $page.props.auth.user.id"
-                                          class=""
-                                          as="button"
-                                          :href="route('posts.edit', post.id)"
-                            >
-                                ...
-                            </inertia-link>
+                            <div v-if="post.user_id === $page.props.auth.user.id" class=" mr-5 mt-5 ">
+                                <inertia-link class="bg-red-500 text-white p-2 rounded-full text-xs"  :href="route('posts.destroy', post.id)">
+                                    DELETE
+                                </inertia-link>
+                            </div>
+
                         </div>
 
                         <div class="p-1 mb-2 ">
                             <div>
                                 <BreezeInput id="body" type="text" class="mt-1 block w-full" v-model="form.body"
-                                             required autofocus autocomplete="name"/>
+                                             style="border: none !important;"
+                                             required autofocus autocomplete="body"/>
                             </div>
                         </div>
 
-                        <div class="mb-8 justify-items-center grid">
-                            <div class="flex">
-                                <InertiaLink @click="back"
-                                             class="ml-1 px-8 py-2 rounded-full bg-blue-400 text-center text-white ">
-                                    CANCEL
-                                </InertiaLink>
+                        <div class="flex my-4 ">
+                            <img :src="location2" width="40" alt="location">
 
-                                <loading-button :loading="form.processing"
-                                                class="ml-1 px-8 py-2 rounded-full bg-green-700 text-center text-white "
-                                                type="submit">
-                                    UPDATE
-                                </loading-button>
-                            </div>
-
-                            <inertia-link preserve-scroll
-                                          class="mt-1 px-8 py-2 rounded-full bg-red-500 text-center text-white"
-                                          style="font-size: 10px;"
-                                          :href="route('posts.destroy', post.id)"
-                            >
-                                DELETE
-                                &#128465;
-                            </inertia-link>
+                            <BreezeInput id="location" type="text" class=" ml-2 block w-full  "
+                                         style="border: none !important;"
+                                         v-model="form.location"
+                                         placeholder="Location"
+                            />
                         </div>
 
-                    </form>
+
+
+
                 </div>
+
+                <div class="flex justify-center">
+                    <loading-button :loading="form.processing"
+                                    class="button px-8 mt-4 py-2 bg-black text-white rounded-2xl"
+                                    type="submit">
+                        UPDATE PARTY
+                    </loading-button>
+                </div>
+
+
+               <div class="flex justify-center mt-5">
+                   <InertiaLink @click="back"
+                                class=" px-8 py-2 rounded-full bg-white text-center  ">
+                       CANCEL
+                   </InertiaLink>
+               </div>
             </div>
+            </form>
+
         </BreezeAuthenticatedLayout>
     </div>
 </template>
@@ -81,6 +109,8 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import BreezeLabel from '@/Components/Label.vue';
 import LoadingButton from "@/Components/LoadingButton";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
+import defaultProfile from "/img/Posts/defaultProfile.png";
+import location2 from "/img/Party/location2.png";
 
 
 export default {
@@ -94,13 +124,17 @@ export default {
     },
     props: {
         post: Object,
+
     },
     data() {
         return {
             form: this.$inertia.form({
                 body: this.post.body,
+                location: this.post.location,
                 _method: 'PUT',
             }),
+            defaultProfile: defaultProfile,
+            location2: location2,
         }
     },
     methods: {

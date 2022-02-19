@@ -143,6 +143,10 @@ Route::get('/events/{event}/delete', [\App\Http\Controllers\EventController::cla
     ->name('event.destroy')
     ->middleware('auth');
 
+Route::get('/events/{event:id}/members', [\App\Http\Controllers\EventController::class, 'members'])
+    ->name('event.members')
+    ->middleware('auth');
+
 //  EVENT INVITES
 Route::get('/events/{event:id}/invites', [\App\Http\Controllers\EventInviteController::class, 'index'])
     ->name('event.invite.show')

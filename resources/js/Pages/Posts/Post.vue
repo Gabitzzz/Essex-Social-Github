@@ -1,11 +1,11 @@
 <template>
-    <inertia-link preserve-scroll
+    <inertia-link
                   :href="route('post.show', post.id)"
     >
         <div class="mb-4 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
             <div class="flex">
                 <inertia-link :href="route('profile', post.user.username)" class="w-full">
-                    <div class="flex justify-items-start m-2">
+                    <div class="flex justify-items-start m-2 items-center">
                         <div v-if="post.user.avatar === null">
                             <img
                                 :src="defaultProfile"
@@ -30,18 +30,20 @@
                                        {{ post.timeAgo }}
                                 </span>
                         </div>
+
+
                     </div>
                 </inertia-link>
 
                 <div class="w-full mt-4 ">
-                    <div v-if="post.location" class="flex ml-8">
+                    <div v-if="post.location" class="flex text-right ml-8 items-center">
                         <img
                             :src="location"
-                            class="avatar  avatar w-6 h-6 ml-2 "
+                            class="avatar  avatar w-4 h-4 ml-2 "
                             alt="default"
                         />
 
-                        <p class="text-center text-gray-600 ml-2 ">
+                        <p class="text-center text-sm text-gray-600 ml-1 ">
                             {{post.location}}
                         </p>
                     </div>

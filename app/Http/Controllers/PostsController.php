@@ -92,6 +92,7 @@ class PostsController extends Controller
     {
         $attributes = request()->validate([
             'body' => ['string', 'max:255'],
+            'location' => ['string', 'max:255'],
         ]);
         $post->update($attributes);
         return Redirect::route('home');

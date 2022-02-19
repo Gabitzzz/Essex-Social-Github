@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Events\SomeonePostedEvent;
 use App\Http\Requests\StoreImage;
 use App\Models\Event;
+use App\Models\EventInvite;
 use App\Models\Party;
 use App\Models\PartyInvite;
 use App\Models\User;
@@ -60,6 +61,7 @@ class EventController extends Controller
             'date' => 'required|max:255',
             'location' => 'required|max:255',
             'time' => 'nullable|max:255',
+            'day' => 'nullable|max:255',
             'eventImg' => 'nullable|image',
             'user_id' => ['nullable', Rule::exists('users', 'id')->where(function ($query) {
                 $query->where('user_id', Auth::user()->id);
@@ -68,7 +70,7 @@ class EventController extends Controller
 
 //        DATE PARSE
         $date = $attributes['date'];
-        $parsed_date = Carbon::parse($date)->format('d F');
+        $parsed_day = Carbon::parse($date)->format('d F');
         $parsed_time = Carbon::parse($date)->format('H:i');
 
         $image_path = '';
@@ -82,7 +84,8 @@ class EventController extends Controller
                 'title' => $attributes['title'],
                 'description' => $attributes['description'],
                 'location' => $attributes['location'],
-                'date' => $parsed_date,
+                'date' => $attributes['date'],
+                'day' => $parsed_day,
                 'time' => $parsed_time,
                 'eventImg' => $image_path,
 //            'image'=> $imagePath,
@@ -108,9 +111,11 @@ class EventController extends Controller
             'description' => ['string', 'max:255'],
             'location' => ['string', 'max:255'],
             'eventImg' => ['nullable', 'file'],
+            'date' => ['required', 'max:255'],
+
         ]);
         $time_attributes = request()->validate([
-            'date' => ['required', 'max:255'],
+            'day' => ['nullable', 'max:255'],
             'time' => ['nullable', 'max:255'],
         ]);
 
@@ -119,12 +124,15 @@ class EventController extends Controller
                 ->store('eventImg', 'public');
         }
 
-        $date = $time_attributes['date'];
-        $parsed_date = Carbon::parse($date)->format('d F');
-        $parsed_time = Carbon::parse($date)->format('H:i');
+        $day = $time_attributes['date'];
+        $time = $time_attributes['date'];
+
+
+        $parsed_day = Carbon::parse($day)->format('d F');
+        $parsed_time = Carbon::parse($time)->format('H:i');
 
         $event->update([
-            'date' => $parsed_date,
+            'date' => $parsed_day,
             'time' => $parsed_time,
         ]);
         $event->update($attributes);
@@ -135,6 +143,16 @@ class EventController extends Controller
     {
         $event->delete();
         return Redirect::route('event.show');
+    }
+
+    public function members(Event $event){
+        $invites = EventInvite::with('user')->where("event_id", "=", $event->id)->get();
+
+        return Inertia::render('Event/Members', [
+            'event' => $event,
+            'inviteToggle' => $event->invites()->where('event_invites.user_id', auth()->id())->exists(),
+            'invites' => $invites,
+        ]);
     }
 
 

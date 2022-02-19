@@ -30,7 +30,7 @@
 
                         <div class="text-right text-lg ">
                             <p class="">
-                                {{ party.date }}
+                                {{ party.day }}
                             </p>
 
                             <p class="text-3xl text-red-600 ">
@@ -198,6 +198,8 @@ export default {
         party: Object,
         inviteToggle: Boolean,
         invites: Array,
+        showLeave: Boolean,
+
     },
     methods: {
         showImage() {
