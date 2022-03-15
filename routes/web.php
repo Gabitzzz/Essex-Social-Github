@@ -229,4 +229,6 @@ Route::get('/notifications/mark-all', [NotificationsController::class, 'update']
 Route::get('/notifications/mark-delete/{id}', [NotificationsController::class, 'destroy'])->name('notifications.destroy');
 
 
+
+
 require __DIR__ . '/auth.php';

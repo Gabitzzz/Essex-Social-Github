@@ -7,6 +7,7 @@
                     <!-- Logo -->
                     <inertia-link :href="route('home')">
                         <img :src="image" class="w-20 h-20"/>
+
                     </inertia-link>
                     <!--                         Navigation Links-->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -34,6 +35,13 @@
                                 :href="route('search')" style="border-radius: 15px;">
                                 <img :src="search" width="25" height="25" class="inline-block" alt="search">
                             </inertia-link>
+
+                            <a
+                                class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                                :href="route('chatify')" style="border-radius: 15px;">
+                                <img :src="chat" width="25" height="25" class="inline-block" alt="search">
+                            </a>
+
 
                             <inertia-link
                                 class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
@@ -68,8 +76,14 @@
 
                 <!-- Hamburger -->
                 <div class=" flex items-center sm:hidden">
-                    <inertia-link
+                    <a
                         class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                        :href="route('chatify')" style="border-radius: 15px;">
+                        <img :src="chat" width="25" height="25" class="inline-block" alt="search">
+                    </a>
+
+                    <inertia-link
+                        class="ml-4 flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
                         :href="route('search')" style="border-radius: 15px;">
                         <img :src="search" width="25" height="25" class="inline-block" alt="search">
                     </inertia-link>
@@ -120,6 +134,7 @@ import search from "/img/Tab/search.png"
 import notification from "/img/Tab/notification.png"
 // import plus from "/img/Tab/plus.png"
 import plus from "/img/Tab/plus.png"
+import chat from "/img/Chat/chat.png"
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 
 
@@ -141,6 +156,7 @@ export default {
             users: Object,
             showingNavigationDropdown: false,
             image: image,
+            chat:chat,
             search: search,
             plus: plus,
             notification: notification,
