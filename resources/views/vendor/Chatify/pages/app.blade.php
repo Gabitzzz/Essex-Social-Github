@@ -69,8 +69,9 @@
                 <div style="display: inline-flex;">
                     <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
                     <div class="avatar av-s header-avatar"
-                         style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;">
+                         style="margin: -5px 10px;">
                     </div>
+
                     <a href="#" class="user-name">{{ config('chatify.name') }}</a>
                 </div>
                 {{-- header buttons --}}
@@ -82,7 +83,7 @@
             </nav>
         </div>
         {{-- Internet connection --}}
-        <div class="internet-connection mt-16">
+        <div class="internet-connection mt-16 sm:mt-0">
             <span class="ic-connected">Connected</span>
             <span class="ic-connecting">Connecting...</span>
             <span class="ic-noInternet">No internet access</span>

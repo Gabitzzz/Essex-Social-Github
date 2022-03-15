@@ -7,7 +7,7 @@ return [
     | Messenger display name
     |-------------------------------------
     */
-    'name' => env('CHATIFY_NAME', 'Chatify Messenger'),
+    'name' => env('CHATIFY_NAME', 'Essex Social'),
 
     /*
     |-------------------------------------
@@ -46,8 +46,9 @@ return [
     |-------------------------------------
     */
     'user_avatar' => [
-        'folder' => 'avatar',
-        'default' => 'avatar.png',
+        'folder' => '',
+        'default' => '/user.png',
+
     ],
 
     /*

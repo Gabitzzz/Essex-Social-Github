@@ -105,7 +105,7 @@ body {
   margin: 0px 10px;
   width: calc(100% - 20px);
   border: none;
-  padding: 8px ​10px;
+  padding: 8px 10px;
   border-radius: 6px;
   outline: none;
 }
@@ -194,7 +194,8 @@ body {
   text-align: center;
   border-radius: 100%;
   overflow: hidden;
-  background-image: url("");
+
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
