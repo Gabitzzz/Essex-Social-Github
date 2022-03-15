@@ -13,7 +13,7 @@
             </header>
 
             <!-- Page Content -->
-            <main class="">
+            <main class="xl:mx-28 2xl:mx-40 3xl:mx-60 4xl:mx-96">
                 <div>
                     <slot/>
                 </div>

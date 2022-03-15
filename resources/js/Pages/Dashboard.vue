@@ -2,26 +2,26 @@
     <Head title="Dashboard"/>
 
     <BreezeAuthenticatedLayout>
-        <div class="pb-16 2xl:mx-96">
-            <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
-                <div class=" mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold">
-                    <h1 class="text-4xl mx-2 md:mx-0 py-2" style="font-family: 'Poppins', sans-serif;">
-                        Welcome {{ $page.props.auth.user.username }}
-                    </h1>
+            <!--                <divclass=" mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold ">-->
+            <div class="mt-5 font-bold  overflow-hidden max-w-7xl ">
+
+                <h1 class="text-4xl mx-2  py-2" style="font-family: 'Poppins', sans-serif;">
+                    Welcome {{ $page.props.auth.user.username }}
+                </h1>
 
 
-                    <p class="px-2  text-sm lg:text-md"
-                       style="font-weight:lighter;">
-                        This is your Dashboard. <br>
-                        Here you will find some shortcuts that will help you.
-                        <br>
-                    </p>
-                </div>
+                <p class="px-2  text-sm lg:text-md"
+                   style="font-weight:lighter;">
+                    This is your Dashboard. <br>
+                    Here you will find some shortcuts that will help you.
+                    <br>
+                </p>
             </div>
 
 
-            <div class="mt-5 flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+            <div class="mt-5 flex flex-wrap overflow-hidden max-w-7xl ">
                 <div class="w-1/2 overflow-hidden sm:w-1/Q xl:w-6/12">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 weather overflow-hidden rounded-xl shadow-lg">
@@ -38,13 +38,13 @@
                     <!-- Column Content -->
                     <div class=" mx-1 max-2 calendar overflow-hidden shadow-lg rounded-xl shadow-md">
                         <h2 class="text-3xl text-white px-6 pt-4">Today</h2>
-                        <h1 class="text-3xl text-white px-6 pb-4 ">{{ currentDate() }}</h1>
+                        <h1 class="text-3xl text-white px-6 pb-4 ">{{ formatDate() }}</h1>
                     </div>
                 </div>
             </div>
 
             <!--                ROW WITH 4 CARDS     -->
-            <div class="mt-5  flex flex-wrap overflow-hidden max-w-7xl mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+            <div class="mt-5  flex flex-wrap overflow-hidden max-w-7xl ">
 
                 <div class="w-1/4 overflow-hidden xl:w-3/12">
                     <!-- Column Content -->
@@ -85,7 +85,7 @@
             </div>
 
             <!--            BIG SLIDER      -->
-            <div class=" mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96 ">
+            <div class="  ">
                 <div
                     id="scrollContainer"
                     class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start pb-8  hide-scroll-bar">
@@ -142,7 +142,7 @@
             </div>
 
             <!--            ACTIVITIES SLIDER        -->
-            <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96 ">
+            <div class="">
                 <div class=" max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2" style="font-family: 'Poppins', sans-serif;">
                         Activities
@@ -331,15 +331,15 @@
                     </div>
 
                     <div v-if="parties.length === 0">
-                        <p class="mx-2 my-4 "  style="font-family: 'Poppins', sans-serif; font-weight: 100 !important;">
+                        <p class="mx-2 my-4 " style="font-family: 'Poppins', sans-serif; font-weight: 100 !important;">
                             You haven't join to any Party yet!
 
                         </p>
                     </div>
 
                     <div else
-                        id="scrollContainer3"
-                        class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start  pb-5 hide-scroll-bar">
+                         id="scrollContainer3"
+                         class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start  pb-5 hide-scroll-bar">
                         <div v-for="party in parties" :key="party" class="mt-5">
 
                             <div class="inline-block  ">
@@ -369,15 +369,15 @@
                     </div>
 
                     <div v-if="events.length === 0">
-                        <p class="mx-2 my-4 "  style="font-family: 'Poppins', sans-serif; font-weight: 100 !important;">
+                        <p class="mx-2 my-4 " style="font-family: 'Poppins', sans-serif; font-weight: 100 !important;">
                             You haven't join to any Event yet!
 
                         </p>
                     </div>
 
                     <div v-else
-                        id="scrollContainer4"
-                        class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start  pb-5 hide-scroll-bar">
+                         id="scrollContainer4"
+                         class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start  pb-5 hide-scroll-bar">
                         <div v-for="event in events" :key="event" class="mt-5">
 
                             <div class="inline-block  ">
@@ -431,6 +431,7 @@ import eventlogo from "/img/Tab/eventlogo.png";
 import Party from "@/Pages/Party/Party";
 import Event from "@/Pages/Event/Event";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
+import moment from 'moment';
 // import VueWeather from "vue-weather-widget";
 
 export default {
@@ -472,15 +473,23 @@ export default {
 
 
     methods: {
-        currentDate() {
-            const current = new Date();
-            const date = `${current.getDate()}.${current.getMonth() + 1}`;
-            return date;
-        },
+        // currentDate() {
+        //     const current = new Date();
+        //     const date = `${current.getDate()}.${current.getMonth() + 1}`;
+        //     return date;
+        // },
         //
         signout() {
             this.$inertia.post(route('logout'));
         },
+
+       formatDate() {
+            const date = new Date();
+
+            if (date) {
+                return moment(String(date)).format('d MMM')
+            }
+        }
     },
     components: {
         BreezeAuthenticatedLayout,
