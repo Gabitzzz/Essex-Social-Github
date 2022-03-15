@@ -4,7 +4,7 @@
             <div class="flex items-center">
                 <!-- Logo -->
                 <a href="{{route('home')}}">
-                    <img src="{{asset('storage/logo/5.png')}}" alt="logo" class="w-20 h-20 mt-4"/>
+                    <img src="{{asset('img/logo/5.png')}}" alt="logo" class="w-20 h-20 mt-4"/>
                 </a>
                 <!--                         Navigation Links-->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex " style="font-family: 'Nunito', sans-serif; color: #6B7280; font-weight: 300; font-size: 14px;">
