@@ -29108,7 +29108,7 @@ var _hoisted_11 = {
   "class": "ml-3 relative"
 };
 var _hoisted_12 = {
-  "class": "hidden space-x-4 sm:-my-px sm:flex"
+  "class": "hidden space-x-4 sm:-my-px sm:flex items-center"
 };
 var _hoisted_13 = ["src"];
 var _hoisted_14 = ["href"];
@@ -29297,9 +29297,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <button class=\"bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                    style=\"border-radius: 15px;\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <img :src=\"plus\" width=\"25\" height=\"25\" class=\"inline-block\" alt=\"plus\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </button>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeNavLink, {
-    href: _ctx.route('profile', _ctx.$page.props.auth.user.username),
-    active: _ctx.route().current('profile')
+  , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeNavLink, {
+    href: _ctx.route('profile', _ctx.$page.props.auth.user.username)
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.user.username), 1
@@ -29311,7 +29310,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href", "active"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hamburger "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  , ["href"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hamburger "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     "class": "flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25",
     href: _ctx.route('chatify'),
     style: {

@@ -65,21 +65,23 @@
         {{-- header title [conversation name] amd buttons --}}
         <div class="m-header m-header-messaging mt-16 sm:mt-0">
             <nav>
-                {{-- header back button, avatar and user name --}}
-                <div style="display: inline-flex;">
-                    <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
-                    <div class="avatar av-s header-avatar"
-                         style="margin: -5px 10px;">
-                    </div>
+              <div class="flex items-center justify-between">
+                  {{-- header back button, avatar and user name --}}
+                  <div style="display: inline-flex;" class="items-center">
+                      <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
+                      <div class="avatar av-s header-avatar"
+                           style="margin: -5px 10px;">
+                      </div>
 
-                    <a href="#" class="user-name">{{ config('chatify.name') }}</a>
-                </div>
-                {{-- header buttons --}}
-                <nav class="m-header-right">
-                    <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
-                    <a href="/"><i class="fas fa-home"></i></a>
-                    <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
-                </nav>
+                      <a href="#" class="user-name">{{ config('chatify.name') }}</a>
+                  </div>
+                  {{-- header buttons --}}
+                  <div class="m-header-right item flex">
+                      <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
+                      <a href="/"><i class="fas fa-home"></i></a>
+                      <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
+                  </div>
+              </div>
             </nav>
         </div>
         {{-- Internet connection --}}

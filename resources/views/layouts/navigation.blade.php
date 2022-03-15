@@ -7,15 +7,19 @@
                     <img src="{{asset('img/logo/5.png')}}" alt="logo" class="w-20 h-20 mt-4"/>
                 </a>
                 <!--                         Navigation Links-->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex " style="font-family: 'Nunito', sans-serif; color: #6B7280; font-weight: 300; font-size: 14px;">
-                    <a href={{route('home')}} :active="route().current('home')" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex "
+                     style="font-family: 'Nunito', sans-serif; color: #6B7280; font-weight: 300; font-size: 14px;">
+                    <a href={{route('home')}} :active="route().current('home')"
+                       class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                         Home
                     </a>
-                    <a href="{{route('dashboard')}}" :active="route().current('home')" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                    <a href="{{route('dashboard')}}" :active="route().current('home')"
+                       class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
 
                         Dashboard
                     </a>
-                    <a href="{{route('explore')}}" :active="route().current('home')" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                    <a href="{{route('explore')}}" :active="route().current('home')"
+                       class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
 
                         Explore
                     </a>
@@ -26,31 +30,49 @@
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
-                    <div class="hidden space-x-4 sm:-my-px sm:flex">
+                <div class="ml-2 relative">
+                    <div class="hidden space-x-4 sm:-my-px sm:flex items-center">
                         <a
                             class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
                             href="route('search')" style="border-radius: 15px;">
-                            <img src="{{asset('img/Tab/search.png')}}" width="25" height="25" class="inline-block" alt="search">
+                            <img src="{{asset('img/Tab/search.png')}}" width="25" height="25" class="inline-block"
+                                 alt="search">
+                        </a>
+
+                        <a
+                            class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                            href="route('chatify')" style="border-radius: 15px;">
+                            <img src="{{asset('img/Chat/chat.png')}}" width="25" height="25" class="inline-block"
+                                 alt="search">
                         </a>
 
                         <a
                             class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
                             href="route('posts.create')" style="border-radius: 15px;">
-                            <img src="{{asset("img/Tab/plus.png")}}" width="25" height="25" class="inline-block" alt="search">
+                            <img src="{{asset("img/Tab/plus.png")}}" width="25" height="25" class="inline-block"
+                                 alt="search">
                         </a>
 
                         <a
                             class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
                             href="route('notifications.show')" style="border-radius: 15px;">
-                            <img src="{{asset('img/Tab/notification.png')}}" width="25" height="25" class="inline-block" alt="search">
+                            <img src="{{asset('img/Tab/notification.png')}}" width="25" height="25" class="inline-block"
+                                 alt="search">
+                            <div >
+
+                            </div>
                         </a>
+
+                        <a href="{{asset(route('profile', \Illuminate\Support\Facades\Auth::user()->username))}}"
+                        class="text-sm nav-username">
+                            {{\Illuminate\Support\Facades\Auth::user()->username}}
+                        </a>
+
 
                         <!--                            <button class="bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"-->
                         <!--                                    style="border-radius: 15px;">-->
                         <!--                                <img :src="plus" width="25" height="25" class="inline-block" alt="plus">-->
                         <!--                            </button>-->
-
 
 
                     </div>
@@ -60,9 +82,15 @@
             <!-- Hamburger -->
             <div class=" flex items-center sm:hidden">
                 <inertia-link
-                    class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
-                    :href="route('search')" style="border-radius: 15px;">
-                    <img :src="search" width="25" height="25" class="inline-block" alt="search">
+                    class="mx-2 flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                    :href="{{asset(route('chatify'))}}" style="border-radius: 15px;">
+                    <img src="{{asset('images/chat.png')}}" width="25" height="25" class="inline-block" alt="search">
+                </inertia-link>
+
+                <inertia-link
+                    class="ml-2 flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                    :href="{{asset(route('search'))}}" style="border-radius: 15px;">
+                    <img src="{{asset('img/Tab/search.png')}}" width="25" height="25" class="inline-block" alt="search">
                 </inertia-link>
             </div>
         </div>
@@ -77,5 +105,10 @@
         position: sticky;
         top: 0;
         z-index: 1020;
+    }
+
+    .nav-username{
+        color: #6B7280;
+        font-weight: 300;
     }
 </style>
