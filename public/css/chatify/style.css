@@ -481,7 +481,9 @@ body {
   display: none;
 }
 .messages {
-  padding: 5px 0px;
+  /*padding: 5px 0px;*/
+  /*  padding-top: 20px;*/
+    padding-bottom: 80px;
 }
 .message-hint {
   margin: 0;

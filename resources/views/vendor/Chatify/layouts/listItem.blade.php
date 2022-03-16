@@ -32,7 +32,7 @@
                     <div>
                         <img src="{{asset("img/Tab/user.png")}}"
                              {{--                        src="defaultProfile"--}}
-                             class="avatar  avatar w-10 h-10 ml-2 p-2"
+                             class="w-10 h-10 ml-2 p-1"
                              alt="default"
                         />
                     </div>
@@ -106,7 +106,7 @@
         <div id="tabs" class="flex justify-between">
             <a
                 class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
-                :href="route('home')">
+                href="{{route('home')}}">
 
                 <!--                <a href="#" class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">-->
                 <svg width="25" height="25" viewBox="0 0 42 42" class="inline-block mb-1">
@@ -128,10 +128,9 @@
                               x="-3" y="10.3137085" width="30" height="2" rx="1"></rect>
                     </g>
                 </svg>
-                <!--                    <span class="tab tab-home block text-xs">Meniu</span>-->
-                <!--                </a>-->
             </a>
-            <a :href="route('dashboard')"
+
+            <a href="{{asset(route('dashboard'))}}"
                class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
                 <svg width="25" height="25" viewBox="0 0 42 42" class="inline-block mb-1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -156,17 +155,15 @@
                         </g>
                     </g>
                 </svg>
-                <!--                    <span class="tab tab-kategori block text-xs">Category</span>-->
             </a>
 
-
-            <a :href="route('posts.create', $page.props.auth.user.username )"
+            <a href="{{asset(route('posts.create', \Illuminate\Support\Facades\Auth::user()->username))}}"
                class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
             >
                 <img src="{{asset('img/Tab/plus.png')}}" width="25" height="25" class="inline-block" alt="plus">
             </a>
 
-            <a :href="route('notifications.show' )"
+            <a href="{{asset(route('notifications.show'))}}"
                class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
             >
                 <div>
@@ -175,16 +172,13 @@
                 </div>
             </a>
 
-            {{--            @if($get == 'auth')--}}
-
             <a href="{{asset(route('profile', \Illuminate\Support\Facades\Auth::user()))}}"
                class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-1 pb-1"
             >
-                <!--                    <img :src="profile" width="25" height="25" class="inline-block" alt="profile">-->
                 @if(\Illuminate\Support\Facades\Auth::user()->avatar == null)
                     <img
                         src="{{asset('img/Tab/user.png')}}"
-                        class="inline-block avatar py-1"
+                        class="inline-block  py-1"
                         width="25"
                         height="25"
                         alt="default"
@@ -198,14 +192,6 @@
                          height="25">
 
                 @endif
-                {{--                <div v-else>--}}
-                {{--                    <img--}}
-                {{--                        :src="showImage() + $page.props.auth.user.avatar"--}}
-                {{--                        class="inline-block rounded-full w-8 h-8"--}}
-                {{--                        alt="avatar"--}}
-                {{--                    />--}}
-                {{--                </div>--}}
-
                 <span class="tab tab-whishlist block text-xs">
                     </span>
             </a>

@@ -7,15 +7,13 @@
         <div data-id="{{ $user->id }}" data-action="0" class="avatar av-m">
 
             <img src="{{asset("img/Tab/user.png")}}"
-                 {{--                        src="defaultProfile"--}}
-                 class="avatar  avatar w-10 h-10 ml-2 p-2"
+                 class="avatar avatar w-10 h-10 p-2"
                  alt="default"
             />
         </div>
     @else
         <div data-id="{{ $user->id }}" data-action="0" class="avatar av-m">
-
-            <img src="{{asset("storage/". $user->avatar)}}" alt="pic">
+            <img src="{{asset("storage/". $user->avatar)}}" class="avatar avatar w-10 h-10" alt="pic">
         </div>
     @endif
     {{--</div>--}}

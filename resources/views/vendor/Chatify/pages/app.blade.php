@@ -1,15 +1,19 @@
 @include('Chatify::layouts.headLinks')
 @include('layouts.navigation')
 
-{{--@include('layouts.authenticated')--}}
 
-<div class="messenger">
+<div class="messenger pb-4">
+
+
     {{-- ----------------------Users/Groups lists side---------------------- --}}
     <div class="messenger-listView">
         {{-- Header and search bar --}}
         <div class="m-header mt-2">
             <nav>
-                <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">MESSAGES</span> </a>
+                <a href="#">
+                    <i class="fas fa-inbox"></i>
+                    <span class="messenger-headTitle">MESSAGES</span>
+                </a>
                 <nav class="m-header-right">
                     <a href="#"><i class="fas fa-cog settings-btn"></i></a>
                     <a href="#" class="listView-x"><i class="fas fa-times"></i></a>
@@ -18,6 +22,13 @@
         </div>
 
         <div class=" contacts-container mt-24">
+
+                <div class="mt-5 font-bold  overflow-hidden max-w-7xl sm:hidden ">
+
+                    <h1 class="text-4xl mx-2 pb-4" style="font-family: 'Poppins', sans-serif;">
+                        Messages
+                    </h1>
+                </div>
             {{-- Lists [Users/Group] --}}
             {{-- ---------------- [ User Tab ] ---------------- --}}
             <input type="text" class="messenger-search" placeholder="Search"/>
@@ -65,23 +76,23 @@
         {{-- header title [conversation name] amd buttons --}}
         <div class="m-header m-header-messaging mt-16 sm:mt-0">
             <nav>
-              <div class="flex items-center justify-between">
-                  {{-- header back button, avatar and user name --}}
-                  <div style="display: inline-flex;" class="items-center">
-                      <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
-                      <div class="avatar av-s header-avatar"
-                           style="margin: -5px 10px;">
-                      </div>
+                <div class="flex items-center justify-between">
+                    {{-- header back button, avatar and user name --}}
+                    <div style="display: inline-flex;" class="items-center">
+                        <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
+                        <div class="avatar av-s header-avatar"
+                             style="margin: -5px 10px;">
+                        </div>
 
-                      <a href="#" class="user-name">{{ config('chatify.name') }}</a>
-                  </div>
-                  {{-- header buttons --}}
-                  <div class="m-header-right item flex">
-                      <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
-                      <a href="/"><i class="fas fa-home"></i></a>
-                      <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
-                  </div>
-              </div>
+                        <a href="#" class="user-name">{{ config('chatify.name') }}</a>
+                    </div>
+                    {{-- header buttons --}}
+                    <div class="m-header-right item flex">
+                        <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
+                        <a href="/"><i class="fas fa-home"></i></a>
+                        <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
+                    </div>
+                </div>
             </nav>
         </div>
         {{-- Internet connection --}}
