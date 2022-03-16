@@ -3,7 +3,7 @@
         <BreezeAuthenticatedLayout>
             <form @submit.prevent="submit">
                 <div class="mb-2">
-                    <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+                        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
 
                         <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
@@ -26,7 +26,8 @@
                                      required autofocus autocomplete="description"/>
                     </div>
                 </div>
-                <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+
                     <input
                         type="file"
                         @change="previewAvatar"
@@ -52,7 +53,8 @@
                     </div>
                 </div>
 
-                <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
+                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+
                     <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Select date</p>
 
                     <DatePicker
@@ -161,7 +163,8 @@
             </form>
 
             <!--            ADD TAB     -->
-            <div class="mx-2 sm:mx-16 md:mx-24 pb-24 lg:mx-72 xl:mx-96">
+                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+
                 <div class=" grid grid-cols-3 gap-4 content-center ...">
                     <div class="bg-white rounded-2xl hover:bg-gray-300">
                         <a :href="route('posts.create', $page.props.auth.user.username )"
