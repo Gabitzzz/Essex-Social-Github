@@ -1,7 +1,8 @@
 <template>
     <BreezeAuthenticatedLayout>
         <div class="mt-5">
-            <div class="mt-5 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+
                 <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                     <div class="flex">
                         <inertia-link :href="route('profile', post.user.username)" class="w-full">

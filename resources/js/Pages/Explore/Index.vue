@@ -37,7 +37,7 @@
                                     </span>
 
                                     <span class="text-gray-400 text-xs">
-                                        {{ user.name }}
+                                        {{ user.email }}
                                     </span>
                                 </div>
                             </div>

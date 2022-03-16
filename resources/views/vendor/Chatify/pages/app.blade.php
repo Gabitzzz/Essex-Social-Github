@@ -84,12 +84,12 @@
                              style="margin: -5px 10px;">
                         </div>
 
-                        <a href="#" class="user-name">{{ config('chatify.name') }}</a>
+                        <a href="" class="user-name">{{ config('chatify.name') }}</a>
                     </div>
                     {{-- header buttons --}}
                     <div class="m-header-right item flex">
                         <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
-                        <a href="/"><i class="fas fa-home"></i></a>
+                        <a href="#"><i class="fas fa-home"></i></a>
                         <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
     <div class="messenger-infoView app-scroll">
         {{-- nav actions --}}
         <nav>
-            <a href="#"><i class="fas fa-times"></i></a>
+            <a href="#"><i class="fas fa-times mt-20 lg:mt-0"></i></a>
         </nav>
         {!! view('Chatify::layouts.info')->render() !!}
     </div>

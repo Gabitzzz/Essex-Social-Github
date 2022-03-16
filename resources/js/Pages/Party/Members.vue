@@ -1,6 +1,6 @@
 <template>
     <BreezeAuthenticatedLayout>
-        <div class=" my-4 pb-20 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+        <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
             <div class="mx-2 mb-4 shadows-lg  ">
                 <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
                     <img v-if="party.partyImg"
@@ -140,9 +140,11 @@
 
                                </div>
 
-                               <p class="mx-2">
-                                   {{ invite.user.name }}
-                               </p>
+                               <a
+                                   class="follow button shadow-2xl  items-center text-center  py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
+                                   :href="('/chatify/' + invite.user.id )" >
+                                   TEXT
+                               </a>
                            </div>
 
 
@@ -194,6 +196,8 @@ export default {
         inviteToggle: Boolean,
         invites: Array,
         showLeave: Boolean,
+        followToggle: Boolean,
+
 
     },
     methods: {

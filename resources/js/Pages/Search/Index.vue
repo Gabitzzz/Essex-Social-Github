@@ -1,10 +1,8 @@
 <template>
     <BreezeAuthenticatedLayout>
-
         <div>
             <div class="py-2 mx-2 mb-20">
                 <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
-
                     <div class="mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold">
                         <h1 class="text-4xl pb-2  " style="font-family: 'Poppins', sans-serif;">
                             Search
@@ -49,9 +47,10 @@
                             </td>
 
                             <td class=" text-sm text-gray-500 text-right">
-                                <a class="text-sm font-semibold text-gray-500 px-8 py-4"
-                                   :href="route('profile', user.username)">
-                                    {{ user.name }}
+                                <a
+                                    class="follow button shadow-2xl  items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
+                                    :href="('/chatify/' + user.id )" >
+                                TEXT
                                 </a>
                             </td>
                         </tr>
@@ -63,7 +62,6 @@
             <Tab></Tab>
         </div>
     </BreezeAuthenticatedLayout>
-
 </template>
 
 <script>

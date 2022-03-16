@@ -3,13 +3,46 @@
 
     <BreezeAuthenticatedLayout>
         <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+            <div class="absolute right-0">
+
+                <form @submit.prevent="signout()">
+                    <button as="button"
+                            type="submit" class="justify-center inline-block text-center">
+                        <img :src="logout" class="justify-end avatar rounded-b-xl mx-4 w-8 h-8" alt="avatar">
+                    </button>
+                </form>
+            </div>
 
             <!--                <divclass=" mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold ">-->
             <div class="mt-5 font-bold  overflow-hidden max-w-7xl ">
 
-                <h1 class="text-4xl mx-2  py-2" style="font-family: 'Poppins', sans-serif;">
-                    Welcome {{ $page.props.auth.user.username }}
-                </h1>
+                <div class="flex justify-between items-center">
+                    <h1 class="text-4xl mx-2  py-2" style="font-family: 'Poppins', sans-serif;">
+                        Welcome
+                        <span class="flex sm:inline">
+                    {{ $page.props.auth.user.username }}
+                        </span>
+                    </h1>
+
+                    <div v-if="$page.props.auth.user.avatar === null" class="">
+
+                        <InertiaLink :href="route('users.edit', $page.props.auth.user.username)"
+                                     class=" justify-center inline-block text-center"
+                        >
+                            <img :src="user" class=" avatar rounded-b-xl mx-8 w-20 h-20" alt="avatar">
+                        </InertiaLink>
+                    </div>
+
+                    <div v-else>
+                        <InertiaLink :href="route('users.edit', $page.props.auth.user.username)"
+                                     class=" justify-center inline-block text-center"
+                        >
+                            <img :src="showImage() + $page.props.auth.user.avatar"
+                                 class="mx-8 w-20 h-20 cover rounded-lg" alt="cover">
+                        </InertiaLink>
+
+                    </div>
+                </div>
 
 
                 <p class="px-2  text-sm lg:text-md"
@@ -101,8 +134,8 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <a href="https://leap.essex.ac.uk/student">
-                                <img :src="leap" class="inline-block px-4 py-4 lg:px-8 lg:py-8" alt="plus">
+                            <a href="https://leap.essex.ac.uk/student" class="">
+                                <img :src="leap" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl " alt="plus">
                             </a>
                         </div>
                     </div>
@@ -111,7 +144,8 @@
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <a href="https://faser.essex.ac.uk/">
-                                <img :src="faser" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                                <img :src="faser" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
+                                     alt="plus">
                             </a>
                         </div>
                     </div>
@@ -120,7 +154,8 @@
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <a href="https://listenagain.essex.ac.uk/">
-                                <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                                <img :src="listen_again" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
+                                     alt="plus">
                             </a>
                         </div>
                     </div>
@@ -128,14 +163,19 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            <a href="https://findyourway.essex.ac.uk//">
+                                <img :src="fyw" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl " alt="plus">
+                            </a>
                         </div>
                     </div>
 
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <img :src="listen_again" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            <a href="https://essex.rl.talis.com/index.html">
+                                <img :src="readinglist" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
+                                     alt="plus">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -408,6 +448,7 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {Head} from '@inertiajs/inertia-vue3';
 import plus from "/img/Tab/plus.png";
 import search from "/img/Tab/search.png";
+import user from "/img/Tab/user.png";
 import partylogo from "/img/Tab/partypeople.png";
 import essex_sport from "/img/Dashboard/essex-sports.png";
 import essex_food from "/img/Dashboard/essex_food3.png";
@@ -419,9 +460,11 @@ import followinglogo from "/img/Dashboard/followinglogo.png";
 import societieslogo from "/img/Dashboard/societieslogo.png";
 import degree from "/img/Dashboard/degree.png";
 import leap from "/img/Dashboard/leap.jpeg";
-import faser from "/img/Dashboard/faser2.png";
+import faser from "/img/Dashboard/faser.png";
+import fyw from "/img/Dashboard/fyw.png";
 import shutdown from "/img/Dashboard/shutdown.png";
-import listen_again from "/img/Dashboard/listen_again.png";
+import listen_again from "/img/Dashboard/listenagain.png";
+import readinglist from "/img/Dashboard/readinglist.png";
 import post from "/img/Posts/post.png";
 import party from "/img/Posts/party.png";
 import event from "/img/Posts/event.png";
@@ -432,6 +475,7 @@ import Party from "@/Pages/Party/Party";
 import Event from "@/Pages/Event/Event";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import moment from 'moment';
+
 // import VueWeather from "vue-weather-widget";
 
 export default {
@@ -448,10 +492,12 @@ export default {
         return {
             plus: plus,
             search: search,
+            readinglist: readinglist,
             logout: logout,
             essex_sport: essex_sport,
             essex_food: essex_food,
             su: su,
+            fyw: fyw,
             societies: societies,
             moodle: moodle,
             leap: leap,
@@ -468,28 +514,24 @@ export default {
             followinglogo: followinglogo,
             societieslogo: societieslogo,
             degree: degree,
+            user: user,
         };
     },
 
-
     methods: {
-        // currentDate() {
-        //     const current = new Date();
-        //     const date = `${current.getDate()}.${current.getMonth() + 1}`;
-        //     return date;
-        // },
-        //
         signout() {
             this.$inertia.post(route('logout'));
         },
-
-       formatDate() {
+        formatDate() {
             const date = new Date();
 
             if (date) {
                 return moment(String(date)).format('d MMM')
             }
-        }
+        },
+        showImage() {
+            return "/storage/";
+        },
     },
     components: {
         BreezeAuthenticatedLayout,
@@ -498,7 +540,6 @@ export default {
         Party,
         Event,
     },
-
 }
 </script>
 

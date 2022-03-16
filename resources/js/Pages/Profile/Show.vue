@@ -1,8 +1,8 @@
 <template>
     <div class="bg-gray-100 ">
         <BreezeAuthenticatedLayout>
-            <div class="">
-                <div class="  sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+            <div>
+                <div class="sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
                     <div class=" ">
                         <div class="rounded-xl  border-gray-200" style="position: relative;">
                             <div v-if="user.cover === null">
@@ -22,6 +22,11 @@
                                         class=" avatar w-32 h-32 "
                                         alt="default"
                                     />
+                                    <a
+                                        class="avatar mt-16 w-8 h-8  bg-gray-100 border-2 border-gray-200 border-opacity-25"
+                                        :href="('/chatify/' + user.id )" style="border-radius: 15px;">
+                                        <img :src="chat" width="15" height="15" class="absolute z-10 mx-1 my-2" alt="search">
+                                    </a>
                                 </div>
 
                                 <div v-else>
@@ -30,13 +35,21 @@
                                         class="rounded-full avatar w-32 h-32"
                                         alt="avatar"
                                     />
+
+                                    <a
+                                        class="avatar  mt-16 w-8 h-8 bg-gray-100  border-2 border-gray-200"
+                                        :href="('/chatify/' + user.id )" style="border-radius: 15px;">
+                                        <img :src="chat" width="15" height="15" class="absolute z-10 mx-1 my-2"
+                                             alt="search">
+                                    </a>
                                 </div>
 
                                 <p style="text-align: center;" class="text-2xl username">
                                     {{ $page.props.user.username }}
                                 </p>
 
-                                <div v-if="$page.props.auth.user.id === $page.props.user.id" class="flex justify-center">
+                                <div v-if="$page.props.auth.user.id === $page.props.user.id"
+                                     class="flex justify-center">
                                     <a :href="route('users.edit',$page.props.user.username)"
                                        class="follow button shadow-2xl inline-flex items-center px-3 py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
                                     >
@@ -96,7 +109,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!--                FEED / GALLERY / ABOUT BUTTONS      -->
                     <div class=" ">
                         <div class="flex space-x-4 text-center mx-2 ">
@@ -160,7 +172,6 @@
                                 </h1>
                             </div>
                         </div>
-
                         <div class=" mt-5">
                             <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                                 <div class="p-6 border-b border-gray-200">
@@ -179,15 +190,11 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-
             </div>
         </BreezeAuthenticatedLayout>
     </div>
-
 </template>
 
 <script>
@@ -200,6 +207,7 @@ import Like from "@/Components/Like";
 import Dislike from "@/Components/Dislike";
 import Post from "@/Pages/Posts/Post";
 import post_img from "/img/Posts/post.png";
+import chat from "/img/Chat/chat.png";
 import party from "/img/Posts/party.png";
 import event from "/img/Posts/event.png";
 import AddTab from "@/Components/AddTab";
@@ -216,7 +224,7 @@ export default {
             party: party,
             event: event,
             defaultProfile: defaultProfile,
-
+            chat: chat,
         }
     },
     props: {
@@ -229,9 +237,8 @@ export default {
         followToggle: Boolean,
         likes: Array,
         dislikes: Array,
-
-
     },
+
     components: {
         BreezeAuthenticatedLayout,
         InertiaLink,
@@ -241,14 +248,12 @@ export default {
         Post,
         AddTab
     },
+
     methods: {
         showImage() {
             return "/storage/";
         },
     }
-    // created() {
-    //     debugger
-    // },
 }
 </script>
 
@@ -268,7 +273,7 @@ export default {
 
 .username {
     position: absolute;
-    top: 45%;
+    top: 50%;
     color: white;
     font-weight: bolder;
 }
@@ -277,11 +282,15 @@ export default {
     .username {
         top: 45%;
     }
+
+    .follow {
+        top: 50%;
+    }
 }
 
 .follow {
     position: absolute;
-    top: 60%;
+    top: 65%;
 }
 
 .count {

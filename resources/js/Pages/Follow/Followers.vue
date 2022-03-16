@@ -1,7 +1,8 @@
 <template>
     <BreezeAuthenticatedLayout>
         <!--        <div>-->
-        <div class="mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+            <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+
 
             <FollowingHeader :profile="profile"></FollowingHeader>
 
@@ -28,6 +29,17 @@
                     </div>
 
                     <div v-if="$page.props.auth.user.id !== user.id" class="flex justify-center">
+                        <a
+                            :href="('/chatify/' + user.id )"
+                            class="  shadow-2xl bg-white
+                                 border border-transparent rounded-full font-light
+                                   hover:bg-green-700 hover:text-white active:bg-gray-900 focus:outline-none
+                                  focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150 mr-2"
+                            style="font-size: 80%;"
+                        >
+                            <img :src="chat" alt="" class="w-10 h-10 mx-2 p-2 ">
+                        </a>
+
                         <FollowButton :user="user"></FollowButton>
                     </div>
                 </div>
