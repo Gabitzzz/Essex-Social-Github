@@ -32,6 +32,14 @@ class PostsController extends Controller
         ]);
     }
 
+    public function likes(Post $post){
+        return Inertia::render('Posts/Likes', [
+            'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->get()->first(),
+//            'likes'=> Like::all(),
+
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Posts/Create');

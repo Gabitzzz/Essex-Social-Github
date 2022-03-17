@@ -1,7 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
         <div class="mt-5">
-                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+            <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
                 <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                     <div class="flex">
@@ -75,8 +75,9 @@
 
                         <!--                LIKES   -->
                         <inertia-link preserve-scroll
-                                      :href="route('posts.likes', post)"
-                                      :likes="post.likes"
+                                      method="POST"
+                                      as="button"
+                                      :href="route('likes.toggle', post.id)"
                         >
                             <div class="flex text-xs px-4 mt-2">
                                 <div v-if="post.likes.length === 0">
@@ -138,26 +139,48 @@
                     </div>
                 </div>
 
-                <div class="mx-2 max-2 rounded-xl ">
-                    <form @submit.prevent="submit" class="w-full">
-                        <div class="flex mt-5">
-                            <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"
-                                         placeholder="Say something.."
-                                         required autofocus autocomplete="name"/>
+            </div>
 
-                            <button type="submit"
-                                    class="button px-6 shadow-2xl  md:mx-2"
-                                    :class="{ 'opacity-25': form.processing }"
-                                    :disabled="form.processing">
-                                SUBMIT
-                            </button>
-                        </div>
+            <div class=" mx-4 flex items-center justify-between max-2 overflow-hidden rounded-xl font-bold">
+                <h1 class="text-2xl px-2 py-2 text-green-700" style="font-family: 'Poppins', sans-serif;">
+                    {{post.likes.length}} likes
+                </h1>
+                <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                    {{post.likes.length}} dislikes
+                </h1>
 
-                        <div class="flex justify-between my-3">
-                            <div>
-                            </div>
-                        </div>
-                    </form>
+                <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                    {{post.likes.length}} comments
+                </h1>
+            </div>
+
+<!--            <div class=" max-2 overflow-hidden rounded-xl font-bold">-->
+<!--                <h1 class="text-2xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">-->
+<!--                    {{post.likes.length}} likes-->
+<!--                </h1>-->
+<!--            </div>-->
+
+            <div v-for="like in post.likes">
+                <div class="flex items-center">
+                    <div v-if="like.avatar === null">
+                        <img
+                            :src="defaultProfile"
+                            class="avatar  avatar w-10 h-10 ml-2 my-2"
+                            alt="default"
+                        />
+                    </div>
+
+                    <div v-else>
+                        <img
+                            :src="showImage() + like.avatar || showImage() + 'default-avatar.png'"
+                            class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
+                            alt="avatar"
+                        />
+                    </div>
+
+                    <p class="ml-2">{{like.name}}</p>
+
+
                 </div>
             </div>
 
@@ -185,7 +208,7 @@ import location from "/img/Posts/location3.png";
 
 
 export default {
-    name: "Index",
+    name: "Likes",
     components: {
         CombinedComments,
         PostForm,
@@ -240,15 +263,7 @@ export default {
 }
 </script>
 
+
 <style scoped>
-.button {
-    border-radius: 25px;
-    color: ghostwhite;
-    background-color: black;
-    /*width: 100%;*/
-    /*display: inline;*/
-    text-align: center;
-    font-size: 12px;
-    font-family: 'Nunito', sans-serif;
-}
+
 </style>

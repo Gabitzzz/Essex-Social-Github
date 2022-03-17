@@ -59,6 +59,10 @@ Route::get('/posts/{post}/edit', [\App\Http\Controllers\PostsController::class, 
     ->name('posts.edit')
     ->middleware('auth');
 
+Route::get('/posts/{post}/details', [\App\Http\Controllers\PostsController::class, 'likes'])
+    ->name('posts.likes')
+    ->middleware('auth');
+
 Route::put('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'update'])
     ->name('posts.update')
     ->middleware('auth');
