@@ -1,6 +1,6 @@
 <template>
     <BreezeAuthenticatedLayout>
-        <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+        <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
             <div class="mx-2 mb-4 shadows-lg  ">
                 <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">
                     <img v-if="party.partyImg"
@@ -77,14 +77,10 @@
                                               method="DELETE">
                                     {{ showLeave ? 'Cancel' : '✓ Joining' }}
                                 </inertia-link>
-
-
                             </div>
 
                             <div class="flex justify-center mt-12 text-sm">
                                 <div v-if="invites.length === 0">
-                                    <!--                                    {{party.invites.length}}-->
-
                                 </div>
                                 <div v-else-if="invites.length === 1">
                                     {{ invites.length }} person is coming
@@ -93,16 +89,12 @@
                                     {{ invites.length }} people are coming
                                 </div>
                             </div>
-
-
                         </div>
                     </figcaption>
                 </div>
             </div>
 
-
             <div class="flex justify-between mx-4 ">
-
                 <h2 class="text-2xl font-bold " style="font-family: 'Poppins', sans-serif;">
                     Members
                 </h2>
@@ -111,17 +103,12 @@
                              class="ml-1 h-6 w-6 rounded-full">
                     <img :src="backButton" alt="">
                 </InertiaLink>
-
             </div>
 
             <div class=" mx-4 mt-8">
                 <div class=" bg-white p-4 md:px-8 md:mx-16 rounded-xl">
-
-
-
                     <div v-for="invite in invites" :key="invite" class="mt-5  items-center border-b border-gray-200 ">
                         <inertia-link class="-mt-6" :href="route('profile', invite.user.username)">
-
                            <div class="flex items-center justify-between my-2">
                                <div class="flex items-center  ">
                                    <div v-if="invite.user.avatar === null">
@@ -136,20 +123,15 @@
                                    <p class="mx-2">
                                        {{ invite.user.username }}
                                    </p>
-
-
                                </div>
 
                                <a
-                                   class="follow button shadow-2xl  items-center text-center  py-1 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-green-700 hover:text-white w-40 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
-                                   :href="('/chatify/' + invite.user.id )" >
-                                   TEXT
+                                   class="avatar  w-8 h-8  bg-gray-100 border-2 border-gray-200 border-opacity-25"
+                                   :href="('/chatify/' + invite.user.id )" style="border-radius: 15px;">
+                                   <img :src="chat" width="15" height="15" class="absolute z-10 mx-1 my-2" alt="search">
                                </a>
                            </div>
-
-
                         </inertia-link>
-
                     </div>
                 </div>
             </div>
@@ -170,6 +152,7 @@ import quote from "/img/Party/quote.png";
 import dj from "/img/Party/dj.png";
 import backButton from "/img/Tab/left-arrow.png";
 import defaultProfile from "/img/Posts/defaultProfile.png";
+import chat from "/img/Chat/chat.png";
 
 
 export default {
@@ -188,6 +171,7 @@ export default {
             dj: dj,
             backButton: backButton,
             defaultProfile: defaultProfile,
+            chat:chat,
 
         }
     },

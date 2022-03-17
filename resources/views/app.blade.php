@@ -10,6 +10,7 @@
         <meta property="og:title" content="Essex Social"/>
         <meta property="og:image" content="https://essex.social/images/logo/2.png" />
 
+        <link rel="icon" type="image/png" href="{{ asset('img/logo/6.png')}}">
 
 
         <!-- Fonts -->

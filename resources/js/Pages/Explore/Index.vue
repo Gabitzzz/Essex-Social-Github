@@ -2,7 +2,7 @@
     <BreezeAuthenticatedLayout>
         <Head title="Explore"/>
 
-        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+            <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
 
                 <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">

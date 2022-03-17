@@ -4,7 +4,7 @@
 
         <form @submit.prevent="submit">
             <div class="mb-2">
-                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
 
 

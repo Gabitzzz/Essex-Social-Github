@@ -2,7 +2,8 @@
     <BreezeAuthenticatedLayout>
         <Head title="Event"/>
 
-        <div class=" my-4 pb-20 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+            <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+
             <div class="mx-2 mb-4 shadows-lg  ">
                 <div class="rounded-lg shadow-md bg-white border-gray-20 pb-6" style="position: relative;">
                     <img v-if="event.eventImg"

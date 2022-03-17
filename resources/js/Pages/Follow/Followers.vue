@@ -1,16 +1,13 @@
 <template>
     <BreezeAuthenticatedLayout>
         <Head title="Followers"/>
-
         <!--        <div>-->
-            <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
-
+        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
             <FollowingHeader :profile="profile"></FollowingHeader>
 
             <div v-for="user in followers.data" :key="user.id" class="flex py-4 mx-2 border-b border-gray-200">
                 <div class="flex justify-between w-full">
-
                     <div class="flex">
 
                         <img
@@ -72,7 +69,7 @@ export default {
         followers: Object,
         followings: Object,
     },
-    methods:{
+    methods: {
         showImage() {
             return "/storage/";
         },

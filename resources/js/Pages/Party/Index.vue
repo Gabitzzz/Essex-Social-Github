@@ -3,7 +3,7 @@
         <Head title="Party"/>
 
         <div class="py-2 mx-2">
-            <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+            <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
                 <div class="mx-2 mb-4 shadows-lg  ">
                     <div class="rounded-lg shadow-md border-gray-200" style="position: relative;">

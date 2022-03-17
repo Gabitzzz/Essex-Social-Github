@@ -4,7 +4,7 @@
             <Head title="Profile"/>
 
             <div>
-                <div class="sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+                <div class="sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
                     <div class=" ">
                         <div class="rounded-xl  border-gray-200" style="position: relative;">
                             <div v-if="user.cover === null">

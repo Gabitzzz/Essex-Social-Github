@@ -2,9 +2,8 @@
     <Head title="Dashboard"/>
 
     <BreezeAuthenticatedLayout>
-        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
-            <div class="absolute right-0">
-
+        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+            <div class="absolute right-0 sm:right-24 lg:right-1/4">
                 <form @submit.prevent="signout()">
                     <button as="button"
                             type="submit" class="justify-center inline-block text-center">
@@ -13,9 +12,7 @@
                 </form>
             </div>
 
-            <!--                <divclass=" mt-5 px-2 max-2 overflow-hidden rounded-xl font-bold ">-->
             <div class="mt-5 font-bold  overflow-hidden max-w-7xl ">
-
                 <div class="flex justify-between items-center">
                     <h1 class="text-4xl mx-2  py-2" style="font-family: 'Poppins', sans-serif;">
                         Welcome
@@ -25,7 +22,6 @@
                     </h1>
 
                     <div v-if="$page.props.auth.user.avatar === null" class="">
-
                         <InertiaLink :href="route('users.edit', $page.props.auth.user.username)"
                                      class=" justify-center inline-block text-center"
                         >
@@ -40,10 +36,8 @@
                             <img :src="showImage() + $page.props.auth.user.avatar"
                                  class="mx-8 w-20 h-20 cover rounded-full" alt="cover">
                         </InertiaLink>
-
                     </div>
                 </div>
-
 
                 <p class="px-2  text-sm lg:text-md"
                    style="font-weight:lighter;">
@@ -52,7 +46,6 @@
                     <br>
                 </p>
             </div>
-
 
             <div class="mt-5 flex flex-wrap overflow-hidden max-w-7xl ">
                 <div class="w-1/2 overflow-hidden sm:w-1/Q xl:w-6/12">
@@ -174,6 +167,16 @@
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <a href="https://essex.rl.talis.com/index.html">
                                 <img :src="readinglist" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
+                                     alt="plus">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="inline-block px-2">
+                        <div
+                            class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                            <a href="https://library.essex.ac.uk/home">
+                                <img :src="library" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
                                      alt="plus">
                             </a>
                         </div>
@@ -458,6 +461,7 @@ import societies from "/img/Dashboard/societies.png";
 import followerslogo from "/img/Dashboard/followerslogo.png";
 import followinglogo from "/img/Dashboard/followinglogo.png";
 import societieslogo from "/img/Dashboard/societieslogo.png";
+import library from "/img/Dashboard/library.png";
 import degree from "/img/Dashboard/degree.png";
 import leap from "/img/Dashboard/leap.jpeg";
 import faser from "/img/Dashboard/faser.png";
@@ -515,6 +519,7 @@ export default {
             societieslogo: societieslogo,
             degree: degree,
             user: user,
+            library:library,
         };
     },
 

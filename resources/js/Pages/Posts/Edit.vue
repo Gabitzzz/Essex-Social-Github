@@ -5,7 +5,7 @@
 
             <form @submit.prevent="submit">
 
-            <div class="my-4 mx-2 sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80 5xl:mx-96 ">
+            <div class="my-4 mx-2 sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80 5xl:mx-96 ">
                 <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                         <div class="flex justify-between">
                             <inertia-link :href="route('profile', post.user.username)">

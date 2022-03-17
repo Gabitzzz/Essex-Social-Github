@@ -1,6 +1,6 @@
 <template>
     <BreezeAuthenticatedLayout>
-        <div class=" my-4 pb-20 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
+            <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
             <div class="mx-2 mb-4 shadows-lg  ">
                 <div class="rounded-lg shadow-md bg-white border-gray-20 pb-6" style="position: relative;">
                     <img v-if="event.eventImg"
@@ -11,7 +11,6 @@
                          class="object-cover rounded-t-lg w-full" alt="cover"
                          :src="eventCover"
                          style="max-height: 150px;  filter: brightness(30%);">
-
 
                     <figcaption class="absolute text-lg text-white px-4 -mt-32 " style="left:0;  right: 0;">
                         <div v-if="event.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6" style="right: 0;">
@@ -94,10 +93,7 @@
                 </div>
             </div>
 
-
-
             <div class="flex justify-between mx-4 ">
-
                 <h2 class="text-2xl font-bold " style="font-family: 'Poppins', sans-serif;">
                     Members
                 </h2>
@@ -106,17 +102,12 @@
                              class="ml-1 h-6 w-6 rounded-full">
                     <img :src="backButton" alt="">
                 </InertiaLink>
-
             </div>
 
             <div class=" mx-4 mt-8">
                 <div class=" bg-white p-4 md:px-8 md:mx-16 rounded-xl">
-
-
-
                     <div v-for="invite in invites" :key="invite" class="mt-5  items-center border-b border-gray-200 ">
                         <inertia-link class="-mt-6" :href="route('profile', invite.user.username)">
-
                             <div class="flex items-center justify-between my-2">
                                 <div class="flex items-center  ">
                                     <div v-if="invite.user.avatar === null">
@@ -131,23 +122,18 @@
                                     <p class="mx-2">
                                         {{ invite.user.username }}
                                     </p>
-
-
                                 </div>
 
-                                <p class="mx-2">
-                                    {{ invite.user.name }}
-                                </p>
+                                <a
+                                    class="avatar  w-8 h-8  bg-gray-100 border-2 border-gray-200 border-opacity-25"
+                                    :href="('/chatify/' + invite.user.id )" style="border-radius: 15px;">
+                                    <img :src="chat" width="15" height="15" class="absolute z-10 mx-1 my-2" alt="search">
+                                </a>
                             </div>
-
-
                         </inertia-link>
-
                     </div>
                 </div>
             </div>
-
-
         </div>
     </BreezeAuthenticatedLayout>
 </template>
@@ -162,8 +148,7 @@ import dj from "/img/Party/dj.png";
 import backButton from "/img/Tab/left-arrow.png";
 import defaultProfile from "/img/Posts/defaultProfile.png";
 import eventCover from "/img/Party/eventCover.jpg";
-
-
+import chat from "/img/Chat/chat.png";
 
 export default {
     name: "Members",
@@ -181,6 +166,7 @@ export default {
             dj: dj,
             backButton: backButton,
             defaultProfile: defaultProfile,
+            chat: chat,
 
         }
     },
