@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\SomeonePostedEvent;
 use App\Http\Requests\StoreImage;
 use App\Models\Party;
+use App\Models\PartyComment;
 use App\Models\PartyInvite;
 use App\Models\User;
 use Carbon\Carbon;
@@ -27,9 +28,11 @@ class PartyController extends Controller
 //            ->join('following', 'following.followed_id', '=', 'posts.user_id')
             ->latest()->get()->all();
 
+
         return Inertia::render('Party/Parties', [
             'parties' => $parties,
             'invites' => PartyInvite::all(),
+
 //            'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->with('user')->get()->first(),
 
 //            'parties'=> Party::with('invites')->with('users')->latest()->get()->all(),
@@ -48,6 +51,8 @@ class PartyController extends Controller
             'party' => $var,
             'inviteToggle' => $party->invites()->where('party_invites.user_id', auth()->id())->exists(),
             'invites' => $invites,
+            'comments' => PartyComment::with('party')->where("party_id", "=", $party->id)->with('user')->latest()->get(),
+
         ]);
 
 

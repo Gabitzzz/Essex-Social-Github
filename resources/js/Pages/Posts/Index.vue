@@ -198,7 +198,7 @@ export default {
         Like,
         Dislike,
         InertiaLink,
-        Head
+        Head,
 
     },
     props: {

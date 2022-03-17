@@ -30,7 +30,7 @@
 
                         <div class="text-right text-lg ">
                             <p class="">
-                                {{ party.date }}
+                                {{ party.day }}
                             </p>
 
                             <p class="text-3xl text-red-600 ">
@@ -105,8 +105,8 @@
                 </InertiaLink>
             </div>
 
-            <div class=" mx-4 mt-8">
-                <div class=" bg-white p-4 md:px-8 md:mx-16 rounded-xl">
+            <div class="  mt-8">
+                <div class=" bg-white p-4  rounded-xl">
                     <div v-for="invite in invites" :key="invite" class="mt-5  items-center border-b border-gray-200 ">
                         <inertia-link class="-mt-6" :href="route('profile', invite.user.username)">
                            <div class="flex items-center justify-between my-2">

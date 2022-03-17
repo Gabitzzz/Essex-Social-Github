@@ -48,7 +48,7 @@
                         />
                     </div>
 
-                    <div class="flex mt-4 ">
+                    <div class="flex mx-2 mt-4 ">
                         <img :src="location2" width="40" alt="location">
 
                         <BreezeInput id="location" type="text" class=" ml-2 block w-full bg-gray-100 "
@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class=" mb-20 grid justify-items-center">
+                <div class="my-8 grid justify-items-center">
                     <loading-button :loading="form.processing"
                                     class="button px-8 py-2 " type="submit">
                         ADD POST

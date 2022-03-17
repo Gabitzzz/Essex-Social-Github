@@ -2,8 +2,7 @@
     <BreezeAuthenticatedLayout>
         <Head title="Event"/>
 
-            <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
-
+        <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
             <div class="mx-2 mb-4 shadows-lg  ">
                 <div class="rounded-lg shadow-md bg-white border-gray-20 pb-6" style="position: relative;">
                     <img v-if="event.eventImg"
@@ -15,9 +14,9 @@
                          :src="eventCover"
                          style="max-height: 150px;  filter: brightness(30%);">
 
-
                     <figcaption class="absolute text-lg text-white px-4 -mt-32 " style="left:0;  right: 0;">
-                        <div v-if="event.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6" style="right: 0;">
+                        <div v-if="event.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6"
+                             style="right: 0;">
                             <inertia-link preserve-scroll class="-mt-6" :href="route('event.edit', event.id)">
                                 ...
                             </inertia-link>
@@ -34,7 +33,6 @@
                                 </strong>
                             </p>
                         </div>
-
 
 
                         <div>
@@ -71,21 +69,21 @@
 
                             </div>
 
-                            <inertia-link :href="route('event.members', event)" >
+                            <inertia-link :href="route('event.members', event)">
 
-                            <div class="flex justify-center  text-sm mt-2">
-                                <div v-if="event.invites.length === 0">
-<!--                                    {{party.invites.length}}-->
+                                <div class="flex justify-center  text-sm mt-2">
+                                    <div v-if="event.invites.length === 0">
+                                        <!--                                    {{party.invites.length}}-->
+
+                                    </div>
+                                    <div v-else-if="event.invites.length === 1">
+                                        {{ event.invites.length }} person is coming
+                                    </div>
+                                    <div v-else>
+                                        {{ event.invites.length }} people are coming
+                                    </div>
 
                                 </div>
-                                <div v-else-if="event.invites.length === 1">
-                                    {{event.invites.length}} person is coming
-                                </div>
-                                <div v-else>
-                                    {{event.invites.length}} people are coming
-                                </div>
-
-                            </div>
                             </inertia-link>
 
                         </div>
@@ -139,19 +137,18 @@
             </div>
 
 
-
             <div class=" mx-4 mt-8">
-               <div class="text-center bg-white p-4 md:px-8 md:mx-16 rounded-xl">
-                   <div class="flex justify-center mb-4">
-                       <img
-                           :src="quote"
-                           class="avatar text-center w-10 h-10 mt-2  "
-                           alt="default"
-                       />
-                   </div>
+                <div class="text-center bg-white p-4 md:px-8 md:mx-16 rounded-xl">
+                    <div class="flex justify-center mb-4">
+                        <img
+                            :src="quote"
+                            class="avatar text-center w-10 h-10 mt-2  "
+                            alt="default"
+                        />
+                    </div>
 
-                   {{event.description}}
-               </div>
+                    {{ event.description }}
+                </div>
             </div>
 
         </div>
@@ -169,7 +166,6 @@ import quote from "/img/Party/quote.png";
 import organizer from "/img/Party/organizer.png";
 import backButton from "/img/Tab/left-arrow.png";
 import {Head} from '@inertiajs/inertia-vue3';
-
 
 
 export default {

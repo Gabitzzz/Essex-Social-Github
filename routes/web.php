@@ -224,6 +224,7 @@ Route::post('/posts/{post}/dislike', [\App\Http\Controllers\PostDislikeControlle
 
 //  COMMENTS
 Route::post('/posts/{post}/comment', [CommentController::class, 'store'])->name('comments.store');
+Route::post('/parties/{party}/comment', [\App\Http\Controllers\PartyCommentController::class, 'store'])->name('party.comments.store');
 
 
 //  NOTIFICATIONS

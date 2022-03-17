@@ -32,6 +32,10 @@ class Party extends Model
         return $this->created_at->diffForHumans();
     }
 
+    public function partyComments()
+    {
+        return $this->hasMany(PartyComment::class);
+    }
 
     public function invites()
     {
