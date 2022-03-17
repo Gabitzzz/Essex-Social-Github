@@ -1,5 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
+        <Head title="Followers"/>
+
         <!--        <div>-->
             <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
@@ -53,6 +55,7 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import FollowingHeader from "@/Components/FollowingHeader";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import FollowButton from "@/Components/FollowButton";
+import {Head} from '@inertiajs/inertia-vue3';
 
 export default {
     name: "Followers",
@@ -61,6 +64,7 @@ export default {
         FollowingHeader,
         InertiaLink,
         FollowButton,
+        Head,
     },
     props: {
         profile: Object,

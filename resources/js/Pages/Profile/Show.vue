@@ -1,6 +1,8 @@
 <template>
     <div class="bg-gray-100 ">
         <BreezeAuthenticatedLayout>
+            <Head title="Profile"/>
+
             <div>
                 <div class="sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
                     <div class=" ">
@@ -211,6 +213,7 @@ import chat from "/img/Chat/chat.png";
 import party from "/img/Posts/party.png";
 import event from "/img/Posts/event.png";
 import AddTab from "@/Components/AddTab";
+import {Head} from '@inertiajs/inertia-vue3';
 
 export default {
     name: "Show",
@@ -246,7 +249,8 @@ export default {
         Like,
         Dislike,
         Post,
-        AddTab
+        AddTab,
+        Head,
     },
 
     methods: {

@@ -1,6 +1,8 @@
 <template>
     <div>
         <BreezeAuthenticatedLayout>
+            <Head title="Notifications"/>
+
 
             <div class="mx-2 mt-5 max-2 overflow-hidden rounded-xl font-bold">
                 <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
@@ -47,6 +49,7 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import Notifications from "@/Pages/Notifications/Notifications";
+import {Head} from '@inertiajs/inertia-vue3';
 
 
 export default {
@@ -55,6 +58,7 @@ export default {
         BreezeAuthenticatedLayout,
         InertiaLink,
         Notifications,
+        Head,
     },
 
     data() {

@@ -8,7 +8,7 @@
         <title inertia>{{ config('app.name', 'Essex Social') }}</title>
 
         <meta property="og:title" content="Essex Social"/>
-        <meta property="og:image" content="https://essex.social/img/logo/5.png" />
+        <meta property="og:image" content="https://essex.social/images/logo/5.png" />
 
 
 

@@ -1,8 +1,10 @@
 <template>
     <div>
         <BreezeAuthenticatedLayout>
+            <Head title="Add Post"/>
+
             <form @submit.prevent="submit">
-                <div class="mb-2">
+                <div class="mb-2">∑
                         <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
                         <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
@@ -110,20 +112,18 @@ import post from "/img/Posts/post.png";
 import party from "/img/Posts/party.png";
 import event from "/img/Posts/event.png";
 import location2 from "/img/Party/location2.png";
-
-
+import {Head} from '@inertiajs/inertia-vue3';
 
 export default {
     name: "Create",
-
-
     components: {
         BreezeAuthenticatedLayout,
         FileInput,
         TextInput,
         LoadingButton,
         BreezeInput,
-        BreezeLabel
+        BreezeLabel,
+        Head,
     },
     props: {
         posts: Object,

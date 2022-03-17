@@ -1,5 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
+        <Head title="Post"/>
+
         <div class="mt-5">
                 <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
@@ -182,6 +184,7 @@ import {InertiaLink} from "@inertiajs/inertia-vue3";
 import backButton from "/img/Tab/left-arrow.png";
 import defaultProfile from "/img/Posts/defaultProfile.png";
 import location from "/img/Posts/location3.png";
+import {Head} from '@inertiajs/inertia-vue3';
 
 
 export default {
@@ -195,6 +198,7 @@ export default {
         Like,
         Dislike,
         InertiaLink,
+        Head
 
     },
     props: {

@@ -1,6 +1,7 @@
 <template>
     <div>
         <BreezeAuthenticatedLayout>
+            <Head title="Edit Profile"/>
             <div class="bg-gray-100">
                 <div class="mx-auto mx-2 sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80 5xl:mx-96">
 
@@ -155,6 +156,7 @@ import BreezeInput from '@/Components/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {useForm} from "@inertiajs/inertia-vue3"
+import {Head} from '@inertiajs/inertia-vue3';
 
 export default {
     name: "Edit",
@@ -165,6 +167,7 @@ export default {
         BreezeInput,
         BreezeLabel,
         BreezeAuthenticatedLayout,
+        Head,
     },
     remember: 'form',
     props: {

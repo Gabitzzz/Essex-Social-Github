@@ -1,6 +1,8 @@
 <template>
     <BreezeAuthenticatedLayout>
-                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+        <Head title="Explore"/>
+
+        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
 
                 <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
@@ -53,6 +55,7 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import defaultProfile from "/img/Posts/defaultProfile.png";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
+import {Head} from '@inertiajs/inertia-vue3';
 
 
 export default {
@@ -65,6 +68,7 @@ export default {
     components: {
         BreezeAuthenticatedLayout,
         InertiaLink,
+        Head,
     },
     props: {
         users: Array,

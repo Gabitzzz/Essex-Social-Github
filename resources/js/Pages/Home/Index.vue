@@ -1,4 +1,6 @@
 <template>
+    <Head title="News Feed"/>
+
     <BreezeAuthenticatedLayout>
         <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
             <div class="mt-5 font-bold  overflow-hidden max-w-7xl ">
@@ -19,13 +21,16 @@
 import Posts from "@/Pages/Posts/Posts";
 import AddTab from "@/Components/AddTab";
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import {Head} from '@inertiajs/inertia-vue3';
+
 
 export default {
     name: "Index",
     components: {
         Posts,
         AddTab,
-        BreezeAuthenticatedLayout
+        BreezeAuthenticatedLayout,
+        Head,
     },
     props: {
         posts: Array,

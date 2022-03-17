@@ -1,5 +1,5 @@
 <nav class="bg-white sticky">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="flex justify-between h-16">
             <div class="flex items-center">
                 <!-- Logo -->
@@ -28,34 +28,34 @@
                 </div>
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center sm:mx-6">
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <div class="hidden space-x-4 sm:-my-px sm:flex items-center">
                         <a
                             class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
-                            href="route('search')" style="border-radius: 15px;">
+                            href="{{route('search')}}" style="border-radius: 15px;">
                             <img src="{{asset('img/Tab/search.png')}}" width="25" height="25" class="inline-block"
                                  alt="search">
                         </a>
 
                         <a
                             class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
-                            href="route('chatify')" style="border-radius: 15px;">
+                            href="{{route('chatify')}}" style="border-radius: 15px;">
                             <img src="{{asset('img/Chat/chat.png')}}" width="25" height="25" class="inline-block"
                                  alt="search">
                         </a>
 
                         <a
                             class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
-                            href="route('posts.create')" style="border-radius: 15px;">
+                            href="{{route('posts.create')}}" style="border-radius: 15px;">
                             <img src="{{asset("img/Tab/plus.png")}}" width="25" height="25" class="inline-block"
                                  alt="search">
                         </a>
 
                         <a
                             class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
-                            href="route('notifications.show')" style="border-radius: 15px;">
+                            href="{{route('notifications.show')}}" style="border-radius: 15px;">
                             <img src="{{asset('img/Tab/notification.png')}}" width="25" height="25" class="inline-block"
                                  alt="search">
                             <div >

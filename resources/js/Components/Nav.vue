@@ -50,12 +50,12 @@
                             </inertia-link>
 
                             <inertia-link
-                                class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
+                                class="flex items-center group bg-gray-100 p-2  border-2 border-gray-200 border-opacity-25"
                                 :href="route('notifications.show')" style="border-radius: 15px;">
                                 <img :src="notification" width="25" height="25" class="inline-block" alt="search">
                                 <div v-if="unreadNotifications.length > 0">
                                <span
-                                   class="tab text-white bg-red-600 rounded-full px-2 py-1 absolute top-0 text-xs">
+                                   class="tab text-white bg-red-600 rounded-full p-1 absolute top-0 text-xs">
                                     {{ unreadNotifications.length }}
                                 </span>
                                 </div>

@@ -1,5 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
+        <Head title="Event"/>
+
         <div class=" my-4 pb-20 mx-auto sm:mx-16 md:mx-24 lg:mx-72 xl:mx-96">
             <div class="mx-2 mb-4 shadows-lg  ">
                 <div class="rounded-lg shadow-md bg-white border-gray-20 pb-6" style="position: relative;">
@@ -165,6 +167,7 @@ import eventCover from "/img/Party/eventCover.jpg";
 import quote from "/img/Party/quote.png";
 import organizer from "/img/Party/organizer.png";
 import backButton from "/img/Tab/left-arrow.png";
+import {Head} from '@inertiajs/inertia-vue3';
 
 
 
@@ -174,6 +177,7 @@ export default {
         BreezeAuthenticatedLayout,
         InertiaLink,
         Event,
+        Head,
     },
     data() {
         return {

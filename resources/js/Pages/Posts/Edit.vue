@@ -1,6 +1,8 @@
 <template>
     <div>
         <BreezeAuthenticatedLayout>
+            <Head title="Edit Post"/>
+
             <form @submit.prevent="submit">
 
             <div class="my-4 mx-2 sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80 5xl:mx-96 ">
@@ -111,6 +113,7 @@ import LoadingButton from "@/Components/LoadingButton";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import defaultProfile from "/img/Posts/defaultProfile.png";
 import location2 from "/img/Party/location2.png";
+import {Head} from '@inertiajs/inertia-vue3';
 
 
 export default {
@@ -121,6 +124,7 @@ export default {
         BreezeLabel,
         LoadingButton,
         InertiaLink,
+        Head,
     },
     props: {
         post: Object,

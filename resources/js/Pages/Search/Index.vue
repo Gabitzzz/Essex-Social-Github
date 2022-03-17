@@ -1,5 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
+        <Head title="Search"/>
+
         <div>
             <div class="py-2 mx-2 mb-20">
                 <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
@@ -70,6 +72,7 @@ import Nav from "@/Components/Nav";
 import {pickBy, throttle} from "lodash";
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import defaultProfile from "/img/Posts/defaultProfile.png";
+import {Head} from '@inertiajs/inertia-vue3';
 
 
 export default {
@@ -88,6 +91,7 @@ export default {
         Tab,
         Nav,
         BreezeAuthenticatedLayout,
+        Head,
     },
     props: {
         users: Object,

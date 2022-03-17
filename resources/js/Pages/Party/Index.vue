@@ -1,5 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
+        <Head title="Party"/>
+
         <div class="py-2 mx-2">
             <div class="my-4 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
@@ -175,6 +177,7 @@ import partyCover from "/img/Party/partyCover.jpg";
 import quote from "/img/Party/quote.png";
 import dj from "/img/Party/dj.png";
 import backButton from "/img/Tab/left-arrow.png";
+import {Head} from '@inertiajs/inertia-vue3';
 
 
 export default {
@@ -184,6 +187,7 @@ export default {
         Parties,
         InertiaLink,
         Party,
+        Head,
     },
     data() {
         return {

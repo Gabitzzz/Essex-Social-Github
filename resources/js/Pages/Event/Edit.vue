@@ -1,5 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
+        <Head title="Edit Event"/>
+
         <form @submit.prevent="submit">
             <div class="mb-2">
                     <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
@@ -237,6 +239,7 @@ import LoadingButton from "@/Components/LoadingButton";
 import location2 from "/img/Party/location2.png";
 import BreezeLabel from '@/Components/Label.vue';
 import eventCover from "/img/Party/eventCover.jpg";
+import {Head} from '@inertiajs/inertia-vue3';
 
 
 export default {
@@ -248,7 +251,8 @@ export default {
         Calendar,
         InertiaLink,
         LoadingButton,
-        BreezeLabel
+        BreezeLabel,
+        Head,
     },
     props: {
         event: Object,

@@ -38,7 +38,7 @@
                                      class=" justify-center inline-block text-center"
                         >
                             <img :src="showImage() + $page.props.auth.user.avatar"
-                                 class="mx-8 w-20 h-20 cover rounded-lg" alt="cover">
+                                 class="mx-8 w-20 h-20 cover rounded-full" alt="cover">
                         </InertiaLink>
 
                     </div>
