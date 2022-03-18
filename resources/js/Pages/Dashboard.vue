@@ -350,10 +350,19 @@
                                 <img :src="degree" class="inline-block p-1" alt="plus">
                             </InertiaLink>
                         </div>
-
-                        <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
-                            Degree
-                        </p>
+                        <inertia-link
+                            as="button"
+                            :href="route('degree.show', $page.props.degree.user_id)">
+                            <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
+                                {{ $page.props.degree.title }}
+                            </p>
+                        </inertia-link>
+<!--                        <inertia-link preserve-scroll-->
+<!--                                      method="POST"-->
+<!--                                      as="button"-->
+<!--                                      :href="route('dislikes.toggle', post.id)"-->
+<!--                                      class="h-6 w-6 rounded-full bg-red-500 hover:bg-red-700">-->
+<!--                        </inertia-link>-->
                     </div>
                 </div>
 
@@ -487,6 +496,7 @@ export default {
     props: {
         parties: Array,
         events: Array,
+        degree: Object,
         // events: Array,
         // partyInvites: Array,
         // eventInvites: Array,
@@ -519,7 +529,7 @@ export default {
             societieslogo: societieslogo,
             degree: degree,
             user: user,
-            library:library,
+            library: library,
         };
     },
 

@@ -1314,7 +1314,7 @@ $(document).ready(function () {
     }, 1000);
   });
 
-  // Image modal
+  // Degree modal
   $("body").on("click", ".chat-image", function () {
     let src = $(this).css("background-image").split(/"/)[1];
     $("#imageModalBox").show();

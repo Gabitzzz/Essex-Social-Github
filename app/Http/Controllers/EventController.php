@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Events\SomeonePostedEvent;
 use App\Http\Requests\StoreImage;
 use App\Models\Event;
+use App\Models\EventComment;
 use App\Models\EventInvite;
 use App\Models\Party;
 use App\Models\PartyInvite;
@@ -27,6 +28,7 @@ class EventController extends Controller
 
         return Inertia::render('Event/Events', [
             'events' => $events,
+
         ]);
 
 
@@ -39,6 +41,8 @@ class EventController extends Controller
         return Inertia::render('Event/Index', [
             'event' => $var,
             'inviteToggle' => $event->invites()->where('event_invites.user_id', auth()->id())->exists(),
+            'comments' => EventComment::with('event')->where("event_id", "=", $event->id)->with('user')->latest()->get(),
+
         ]);
     }
 

@@ -66,6 +66,10 @@ class User extends Authenticatable
         return $this->hasMany(Party::class);
     }
 
+    public function degree(){
+        return $this->belongsTo(Degree::class);
+    }
+
     public function events()
     {
         return $this->hasMany(Event::class);
@@ -91,6 +95,11 @@ class User extends Authenticatable
     public function partyComments()
     {
         return $this->hasMany(PartyComment::class);
+    }
+
+    public function eventComments()
+    {
+        return $this->hasMany(EventComment::class);
     }
 
     public function setPasswordAttribute($password)

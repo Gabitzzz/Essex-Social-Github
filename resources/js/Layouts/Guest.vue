@@ -6,7 +6,7 @@
             </Link>
         </div>
 
-        <div class=" w-full sm:max-w-md px-6 py-4">
+        <div class=" w-full sm:max-w-md p-4 sm:px-0">
             <slot />
         </div>
     </div>

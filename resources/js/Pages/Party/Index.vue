@@ -21,11 +21,6 @@
                         <div v-if="party.user_id === $page.props.auth.user.id" class="absolute mr-5 -mt-6"
                              style="right: 0;">
                             <inertia-link class="-mt-6" :href="route('party.edit', party.id)">
-                                <!--                                      v-if="post.user.id === $page.props.auth.user.id"-->
-                                <!--                                      class=" -mt-6  "-->
-                                <!--                                      as="button"-->
-                                <!--                                      :href="route('posts.edit', post.id)"-->
-
                                 ...
                             </inertia-link>
                         </div>
@@ -106,7 +101,7 @@
                 </div>
             </div>
 
-            <!--                BACK BUTTON -->
+            <!--            LOCATION        -->
             <div class="flex justify-between mx-4  ">
                 <div class="flex items-center">
                     <img
@@ -121,17 +116,15 @@
                         </p>
                     </div>
                 </div>
-
+                <!--                BACK BUTTON -->
                 <InertiaLink @click="back"
                              class="ml-1 h-6 w-6 rounded-full">
                     <img :src="backButton" alt="">
                 </InertiaLink>
             </div>
 
-            <!--    LOCATION / ORGANIZER    -->
+            <!--     ORGANIZER    -->
             <div class=" mx-4">
-
-
                 <div class="flex items-center">
                     <img
                         :src="dj"
@@ -150,8 +143,8 @@
                 </div>
             </div>
 
-            <div class="flex items-center ">
-
+            <!--            DESCRIPTION     -->
+            <div class="flex items-center mb-4 mx-2">
                 <div class="bg-white w-full rounded-2xl my-2 divide-y px-4">
                     <div class="flex items-center mb-1">
                         <img
@@ -166,21 +159,38 @@
 
                     <p class=" text-md py-2   ">
                         {{ party.description }}
-<!--                        hello-->
+                        <!--                        hello-->
                     </p>
                 </div>
             </div>
 
+            <hr>
+
+            <!--            COMMENTS        -->
+            <div class="flex items-center mt-4">
+                <div class="w-full px-4 py-2 flex items-center bg-white rounded-2xl m-2  ">
+                    <img
+                        :src="comment"
+                        class="avatar  avatar w-8 h-8   "
+                        alt="default"
+                    />
+
+                    <p class="text-center text-md font-semibold mx-4   ">
+                        Comments
+                    </p>
+                </div>
+
+            </div>
+
             <div class="mx-2 max-2 rounded-xl ">
                 <form @submit.prevent="submit" class="w-full">
-                    <div class="flex mt-5">
-                        <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"
+                    <div class="flex ">
+                        <BreezeInput id="body" type="text" class="block w-full h-10 " v-model="form.body"
                                      placeholder="  leave a comment"
-                                     required autofocus autocomplete="name"/>
+                                     required autocomplete="name"/>
 
                         <button type="submit"
-                                class="button px-6 shadow-2xl  md:mx-2"
-                                :class="{ 'opacity-25': form.processing }"
+                                class="button ml-1 px-6 shadow-2xl bg-black rounded-full text-white  md:mx-2"
                                 :disabled="form.processing">
                             SUBMIT
                         </button>
@@ -212,6 +222,7 @@ import pin from "/img/Posts/pin.png";
 import partyCover from "/img/Party/partyCover.jpg";
 import quote from "/img/Party/quote.png";
 import dj from "/img/Party/dj.png";
+import comment from "/img/Party/comment.png";
 import backButton from "/img/Tab/left-arrow.png";
 import {Head} from '@inertiajs/inertia-vue3';
 import BreezeInput from '@/Components/Input.vue';
@@ -239,6 +250,7 @@ export default {
             quote: quote,
             dj: dj,
             backButton: backButton,
+            comment: comment,
 
         }
     },

@@ -49,8 +49,14 @@ class UsersController extends Controller
             'name' => ['required', 'max:50'],
             'username' => ['required', 'max:50'],
             'description' => ['required', 'max:50'],
+
             'email' => ['required', 'max:50', 'email', Rule::unique('users')],
             'password' => ['required'],
+
+            'dob' => ['nullable', 'max:50'],
+            'type' => ['nullable', 'max:50'],
+            'study_year' => ['nullable', 'max:50'],
+            'degree' => ['nullable', 'max:50'],
         ]);
 
         if ($request->hasFile('avatar')) {
@@ -136,6 +142,57 @@ class UsersController extends Controller
             'users' => $query->paginate()->withQueryString(),
             'filters' => request()->all(['search', 'field', 'direction'])
         ]);
+    }
+
+    public function getInfo(User $user, Request $request)
+    {
+        $attributes = $request->validate([
+            'dob' => 'nullable|string|max:50',
+            'type' => 'nullable|string|max:10',
+            'study_year' => 'nullable|string|max:10',
+            'citizenship' => 'nullable|string|max:20',
+
+        ]);
+
+
+        return Inertia::render('Home/Info', [
+            'user' => auth()->user(),
+            'attributes' => $attributes,
+
+
+        ]);
+
+//        return Redirect::route('dashboard');
+
+
+    }
+
+    public function detailStore(Request $request, User $user)
+    {
+
+        Auth::user()->account->users()->create([
+            'dob' => Request::get('dob'),
+            'type' => Request::get('type'),
+            'study_year' => Request::get('study_year'),
+            'citizenship' => Request::get('citizenship'),
+        ]);
+
+
+
+        $attributes = $request->validate([
+            'dob' => 'nullable|string|max:50',
+            'type' => 'nullable|string|max:10',
+            'study_year' => 'nullable|string|max:10',
+            'citizenship' => 'nullable|string|max:20',
+        ]);
+
+
+
+
+        $user->save($attributes);
+        $user->save();
+
+        return Redirect::route('dashboard');
     }
 
 

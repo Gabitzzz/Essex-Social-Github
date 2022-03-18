@@ -24,6 +24,13 @@ class CreateUsersTable extends Migration
             $table->text('cover')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->string('dob')->nullable();
+            $table->string('type')->nullable();
+            $table->string('study_year')->nullable();
+            $table->string('degree')->nullable();
+
+
             $table->timestamps();
         });
     }

@@ -29,6 +29,7 @@ Route::get('/', function () {
 });
 
 
+
 Route::delete('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 
@@ -36,6 +37,11 @@ Route::delete('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionControl
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])
     ->middleware('auth')
     ->name('dashboard');
+
+
+
+
+
 
 
 //  POSTS
@@ -185,6 +191,14 @@ Route::get('/search', [\App\Http\Controllers\UsersController::class, 'search'])
     ->name('search')
     ->middleware('auth');
 
+Route::get('/info', [\App\Http\Controllers\UsersController::class, 'getInfo'])
+    ->middleware('auth')
+    ->name('user.info');
+
+Route::put('/save-details', [\App\Http\Controllers\UsersController::class, 'detailStore'])
+    ->name('info.update')
+    ->middleware('auth');
+
 
 //      FOLLOW
 Route::get('/users/{user:username}/followings', [\App\Http\Controllers\FollowingController::class, 'index'])
@@ -225,6 +239,7 @@ Route::post('/posts/{post}/dislike', [\App\Http\Controllers\PostDislikeControlle
 //  COMMENTS
 Route::post('/posts/{post}/comment', [CommentController::class, 'store'])->name('comments.store');
 Route::post('/parties/{party}/comment', [\App\Http\Controllers\PartyCommentController::class, 'store'])->name('party.comments.store');
+Route::post('/events/{event}/comment', [\App\Http\Controllers\EventCommentController::class, 'store'])->name('event.comments.store');
 
 
 //  NOTIFICATIONS
@@ -233,7 +248,14 @@ Route::post('/notifications/mark-one/{id}', [NotificationsController::class, 'st
 Route::get('/notifications/mark-all', [NotificationsController::class, 'update'])->name('notifications.update');
 Route::get('/notifications/mark-delete/{id}', [NotificationsController::class, 'destroy'])->name('notifications.destroy');
 
+// DEGREE
+Route::get('/degrees/{degree}', [\App\Http\Controllers\DegreeController::class, 'index'])
+    ->middleware('auth')
+    ->name('degree.show');
 
-
+//  SOCIETIES
+Route::get('/societies', [\App\Http\Controllers\SocietyController::class, 'index'])
+    ->middleware('auth')
+    ->name('societies.show');
 
 require __DIR__ . '/auth.php';

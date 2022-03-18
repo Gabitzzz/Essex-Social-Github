@@ -27,7 +27,8 @@
                                     <a
                                         class="avatar mt-16 w-8 h-8  bg-gray-100 border-2 border-gray-200 border-opacity-25"
                                         :href="('/chatify/' + user.id )" style="border-radius: 15px;">
-                                        <img :src="chat" width="15" height="15" class="absolute z-10 mx-1 my-2" alt="search">
+                                        <img :src="chat" width="15" height="15" class="absolute z-10 mx-1 my-2"
+                                             alt="search">
                                     </a>
                                 </div>
 
@@ -111,91 +112,120 @@
                             </div>
                         </div>
                     </div>
-                    <!--                FEED / GALLERY / ABOUT BUTTONS      -->
-                    <div class=" ">
-                        <div class="flex space-x-4 text-center mx-2 ">
-                            <button @click="feed = !feed; gallery=false; about=false"
-                                    class="flex-1 my-2  p-2 shadow-md font-semibold border-gray-300 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
-                                Feed
-                            </button>
 
-                            <button @click="gallery = !gallery; about=false; feed=false"
-                                    class="flex-1 my-2 p-2 shadow-md font-semibold border-gray-300 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
-                                Gallery
-                            </button>
+                   <div class="mx-2">
+                       <select class="form-select form-select-sm
+                                    appearance-none
+                                    block
+                                    w-full
+                                    px-2
+                                    py-1
 
-                            <button @click="about = !about; gallery=false; feed=false"
-                                    class="flex-1 my-2 p-2 shadow-md font-semibold border-gray-300 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
-                                ABOUT
-                            </button>
-                        </div>
+                                    text-sm
+                                    font-normal
+                                    text-gray-700
+                                    bg-white bg-clip-padding bg-no-repeat
+                                    border border-solid border-gray-300
+                                    rounded
+                                    transition
+                                    ease-in-out
+                                    focus:text-gray-700
+                                    focus:bg-white
+                                    focus:border-blue-600
+                                    focus:outline-none"
+                               aria-label=".form-select-sm example">
+                           <option selected>Open this select menu</option>
+                           <option value="1">One</option>
+                           <option value="2">Two</option>
+                           <option value="3">Three</option>
+                       </select>
+                   </div>
+
+            <!--                FEED / GALLERY / ABOUT BUTTONS      -->
+            <div class=" ">
+                <div class="flex space-x-4 text-center mx-2 ">
+                    <button @click="feed = !feed; gallery=false; about=false"
+                            class="flex-1 my-2  p-2 shadow-md font-semibold border-gray-300 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
+                        Feed
+                    </button>
+
+                    <button @click="gallery = !gallery; about=false; feed=false"
+                            class="flex-1 my-2 p-2 shadow-md font-semibold border-gray-300 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
+                        Gallery
+                    </button>
+
+                    <button @click="about = !about; gallery=false; feed=false"
+                            class="flex-1 my-2 p-2 shadow-md font-semibold border-gray-300 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
+                        ABOUT
+                    </button>
+                </div>
+            </div>
+
+            <!--    FEED    -->
+            <div v-show="feed" class="py-2 mx-2 ">
+                <div class=" ">
+                    <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+                        <h1 class="text-3xl text-white px-6 py-4 ">
+                            FEED
+                        </h1>
                     </div>
 
-                    <!--    FEED    -->
-                    <div v-show="feed" class="py-2">
-                        <div class=" ">
-                            <div class=" feed overflow-hidden shadow-sm rounded-xl shadow-xl mx-1">
-                                <h1 class="text-3xl text-white px-6 py-4">
-                                    FEED
-                                </h1>
-                            </div>
-
-                            <!--                    ADD TAB         -->
-                            <div v-if="$page.props.auth.user.id === $page.props.user.id" class="mt-4 mx-2">
-                                <AddTab></AddTab>
-                            </div>
-
-                            <div class="pb-20 mt-4 mx-2">
-                                <div v-for="post in posts">
-                                    <div v-if="$page.props.auth.user === $page.props.posts.user_id"></div>
-                                    <Post :post="post"></Post>
-                                </div>
-                            </div>
-                        </div>
+                    <!--                    ADD TAB         -->
+                    <div v-if="$page.props.auth.user.id === $page.props.user.id" class="mt-4 ">
+                        <AddTab></AddTab>
                     </div>
 
-                    <!--  GALLERY -->
-                    <div v-show="gallery" class="py-2 mx-2 mb-2">
-                        <div class="">
-                            <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
-                                <h1 class="text-3xl text-white px-6 py-4 ">
-                                    GALLERY
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--    ABOUT   -->
-                    <div v-show="about" class="py-2 mx-2 mb-2">
-                        <div class="">
-                            <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
-                                <h1 class="text-3xl text-white px-6 py-4 ">
-                                    ABOUT
-                                </h1>
-                            </div>
-                        </div>
-                        <div class=" mt-5">
-                            <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
-                                <div class="p-6 border-b border-gray-200">
-                                    <p>
-                                        <strong>Username:</strong> {{ $page.props.user.username }}
-                                    </p>
-                                    <p>
-                                        <strong>Name:</strong> {{ $page.props.user.name }}
-                                    </p>
-                                    <p>
-                                        <strong>Email:</strong> {{ $page.props.user.email }}
-                                    </p>
-                                    <p>
-                                        <strong>Description:</strong> {{ $page.props.user.description }}
-                                    </p>
-                                </div>
-                            </div>
+                    <div class="pb-20 mt-4 mx-2">
+                        <div v-for="post in posts">
+                            <div v-if="$page.props.auth.user === $page.props.posts.user_id"></div>
+                            <Post :post="post"></Post>
                         </div>
                     </div>
                 </div>
             </div>
-        </BreezeAuthenticatedLayout>
+
+            <!--  GALLERY -->
+            <div v-show="gallery" class="py-2 mx-2 mb-2">
+                <div class="">
+                    <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+                        <h1 class="text-3xl text-white px-6 py-4 ">
+                            GALLERY
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            <!--    ABOUT   -->
+            <div v-show="about" class="py-2 mx-2 mb-2">
+                <div class="">
+                    <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+                        <h1 class="text-3xl text-white px-6 py-4 ">
+                            ABOUT
+                        </h1>
+                    </div>
+                </div>
+                <div class=" mt-5">
+                    <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+                        <div class="p-6 border-b border-gray-200">
+                            <p>
+                                <strong>Username:</strong> {{ $page.props.user.username }}
+                            </p>
+                            <p>
+                                <strong>Name:</strong> {{ $page.props.user.name }}
+                            </p>
+                            <p>
+                                <strong>Email:</strong> {{ $page.props.user.email }}
+                            </p>
+                            <p>
+                                <strong>Description:</strong> {{ $page.props.user.description }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    </BreezeAuthenticatedLayout>
     </div>
 </template>
 
@@ -305,5 +335,6 @@ export default {
 .feed {
     background-image: linear-gradient(to right, #0362fc, #11479e);
 }
+
 
 </style>
