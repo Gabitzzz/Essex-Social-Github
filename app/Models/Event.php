@@ -37,4 +37,9 @@ class Event extends Model
         return $this->hasMany(EventInvite::class);
     }
 
+    public function eventComments()
+    {
+        return $this->hasMany(EventComment::class);
+    }
+
 }

@@ -111,6 +111,32 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="flex justify-center">
+                        <div class="mb-3 xl:w-96">
+                            <select class="form-select appearance-none
+      block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
                     <!--                FEED / GALLERY / ABOUT BUTTONS      -->
                     <div class=" ">
                         <div class="flex space-x-4 text-center mx-2 ">
@@ -132,16 +158,16 @@
                     </div>
 
                     <!--    FEED    -->
-                    <div v-show="feed" class="py-2">
+                    <div v-show="feed" class="py-2 mx-2 ">
                         <div class=" ">
-                            <div class=" feed overflow-hidden shadow-sm rounded-xl shadow-xl mx-1">
-                                <h1 class="text-3xl text-white px-6 py-4">
+                            <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+                                <h1 class="text-3xl text-white px-6 py-4 ">
                                     FEED
                                 </h1>
                             </div>
 
                             <!--                    ADD TAB         -->
-                            <div v-if="$page.props.auth.user.id === $page.props.user.id" class="mt-4 mx-2">
+                            <div v-if="$page.props.auth.user.id === $page.props.user.id" class="mt-4 ">
                                 <AddTab></AddTab>
                             </div>
 
@@ -305,5 +331,6 @@ export default {
 .feed {
     background-image: linear-gradient(to right, #0362fc, #11479e);
 }
+
 
 </style>

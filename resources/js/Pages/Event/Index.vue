@@ -98,57 +98,163 @@
                 </div>
             </div>
 
-            <div class="flex justify-end mx-4">
+<!--            <div class="flex justify-end mx-4">-->
+<!--                <InertiaLink @click="back"-->
+<!--                             class="ml-1 h-6 w-6 rounded-full">-->
+<!--                    <img :src="backButton" alt="">-->
+<!--                </InertiaLink>-->
+<!--            </div>-->
+
+
+<!--            <div class=" mx-4">-->
+<!--                <div class="flex  ">-->
+<!--                    <img-->
+<!--                        :src="pin"-->
+<!--                        class="avatar  avatar w-10 h-10 mt-2  "-->
+<!--                        alt="default"-->
+<!--                    />-->
+
+<!--                    <div class="bg-white rounded-full my-2 ">-->
+<!--                        <p class="text-center md:text-nd py-2 px-4  ">-->
+<!--                            {{ event.location }}-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="flex">-->
+<!--                    <img-->
+<!--                        :src="organizer"-->
+<!--                        class="avatar  avatar w-10 h-10 mt-2  "-->
+<!--                        alt="default"-->
+<!--                    />-->
+
+<!--                    <div class="bg-white rounded-full my-2 ml-1 ">-->
+<!--                        <p class="text-center text-md py-2 px-4  ">-->
+<!--                            Organized by {{ event.user.username }}-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+<!--            <div class=" mx-4 mt-8">-->
+<!--                <div class="text-center bg-white p-4 md:px-8 md:mx-16 rounded-xl">-->
+<!--                    <div class="flex justify-center mb-4">-->
+<!--                        <img-->
+<!--                            :src="quote"-->
+<!--                            class="avatar text-center w-10 h-10 mt-2  "-->
+<!--                            alt="default"-->
+<!--                        />-->
+<!--                    </div>-->
+
+<!--                    {{ event.description }}-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <!--            LOCATION        -->
+            <div class="flex justify-between mx-4  ">
+                <div class="flex items-center">
+                    <img
+                        :src="pin"
+                        class="avatar  avatar w-8 h-8   "
+                        alt="default"
+                    />
+
+                    <div class="bg-white rounded-full my-2 ml-1 ">
+                        <p class="text-center text-md py-2 px-4  ">
+                            {{ event.location }}
+                        </p>
+                    </div>
+                </div>
+                <!--                BACK BUTTON -->
                 <InertiaLink @click="back"
                              class="ml-1 h-6 w-6 rounded-full">
                     <img :src="backButton" alt="">
                 </InertiaLink>
             </div>
 
-
+            <!--     ORGANIZER    -->
             <div class=" mx-4">
-                <div class="flex  ">
-                    <img
-                        :src="pin"
-                        class="avatar  avatar w-10 h-10 mt-2  "
-                        alt="default"
-                    />
-
-                    <div class="bg-white rounded-full my-2 ">
-                        <p class="text-center md:text-nd py-2 px-4  ">
-                            {{ event.location }}
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex">
+                <div class="flex items-center">
                     <img
                         :src="organizer"
-                        class="avatar  avatar w-10 h-10 mt-2  "
+                        class="avatar w-8 h-8 mt-2  "
                         alt="default"
                     />
 
                     <div class="bg-white rounded-full my-2 ml-1 ">
                         <p class="text-center text-md py-2 px-4  ">
-                            Organized by {{ event.user.username }}
+                            Organized by
+                            <inertia-link :href="route('profile', event.user.username)" class="font-semibold">
+                                {{ event.user.username }}
+                            </inertia-link>
                         </p>
                     </div>
                 </div>
             </div>
 
-
-            <div class=" mx-4 mt-8">
-                <div class="text-center bg-white p-4 md:px-8 md:mx-16 rounded-xl">
-                    <div class="flex justify-center mb-4">
+            <!--            DESCRIPTION     -->
+            <div class="flex items-center mb-4 mx-2">
+                <div class="bg-white w-full rounded-2xl my-2 divide-y px-4">
+                    <div class="flex items-center mb-1">
                         <img
                             :src="quote"
-                            class="avatar text-center w-10 h-10 mt-2  "
+                            class="avatar  w-8 h-8 mt-2   "
                             alt="default"
                         />
+                        <p class="mx-4 font-semibold">
+                            Description
+                        </p>
                     </div>
 
-                    {{ event.description }}
+                    <p class=" text-md py-2   ">
+                        {{ event.description }}
+                        <!--                        hello-->
+                    </p>
                 </div>
+            </div>
+
+
+            <!--            COMMENTS        -->
+<!--            <div class="flex items-center mt-4">-->
+<!--                <div class="w-full px-4 py-2 flex items-center bg-white rounded-2xl m-2  ">-->
+<!--                    <img-->
+<!--                        :src="comment"-->
+<!--                        class="avatar  avatar w-8 h-8   "-->
+<!--                        alt="default"-->
+<!--                    />-->
+
+<!--                    <p class="text-center text-md font-semibold mx-4   ">-->
+<!--                        Comments-->
+<!--                    </p>-->
+<!--                </div>-->
+
+<!--            </div>-->
+
+            <div class="mx-2 max-2 rounded-xl ">
+                <form @submit.prevent="submit" class="w-full">
+                    <div class="flex ">
+                        <BreezeInput id="body" type="text" class="block w-full h-10 " v-model="form.body"
+                                     placeholder="  leave a comment"
+                                     required autocomplete="name"/>
+
+                        <button type="submit"
+                                class="button ml-1 px-6 shadow-2xl bg-black rounded-full text-white  md:mx-2"
+                                :disabled="form.processing">
+                            SUBMIT
+                        </button>
+                    </div>
+
+                    <div class="flex justify-between my-3">
+                        <div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <div v-for="(comment, index) in comments" :key="index">
+                <Comment :comment="comment"></Comment>
             </div>
 
         </div>
@@ -157,7 +263,6 @@
 
 <script>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import Events from "@/Pages/Event/Events";
 import Event from "@/Pages/Event/Event";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
 import pin from "/img/Posts/pin.png";
@@ -166,6 +271,8 @@ import quote from "/img/Party/quote.png";
 import organizer from "/img/Party/organizer.png";
 import backButton from "/img/Tab/left-arrow.png";
 import {Head} from '@inertiajs/inertia-vue3';
+import BreezeInput from '@/Components/Input.vue';
+import Comment from "@/Pages/Event/Comment";
 
 
 export default {
@@ -175,9 +282,15 @@ export default {
         InertiaLink,
         Event,
         Head,
+        BreezeInput,
+        Comment,
     },
     data() {
         return {
+            form: this.$inertia.form({
+                body: null,
+            }),
+
             pin: pin,
             eventCover: eventCover,
             quote: quote,
@@ -191,9 +304,18 @@ export default {
         inviteToggle: Boolean,
         invites: Array,
         showLeave: Boolean,
+        comments: Array,
 
     },
     methods: {
+        submit() {
+            this.form.post(this.route('event.comments.store', this.event), {
+                preserveScroll: true,
+                onSuccess: () => {
+                    this.form.body = null
+                }
+            })
+        },
         showImage() {
             return "/storage/";
         },

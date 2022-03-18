@@ -93,6 +93,11 @@ class User extends Authenticatable
         return $this->hasMany(PartyComment::class);
     }
 
+    public function eventComments()
+    {
+        return $this->hasMany(EventComment::class);
+    }
+
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = Hash::needsRehash($password) ? Hash::make($password) : $password;
