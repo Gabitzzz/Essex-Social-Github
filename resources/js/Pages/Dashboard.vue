@@ -347,22 +347,13 @@
                             <InertiaLink :href="route('party.show')"
                                          class=" justify-center inline-block text-center"
                             >
-                                <img :src="degree" class="inline-block p-1" alt="plus">
+                                <img :src="degreePicture" class="inline-block p-1" alt="plus">
                             </InertiaLink>
                         </div>
-                        <inertia-link
-                            as="button"
-                            :href="route('degree.show', $page.props.degree.user_id)">
-                            <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
-                                {{ $page.props.degree.title }}
-                            </p>
-                        </inertia-link>
-<!--                        <inertia-link preserve-scroll-->
-<!--                                      method="POST"-->
-<!--                                      as="button"-->
-<!--                                      :href="route('dislikes.toggle', post.id)"-->
-<!--                                      class="h-6 w-6 rounded-full bg-red-500 hover:bg-red-700">-->
-<!--                        </inertia-link>-->
+
+                        <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
+                            {{$page.props.auth.user.degree}}
+                        </p>
                     </div>
                 </div>
 
@@ -471,7 +462,7 @@ import followerslogo from "/img/Dashboard/followerslogo.png";
 import followinglogo from "/img/Dashboard/followinglogo.png";
 import societieslogo from "/img/Dashboard/societieslogo.png";
 import library from "/img/Dashboard/library.png";
-import degree from "/img/Dashboard/degree.png";
+import degreePicture from "/img/Dashboard/degree.png";
 import leap from "/img/Dashboard/leap.jpeg";
 import faser from "/img/Dashboard/faser.png";
 import fyw from "/img/Dashboard/fyw.png";
@@ -527,9 +518,9 @@ export default {
             followerslogo: followerslogo,
             followinglogo: followinglogo,
             societieslogo: societieslogo,
-            degree: degree,
+            degreePicture: degreePicture,
             user: user,
-            library: library,
+            library:library,
         };
     },
 

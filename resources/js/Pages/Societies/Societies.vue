@@ -29,11 +29,11 @@
 
 
 
-            <div>
-                <div v-for="(party, key) in parties" :key="key" class="mt-8">
-                    <Party :party="party" :invites="party.invites" :username="party.user.username"></Party>
-                </div>
-            </div>
+<!--            <div>-->
+<!--                <div v-for="(party, key) in parties" :key="key" class="mt-8">-->
+<!--                    <Party :party="party" :invites="party.invites" :username="party.user.username"></Party>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
 
     </BreezeAuthenticatedLayout>
