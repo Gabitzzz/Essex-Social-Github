@@ -16,6 +16,7 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
 
+
 //    use Likeable;
 
     /**
@@ -60,6 +61,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+
+    public function degreePosts()
+    {
+        return $this->hasMany(DegreePost::class);
+    }
+
 
     public function parties()
     {

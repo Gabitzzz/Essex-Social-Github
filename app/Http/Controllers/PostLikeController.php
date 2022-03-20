@@ -17,7 +17,7 @@ class PostLikeController extends Controller
         $post->likes()->toggle(auth()->id());
 
         $user = User::where('id', auth()->id())->first();
-        event(new SomeoneLikedEvent($user, auth()->user()));
+//        event(new SomeoneLikedEvent($user, auth()->user()));
 
         //        dd(event(new SomeoneLikedEvent($user)));
 

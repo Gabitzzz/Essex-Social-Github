@@ -340,7 +340,8 @@
                         </p>
                     </div>
 
-                    <div class="flex mt-2">
+                    <div v-if="$page.props.degree != null"
+                        class="flex mt-2">
                         <div
                             class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
                         >
@@ -351,9 +352,11 @@
                             </InertiaLink>
                         </div>
 
-                        <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
-                            {{$page.props.auth.user.degree}}
-                        </p>
+                        <InertiaLink :href="route('degree.show', $page.props.degree.id)">
+                            <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
+                                {{$page.props.degree.title}}
+                            </p>
+                        </InertiaLink>
                     </div>
                 </div>
 

@@ -18,7 +18,7 @@ class CreateDegreesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title')->unique();
             $table->string('description')->unique();
-            $table->text('image')->nullable();
+            $table->text('degreePicture')->nullable();
             $table->timestamps();
         });
     }

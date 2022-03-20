@@ -253,6 +253,45 @@ Route::get('/degrees/{degree}', [\App\Http\Controllers\DegreeController::class, 
     ->middleware('auth')
     ->name('degree.show');
 
+
+Route::get('/degrees/{degree}/create-post', [\App\Http\Controllers\DegreePostController::class, 'create'])
+    ->middleware('auth')
+    ->name('degree.posts.create');
+
+Route::post('/degrees/{degree}/add-post', [\App\Http\Controllers\DegreePostController::class, 'store'])
+    ->middleware('auth')
+    ->name('degree.posts.store');
+
+Route::get('/degrees/{degree}/posts/{post}', [\App\Http\Controllers\DegreePostController::class, 'index'])
+    ->middleware('auth')
+    ->name('degree.post.show');
+
+Route::get('/degrees/{degree}/posts/{post}/edit', [\App\Http\Controllers\DegreePostController::class, 'edit'])
+    ->name('degree.posts.edit')
+    ->middleware('auth');
+
+Route::get('/degrees/{degree}/posts/{post}/details', [\App\Http\Controllers\DegreePostController::class, 'likes'])
+    ->name('degree.posts.likes')
+    ->middleware('auth');
+
+Route::put('/degrees/{degree}/posts/{post}', [\App\Http\Controllers\DegreePostController::class, 'update'])
+    ->name('degree.posts.update')
+    ->middleware('auth');
+
+Route::get('/degrees/{degree}/posts/{post}/delete', [\App\Http\Controllers\DegreePostController::class, 'destroy'])
+    ->name('degree.posts.destroy')
+    ->middleware('auth');
+
+//  DEGREE LIKES
+Route::post('/degrees/{degree}/posts/{post}/like', [\App\Http\Controllers\DegreeLikeController::class, 'toggle'])
+    ->middleware('auth')
+    ->name('degree.likes.toggle');
+
+Route::post('/degrees/{degree}/posts/{post}/dislike', [\App\Http\Controllers\DegreeDislikeController::class, 'toggle'])
+    ->middleware('auth')
+    ->name('degree.dislikes.toggle');
+
+
 //  SOCIETIES
 Route::get('/societies', [\App\Http\Controllers\SocietyController::class, 'index'])
     ->middleware('auth')
