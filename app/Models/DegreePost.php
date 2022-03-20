@@ -38,36 +38,17 @@ class DegreePost extends Model
     public function likes()
     {
         return $this->belongsToMany(User::class, 'degree_likes')->withTimestamps();
-
-
     }
-
-//    public function invites()
-//    {
-//        return $this->hasMany(PartyInvite::class, 'party_id', 'id');
-//    }
 
     public function dislikes()
     {
         return $this->belongsToMany(User::class, 'degree_dislikes');
     }
 
-
-//
-//    public function likes()
-//    {
-//        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
-//    }
-//
-//    public function dislikes(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-//    {
-//        return $this->belongsToMany(User::class, 'dislikes');
-//    }
-//
-//    public function comments()
-//    {
-//        return $this->hasMany(Comment::class, 'comments')->withTimestamps();
-//    }
+    public function comments()
+    {
+        return $this->hasMany(DegreeComment::class, 'comments')->withTimestamps();
+    }
 
 //    public function getTimeAgoAttribute()
 //    {

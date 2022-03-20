@@ -291,6 +291,10 @@ Route::post('/degrees/{degree}/posts/{post}/dislike', [\App\Http\Controllers\Deg
     ->middleware('auth')
     ->name('degree.dislikes.toggle');
 
+//  DEGREE COMMENTS
+Route::post('/degrees/{degree}/posts/{post}/comment', [\App\Http\Controllers\DegreeCommentController::class, 'store'])->name('degree.comments.store');
+
+
 
 //  SOCIETIES
 Route::get('/societies', [\App\Http\Controllers\SocietyController::class, 'index'])

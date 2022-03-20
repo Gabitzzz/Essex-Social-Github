@@ -2,8 +2,9 @@
     <BreezeAuthenticatedLayout>
 
         <DegreeHeader :degree="degree"></DegreeHeader>
+        <div class="mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
-    <div class="my-4 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+        <div class="my-4  bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
             <div class="flex">
                     <div class="flex justify-items-start m-2 items-center">
                         <div v-if="post.user.avatar === null">
@@ -134,6 +135,33 @@
                             <DegreeDislike :post="post" :degree="degree" class="ml-1"></DegreeDislike>
 
                         </div>
+
+
+
+                        <div class="mx-2 max-2 rounded-xl ">
+                            <form @submit.prevent="submit" class="w-full">
+                                <div class="flex mt-5">
+                                    <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"
+                                                 placeholder="  leave a comment"
+                                                 required autofocus autocomplete="name"/>
+
+                                    <button type="submit"
+                                            class="button px-6 shadow-2xl  md:mx-2"
+                                            :class="{ 'opacity-25': form.processing }"
+                                            :disabled="form.processing">
+                                        SUBMIT
+                                    </button>
+                                </div>
+
+                                <div class="flex justify-between my-3">
+                                    <div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+</div>
                     </div>
                 </div>
             </div>
@@ -152,13 +180,22 @@ import DegreeHeader from "@/Components/DegreeHeader";
 import defaultProfile from "/img/Posts/defaultProfile.png";
 import DegreeDislike from "@/Components/DegreeDislike";
 import DegreeLike from "@/Components/DegreeLike";
+import BreezeInput from '@/Components/Input.vue';
+
 export default {
     name: "Post",
-    data() {
-        return {
+    data(){
+        return{
+            form: this.$inertia.form({
+                body: null,
+
+            }),
             defaultProfile: defaultProfile,
             avatar: avatar,
             location:location,
+        }
+    },
+
             // form: this.$inertia.form({
             //     body: this.body,
             //     // user_id: this.post.user_id,
@@ -170,11 +207,10 @@ export default {
             //     userPosts: this.post
             // }),
             // defaultProfile: defaultProfile,
-        }
-    },
     components: {
         DegreeDislike,
         DegreeLike,
+        BreezeInput,
         InertiaLink,
         CombinedComments,
         PostForm,
@@ -190,6 +226,16 @@ export default {
     methods: {
         showImage() {
             return "/storage/";
+        },
+
+
+        submit() {
+            this.form.post(this.route('degree.comments.store', [this.post, this.degree]), {
+                preserveScroll: true,
+                onSuccess: () => {
+                    this.form.body = null
+                }
+            })
         },
     }
 }

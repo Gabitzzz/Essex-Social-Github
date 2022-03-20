@@ -100,6 +100,11 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function degreeComments()
+    {
+        return $this->hasMany(DegreeComment::class);
+    }
+
     public function partyComments()
     {
         return $this->hasMany(PartyComment::class);
