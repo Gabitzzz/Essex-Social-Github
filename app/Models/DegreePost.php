@@ -45,9 +45,11 @@ class DegreePost extends Model
         return $this->belongsToMany(User::class, 'degree_dislikes');
     }
 
-    public function comments()
+
+
+    public function degreeComments()
     {
-        return $this->hasMany(DegreeComment::class, 'comments')->withTimestamps();
+        return $this->hasMany(DegreeComment::class, 'degree_comments')->withTimestamps();
     }
 
 //    public function getTimeAgoAttribute()

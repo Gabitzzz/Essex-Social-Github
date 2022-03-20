@@ -10,7 +10,7 @@
                         <div v-if="post.user.avatar === null">
                             <img
                                 :src="defaultProfile"
-                                class="avatar  avatar w-10 h-10 ml-2 my-2"
+                                class="avatar   w-10 h-10 ml-2 my-2"
                                 alt="default"
                             />
                         </div>
@@ -18,7 +18,7 @@
                         <div v-else>
                             <img
                                 :src="showImage() + post.user.avatar || showImage() + 'default-avatar.png'"
-                                class="avatar rounded-full avatar w-10 h-10 ml-2 my-2 "
+                                class="avatar rounded-full  w-10 h-10 ml-2 my-2 "
                                 alt="avatar"
                             />
                         </div>
@@ -146,7 +146,7 @@
                                                  required autofocus autocomplete="name"/>
 
                                     <button type="submit"
-                                            class="button px-6 shadow-2xl  md:mx-2"
+                                            class="button px-6 shadow-2xl md:mx-2"
                                             :class="{ 'opacity-25': form.processing }"
                                             :disabled="form.processing">
                                         SUBMIT
@@ -189,6 +189,7 @@ export default {
             form: this.$inertia.form({
                 body: null,
 
+
             }),
             defaultProfile: defaultProfile,
             avatar: avatar,
@@ -196,17 +197,6 @@ export default {
         }
     },
 
-            // form: this.$inertia.form({
-            //     body: this.body,
-            //     // user_id: this.post.user_id,
-            // }),
-            // likeForm: this.$inertia.form({
-            //     userPost: this.post
-            // }),
-            // dislikeForm: this.$inertia.form({
-            //     userPosts: this.post
-            // }),
-            // defaultProfile: defaultProfile,
     components: {
         DegreeDislike,
         DegreeLike,
@@ -230,10 +220,11 @@ export default {
 
 
         submit() {
-            this.form.post(this.route('degree.comments.store', [this.post, this.degree]), {
+            this.form.post(this.route('degree.comments.store', [this.degree, this.post]), {
                 preserveScroll: true,
                 onSuccess: () => {
                     this.form.body = null
+
                 }
             })
         },

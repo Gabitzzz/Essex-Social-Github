@@ -29,6 +29,7 @@ class StoreImage extends FormRequest
             'image' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
             'partyImg' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
             'eventImg' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
+            'degreePicture' => 'image|mimes:jpeg,jpg,png,gif,svg|max:16384',
 
         ];
     }

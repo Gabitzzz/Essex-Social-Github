@@ -6,12 +6,12 @@
             <div class=" ">
                 <div class="rounded-xl  border-gray-200" style="position: relative;">
                     <div v-if="degree.degreePicture === null">
-                        <img :src="degreePicture" class="w-full cover rounded-b-xl" alt="cover"
+                        <img :src="degreePicture" class="w-full cover rounded-b-xl" alt="degree_picture"
                              style="max-height: 350px; ">
                     </div>
 
                     <div v-else>
-                        <img :src="showImage() + degree.cover" class="w-full cover rounded-lg" alt="cover"
+                        <img :src="showImage() + degree.degreePicture" class="w-full cover rounded-lg" alt="degree_picture"
                              style="max-height: 350px;">
                     </div>
 
@@ -25,20 +25,6 @@
                             {{ degree.description }}
                         </p>
 
-<!--                        <div class="attendance text-sm">-->
-<!--                            <div v-if="$page.props.users.length === 0">-->
-
-<!--                            </div>-->
-
-
-<!--                            <div v-else-if="$page.props.users.length === 1">-->
-<!--                                1 person is attending-->
-<!--                            </div>-->
-
-<!--                            <div v-else-if="$page.props.users.length > 1">-->
-<!--                                {{ $page.props.users.length }} people are attending-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -51,8 +37,8 @@
 <script>
 import {Head} from '@inertiajs/inertia-vue3';
 import {InertiaLink} from "@inertiajs/inertia-vue3";
-import degreePicture from "/img/Degree/degreePicture.jpg";
 import DegreePosts from "@/Pages/DegreePosts/DegreePosts";
+import degreePicture from "/img/Degree/degreePicture.jpg";
 
 
 export default {

@@ -21,4 +21,8 @@ class Degree extends Model
     public function degreeLikes(){
         return $this->belongsTo(Degree::class);
     }
+
+    public function postComments(){
+        return $this->hasMany(DegreeComment::class);
+    }
 }

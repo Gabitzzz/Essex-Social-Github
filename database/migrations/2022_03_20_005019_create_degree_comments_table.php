@@ -16,7 +16,7 @@ class CreateDegreeCommentsTable extends Migration
         Schema::create('degree_comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('post_id')->constrained()->onDelete('cascade');
+            $table->foreignId('degree_post_id')->constrained()->onDelete('cascade');
             $table->text('body');
             $table->timestamps();
         });

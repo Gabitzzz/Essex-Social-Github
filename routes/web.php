@@ -266,6 +266,10 @@ Route::get('/degrees/{degree}/posts/{post}', [\App\Http\Controllers\DegreePostCo
     ->middleware('auth')
     ->name('degree.post.show');
 
+//  DEGREE COMMENTS
+Route::post('/degrees/{degree}/posts/{post}/comment', [\App\Http\Controllers\DegreeCommentController::class, 'store'])
+    ->name('degree.comments.store');
+
 Route::get('/degrees/{degree}/posts/{post}/edit', [\App\Http\Controllers\DegreePostController::class, 'edit'])
     ->name('degree.posts.edit')
     ->middleware('auth');
@@ -282,6 +286,8 @@ Route::get('/degrees/{degree}/posts/{post}/delete', [\App\Http\Controllers\Degre
     ->name('degree.posts.destroy')
     ->middleware('auth');
 
+
+
 //  DEGREE LIKES
 Route::post('/degrees/{degree}/posts/{post}/like', [\App\Http\Controllers\DegreeLikeController::class, 'toggle'])
     ->middleware('auth')
@@ -291,8 +297,7 @@ Route::post('/degrees/{degree}/posts/{post}/dislike', [\App\Http\Controllers\Deg
     ->middleware('auth')
     ->name('degree.dislikes.toggle');
 
-//  DEGREE COMMENTS
-Route::post('/degrees/{degree}/posts/{post}/comment', [\App\Http\Controllers\DegreeCommentController::class, 'store'])->name('degree.comments.store');
+
 
 
 

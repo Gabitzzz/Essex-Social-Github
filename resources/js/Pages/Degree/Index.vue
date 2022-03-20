@@ -7,7 +7,7 @@
             <div class=" ">
                 <div class="rounded-xl  border-gray-200" style="position: relative;">
                     <div v-if="degree.degreePicture === null">
-                        <img :src="degreePicture" class="w-full cover rounded-b-xl" alt="cover"
+                        <img :src="degreePicture" class="w-full cover rounded-b-xl" alt="degree_cover"
                              style="max-height: 350px; ">
                     </div>
 
