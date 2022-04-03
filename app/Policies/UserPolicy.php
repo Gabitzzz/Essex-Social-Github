@@ -15,4 +15,10 @@ class UserPolicy
        return $user->email === 'john@doe.com';
 
     }
+
+    public function edit(User $user)
+    {
+        return $user->email === 'nl19102@essex.ac.uk';
+
+    }
 }

@@ -50,7 +50,7 @@
             <div class="mt-5 flex flex-wrap overflow-hidden max-w-7xl ">
                 <div class="w-1/2 overflow-hidden sm:w-1/Q xl:w-6/12">
                     <!-- Column Content -->
-                    <div class="mx-1 max-2 weather overflow-hidden rounded-xl shadow-lg">
+                    <div class="mx-2 max-2 weather overflow-hidden rounded-xl shadow-lg">
                         <h1 class="text-3xl text-white px-4 py-4 ">
                             Colchester <br>
                             17°
@@ -62,7 +62,7 @@
 
                 <div class="w-1/2 sm:w-1/2 overflow-hidden md:w-6/12">
                     <!-- Column Content -->
-                    <div class=" mx-1 max-2 calendar overflow-hidden shadow-lg rounded-xl shadow-md">
+                    <div class=" mx-2 max-2 calendar overflow-hidden shadow-lg rounded-xl shadow-md">
                         <h2 class="text-3xl text-white px-6 pt-4">Today</h2>
                         <h1 class="text-3xl text-white px-6 pb-4 ">{{ formatDate() }}</h1>
                     </div>
@@ -70,11 +70,11 @@
             </div>
 
             <!--                ROW WITH 4 CARDS     -->
-            <div class="mt-5  flex flex-wrap overflow-hidden max-w-7xl ">
+            <div class="mt-5 mx-2 flex flex-wrap overflow-hidden max-w-7xl ">
 
                 <div class="w-1/4 overflow-hidden xl:w-3/12">
                     <!-- Column Content -->
-                    <div class="mx-1 mb-4 max-2 overflow-hidden rounded-2xl bg-white shadow-md  ">
+                    <div class=" mr-1 mb-4 max-2 overflow-hidden rounded-2xl bg-white shadow-md  ">
                         <a href="https://www.essex.ac.uk/sport">
                             <img :src="essex_sport" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </a>
@@ -185,7 +185,7 @@
             </div>
 
             <!--            ACTIVITIES SLIDER        -->
-            <div class="">
+            <div class="mx-2">
                 <div class=" max-2 overflow-hidden rounded-xl font-bold">
                     <h1 class="text-4xl px-2" style="font-family: 'Poppins', sans-serif;">
                         Activities

@@ -53,6 +53,8 @@ Route::get('create-post', [PostsController::class, 'create'])
     ->middleware('auth')
     ->name('posts.create');
 
+
+
 Route::post('add-post', [PostsController::class, 'store'])
     ->middleware('auth')
     ->name('posts.store');
@@ -61,13 +63,28 @@ Route::get('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'inde
     ->middleware('auth')
     ->name('post.show');
 
+
+
 Route::get('/posts/{post}/edit', [\App\Http\Controllers\PostsController::class, 'edit'])
     ->name('posts.edit')
     ->middleware('auth');
 
-Route::get('/posts/{post}/details', [\App\Http\Controllers\PostsController::class, 'likes'])
+
+Route::get('/posts/{post}/dislikes', [\App\Http\Controllers\PostsController::class, 'dislikes'])
+    ->name('posts.dislikes')
+    ->middleware('auth');
+
+Route::get('/posts/{post}/likes', [\App\Http\Controllers\PostsController::class, 'likes'])
     ->name('posts.likes')
     ->middleware('auth');
+
+
+Route::get('/posts/{post}/comments', [\App\Http\Controllers\PostsController::class, 'comments'])
+    ->name('posts.comments')
+    ->middleware('auth');
+
+
+
 
 Route::put('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'update'])
     ->name('posts.update')
@@ -226,7 +243,7 @@ Route::delete('/users/{user:username}/followers/{id}', [\App\Http\Controllers\Fo
     ->middleware('auth');
 
 
-//  LIKES
+//  LIKE / DISLIKE TOGGLES
 Route::post('/posts/{post}/like', [\App\Http\Controllers\PostLikeController::class, 'toggle'])
     ->middleware('auth')
     ->name('likes.toggle');

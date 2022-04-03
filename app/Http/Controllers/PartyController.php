@@ -20,31 +20,20 @@ class PartyController extends Controller
 
     public function index()
     {
-//        $parties = Party::with('invites')->latest()->get()->all();
-
         $parties = Party::select('parties.*')
             ->with('invites')
             ->with('user')
-//            ->join('following', 'following.followed_id', '=', 'posts.user_id')
             ->latest()->get()->all();
-
 
         return Inertia::render('Party/Parties', [
             'parties' => $parties,
             'invites' => PartyInvite::all(),
-
-//            'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->with('user')->get()->first(),
-
-//            'parties'=> Party::with('invites')->with('users')->latest()->get()->all(),
         ]);
-
-
     }
 
     public function display(Party $party, User $user)
     {
         $var = $party::with('invites')->where("id", "=", $party->id)->with('user')->get()->first();
-
         $invites = PartyInvite::with('user')->where("party_id", "=", $party->id)->get();
 
         return Inertia::render('Party/Index', [
@@ -52,10 +41,7 @@ class PartyController extends Controller
             'inviteToggle' => $party->invites()->where('party_invites.user_id', auth()->id())->exists(),
             'invites' => $invites,
             'comments' => PartyComment::with('party')->where("party_id", "=", $party->id)->with('user')->latest()->get(),
-
         ]);
-
-
     }
 
     public function create(User $user)
@@ -71,6 +57,7 @@ class PartyController extends Controller
 
     public function store(StoreImage $request)
     {
+        //        VALIDATION
         $attributes = request()->validate([
             'description' => 'required|max:255',
             'title' => 'required|max:255',
@@ -86,31 +73,32 @@ class PartyController extends Controller
 
 //        DATE PARSE
         $date = $attributes['date'];
-        $parsed_day = Carbon::parse($date)->format('d F');
-        $parsed_time = Carbon::parse($date)->format('H:i');
+        $add = Carbon::parse($date)->addHours(3);
+
+        $parsed_day = Carbon::parse($add)->format('d F');
+        $parsed_time = Carbon::parse($add)->format('H:i');
 
         $image_path = '';
         if ($request->hasFile('partyImg')) {
             $image_path = $request->file('partyImg')->store('party', 'public');
         }
 
-        {
-            Party::create([
-                'user_id' => auth()->id(),
-                'title' => $attributes['title'],
-                'description' => $attributes['description'],
-                'location' => $attributes['location'],
-                'date' => $attributes['date'],
-                'day' => $parsed_day,
-                'time' => $parsed_time,
-                'partyImg' => $image_path,
+//        CREATING
+        Party::create([
+            'user_id' => auth()->id(),
+            'title' => $attributes['title'],
+            'description' => $attributes['description'],
+            'location' => $attributes['location'],
+            'date' => $attributes['date'],
+            'day' => $parsed_day,
+            'time' => $parsed_time,
+            'partyImg' => $image_path,
 //            'image'=> $imagePath,
-            ]);
-            $user = User::where('id', auth()->id())->first();
+        ]);
+        $user = User::where('id', auth()->id())->first();
 //        $user->notify(new SomeonePosted($user, auth()->user()));
-            event(new SomeonePostedEvent($user, auth()->user()));
-            return Redirect::route('party.show');
-        }
+        event(new SomeonePostedEvent($user, auth()->user()));
+        return Redirect::route('party.show');
     }
 
     public function edit(Party $party)
@@ -155,11 +143,14 @@ class PartyController extends Controller
 
     public function destroy(Party $party)
     {
+        $party::where('date', '<', Carbon::now())->delete();
+
         $party->delete();
         return Redirect::route('party.show');
     }
 
-    public function members(Party $party){
+    public function members(Party $party)
+    {
         $invites = PartyInvite::with('user')->where("party_id", "=", $party->id)->get();
 
         return Inertia::render('Party/Members', [

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Events\SomeonePostedEvent;
@@ -28,10 +29,7 @@ class EventController extends Controller
 
         return Inertia::render('Event/Events', [
             'events' => $events,
-
         ]);
-
-
     }
 
     public function display(Event $event, User $user)
@@ -59,6 +57,8 @@ class EventController extends Controller
 
     public function store(StoreImage $request)
     {
+
+//        VALIDATION
         $attributes = request()->validate([
             'description' => 'required|max:255',
             'title' => 'required|max:255',
@@ -74,31 +74,32 @@ class EventController extends Controller
 
 //        DATE PARSE
         $date = $attributes['date'];
-        $parsed_day = Carbon::parse($date)->format('d F');
-        $parsed_time = Carbon::parse($date)->format('H:i');
+        $add = Carbon::parse($date)->addHours(3);
+
+        $parsed_day = Carbon::parse($add)->format('d F');
+        $parsed_time = Carbon::parse($add)->format('H:i');
 
         $image_path = '';
         if ($request->hasFile('eventImg')) {
             $image_path = $request->file('eventImg')->store('event', 'public');
         }
 
-        {
-            Event::create([
-                'user_id' => auth()->id(),
-                'title' => $attributes['title'],
-                'description' => $attributes['description'],
-                'location' => $attributes['location'],
-                'date' => $attributes['date'],
-                'day' => $parsed_day,
-                'time' => $parsed_time,
-                'eventImg' => $image_path,
+        //        CREATING
+        Event::create([
+            'user_id' => auth()->id(),
+            'title' => $attributes['title'],
+            'description' => $attributes['description'],
+            'location' => $attributes['location'],
+            'date' => $attributes['date'],
+            'day' => $parsed_day,
+            'time' => $parsed_time,
+            'eventImg' => $image_path,
 //            'image'=> $imagePath,
-            ]);
-            $user = User::where('id', auth()->id())->first();
+        ]);
+        $user = User::where('id', auth()->id())->first();
 //        $user->notify(new SomeonePosted($user, auth()->user()));
-            event(new SomeonePostedEvent($user, auth()->user()));
-            return Redirect::route('event.show');
-        }
+        event(new SomeonePostedEvent($user, auth()->user()));
+        return Redirect::route('event.show');
     }
 
     public function edit(Event $event)
@@ -149,7 +150,8 @@ class EventController extends Controller
         return Redirect::route('event.show');
     }
 
-    public function members(Event $event){
+    public function members(Event $event)
+    {
         $invites = EventInvite::with('user')->where("event_id", "=", $event->id)->get();
 
         return Inertia::render('Event/Members', [

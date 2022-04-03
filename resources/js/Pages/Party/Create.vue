@@ -242,10 +242,10 @@ export default {
         return {
             modelConfig: {
                 type: 'string',
-                masks: {
-
-                    L: 'YYYY-MM-DD HH:MM', // Uses 'iso' if missing
-                }
+                // masks: {
+                //
+                //     L: 'YYYY-MM-DD HH:MM', // Uses 'iso' if missing
+                // }
             },
             // avatar: avatar,
             post: post,
@@ -264,10 +264,7 @@ export default {
             }),
             date: new Date(),
             checked: null,
-            items: [
-                {name: 'Public'},
-                {name: 'Private'},
-            ],
+
             typeOfTask: null, // 1 = recurring, 2 = scheduled
         }
     },

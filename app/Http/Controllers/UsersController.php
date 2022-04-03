@@ -31,15 +31,17 @@ class UsersController extends Controller
             'profile' => [
                 'user' => $user,
             ],
+            'can' => [
+                'edit_user' => Auth::user()->can('users.edit', $user),
+            ],
             'followings' => $user->followings()->withCount([
                 'followers as following' => function ($q) {
                     return $q->where('follower_id', auth()->id());
-                }
+                },
+
             ])->withCasts(['following' => 'boolean'])
                 ->paginate(),
-            'can' => [
-                'createUser' => Auth::user()->can('create', User::class)
-            ],
+
         ]);
     }
 
@@ -79,9 +81,15 @@ class UsersController extends Controller
         return Redirect::route('profile');
     }
 
-    public function edit()
+    public function edit(User $user)
     {
-        return Inertia::render('Profile/Edit', ['user' => auth()->user()]);
+        if(auth()->user()->id != $user->id) {
+            return back()->withErrors(['message' => 'You do not have permission to delete this post!']);
+        }
+        else{
+            return Inertia::render('Profile/Edit', ['user' => auth()->user()]);
+        }
+
     }
 
     public function update(User $user, StoreImage $request)

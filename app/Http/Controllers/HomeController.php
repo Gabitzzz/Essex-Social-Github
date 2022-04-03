@@ -13,10 +13,12 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::select('posts.*')
-            ->with('dislikes')
             ->with('user')
 //            ->join('following', 'following.followed_id', '=', 'posts.user_id')
-            ->with(['likes'])->latest()->get()->all();
+            ->with('likes')
+            ->with('dislikes')
+//            ->with('comments')
+            ->latest()->get()->all();
 
         return Inertia::render('Home/Index', [
             'posts' => $posts,

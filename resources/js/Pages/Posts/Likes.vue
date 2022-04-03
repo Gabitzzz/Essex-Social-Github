@@ -75,11 +75,12 @@
 
                         <!--                LIKES   -->
                         <inertia-link preserve-scroll
-                                      method="POST"
-                                      as="button"
-                                      :href="route('likes.toggle', post.id)"
+                                      :href="route('posts.likes', post)"
+                                      :likes="post.likes"
                         >
                             <div class="flex text-xs px-4 mt-2">
+
+
                                 <div v-if="post.likes.length === 0">
 
                                 </div>
@@ -106,6 +107,7 @@
                                 </div>
                             </div>
                         </inertia-link>
+
 
                         <hr>
 
@@ -142,17 +144,38 @@
             </div>
 
             <div class=" mx-4 flex items-center justify-between max-2 overflow-hidden rounded-xl font-bold">
-                <h1 class="text-2xl px-2 py-2 text-green-700" style="font-family: 'Poppins', sans-serif;">
-                    {{post.likes.length}} likes
-                </h1>
-                <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                    {{post.likes.length}} dislikes
-                </h1>
+                <inertia-link preserve-scroll
+                              as="button"
+                              :href="route('posts.likes', post.id)"
+                >
+                    <h1 class="text-xl px-2 py-2 text-green-700" style="font-family: 'Poppins', sans-serif;">
+                        {{post.likes.length}} likes
+                    </h1>
+                </inertia-link>
 
-                <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                    {{post.likes.length}} comments
-                </h1>
+                <inertia-link preserve-scroll
+                              as="button"
+                              :href="route('posts.dislikes', post.id)"
+                >
+                    <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                        {{post.dislikes.length}} dislikes
+                    </h1>
+                </inertia-link>
+
+
+                <inertia-link preserve-scroll
+                              as="button"
+                              :href="route('posts.comments', post.id)"
+                >
+                    <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                        {{comments.length}} comments
+                    </h1>
+                </inertia-link>
+
+
             </div>
+
+            <hr>
 
 <!--            <div class=" max-2 overflow-hidden rounded-xl font-bold">-->
 <!--                <h1 class="text-2xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">-->
@@ -178,14 +201,10 @@
                         />
                     </div>
 
-                    <p class="ml-2">{{like.name}}</p>
+                    <p class="ml-2">{{like.username}}</p>
 
 
                 </div>
-            </div>
-
-            <div v-for="(comment, index) in comments" :key="index">
-                <CommentItem :comment="comment"></CommentItem>
             </div>
         </div>
     </BreezeAuthenticatedLayout>

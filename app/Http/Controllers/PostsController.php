@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\SomeonePostedEvent;
+use App\Http\Requests\PostFormRequest;
 use App\Http\Requests\StoreImage;
 use App\Models\Comment;
 use App\Models\Like;
@@ -32,11 +33,40 @@ class PostsController extends Controller
         ]);
     }
 
-    public function likes(Post $post){
+    public function likes(Post $post)
+    {
         return Inertia::render('Posts/Likes', [
-            'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->get()->first(),
-//            'likes'=> Like::all(),
+            'post' => Post::with('user')->where("id", "=", $post->id)
+                ->with('likes')
+                ->with('dislikes')
+//                ->with('comments')
 
+                ->get()->first(),
+            'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
+
+        ]);
+    }
+
+    public function dislikes(Post $post)
+    {
+        return Inertia::render('Posts/Dislikes', [
+            'post' => Post::with('user')->where("id", "=", $post->id)
+                ->with('likes')
+                ->with('dislikes')
+                ->get()->first(),
+            'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
+        ]);
+    }
+
+
+    public function comments(Post $post)
+    {
+        return Inertia::render('Posts/Comment', [
+            'post' => Post::with('user')->where("id", "=", $post->id)
+                ->with('likes')
+                ->with('dislikes')
+                ->get()->first(),
+            'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
         ]);
     }
 
@@ -46,10 +76,9 @@ class PostsController extends Controller
     }
 
 
-    public function store(StoreImage $request)
+    public function store( StoreImage $request)
     {
-
-
+        $image_path = '';
         $attributes = request()->validate([
             'body' => 'required|max:255',
             'location' => 'nullable|max:255',
@@ -59,41 +88,37 @@ class PostsController extends Controller
             })],
         ]);
 
-        $image_path = '';
-
         if ($request->hasFile('image')) {
             $image_path = $request->file('image')->store('post', 'public');
         }
-
 
         Post::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body'],
             'location' => $attributes['location'],
             'image' => $image_path,
-//            'image'=> $imagePath,
         ]);
-        $user = User::where('id', auth()->id())->first();
+
+
+//        NOTIFICATIONS
+//        $user = User::where('id', auth()->id())->first();
 //        $user->notify(new SomeonePosted($user, auth()->user()));
 //        event(new SomeonePostedEvent($user, auth()->user()));
+
         return Redirect::route('home');
     }
 
     public function edit(Post $post)
     {
-        return Inertia::render('Posts/Edit', [
-//            'post' => [
-//                'id' => $post->id,
-//                'user_id' => $post->user_id,
-//                'body' => $post->body,
-//                'image' => $post->image,
-////                'avatar' => $user->avatar ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
-////                'cover' => $user->cover ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
-////                'description' => $user->description,
-//            ],
-//        ]);
-            'post' => Post::with('user')->where("id", "=", $post->id)->get()->first(),
-        ]);
+
+        if(auth()->user()->id != $post->user_id) {
+            return back()->withErrors(['message' => 'You do not have permission to delete this post!']);
+        }
+       else{
+           return Inertia::render('Posts/Edit', [
+               'post' => Post::with('user')->where("id", "=", $post->id)->get()->first(),
+           ]);
+       }
     }
 
     public function update(Post $post)

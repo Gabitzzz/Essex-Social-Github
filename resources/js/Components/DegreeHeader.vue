@@ -16,7 +16,6 @@
                     </div>
 
                     <div class="flex justify-center">
-
                         <p style="text-align: center;" class="text-3xl sm:text-4xl title">
                             {{ degree.title }}
                         </p>

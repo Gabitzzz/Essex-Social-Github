@@ -12,7 +12,7 @@
                 </div>
 
                 <AddTab></AddTab>
-                <Posts :posts="posts" :likes="likes" :likeToggle="likeToggle"></Posts>
+                <Posts :posts="posts" :likes="likes" :comments="comments" :commments="comments" :likeToggle="likeToggle"></Posts>
             </div>
         </div>
     </BreezeAuthenticatedLayout>
@@ -36,6 +36,7 @@ export default {
     props: {
         posts: Array,
         likes: Array,
+        comments: Array,
         likeToggle: Boolean,
     },
     // created() {

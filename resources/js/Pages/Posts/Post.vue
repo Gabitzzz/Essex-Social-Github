@@ -2,7 +2,7 @@
     <inertia-link
                   :href="route('post.show', post.id)"
     >
-        <div class="mb-4 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
+        <div class="mb-4 max-2 mx-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
             <div class="flex">
                 <inertia-link :href="route('profile', post.user.username)" class="w-full">
                     <div class="flex justify-items-start m-2 items-center">
@@ -30,8 +30,6 @@
                                        {{ post.timeAgo }}
                                 </span>
                         </div>
-
-
                     </div>
                 </inertia-link>
 
@@ -76,9 +74,8 @@
 
                 <!--                LIKES   -->
                 <inertia-link preserve-scroll
-                              method="POST"
                               as="button"
-                              :href="route('likes.toggle', post.id)"
+                              :href="route('posts.likes', post.id)"
                 >
                     <div class="flex text-xs px-4 mt-2">
                         <div v-if="post.likes.length === 0">

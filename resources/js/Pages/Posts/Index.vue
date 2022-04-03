@@ -72,7 +72,6 @@
                                 :src="showImage() +  post.image"
                                 class="avatar  avatar w-2/3 h-2/3
                                     transform transition-all  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-150  duration-300"/>
-
                         </div>
 
                         <!--                LIKES   -->
@@ -205,6 +204,7 @@ export default {
         post: Object,
         comments: Array,
         likes: Array,
+        dislikes: Array,
     },
     data() {
         return {

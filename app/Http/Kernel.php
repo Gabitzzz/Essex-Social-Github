@@ -2,7 +2,12 @@
 
 namespace App\Http;
 
+use App\Models\Event;
+use App\Models\Party;
+use Carbon\Carbon;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Support\Facades\DB;
 
 class Kernel extends HttpKernel
 {
@@ -65,4 +70,12 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->call(function () {
+            Party::all()->where('date', '<', Carbon::now()->addHours(2))->delete();
+            Event::all()->where('date', '<', Carbon::now()->addHours(2))->delete();
+        })->everyMinute();
+    }
 }

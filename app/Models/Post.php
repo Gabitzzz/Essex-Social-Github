@@ -16,6 +16,11 @@ class Post extends Model
         'timeAgo',
     ];
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'comments')->withTimestamps();
+    }
+
 //    FOR EDITING POSTS
     public function user()
     {
@@ -38,10 +43,7 @@ class Post extends Model
         return $this->belongsToMany(User::class, 'dislikes');
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class, 'comments')->withTimestamps();
-    }
+
 
     public function getTimeAgoAttribute()
     {

@@ -19,6 +19,8 @@ class DashboardController extends Controller
 
     public function index(Party $party, User $user)
     {
+
+
         $partyInvites = PartyInvite::all();
         $parties = Party::with('invites')
             ->join('party_invites', 'parties.id','=','party_invites.party_id')
@@ -49,7 +51,6 @@ class DashboardController extends Controller
             'partyInvites' => $partyInvites,
             'eventInvites' => $eventInvites,
             'degree' => $degree,
-
 
         ]);
     }
