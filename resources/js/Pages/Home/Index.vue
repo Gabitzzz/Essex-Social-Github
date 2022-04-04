@@ -38,6 +38,7 @@ export default {
         likes: Array,
         comments: Array,
         likeToggle: Boolean,
+        toggler: Boolean,
     },
     // created() {
     //     debugger

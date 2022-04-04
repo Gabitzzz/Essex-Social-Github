@@ -1,6 +1,7 @@
 <template>
     <div>
         <div>
+            <div v-if="l"></div>
             <inertia-link
                 preserve-scroll
                 method="POST"
@@ -28,6 +29,7 @@ export default {
     props: {
         post: Object,
         likes: Array,
+        toggler: Boolean,
 
     },
     components: {

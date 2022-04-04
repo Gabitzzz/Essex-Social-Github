@@ -281,7 +281,6 @@
                 <!--                SHORTCUTS       -->
                 <div class=" px-2 max-2 ml-4 overflow-hidden rounded-xl font-bold">
                     <div class="flex mt-2">
-
                         <div
                             class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
                         >

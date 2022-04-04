@@ -1,6 +1,6 @@
 <template>
 
-  <div class=" mb-4 grid grid-cols-3 gap-4 content-center ...">
+  <div class="mx-2 mb-4 grid grid-cols-3 gap-4 content-center ...">
     <div class="bg-white rounded-2xl hover:bg-gray-300">
       <a :href="route('posts.create', $page.props.auth.user.username )"
          class="w-full justify-center inline-block text-center pt-2 pb-1"

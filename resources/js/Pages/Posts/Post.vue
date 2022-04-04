@@ -59,15 +59,15 @@
                 </div>
             </div>
 
-            <div class="px-4 border-b border-gray-200">
-                <p class="text-sm px-4">
+            <div class=" border-b border-gray-200">
+                <p class="text-sm px-6">
                     {{ post.body }}
                 </p>
 
-                <div v-if="post.image" class="mt-2 flex justify-center">
+                <div v-if="post.image" class="mt-4 flex ">
                     <img
                         :src="showImage() +  post.image"
-                        class="avatar w-2/3 h-2/3"
+                        class="avatar"
                         alt="avatar"
                     />
                 </div>
@@ -77,7 +77,7 @@
                               as="button"
                               :href="route('posts.likes', post.id)"
                 >
-                    <div class="flex text-xs px-4 mt-2">
+                    <div class="flex text-xs px-8 mt-2">
                         <div v-if="post.likes.length === 0">
                         </div>
 
@@ -102,6 +102,11 @@
                         </div>
                     </div>
                 </inertia-link>
+
+<div v-for="like in post.likes">
+    {{ like.id }}  &nbsp;
+
+</div>
 
                 <hr>
 
@@ -178,6 +183,7 @@ export default {
         post: Object,
         user: Object,
         comments: Array,
+        toggler: Boolean,
     },
     methods: {
         showImage() {

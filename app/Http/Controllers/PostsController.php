@@ -26,10 +26,13 @@ class PostsController extends Controller
 
 //        dd($comments);
 
+
+
         return Inertia::render('Posts/Index', [
             'post' => Post::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->with('user')->get()->first(),
             'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
 //            'posts' => Post::with('user')->where("user_id", "=", $user->id)->get(),
+
         ]);
     }
 
@@ -76,7 +79,7 @@ class PostsController extends Controller
     }
 
 
-    public function store( StoreImage $request)
+    public function store(StoreImage $request)
     {
         $image_path = '';
         $attributes = request()->validate([
@@ -111,14 +114,13 @@ class PostsController extends Controller
     public function edit(Post $post)
     {
 
-        if(auth()->user()->id != $post->user_id) {
+        if (auth()->user()->id != $post->user_id) {
             return back()->withErrors(['message' => 'You do not have permission to delete this post!']);
+        } else {
+            return Inertia::render('Posts/Edit', [
+                'post' => Post::with('user')->where("id", "=", $post->id)->get()->first(),
+            ]);
         }
-       else{
-           return Inertia::render('Posts/Edit', [
-               'post' => Post::with('user')->where("id", "=", $post->id)->get()->first(),
-           ]);
-       }
     }
 
     public function update(Post $post)
