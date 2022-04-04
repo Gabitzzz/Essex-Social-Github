@@ -135,9 +135,8 @@
             </div>
 
             <!--    FEED    -->
-            <div v-show="feed" class="py-2 mx-2 ">
-                <div class=" ">
-                    <div class="max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
+            <div v-show="feed" class="py-2  ">
+                    <div class="mx-2 max-2 feed overflow-hidden shadow-sm rounded-xl shadow-xl">
                         <h1 class="text-3xl text-white px-6 py-4 ">
                             FEED
                         </h1>
@@ -148,13 +147,12 @@
                         <AddTab></AddTab>
                     </div>
 
-                    <div class="pb-20 mt-4 mx-2">
+                    <div class="pb-20 mt-4">
                         <div v-for="post in posts">
                             <div v-if="$page.props.auth.user === $page.props.posts.user_id"></div>
                             <Post :post="post"></Post>
                         </div>
                     </div>
-                </div>
             </div>
 
             <!--  GALLERY -->
