@@ -66,17 +66,11 @@
                     <img :src="plus" width="25" height="25" class="inline-block" alt="plus">
                 </a>
 
-                <a :href="route('notifications.show' )"
+                <a :href="route('chatify')"
                    class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
                 >
                     <div>
-                        <img :src="notification2" width="25" height="25" class="inline-block" alt="profile">
-<!--                        <div v-if="unreadNotifications.length > 0">-->
-<!--                               <span-->
-<!--                                   class="tab text-white bg-red-600 rounded-full px-2 py-1 mr-20 absolute bottom-8 right-3 text-xs">-->
-<!--                                    {{ unreadNotifications.length }}-->
-<!--                                </span>-->
-<!--                        </div>-->
+                        <img :src="chat" width="25" height="25" class="inline-block" alt="profile">
                     </div>
                 </a>
 
@@ -114,8 +108,8 @@
 
 import profile from "/img/Tab/user.png"
 import plus from "/img/Tab/plus.png"
-import notification from "/img/Tab/notification.png"
-import notification2 from "/img/Tab/notification2.png"
+// import notification from "/img/Tab/notification.png"
+import chat from "/img/Tab/chat.png"
 import defaultProfile from "/img/Posts/defaultProfile.png";
 
 
@@ -125,8 +119,8 @@ export default {
         return {
             profile: profile,
             plus: plus,
-            notification: notification,
-            notification2: notification2,
+            chat: chat,
+            // notification2: notification2,
             unreadNotifications: this.$page.props.auth.unreadNotifications,
             defaultProfile: defaultProfile,
         }
