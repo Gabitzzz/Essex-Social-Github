@@ -72,16 +72,16 @@
             <!--                ROW WITH 4 CARDS     -->
             <div class="mt-5 mx-2 flex flex-wrap overflow-hidden max-w-7xl ">
 
-                <div class="w-1/4 overflow-hidden xl:w-3/12">
+                <div class="w-1/4 overflow-hidden xl:w-3/12 pb-4">
                     <!-- Column Content -->
-                    <div class=" mr-1 mb-4 max-2 overflow-hidden rounded-2xl bg-white shadow-md  ">
+                    <div class="mx-1 max-2 bg-white overflow-hidden shadow-md rounded-2xl shadow-md  ">
                         <a href="https://www.essex.ac.uk/sport">
                             <img :src="essex_sport" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </a>
                     </div>
                 </div>
 
-                <div class="w-1/4 overflow-hidden  xl:w-3/12">
+                <div class="w-1/4 overflow-hidden  xl:w-3/12 pb-4">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden shadow-md rounded-2xl shadow-md  ">
                         <a href="https://www.essex.ac.uk/information/food-and-drink/food-and-drink-at-colchester-campus">
@@ -90,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="w-1/4 overflow-hidden xl:w-3/12">
+                <div class="w-1/4 overflow-hidden xl:w-3/12 pb-4">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden  rounded-2xl shadow-md  ">
 
@@ -100,7 +100,7 @@
                     </div>
                 </div>
 
-                <div class="w-1/4 overflow-hidden xl:w-3/12">
+                <div class="w-1/4 overflow-hidden xl:w-3/12 pb-4">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden rounded-2xl shadow-md   ">
                         <a href="https://www.essexstudent.com/societies/">
