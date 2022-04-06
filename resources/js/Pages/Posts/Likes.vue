@@ -140,7 +140,7 @@
                 </div>
             </div>
 
-            <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80
+            <div class="px-4 pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80
              flex items-center justify-between max-2 overflow-hidden rounded-xl font-bold">
                 <inertia-link preserve-scroll
                               as="button"
@@ -182,7 +182,7 @@
             <!--                </h1>-->
             <!--            </div>-->
 
-            <div v-for="like in post.likes" class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+            <div v-for="like in post.likes" class="pb-1 mx-auto px-4 sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
                 <div class="flex items-center">
                     <div v-if="like.avatar === null">
                         <img

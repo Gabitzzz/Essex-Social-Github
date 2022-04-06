@@ -105,7 +105,8 @@
                     </div>
                 </inertia-link>
 
-                <hr>
+                <hr class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+
 
                 <div>
                     <div class="flex mx-2">

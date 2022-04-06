@@ -128,7 +128,7 @@
                                <a
                                    class="avatar  w-8 h-8  bg-gray-100 border-2 border-gray-200 border-opacity-25"
                                    :href="('/chatify/' + invite.user.id )" style="border-radius: 15px;">
-<!--                                   <img :src="chat" width="15" height="15" class="absolute z-10 mx-1 my-2" alt="search">-->
+                                   <img :src="chat" width="15" height="15" class="absolute z-10 mx-1 my-2" alt="search">
                                </a>
                            </div>
                         </inertia-link>
@@ -152,7 +152,7 @@ import quote from "/img/Party/quote.png";
 import dj from "/img/Party/dj.png";
 import backButton from "/img/Tab/left-arrow.png";
 import defaultProfile from "/img/Posts/defaultProfile.png";
-// import chat from "/img/Chat/chat-img.png";
+import chat from "/img/Chat/chat-img.png";
 
 
 export default {
@@ -171,7 +171,7 @@ export default {
             dj: dj,
             backButton: backButton,
             defaultProfile: defaultProfile,
-            // chat:chat,
+            chat:chat,
 
         }
     },
