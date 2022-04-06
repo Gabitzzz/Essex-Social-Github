@@ -163,17 +163,19 @@
                 <img src="{{asset('img/Tab/plus.png')}}" width="25" height="25" class="inline-block" alt="plus">
             </a>
 
-            <a href="{{asset(route('notifications.show'))}}"
+            <a href="#"
                class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
             >
                 <div>
-                    <img src="{{asset('img/Tab/notification.png')}}" width="25" height="25" class="inline-block"
+                    <img src="{{asset('img/Chat/chat-img.png')}}" width="25" height="25" class="inline-block"
                          alt="profile">
                 </div>
             </a>
 
             <a href="{{asset(route('profile', \Illuminate\Support\Facades\Auth::user()))}}"
-               class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-1 pb-1"
+{{--               class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-1 pb-1"--}}
+               class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-1"
+
             >
                 @if(\Illuminate\Support\Facades\Auth::user()->avatar == null)
                     <img
@@ -186,14 +188,12 @@
 
                 @else
                     <img src="{{asset("storage/". \Illuminate\Support\Facades\Auth::user()->avatar)}}"
-                         class="inline-block avatar py-1"
+                         class="inline-block rounded-full w-8 h-8"
                          alt="pic"
-                         width="25"
-                         height="25">
+                    >
 
                 @endif
-                <span class="tab tab-whishlist block text-xs">
-                    </span>
+
             </a>
             {{--            @endif--}}
 

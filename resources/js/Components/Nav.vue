@@ -49,20 +49,9 @@
                                 <img :src="plus" width="25" height="25" class="inline-block" alt="search">
                             </inertia-link>
 
-<!--                            <inertia-link-->
-<!--                                class="flex items-center group bg-gray-100 p-2  border-2 border-gray-200 border-opacity-25"-->
-<!--                                :href="route('notifications.show')" style="border-radius: 15px;">-->
-<!--                                <img :src="notification" width="25" height="25" class="inline-block" alt="search">-->
-<!--                                <div v-if="unreadNotifications.length > 0">-->
-<!--                               <span-->
-<!--                                   class="tab text-white bg-red-600 rounded-full p-1 absolute top-0 text-xs">-->
-<!--                                    {{ unreadNotifications.length }}-->
-<!--                                </span>-->
-<!--                                </div>-->
-<!--                            </inertia-link>-->
 
-
-                            <BreezeNavLink :href="route('profile', $page.props.auth.user.username)">
+                            <BreezeNavLink :href="route('profile', $page.props.auth.user.username)"
+                                           :active="route().current('profile')">
                                 {{ $page.props.auth.user.username }}
                             </BreezeNavLink>
                         </div>
@@ -71,11 +60,11 @@
 
                 <!-- Hamburger -->
                 <div class=" flex items-center sm:hidden">
-<!--                    <a-->
-<!--                        class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"-->
-<!--                        :href="route('chatify')" style="border-radius: 15px;">-->
-<!--                        <img :src="chat" width="25" height="25" class="inline-block" alt="search">-->
-<!--                    </a>-->
+                    <!--                    <a-->
+                    <!--                        class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"-->
+                    <!--                        :href="route('chatify')" style="border-radius: 15px;">-->
+                    <!--                        <img :src="chat" width="25" height="25" class="inline-block" alt="search">-->
+                    <!--                    </a>-->
 
                     <inertia-link
                         class="ml-4 flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
@@ -118,18 +107,18 @@
 </template>
 
 <script>
-import {Link} from '@inertiajs/inertia-vue3'
-import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue'
-import BreezeDropdown from '@/Components/Dropdown.vue'
-import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue'
-import BreezeDropdownLink from '@/Components/DropdownLink.vue'
-import BreezeNavLink from '@/Components/NavLink.vue'
-import image from "/img/logo/5.png"
-import search from "/img/Tab/search.png"
-import notification from "/img/Tab/notification.png"
-import plus from "/img/Tab/plus.png"
-import chat from "/img/Chat/chat.png"
+import {Link} from '@inertiajs/inertia-vue3';
+import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import BreezeDropdown from '@/Components/Dropdown.vue';
+import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue';
+import BreezeDropdownLink from '@/Components/DropdownLink.vue';
+import BreezeNavLink from '@/Components/NavLink.vue';
+import image from "/img/logo/5.png";
+import search from "/img/Tab/search.png";
+import notification from "/img/Tab/notification.png";
+import plus from "/img/Tab/plus.png";
 import {InertiaLink} from "@inertiajs/inertia-vue3";
+import chat from "/img/Chat/chat-img.png";
 
 
 export default {
@@ -150,7 +139,7 @@ export default {
             users: Object,
             showingNavigationDropdown: false,
             image: image,
-            chat:chat,
+            chat: chat,
             search: search,
             plus: plus,
             notification: notification,

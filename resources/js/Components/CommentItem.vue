@@ -1,8 +1,8 @@
 <template>
-    <div class="flex bg-gray-100 mt-5  min-h-full space-x-5">
+    <div class="flex bg-gray-100 mt-4  min-h-full space-x-5">
         <div class="flex-1">
             <div class="flex items-center">
-                <p class="bg-gray-100 rounded px-3 ">
+                <p class="bg-gray-100 rounded px-4 ">
                     <inertia-link :href="route('profile', comment.user.username)"><strong>{{
                             comment.user.username
                         }}__</strong>

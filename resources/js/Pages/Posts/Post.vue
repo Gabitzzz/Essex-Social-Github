@@ -1,6 +1,6 @@
 <template>
     <inertia-link
-                  :href="route('post.show', post.id)"
+        :href="route('post.show', post.id)"
     >
         <div class="mb-4 max-2 mx-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
             <div class="flex">
@@ -42,7 +42,7 @@
                         />
 
                         <p class="text-center text-sm text-gray-600 ml-1 ">
-                            {{post.location}}
+                            {{ post.location }}
                         </p>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                               as="button"
                               :href="route('posts.likes', post.id)"
                 >
-                    <div class="flex text-xs px-8 mt-2">
+                    <div class="flex text-xs px-4 mt-2">
                         <div v-if="post.likes.length === 0">
                         </div>
 
@@ -100,18 +100,15 @@
                         <div v-else>
                             {{ post.dislikes.length }} Dislikes &nbsp;
                         </div>
+
+
                     </div>
                 </inertia-link>
-
-<div v-for="like in post.likes">
-    {{ like.id }}  &nbsp;
-
-</div>
 
                 <hr>
 
                 <div>
-                    <div class="flex">
+                    <div class="flex mx-2">
                         <div class="flex-auto w-12">
                             <img v-if="$page.props.auth.user.avatar === null"
                                  :src="defaultProfile"
@@ -158,7 +155,7 @@ export default {
     data() {
         return {
             avatar: avatar,
-            location:location,
+            location: location,
             form: this.$inertia.form({
                 body: this.body,
                 user_id: this.post.user_id,

@@ -102,7 +102,7 @@
                     <BreezeLabel for="degree" value="You are Studying" class="flex mb-1 items-center justify-center"/>
 
                     <select class="form-control w-full" name="type" v-model="form.degree">
-                        <option :value="degree.id" v-for="degree in degrees" :key="degree.id">
+                        <option :value="degree.title" v-for="degree in degrees" :key="degree.id">
                             {{ degree.title }}
                         </option>
                     </select>

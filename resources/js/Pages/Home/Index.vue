@@ -6,7 +6,7 @@
 
             <div class="mt-5 font-bold  overflow-hidden max-w-7xl ">
                 <div class=" max-2 overflow-hidden rounded-xl font-bold">
-                    <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
+                    <h1 class="text-4xl p-2" style="font-family: 'Poppins', sans-serif;">
                         News Feed
                     </h1>
                 </div>

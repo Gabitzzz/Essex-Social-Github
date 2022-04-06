@@ -109,8 +109,8 @@
 import profile from "/img/Tab/user.png"
 import plus from "/img/Tab/plus.png"
 // import notification from "/img/Tab/notification.png"
-import chat from "/img/Tab/chat.png"
 import defaultProfile from "/img/Posts/defaultProfile.png";
+import chat from "/img/Chat/chat-img.png";
 
 
 export default {

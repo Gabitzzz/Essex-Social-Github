@@ -43,7 +43,6 @@ class PostsController extends Controller
                 ->with('likes')
                 ->with('dislikes')
 //                ->with('comments')
-
                 ->get()->first(),
             'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
 

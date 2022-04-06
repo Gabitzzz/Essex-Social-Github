@@ -4,16 +4,33 @@
             <Head title="Edit Profile"/>
             <div class="bg-gray-100">
                 <div class="mx-auto mx-2 sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80 5xl:mx-96">
+                    <div class="mt-5 font-bold  overflow-hidden max-w-7xl ">
 
-                    <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
-                        <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                            Edit your Profile
-                        </h1>
+                        <div class=" max-2 overflow-hidden rounded-xl font-bold">
+                            <h1 class="text-4xl p-2" style="font-family: 'Poppins', sans-serif;">
+                                Edit Your Profile
+                            </h1>
+                        </div>
                     </div>
                     <form @submit.prevent="submit">
                         <div class="p-8 mb-2 ">
                             <div>
-                                <div class="flex justify-center">
+                                <div v-if="$page.props.user.avatar === null" class="flex justify-center">
+                                    <img
+                                        v-if="!url"
+                                        :src=" defaultProfile "
+                                        class="avatar rounded-full avatar w-32 h-32"
+                                        alt="avatar"
+                                    />
+
+                                    <img
+                                        v-if="url"
+                                        :src="url"
+                                        class="avatar rounded-full avatar w-32 h-32"
+                                    />
+                                </div>
+
+                                <div v-else class="flex justify-center">
                                     <img
                                         v-if="!url"
                                         :src="'/storage/' + $page.props.user.avatar "
@@ -25,15 +42,15 @@
                                         v-if="url"
                                         :src="url"
                                         class="avatar rounded-full avatar w-32 h-32"
-
                                     />
                                 </div>
 
-                                <input
-                                    type="file"
-                                    @change="previewAvatar"
-                                    ref="photo"
-                                    class="
+                                <div class="flex justify-center">
+                                    <input
+                                        type="file"
+                                        @change="previewAvatar"
+                                        ref="photo"
+                                        class="
                                         w-full
                                         px-4
                                         py-2
@@ -42,48 +59,14 @@
                                         focus:outline-none
                                         focus:ring-1
                                         focus:ring-blue-600
+
                                     "
 
-                                />
+                                    />
+
+                                </div>
+
                             </div>
-
-                            <!--                            UPLOAD COVER                -->
-<!--                            <div>-->
-<!--                                <div class="flex justify-center">-->
-<!--                                    <img-->
-<!--                                        v-if="!coverUrl"-->
-<!--                                        :src="'/storage/' + $page.props.user.cover "-->
-<!--                                        class="avatar rounded-full avatar w-1/2 h-1/2"-->
-<!--                                        alt="cover"-->
-<!--                                    />-->
-
-<!--                                    <img-->
-<!--                                        v-if="coverUrl"-->
-<!--                                        :src="coverUrl"-->
-<!--                                        class="cover rounded-full avatar w-1/2 h-1/2"-->
-
-<!--                                    />-->
-<!--                                </div>-->
-
-<!--                                <input-->
-<!--                                    type="file"-->
-<!--                                    @change="previewCover"-->
-<!--                                    ref="coverPhoto"-->
-<!--                                    class="-->
-<!--                                        w-full-->
-<!--                                        px-4-->
-<!--                                        py-2-->
-<!--                                        mt-2-->
-<!--                                        border-->
-<!--                                        rounded-md-->
-<!--                                        focus:outline-none-->
-<!--                                        focus:ring-1-->
-<!--                                        focus:ring-blue-600-->
-<!--                                    "-->
-<!--                                />-->
-
-
-<!--                            </div>-->
 
                             <div>
                                 <BreezeLabel for="username" value="Username" class="flex items-center justify-center"/>
@@ -151,6 +134,7 @@ import BreezeLabel from '@/Components/Label.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {useForm} from "@inertiajs/inertia-vue3"
 import {Head} from '@inertiajs/inertia-vue3';
+import defaultProfile from "/img/Posts/defaultProfile.png";
 
 export default {
     name: "Edit",
@@ -169,6 +153,7 @@ export default {
     },
     data() {
         return {
+            defaultProfile: defaultProfile,
             coverUrl: null,
             url: null,
             form: this.$inertia.form({

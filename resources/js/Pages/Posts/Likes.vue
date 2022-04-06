@@ -2,7 +2,6 @@
     <BreezeAuthenticatedLayout>
         <div class="mt-5">
             <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
-
                 <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                     <div class="flex">
                         <inertia-link :href="route('profile', post.user.username)" class="w-full">
@@ -10,7 +9,7 @@
                                 <div v-if="post.user.avatar === null">
                                     <img
                                         :src="defaultProfile"
-                                        class="avatar  avatar w-10 h-10 ml-2 my-2"
+                                        class="avatar w-10 h-10 ml-2 my-2"
                                         alt="default"
                                     />
                                 </div>
@@ -43,7 +42,7 @@
                                 />
 
                                 <p class="text-center text-sm text-gray-600 ml-1 ">
-                                    {{post.location}}
+                                    {{ post.location }}
                                 </p>
                             </div>
                         </div>
@@ -60,16 +59,15 @@
                         </div>
                     </div>
 
-                    <div class="px-4 pb-1 border-b border-gray-200">
-                        <p class="text-sm px-4">
+                    <div class=" pb-1 border-b border-gray-200">
+                        <p class="text-sm px-6">
                             {{ post.body }}
                         </p>
 
                         <div v-if="post.image" class="flex justify-center mt-2">
                             <img
                                 :src="showImage() +  post.image"
-                                class="avatar  avatar w-2/3 h-2/3
-                                    transform transition-all  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-150  duration-300"/>
+                                class="avatar"/>
 
                         </div>
 
@@ -109,9 +107,9 @@
                         </inertia-link>
 
 
-                        <hr>
+                        <hr class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
-                        <div class="flex">
+                        <div class="flex mx-2">
                             <div class="flex-auto w-12">
                                 <img v-if="$page.props.auth.user.avatar === null"
                                      :src="defaultProfile"
@@ -140,16 +138,16 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div class=" mx-4 flex items-center justify-between max-2 overflow-hidden rounded-xl font-bold">
+            <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80
+             flex items-center justify-between max-2 overflow-hidden rounded-xl font-bold">
                 <inertia-link preserve-scroll
                               as="button"
                               :href="route('posts.likes', post.id)"
                 >
                     <h1 class="text-xl px-2 py-2 text-green-700" style="font-family: 'Poppins', sans-serif;">
-                        {{post.likes.length}} likes
+                        {{ post.likes.length }} likes
                     </h1>
                 </inertia-link>
 
@@ -158,7 +156,7 @@
                               :href="route('posts.dislikes', post.id)"
                 >
                     <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                        {{post.dislikes.length}} dislikes
+                        {{ post.dislikes.length }} dislikes
                     </h1>
                 </inertia-link>
 
@@ -168,27 +166,28 @@
                               :href="route('posts.comments', post.id)"
                 >
                     <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                        {{comments.length}} comments
+                        {{ comments.length }} comments
                     </h1>
                 </inertia-link>
 
 
             </div>
 
-            <hr>
+            <hr class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80
+">
 
-<!--            <div class=" max-2 overflow-hidden rounded-xl font-bold">-->
-<!--                <h1 class="text-2xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">-->
-<!--                    {{post.likes.length}} likes-->
-<!--                </h1>-->
-<!--            </div>-->
+            <!--            <div class=" max-2 overflow-hidden rounded-xl font-bold">-->
+            <!--                <h1 class="text-2xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">-->
+            <!--                    {{post.likes.length}} likes-->
+            <!--                </h1>-->
+            <!--            </div>-->
 
-            <div v-for="like in post.likes">
+            <div v-for="like in post.likes" class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
                 <div class="flex items-center">
                     <div v-if="like.avatar === null">
                         <img
                             :src="defaultProfile"
-                            class="avatar  avatar w-10 h-10 ml-2 my-2"
+                            class="avatar w-10 h-10 ml-2 my-2"
                             alt="default"
                         />
                     </div>
@@ -201,7 +200,7 @@
                         />
                     </div>
 
-                    <p class="ml-2">{{like.username}}</p>
+                    <p class="ml-2">{{ like.username }}</p>
 
 
                 </div>

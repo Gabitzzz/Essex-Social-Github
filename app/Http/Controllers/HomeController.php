@@ -13,15 +13,20 @@ class HomeController extends Controller
     public function index()
     {
 
+
 //        $toggler = Post::with('likes')->where('user_id', '=', auth()->id())->exists();
 
         $posts = Post::select('posts.*')
+//            ->with('comments')
+
             ->with('user')
 //            ->join('following', 'following.followed_id', '=', 'posts.user_id')
             ->with('likes')
             ->with('dislikes')
 //            ->with('comments')
             ->latest()->get()->all();
+
+
 
         return Inertia::render('Home/Index', [
             'posts' => $posts,

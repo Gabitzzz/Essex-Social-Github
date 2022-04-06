@@ -12,15 +12,22 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
+use phpDocumentor\Reflection\Types\Null_;
 
 
 class UsersController extends Controller
 {
     public function index(User $user)
     {
+
+        $galleries =  Post::with('user')
+            ->where("user_id", "=", $user->id)
+            ->latest()->get();
+
+
         return Inertia::render('Profile/Show', [
             'user' => $user,
-            'posts' => Post::with('user')->where("user_id", "=", $user->id)->with('likes')->with('dislikes')->get(),
+            'posts' => Post::with('user')->where("user_id", "=", $user->id)->with('likes')->with('dislikes')->latest()->get(),
             'followToggle' => $user->followers()->where('follower_id', auth()->id())->exists(),
             'followers' => $user->followers()->withCount([
                 'followers as following' => function ($q) {

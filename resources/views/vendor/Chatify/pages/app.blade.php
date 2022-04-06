@@ -15,7 +15,7 @@
                     <span class="messenger-headTitle">MESSAGES</span>
                 </a>
                 <nav class="m-header-right">
-                    <a href="#"><i class="fas fa-cog settings-btn"></i></a>
+{{--                    <a href="#"><i class="fas fa-cog settings-btn"></i></a>--}}
                     <a href="#" class="listView-x"><i class="fas fa-times"></i></a>
                 </nav>
             </nav>

@@ -7,11 +7,17 @@
             <div v-for="user in followings.data" :key="user.id" class="flex mx-2  py-4 border-b border-gray-200">
                 <div class="flex justify-between w-full">
                     <div class="flex">
-                        <img
-                            :src="showImage() + user.avatar"
-                            class="avatar rounded-full avatar w-12 h-12 mr-4 "
-                            alt="avatar"
-                        />
+                        <div v-if="user.avatar === null">
+                            <img :src="defaultProfile" class=" avatar w-12 h-12 mr-4 " alt="cover">
+                        </div>
+
+                        <div v-else>
+                            <img
+                                :src="showImage() + user.avatar"
+                                class="avatar rounded-full avatar w-12 h-12 mr-4 "
+                                alt="avatar"
+                            />
+                        </div>
                         <div class="flex flex-col">
                             <a :href="route('profile', user.username)" class="'text-md">
                                 {{ user.name }}
@@ -23,17 +29,14 @@
                     </div>
 
                     <div v-if="$page.props.auth.user.id !== user.id" class="flex justify-center">
-                        <a
-                            :href="('/chatify/' + user.id )"
-                            class="  shadow-2xl bg-white
-                                 border border-transparent rounded-full font-light
-                                   hover:bg-green-700 hover:text-white active:bg-gray-900 focus:outline-none
-                                  focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150 mr-2"
-                            style="font-size: 80%;"
-                            >
-                            <img :src="chat" alt="" class="w-10 h-10 mx-2 p-2 ">
-                        </a>
-                        <FollowButton :user="user"></FollowButton>
+                        <div class="flex justify-center items-center">
+                            <a
+                                class="shadow-2xl  items-center px-3"
+                                :href="('/chatify/' + user.id )" >
+                                <img :src="chat" width="15" height="15" class="" alt="search">
+                            </a>
+                            <FollowButton :user="user"></FollowButton>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,8 +49,10 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import FollowingHeader from "@/Components/FollowingHeader";
 import FollowButton from "@/Components/FollowButton";
-import chat from "/img/Chat/chat.png";
 import {Head} from '@inertiajs/inertia-vue3';
+import chat from "/img/Chat/chat-img.png";
+import defaultProfile from "/img/Posts/defaultProfile.png";
+
 
 export default {
     name: "Following",
@@ -65,6 +70,8 @@ export default {
     data(){
         return{
             chat:chat,
+            defaultProfile: defaultProfile,
+
         }
     },
     methods: {

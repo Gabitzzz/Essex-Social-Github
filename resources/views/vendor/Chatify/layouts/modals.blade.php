@@ -1,6 +1,6 @@
 {{-- ---------------------- Degree modal box ---------------------- --}}
 <div id="imageModalBox" class="imageModal">
-    <span class="imageModal-close">&times;</span>
+    <span class="imageModal-close mt-12">&times;</span>
     <img class="imageModal-content" id="imageModalBoxSrc">
   </div>
 

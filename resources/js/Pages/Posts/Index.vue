@@ -62,16 +62,15 @@
                         </div>
                     </div>
 
-                    <div class="px-4 pb-1 border-b border-gray-200">
-                        <p class="text-sm px-4">
+                    <div class=" pb-1 border-b border-gray-200">
+                        <p class="text-sm px-6">
                             {{ post.body }}
                         </p>
 
                         <div v-if="post.image" class="flex justify-center mt-2">
                             <img
                                 :src="showImage() +  post.image"
-                                class="avatar  avatar w-2/3 h-2/3
-                                    transform transition-all  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-150  duration-300"/>
+                                class="avatar"/>
                         </div>
 
                         <!--                LIKES   -->
@@ -104,12 +103,25 @@
                                 <div v-else>
                                     {{ post.dislikes.length }} Dislikes &nbsp;
                                 </div>
+
+                                <!--                        COMMENTS    -->
+                                <div v-if="comments.length === 0">
+                                </div>
+
+                                <div v-else-if="comments.length === 1">
+                                    {{ comments.length }} Comment
+                                </div>
+
+                                <div v-else>
+                                    {{ comments.length }} Comments &nbsp;
+                                </div>
                             </div>
+
                         </inertia-link>
 
                         <hr>
 
-                        <div class="flex">
+                        <div class="flex mx-2">
                             <div class="flex-auto w-12">
                                 <img v-if="$page.props.auth.user.avatar === null"
                                      :src="defaultProfile"
@@ -139,7 +151,7 @@
                     </div>
                 </div>
 
-                <div class="mx-2 max-2 rounded-xl ">
+                <div class="mx-2  rounded-xl ">
                     <form @submit.prevent="submit" class="w-full">
                         <div class="flex mt-5">
                             <BreezeInput id="body" type="text" class="block w-full h-10 mx-1" v-model="form.body"
@@ -154,10 +166,7 @@
                             </button>
                         </div>
 
-                        <div class="flex justify-between my-3">
-                            <div>
-                            </div>
-                        </div>
+
                     </form>
                 </div>
 

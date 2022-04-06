@@ -75,7 +75,7 @@ import {pickBy, throttle} from "lodash";
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import defaultProfile from "/img/Posts/defaultProfile.png";
 import {Head} from '@inertiajs/inertia-vue3';
-import chat from "/img/Chat/chat.png";
+import chat from "/img/Chat/chat-img.png";
 
 
 export default {
