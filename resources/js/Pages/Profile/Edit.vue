@@ -19,14 +19,14 @@
                                     <img
                                         v-if="!url"
                                         :src=" defaultProfile "
-                                        class="avatar rounded-full avatar w-32 h-32"
+                                        class="avatar w-32 h-32"
                                         alt="avatar"
                                     />
 
                                     <img
                                         v-if="url"
                                         :src="url"
-                                        class="avatar rounded-full avatar w-32 h-32"
+                                        class="avatar rounded-full w-32 h-32"
                                     />
                                 </div>
 
