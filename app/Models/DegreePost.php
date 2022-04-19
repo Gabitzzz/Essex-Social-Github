@@ -13,7 +13,8 @@ class DegreePost extends Model
         'timeAgo',
     ];
 
-
+    protected $table = 'degree_posts';
+    protected $primaryKey = 'id';
     protected $guarded = [];
 
 

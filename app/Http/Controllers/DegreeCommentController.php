@@ -21,7 +21,7 @@ class DegreeCommentController extends Controller
     }
 
 
-    public function store( DegreePost $degreePost, Degree $degree)
+    public function store($degreePostId)
     {
 
 //        $degreePost = DegreePost::with('degree')->where('id', '=', $degree->id)->get()->first();
@@ -38,12 +38,12 @@ class DegreeCommentController extends Controller
 
         auth()->user()->degreeComments()->create([
             'user_id' => auth()->id(),
-            'degree_post_id'=> $degreePost->id,
+            'degree_post_id'=> $degreePostId,
             'body' => $attributes['body'],
 
         ]);
 
 
-        return Redirect::back();
+         return Redirect::back();
     }
 }

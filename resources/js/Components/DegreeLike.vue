@@ -6,7 +6,7 @@
                 method="POST"
                 as="button"
 
-                :href="route('degree.likes.toggle', [post, degree])"
+                :href="route('degree.likes.toggle', post.id)"
                 class="h-6 w-6 rounded-full bg-green-500 hover:bg-green-500 text-white">
             </inertia-link>
         </div>

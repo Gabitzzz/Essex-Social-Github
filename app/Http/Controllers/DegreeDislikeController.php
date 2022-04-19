@@ -10,13 +10,11 @@ use Illuminate\Http\Request;
 class DegreeDislikeController extends Controller
 {
     //$degreePost
-    public function toggle(DegreePost $degreePost) {
+    public function toggle($id) {
 
+        $degreePost = DegreePost::where('id', $id)->first();
 
-        dd($degreePost);
-
-        $post = $degreePost::with('degree')->get()->last();
-        $post->dislikes()->toggle(auth()->id());
+        $degreePost->dislikes()->toggle(auth()->id());
         return redirect()->back();
     }
 

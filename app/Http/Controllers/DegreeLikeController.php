@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Redirect;
 
 class DegreeLikeController extends Controller
 {
-    public function toggle(DegreePost $degreePost, Degree $degree)
+    public function toggle($degreePostId)
     {
-        dd($degree);
-        $post = DegreePost::with('degree')->where("id", "=", $degree->id)->get()->first();
+        $post = DegreePost::where("id", "=", $degreePostId)->get()->first();
 
 //        $post = $degreePost::with('degree')->get()->first();
         $post->likes()->toggle(auth()->id());

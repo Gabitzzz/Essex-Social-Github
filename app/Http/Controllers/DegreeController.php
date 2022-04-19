@@ -15,7 +15,7 @@ class DegreeController extends Controller
     public function index(Degree $degree)
     {
         $degreePost = DegreePost::with('user')
-            ->where("degree", "=", $degree->id)
+            ->where("degree_id", "=", $degree->id)
             ->with('likes')
             ->with('dislikes')
             ->with('user')
