@@ -45,7 +45,7 @@ class DegreePostController extends Controller
             'post' => DegreePost::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->with('user')->get()->first(),
 
 //            'user' => $user,
-            'degree' => $degree,
+            'degree_id' => $degree,
             'comments' => DegreeComment::with('post')->where("degree_post_id", "=", $post->id)->with('user')->latest()->get(),
             'users' => $users
 //            'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
@@ -89,7 +89,7 @@ class DegreePostController extends Controller
             'body' => $attributes['body'],
             'location' => $attributes['location'],
             'image' => $image_path,
-            'degree' => $degree->id,
+            'degree_id' => $degree->id,
 //            'image'=> $imagePath,
         ]);
         $user = User::where('id', auth()->id())->first();
