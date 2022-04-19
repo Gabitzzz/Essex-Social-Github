@@ -14,13 +14,8 @@ class PostLikeController extends Controller
 {
     public function toggle(Post $post, User $user)
     {
+        dd($post);
         $post->likes()->toggle(auth()->id());
-
-        $user = User::where('id', auth()->id())->first();
-//        event(new SomeoneLikedEvent($user, auth()->user()));
-
-        //        dd(event(new SomeoneLikedEvent($user)));
-
         return Redirect::back();
     }
 

@@ -119,18 +119,18 @@ class EventController extends Controller
             'date' => ['required', 'max:255'],
 
         ]);
-        $time_attributes = request()->validate([
-            'day' => ['nullable', 'max:255'],
-            'time' => ['nullable', 'max:255'],
-        ]);
+//        $time_attributes = request()->validate([
+//            'day' => ['nullable', 'max:255'],
+//            'time' => ['nullable', 'max:255'],
+//        ]);
 
         if ($request->hasFile('eventImg')) {
             $attributes['eventImg'] = $request->file('eventImg')
                 ->store('eventImg', 'public');
         }
 
-        $day = $time_attributes['date'];
-        $time = $time_attributes['date'];
+        $day = $attributes['date'];
+        $time = $attributes['date'];
 
 
         $parsed_day = Carbon::parse($day)->format('d F');

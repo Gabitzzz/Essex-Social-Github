@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('dob')->nullable();
             $table->string('type')->nullable();
             $table->string('study_year')->nullable();
-            $table->string('degree')->nullable();
+            $table->integer('degree')->nullable();
 
 
             $table->timestamps();

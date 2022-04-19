@@ -3,19 +3,18 @@
         <Head title="Edit Event"/>
 
         <form @submit.prevent="submit">
-            <div class="mb-2">
-                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
-
+            <div class="mb-2 mx-2">
+                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
 
                     <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                         <div class="flex justify-between items-center">
-                            <h1 class="text-4xl p-2" style="font-family: 'Poppins', sans-serif;">
+                            <h1 class="text-4xl py-2" style="font-family: 'Poppins', sans-serif;">
                                 Edit Event
                             </h1>
 
                             <inertia-link preserve-scroll
-                                          class="p-2 rounded-full bg-red-500 text-center text-white text-sm"
+                                          class="py-2 px-4 rounded-full bg-red-500 text-center text-white text-sm"
                                           :href="route('event.destroy', event.id)"
                             >
                                 DELETE
@@ -24,7 +23,7 @@
                     </div>
 
                     <div>
-                        <p class="mx-4  text-lg" style="font-family: 'Poppins', sans-serif;">
+                        <p class="mx-2  text-lg" style="font-family: 'Poppins', sans-serif;">
                             Change Cover
                         </p>
 
@@ -100,25 +99,26 @@
 
 
                     <!--                    <img :src="'/storage/' + $page.props.party.partyImg" alt="">-->
-                    <BreezeLabel for="name" value="event Name" class="flex items-center "/>
+                    <BreezeLabel for="name" value="Event's Name" class="flex items-center "/>
 
                     <BreezeInput id="title" type="text" class="mt-1 block w-full bg-gray-100 "
                                  style="border: none !important;"
                                  v-model="form.title"
-                                 placeholder="event Name"
+                                 placeholder="Event's Name"
                                  required autofocus autocomplete="title"/>
 
-                    <BreezeLabel for="name" value="event Description" class="flex items-center mt-4 "/>
+                    <BreezeLabel for="name" value="Event's Description" class="flex items-center mt-4 "/>
                     <BreezeInput id="description" type="text" class=" pb-10 block w-full bg-gray-100 "
                                  style="border: none !important;"
                                  v-model="form.description"
-                                 placeholder="event Description"
+                                 placeholder="Event's Description"
                                  required autofocus autocomplete="description"/>
                 </div>
             </div>
 
-            <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
-                <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Choose Date</p>
+                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+
+                <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Select New Date</p>
 
                 <DatePicker
                     v-model="form.date"
@@ -133,7 +133,7 @@
                 </DatePicker>
 
 
-                <div class="flex mt-4 lg:mx-4 ">
+                <div class="flex mt-4 mx-2 lg:mx-4 ">
                     <img :src="location2" width="40" alt="plus">
 
                     <BreezeInput id="location" type="text" class=" ml-2 block w-full bg-gray-100 "

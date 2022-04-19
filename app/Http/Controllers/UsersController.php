@@ -65,7 +65,7 @@ class UsersController extends Controller
             'dob' => ['nullable', 'max:50'],
             'type' => ['nullable', 'max:50'],
             'study_year' => ['nullable', 'max:50'],
-            'degree' => ['nullable', 'max:50'],
+            'degree_id' => ['nullable', 'max:50'],
         ]);
 
         if ($request->hasFile('avatar')) {

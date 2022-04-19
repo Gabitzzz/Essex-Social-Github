@@ -14,15 +14,31 @@ class DegreeController extends Controller
 
     public function index(Degree $degree)
     {
-        $degreePost = DegreePost::with('user')->where('degree_id', '=', $degree->id)->with('likes')->get()->all();
+        $degreePost = DegreePost::with('user')
+            ->where("degree", "=", $degree->id)
+            ->with('likes')
+            ->with('dislikes')
+            ->with('user')
+            ->latest()
+            ->get()->all();
 
-        $users = User::where('degree', '=', $degree->id)->get()->all();
+        $users = User::all()->where('degree', '=', $degree->id);
 
 
         return Inertia::render('Degree/Index', [
             'degree' => $degree,
-            'users' => $users,
             'posts' => $degreePost,
+            'users' => $users,
+        ]);
+    }
+
+    public function members(Degree $degree)
+    {
+        $users = User::all()->where('degree', '=', $degree->id);
+
+        return Inertia::render('Degree/Members', [
+            'degree' => $degree,
+            'users' => $users,
         ]);
     }
 }

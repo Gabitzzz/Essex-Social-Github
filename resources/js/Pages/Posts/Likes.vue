@@ -106,8 +106,7 @@
                             </div>
                         </inertia-link>
 
-
-                        <hr class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+                        <hr>
 
                         <div class="flex mx-2">
                             <div class="flex-auto w-12">
@@ -140,9 +139,9 @@
                 </div>
             </div>
 
-            <div class="px-4 pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80
+            <div class="px-16 pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80
              flex items-center justify-between max-2 overflow-hidden rounded-xl font-bold">
-                <inertia-link preserve-scroll
+                <inertia-link
                               as="button"
                               :href="route('posts.likes', post.id)"
                 >
@@ -161,14 +160,14 @@
                 </inertia-link>
 
 
-                <inertia-link preserve-scroll
-                              as="button"
-                              :href="route('posts.comments', post.id)"
-                >
-                    <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">
-                        {{ comments.length }} comments
-                    </h1>
-                </inertia-link>
+<!--                <inertia-link preserve-scroll-->
+<!--                              as="button"-->
+<!--                              :href="route('posts.comments', post.id)"-->
+<!--                >-->
+<!--                    <h1 class="text-md px-2 py-2" style="font-family: 'Poppins', sans-serif;">-->
+<!--                        {{ comments.length }} comments-->
+<!--                    </h1>-->
+<!--                </inertia-link>-->
 
 
             </div>
@@ -183,27 +182,38 @@
             <!--            </div>-->
 
             <div v-for="like in post.likes" class="pb-1 mx-auto px-4 sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
-                <div class="flex items-center">
-                    <div v-if="like.avatar === null">
-                        <img
-                            :src="defaultProfile"
-                            class="avatar w-10 h-10 ml-2 my-2"
-                            alt="default"
-                        />
+               <inertia-link :href="route('profile', like.username)">
+                <div class="flex items-center justify-between ">
+                    <div class="flex items-center">
+                        <div v-if="like.avatar === null">
+                            <img
+                                :src="defaultProfile"
+                                class="avatar w-10 h-10 ml-2 my-2"
+                                alt="default"
+                            />
+                        </div>
+
+                        <div v-else>
+                            <img
+                                :src="showImage() + like.avatar || showImage() + 'default-avatar.png'"
+                                class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
+                                alt="avatar"
+                            />
+                        </div>
+
+                        <p class="ml-2">{{ like.username }}</p>
+
+
+
                     </div>
 
-                    <div v-else>
-                        <img
-                            :src="showImage() + like.avatar || showImage() + 'default-avatar.png'"
-                            class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
-                            alt="avatar"
-                        />
-                    </div>
-
-                    <p class="ml-2">{{ like.username }}</p>
-
-
+                    <a
+                        class="avatar  w-8 h-8  bg-white border-2 border-gray-200 border-opacity-25"
+                        :href="('/chatify/' + like.id )" style="border-radius: 15px;">
+                        <img :src="chat" width="15" height="15" class="absolute z-10 mx-1 my-2" alt="search">
+                    </a>
                 </div>
+               </inertia-link>
             </div>
         </div>
     </BreezeAuthenticatedLayout>
@@ -223,6 +233,7 @@ import {InertiaLink} from "@inertiajs/inertia-vue3";
 import backButton from "/img/Tab/left-arrow.png";
 import defaultProfile from "/img/Posts/defaultProfile.png";
 import location from "/img/Posts/location3.png";
+import chat from "/img/Chat/chat-img.png";
 
 
 export default {
@@ -246,6 +257,7 @@ export default {
     data() {
         return {
             imageError: false,
+            chat: chat,
             avatar: avatar,
             backButton: backButton,
             form: this.$inertia.form({

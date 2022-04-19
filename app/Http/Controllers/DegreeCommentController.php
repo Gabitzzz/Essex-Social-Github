@@ -14,8 +14,6 @@ use Illuminate\Validation\Rule;
 
 class DegreeCommentController extends Controller
 {
-
-
     //
     public function index()
     {
@@ -23,8 +21,12 @@ class DegreeCommentController extends Controller
     }
 
 
-    public function store(DegreePost $degreePost, Degree $degree)
+    public function store( DegreePost $degreePost, Degree $degree)
     {
+
+//        $degreePost = DegreePost::with('degree')->where('id', '=', $degree->id)->get()->first();
+
+//        dd($degreePost);
 
         $attributes = request()->validate([
             'body' => 'required|max:255',
@@ -32,18 +34,16 @@ class DegreeCommentController extends Controller
             'user_id' => ['nullable', Rule::exists('users', 'id')->where(function ($query) {
                 $query->where('user_id', Auth::user()->id);
             })],
-            'degree_post_id' => 'nullable'
         ]);
-
 
         auth()->user()->degreeComments()->create([
             'user_id' => auth()->id(),
-            'degree_post_id' => $degreePost->id,
+            'degree_post_id'=> $degreePost->id,
             'body' => $attributes['body'],
 
         ]);
 
 
-//        return Redirect::route('degree.post.show')->with('success', 'Comment posted.');
+        return Redirect::back();
     }
 }

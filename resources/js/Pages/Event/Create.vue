@@ -5,38 +5,37 @@
 
             <form @submit.prevent="submit">
                 <div class="mb-2">
-                        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
 
-                            <div class="my-5 max-2 overflow-hidden rounded-xl font-bold">
-                                <h1 class="text-4xl p-2" style="font-family: 'Poppins', sans-serif;">
-                                    <!--                        DASHBOARD-->
-                                    Create an Event
-                                </h1>
+                        <div class="my-5 max-2 overflow-hidden rounded-xl font-bold">
+                            <h1 class="text-4xl p-2" style="font-family: 'Poppins', sans-serif;">
+                                <!--                        DASHBOARD-->
+                                Create an Event
+                            </h1>
 
-                                <inertia-link :href="route('event.show')"
-                                              class="px-4 font-medium">
-                                    SEE ALL
-                                </inertia-link>
+                            <inertia-link :href="route('event.show')"
+                                          class="px-4 font-medium">
+                                SEE ALL
+                            </inertia-link>
 
-                            </div>
+                        </div>
 
 
-
-                            <BreezeInput id="title" type="text" class="mt-1 block w-full bg-gray-100 "
+                        <BreezeInput id="title" type="text" class="mt-1 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.title"
-                                     placeholder="event Name"
+                                     placeholder="Name"
                                      required autofocus autocomplete="title"/>
 
                         <BreezeInput id="description" type="text" class="mt-4 pb-10 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.description"
-                                     placeholder="event Description"
+                                     placeholder="Description"
                                      required autofocus autocomplete="description"/>
                     </div>
                 </div>
-                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
                     <input
                         type="file"
@@ -63,7 +62,7 @@
                     </div>
                 </div>
 
-                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
                     <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Select date</p>
 
@@ -80,7 +79,8 @@
                     </DatePicker>
 
 
-                    <div class="flex mt-4 lg:mx-4 ">
+                    <div class="flex mx-2 mt-4 lg:mx-4 ">
+
                         <img :src="location2" width="40" alt="plus">
 
                         <BreezeInput id="location" type="text" class=" ml-2 block w-full bg-gray-100 "
@@ -103,7 +103,7 @@
             </form>
 
             <!--            ADD TAB     -->
-                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+            <div class="pb-1 mx-2 sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
                 <div class=" grid grid-cols-3 gap-4 content-center ...">
                     <div class="bg-white rounded-2xl hover:bg-gray-300">

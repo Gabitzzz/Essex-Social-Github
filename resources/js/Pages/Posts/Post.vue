@@ -23,9 +23,11 @@
                         </div>
 
                         <div>
+
                             <p class="ml-2 mt-2">
                                 {{ post.user.username }}
                             </p>
+
                             <span class="italic ml-2 align-text-top" style="font-size: 10px;">
                                        {{ post.timeAgo }}
                                 </span>
@@ -64,10 +66,10 @@
                     {{ post.body }}
                 </p>
 
-                <div v-if="post.image" class="mt-4 flex ">
+                <div v-if="post.image" class=" flex justify-center mt-4">
                     <img
                         :src="showImage() +  post.image"
-                        class="avatar"
+                        class="avatar flex "
                         alt="avatar"
                     />
                 </div>
@@ -105,8 +107,7 @@
                     </div>
                 </inertia-link>
 
-                <hr class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
-
+                <hr>
 
                 <div>
                     <div class="flex mx-2">
@@ -179,9 +180,6 @@ export default {
     },
     props: {
         post: Object,
-        user: Object,
-        comments: Array,
-        toggler: Boolean,
     },
     methods: {
         showImage() {

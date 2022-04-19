@@ -5,7 +5,7 @@
                       method="POST"
                       as="button"
                       :href="route('dislikes.toggle', post.id)"
-                      class="h-6 w-6 rounded-full bg-red-500 hover:bg-red-700">
+                      class="h-6 w-6 rounded-full bg-red-500 hover:bg-red-700 text-white">
         </inertia-link>
     </div>
 </template>

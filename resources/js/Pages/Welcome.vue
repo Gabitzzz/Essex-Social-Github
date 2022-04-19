@@ -23,11 +23,10 @@
 
             <div class=" text-center items-center justify-center mt-20">
                 <p>
-                    Open Beta
-
+                    Version 1.0.0 - Capstone Project
                 </p>
                 <p>
-                    Developed by <a href="https://litcangabriel.com/">Lițcan N. Gabriel</a>
+                    Developed by <a href="https://litcangabriel.com/" class="font-semibold italic">Lițcan N. Gabriel</a>
 
                 </p>
             </div>

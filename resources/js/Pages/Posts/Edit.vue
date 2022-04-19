@@ -53,22 +53,22 @@
                             </inertia-link>
 
                             <div v-if="post.user_id === $page.props.auth.user.id" class=" mr-5 mt-5 ">
-                                <inertia-link class="bg-red-500 text-white p-2 rounded-full text-xs"  :href="route('posts.destroy', post.id)">
+                                <inertia-link class="bg-red-500 text-white px-4 py-2 rounded-2xl text-xs"  :href="route('posts.destroy', post.id)">
                                     DELETE
                                 </inertia-link>
                             </div>
 
                         </div>
 
-                        <div class="p-1 mb-2 ">
+                        <div class="pb-1 mx-2 lg:mx-4 ">
                             <div>
-                                <BreezeInput id="body" type="text" class="mt-1 block w-full" v-model="form.body"
+                                <BreezeInput id="body" type="text" class=" block w-full" v-model="form.body"
                                              style="border: none !important;"
                                              required autofocus autocomplete="body"/>
                             </div>
                         </div>
 
-                        <div class="flex my-4 ">
+                        <div class="flex my-4 mx-2 lg:mx-4">
                             <img :src="location2" width="40" alt="location">
 
                             <BreezeInput id="location" type="text" class=" ml-2 block w-full  "

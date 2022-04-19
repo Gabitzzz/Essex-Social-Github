@@ -3,17 +3,17 @@
         <Head title="Edit Party"/>
 
         <form @submit.prevent="submit">
-            <div class="mb-2">
-                        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+            <div class="mx-2 mb-2">
+                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
                     <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                         <div class="flex justify-between items-center">
-                            <h1 class="text-4xl p-2" style="font-family: 'Poppins', sans-serif;">
+                            <h1 class="text-4xl py-2" style="font-family: 'Poppins', sans-serif;">
                                 Edit Party
                             </h1>
 
                             <inertia-link preserve-scroll
-                                          class="p-2 rounded-full bg-red-500 text-center text-white text-xs"
+                                          class="py-2 px-4 rounded-full bg-red-500 text-center text-white text-xs"
                                           :href="route('party.destroy', party.id)"
                             >
 
@@ -23,7 +23,7 @@
                     </div>
 
                     <div>
-                        <p class="mx-4  text-lg" style="font-family: 'Poppins', sans-serif;">
+                        <p class="mx-2  text-lg" style="font-family: 'Poppins', sans-serif;">
                             Change Cover
                         </p>
 
@@ -44,66 +44,61 @@
                         />
 
 
-<!--                        <div class="flex justify-center">-->
-<!--                            <img v-if="party.partyImg && !url"-->
-<!--                                 :src="showImage() + party.partyImg"-->
-<!--                                 class="w-1/2 mx-10  mt-4 "-->
-<!--                                 alt="cover"-->
-<!--                                 style="max-height: 250px;  filter: brightness(50%);">-->
-<!--                        </div>-->
+                        <!--                        <div class="flex justify-center">-->
+                        <!--                            <img v-if="party.partyImg && !url"-->
+                        <!--                                 :src="showImage() + party.partyImg"-->
+                        <!--                                 class="w-1/2 mx-10  mt-4 "-->
+                        <!--                                 alt="cover"-->
+                        <!--                                 style="max-height: 250px;  filter: brightness(50%);">-->
+                        <!--                        </div>-->
 
-<!--                        <div class="flex  justify-center items-center">-->
-<!--                            <img-->
-<!--                                v-if="url"-->
-<!--                                :src="url"-->
-<!--                                class="w-1/2 mx-10  mt-4 "-->
-<!--                            />-->
-<!--                        </div>-->
+                        <!--                        <div class="flex  justify-center items-center">-->
+                        <!--                            <img-->
+                        <!--                                v-if="url"-->
+                        <!--                                :src="url"-->
+                        <!--                                class="w-1/2 mx-10  mt-4 "-->
+                        <!--                            />-->
+                        <!--                        </div>-->
 
-                     <div class="flex justify-center my-4">
-
-
-                         <div class="flex justify-center"
-                             v-if="!$page.props.party.partyImg && !url">
-                             <img
-                                 :src="partyCover"
-                                 class="w-1/2">
-                         </div>
-
-                         <div class="flex justify-center" v-else>
-                             <img
-                                 v-if="!url && $page.props.party.partyImg"
-                                 :src="'/storage/' + $page.props.party.partyImg "
-                                 class="w-1/2 "
-                                 alt="avatar"
-                             />
-
-                             <img
-                                 v-if="url"
-                                 :src="url"
-                                 class="w-1/2">
-                         </div>
+                        <div class="flex justify-center my-4">
 
 
+                            <div class="flex justify-center"
+                                 v-if="!$page.props.party.partyImg && !url">
+                                <img
+                                    :src="partyCover"
+                                    class="w-1/2">
+                            </div>
+
+                            <div class="flex justify-center" v-else>
+                                <img
+                                    v-if="!url && $page.props.party.partyImg"
+                                    :src="'/storage/' + $page.props.party.partyImg "
+                                    class="w-1/2 "
+                                    alt="avatar"
+                                />
+
+                                <img
+                                    v-if="url"
+                                    :src="url"
+                                    class="w-1/2">
+                            </div>
 
 
-                     </div>
+                        </div>
 
 
                         <!--                        <img-->
-<!--                            v-if="!url"-->
-<!--                            :src="'/storage/' + form.partyImg"-->
-<!--                            class="flex justify-center   "-->
-<!--                            alt="avatar"-->
-<!--                        />-->
+                        <!--                            v-if="!url"-->
+                        <!--                            :src="'/storage/' + form.partyImg"-->
+                        <!--                            class="flex justify-center   "-->
+                        <!--                            alt="avatar"-->
+                        <!--                        />-->
                     </div>
 
 
-
-
-
-<!--                    <img :src="'/storage/' + $page.props.party.partyImg" alt="">-->
-                    <BreezeLabel for="name" value="Party Name" class="flex items-center " />
+                    <!--                    <img :src="'/storage/' + $page.props.party.partyImg" alt="">-->
+                    <BreezeLabel for="name" value="Party Name" class="flex items-center "/>
 
                     <BreezeInput id="title" type="text" class="mt-1 block w-full bg-gray-100 "
                                  style="border: none !important;"
@@ -111,7 +106,7 @@
                                  placeholder="Party Name"
                                  required autofocus autocomplete="title"/>
 
-                    <BreezeLabel for="name" value="Party Description" class="flex items-center mt-4 " />
+                    <BreezeLabel for="name" value="Party Description" class="flex items-center mt-4 "/>
                     <BreezeInput id="description" type="text" class=" pb-10 block w-full bg-gray-100 "
                                  style="border: none !important;"
                                  v-model="form.description"
@@ -121,10 +116,9 @@
             </div>
 
 
+            <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
-
-            <div class="mx-2 sm:mx-16 md:mx-24 my-4 lg:mx-72 xl:mx-96">
-                <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Select new date</p>
+                <p class="mx-4 my-2 text-lg" style="font-family: 'Poppins', sans-serif;">Select New Date</p>
 
                 <DatePicker
                     v-model="form.date"
@@ -139,7 +133,7 @@
                 </DatePicker>
 
 
-                <div class="flex mt-4 lg:mx-4 ">
+                <div class="flex mt-4 mx-2 lg:mx-4 ">
                     <img :src="location2" width="40" alt="plus">
 
                     <BreezeInput id="location" type="text" class=" ml-2 block w-full bg-gray-100 "
@@ -150,72 +144,72 @@
                 </div>
 
                 <!--                    PUBLIC OR PRIVATE SWITCH        -->
-<!--                <div class="flex justify-center mt-5" style="font-family: 'Poppins', sans-serif;">-->
-<!--                    <div class="form-check form-check-inline">-->
-<!--                        <input-->
-<!--                            v-model.number="typeOfTask" :value="1" id="defaultCheck1"-->
-<!--                            type="radio"-->
-<!--                            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-black checked:border-black focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer">-->
+                <!--                <div class="flex justify-center mt-5" style="font-family: 'Poppins', sans-serif;">-->
+                <!--                    <div class="form-check form-check-inline">-->
+                <!--                        <input-->
+                <!--                            v-model.number="typeOfTask" :value="1" id="defaultCheck1"-->
+                <!--                            type="radio"-->
+                <!--                            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-black checked:border-black focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer">-->
 
-<!--                        <label class="form-check-label inline-block text-gray-800" for="defaultCheck1">-->
-<!--                            PUBLIC-->
-<!--                        </label>-->
+                <!--                        <label class="form-check-label inline-block text-gray-800" for="defaultCheck1">-->
+                <!--                            PUBLIC-->
+                <!--                        </label>-->
 
-<!--                    </div>-->
-<!--                    <div class="form-check form-check-inline ml-4">-->
-<!--                        <input-->
-<!--                            v-model.number="typeOfTask" type="radio" :value="2" id="scheduleCheck"-->
-<!--                            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer">-->
+                <!--                    </div>-->
+                <!--                    <div class="form-check form-check-inline ml-4">-->
+                <!--                        <input-->
+                <!--                            v-model.number="typeOfTask" type="radio" :value="2" id="scheduleCheck"-->
+                <!--                            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer">-->
 
-<!--                        <label class="form-check-label inline-block text-gray-800" for="scheduleCheck">-->
-<!--                            PRIVATE-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                        <label class="form-check-label inline-block text-gray-800" for="scheduleCheck">-->
+                <!--                            PRIVATE-->
+                <!--                        </label>-->
+                <!--                    </div>-->
+                <!--                </div>-->
 
-<!--                <div v-if="typeOfTask === 1">-->
-<!--                    <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">-->
-<!--                        <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">-->
-<!--                            &lt;!&ndash;                        DASHBOARD&ndash;&gt;-->
-<!--                            Public Party-->
-<!--                        </h1>-->
-<!--                        <p class="text-sm px-2 " style="font-family: 'Poppins', sans-serif; font-weight: 100;">-->
-<!--                            <i>-->
-<!--                                Public parties can be seen and joined by everyone.-->
-<!--                                Your party will appear on the activity page.-->
-<!--                                <br>-->
-<!--                            </i>-->
-<!--                        </p>-->
+                <!--                <div v-if="typeOfTask === 1">-->
+                <!--                    <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">-->
+                <!--                        <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">-->
+                <!--                            &lt;!&ndash;                        DASHBOARD&ndash;&gt;-->
+                <!--                            Public Party-->
+                <!--                        </h1>-->
+                <!--                        <p class="text-sm px-2 " style="font-family: 'Poppins', sans-serif; font-weight: 100;">-->
+                <!--                            <i>-->
+                <!--                                Public parties can be seen and joined by everyone.-->
+                <!--                                Your party will appear on the activity page.-->
+                <!--                                <br>-->
+                <!--                            </i>-->
+                <!--                        </p>-->
 
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
 
-<!--                <div v-if="typeOfTask === 2">-->
+                <!--                <div v-if="typeOfTask === 2">-->
 
-<!--                    <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">-->
-<!--                        <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">-->
-<!--                            &lt;!&ndash;                        DASHBOARD&ndash;&gt;-->
-<!--                            Private Party-->
-<!--                        </h1>-->
-<!--                        <p class="text-sm px-2" style="font-family: 'Poppins', sans-serif; font-weight: 100;">-->
-<!--                            <i>-->
-<!--                                Private parties work only with invitation.-->
-<!--                                <br>-->
-<!--                                Select friends that you want to attend the party.-->
-<!--                            </i>-->
-<!--                        </p>-->
+                <!--                    <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">-->
+                <!--                        <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">-->
+                <!--                            &lt;!&ndash;                        DASHBOARD&ndash;&gt;-->
+                <!--                            Private Party-->
+                <!--                        </h1>-->
+                <!--                        <p class="text-sm px-2" style="font-family: 'Poppins', sans-serif; font-weight: 100;">-->
+                <!--                            <i>-->
+                <!--                                Private parties work only with invitation.-->
+                <!--                                <br>-->
+                <!--                                Select friends that you want to attend the party.-->
+                <!--                            </i>-->
+                <!--                        </p>-->
 
-<!--                    </div>-->
+                <!--                    </div>-->
 
-<!--                    <div v-for="follower in $page.props.followers.data" :key="follower.id">-->
+                <!--                    <div v-for="follower in $page.props.followers.data" :key="follower.id">-->
 
-<!--                        <inertia-link class="px-6 py-4 flex items-center"-->
-<!--                                      :href="route('profile', follower.username)"-->
-<!--                                      tabindex="-1">-->
-<!--                            {{ follower.name }}-->
-<!--                        </inertia-link>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                        <inertia-link class="px-6 py-4 flex items-center"-->
+                <!--                                      :href="route('profile', follower.username)"-->
+                <!--                                      tabindex="-1">-->
+                <!--                            {{ follower.name }}-->
+                <!--                        </inertia-link>-->
+                <!--                    </div>-->
+                <!--                </div>-->
 
 
                 <!--                    <pagination class="mt-6" :links="followers.links" />-->
@@ -246,7 +240,6 @@ import location2 from "/img/Party/location2.png";
 import BreezeLabel from '@/Components/Label.vue'
 import partyCover from "/img/Party/partyCover.jpg";
 import {Head} from '@inertiajs/inertia-vue3';
-
 
 
 export default {

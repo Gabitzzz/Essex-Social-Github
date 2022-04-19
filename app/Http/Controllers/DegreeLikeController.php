@@ -14,18 +14,13 @@ use Illuminate\Support\Facades\Redirect;
 
 class DegreeLikeController extends Controller
 {
-    public function toggle(DegreePost $degreePost)
+    public function toggle(DegreePost $degreePost, Degree $degree)
     {
+        dd($degree);
+        $post = DegreePost::with('degree')->where("id", "=", $degree->id)->get()->first();
 
-
-//        $degreePost->degreeLikes()->toggle(auth()->id());
-        $degreePost->likes()->toggle(auth()->id());
-
-//        $user = User::where('id', auth()->id())->first();
-//        event(new SomeoneLikedEvent($user, auth()->user()));
-
-        //        dd(event(new SomeoneLikedEvent($user)));
-
+//        $post = $degreePost::with('degree')->get()->first();
+        $post->likes()->toggle(auth()->id());
         return Redirect::back();
     }
 

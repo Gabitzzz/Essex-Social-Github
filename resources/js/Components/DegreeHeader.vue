@@ -25,6 +25,21 @@
                         </p>
 
                     </div>
+
+                    <inertia-link :href="route('degree.members', degree)" class="flex justify-center">
+                        <div class="members mt-12 text-sm">
+                            <div v-if="users.length === 0">
+                                <!--                                    {{party.invites.length}}-->
+
+                            </div>
+                            <div v-else-if="users.length === 1">
+                                {{ users.length }} person is enrolled
+                            </div>
+                            <div v-else>
+                                {{ users.length }} people are enrolled
+                            </div>
+                        </div>
+                    </inertia-link>
                 </div>
             </div>
         </div>
@@ -86,7 +101,7 @@ export default {
     color: white;
 }
 
-.attendance {
+.members {
     position: absolute;
     top: 70%;
     color: white;

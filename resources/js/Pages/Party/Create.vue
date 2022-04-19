@@ -23,13 +23,13 @@
                         <BreezeInput id="title" type="text" class="mt-1 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.title"
-                                     placeholder="Party Name"
+                                     placeholder="Name"
                                      required autofocus autocomplete="title"/>
 
                         <BreezeInput id="description" type="text" class="mt-4 pb-10 block w-full bg-gray-100 "
                                      style="border: none !important;"
                                      v-model="form.description"
-                                     placeholder="Party Description"
+                                     placeholder="Description"
                                      required autofocus autocomplete="description"/>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
             </form>
 
             <!--            ADD TAB     -->
-                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+                <div class="pb-1 mx-2 sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
                 <div class=" grid grid-cols-3 gap-4 content-center ...">
                     <div class="bg-white rounded-2xl hover:bg-gray-300">
@@ -311,5 +311,7 @@ export default {
     font-size: 12px;
     font-family: 'Nunito', sans-serif;
 }
+
+
 
 </style>

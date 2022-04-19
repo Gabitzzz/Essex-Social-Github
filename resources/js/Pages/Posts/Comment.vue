@@ -42,7 +42,7 @@
                                 />
 
                                 <p class="text-center text-sm text-gray-600 ml-1 ">
-                                    {{post.location}}
+                                    {{ post.location }}
                                 </p>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                             </div>
                         </inertia-link>
 
-                        <hr class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+                        <hr>
 
                         <div class="flex mx-2">
                             <div class="flex-auto w-12">
@@ -145,7 +145,7 @@
                               :href="route('posts.likes', post.id)"
                 >
                     <h1 class="text-md px-2 py-2 " style="font-family: 'Poppins', sans-serif;">
-                        {{post.likes.length}} likes
+                        {{ post.likes.length }} likes
                     </h1>
                 </inertia-link>
 
@@ -154,7 +154,7 @@
                               :href="route('posts.dislikes', post.id)"
                 >
                     <h1 class="text-nd px-2 py-2 " style="font-family: 'Poppins', sans-serif;">
-                        {{post.dislikes.length}} dislikes
+                        {{ post.dislikes.length }} dislikes
                     </h1>
                 </inertia-link>
 
@@ -174,27 +174,30 @@
 
 
             <div v-for="comment in comments" class="pb-1 mx-auto px-4 sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
-                <div class="flex items-center">
-                    <div v-if="comment.user.avatar === null">
-                        <img
-                            :src="defaultProfile"
-                            class="avatar w-10 h-10 ml-2 my-2"
-                            alt="default"
-                        />
+                <inertia-link :href="route('profile', comment.user)">
+
+                    <div class="flex items-center">
+                        <div v-if="comment.user.avatar === null">
+                            <img
+                                :src="defaultProfile"
+                                class="avatar w-10 h-10 ml-2 my-2"
+                                alt="default"
+                            />
+                        </div>
+
+                        <div v-else>
+                            <img
+                                :src="showImage() + comment.user.avatar || showImage() + 'default-avatar.png'"
+                                class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
+                                alt="avatar"
+                            />
+                        </div>
+
+                        <p class="ml-2">{{ comment.user.username }}</p>
+
+
                     </div>
-
-                    <div v-else>
-                        <img
-                            :src="showImage() + comment.user.avatar || showImage() + 'default-avatar.png'"
-                            class="avatar rounded-full avatar w-10 h-10 ml-2 my-2"
-                            alt="avatar"
-                        />
-                    </div>
-
-                    <p class="ml-2">{{comment.user.username}}</p>
-
-
-                </div>
+                </inertia-link>
             </div>
 
 

@@ -26,36 +26,66 @@
                             {{ degree.description }}
                         </p>
 
-                        <div class="attendance text-sm">
-                            <div v-if="$page.props.users.length === 0">
-
-                            </div>
 
 
-                            <div v-else-if="$page.props.users.length === 1">
-                                1 person is attending
-                            </div>
 
-                            <div v-else-if="$page.props.users.length > 1">
-                                {{ $page.props.users.length }} people are attending
-                            </div>
-                        </div>
+                        <!--                        <div class="attendance text-sm">-->
+                        <!--                            <div v-if="$page.props.users.length === 0">-->
+
+                        <!--                            </div>-->
+
+
+                        <!--                            <div v-else-if="$page.props.users.length === 1">-->
+                        <!--                                1 person is attending-->
+                        <!--                            </div>-->
+
+                        <!--                            <div v-else-if="$page.props.users.length > 1">-->
+                        <!--                                {{ $page.props.users.length }} people are attending-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                     </div>
+                    <inertia-link :href="route('degree.members', degree)" class="flex justify-center">
+
+                            <div class="members mt-12 text-sm">
+                                <div v-if="users.length === 0">
+                                    <!--                                    {{party.invites.length}}-->
+
+                                </div>
+                                <div v-else-if="users.length === 1">
+                                    {{ users.length }} person is enrolled
+                                </div>
+                                <div v-else>
+                                    {{ users.length }} people are enrolled
+                                </div>
+                            </div>
+
+                    </inertia-link>
                 </div>
+
             </div>
 
 
-            <inertia-link :href="route('degree.posts.create', degree)" :degree="degree"  class="w-full">
-                ssss
-            </inertia-link>
 
-            <div class="mt-8">
-                <DegreePosts :posts="posts" :degree="degree"></DegreePosts>
+            <div class="flex space-x-4 text-center mx-2 ">
+
+                <inertia-link :href="route('degree.posts.create', degree)" :degree="degree"
+                              class="flex-1 my-2  p-2 shadow-md font-semibold border-gray-300 bg-white border border-transparent rounded-full font-light text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
+
+                    CREATE POST
+                </inertia-link>
+
+
+
+
+            </div>
+
+
+            <div class="mt-2">
+                <DegreePosts :posts="posts" :degree="degree" :users="users"></DegreePosts>
 
             </div>
 
         </div>
-
 
 
     </BreezeAuthenticatedLayout>
@@ -69,6 +99,7 @@ import degreePicture from "/img/Degree/degreePicture.jpg";
 import DegreePosts from "@/Pages/DegreePosts/DegreePosts";
 import DegreeDislike from "@/Components/DegreeDislike";
 import DegreeLike from "@/Components/DegreeLike";
+
 export default {
     name: "Index",
     data() {
@@ -118,7 +149,7 @@ export default {
     color: white;
 }
 
-.attendance {
+.members {
     position: absolute;
     top: 70%;
     color: white;

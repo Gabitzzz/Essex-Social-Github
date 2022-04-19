@@ -29,7 +29,6 @@ Route::get('/', function () {
 });
 
 
-
 Route::delete('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 
@@ -37,11 +36,6 @@ Route::delete('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionControl
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])
     ->middleware('auth')
     ->name('dashboard');
-
-
-
-
-
 
 
 //  POSTS
@@ -53,8 +47,6 @@ Route::get('create-post', [PostsController::class, 'create'])
     ->middleware('auth')
     ->name('posts.create');
 
-
-
 Route::post('add-post', [PostsController::class, 'store'])
     ->middleware('auth')
     ->name('posts.store');
@@ -63,12 +55,9 @@ Route::get('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'inde
     ->middleware('auth')
     ->name('post.show');
 
-
-
 Route::get('/posts/{post}/edit', [\App\Http\Controllers\PostsController::class, 'edit'])
     ->name('posts.edit')
     ->middleware('auth');
-
 
 Route::get('/posts/{post}/dislikes', [\App\Http\Controllers\PostsController::class, 'dislikes'])
     ->name('posts.dislikes')
@@ -78,13 +67,9 @@ Route::get('/posts/{post}/likes', [\App\Http\Controllers\PostsController::class,
     ->name('posts.likes')
     ->middleware('auth');
 
-
 Route::get('/posts/{post}/comments', [\App\Http\Controllers\PostsController::class, 'comments'])
     ->name('posts.comments')
     ->middleware('auth');
-
-
-
 
 Route::put('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'update'])
     ->name('posts.update')
@@ -93,6 +78,7 @@ Route::put('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'upda
 Route::get('/posts/{post}/delete', [\App\Http\Controllers\PostsController::class, 'destroy'])
     ->name('posts.destroy')
     ->middleware('auth');
+// END POSTS
 
 // PARTIES
 Route::get('create-party', [\App\Http\Controllers\PartyController::class, 'create'])
@@ -126,6 +112,7 @@ Route::get('/parties/{party}/delete', [\App\Http\Controllers\PartyController::cl
 Route::get('/parties/{party:id}/members', [\App\Http\Controllers\PartyController::class, 'members'])
     ->name('party.members')
     ->middleware('auth');
+//  END PARTIES
 
 //  PARTY INVITES
 Route::get('/parties/{party:id}/invites', [\App\Http\Controllers\PartyInviteController::class, 'index'])
@@ -139,7 +126,7 @@ Route::post('/parties/{party:id}/invites/{id}', [\App\Http\Controllers\PartyInvi
 Route::delete('/parties/{party:id}/invites/{id}', [\App\Http\Controllers\PartyInviteController::class, 'destroy'])
     ->name('party.invite.delete')
     ->middleware('auth');
-
+//  END PARTY INVITES
 
 // EVENTS
 Route::get('create-event', [\App\Http\Controllers\EventController::class, 'create'])
@@ -173,6 +160,7 @@ Route::get('/events/{event}/delete', [\App\Http\Controllers\EventController::cla
 Route::get('/events/{event:id}/members', [\App\Http\Controllers\EventController::class, 'members'])
     ->name('event.members')
     ->middleware('auth');
+//  END EVENTS
 
 //  EVENT INVITES
 Route::get('/events/{event:id}/invites', [\App\Http\Controllers\EventInviteController::class, 'index'])
@@ -186,6 +174,7 @@ Route::post('/events/{event:id}/invites/{id}', [\App\Http\Controllers\EventInvit
 Route::delete('/events/{event:id}/invites/{id}', [\App\Http\Controllers\EventInviteController::class, 'destroy'])
     ->name('event.invite.delete')
     ->middleware('auth');
+//  END EVENT INVITES
 
 //  USERS
 Route::get('/users/{user:username}', [\App\Http\Controllers\UsersController::class, 'index'])
@@ -215,7 +204,7 @@ Route::get('/info', [\App\Http\Controllers\UsersController::class, 'getInfo'])
 Route::put('/save-details', [\App\Http\Controllers\UsersController::class, 'detailStore'])
     ->name('info.update')
     ->middleware('auth');
-
+//  END USERS
 
 //      FOLLOW
 Route::get('/users/{user:username}/followings', [\App\Http\Controllers\FollowingController::class, 'index'])
@@ -241,7 +230,7 @@ Route::get('/users/{user:username}/followers/{id}', [\App\Http\Controllers\Follo
 Route::delete('/users/{user:username}/followers/{id}', [\App\Http\Controllers\FollowersController::class, 'destroy'])
     ->name('followers.delete')
     ->middleware('auth');
-
+//  END FOLLOW
 
 //  LIKE / DISLIKE TOGGLES
 Route::post('/posts/{post}/like', [\App\Http\Controllers\PostLikeController::class, 'toggle'])
@@ -251,25 +240,25 @@ Route::post('/posts/{post}/like', [\App\Http\Controllers\PostLikeController::cla
 Route::post('/posts/{post}/dislike', [\App\Http\Controllers\PostDislikeController::class, 'toggle'])
     ->middleware('auth')
     ->name('dislikes.toggle');
-
+//  END LIKE/DISLIKE TOGGLES
 
 //  COMMENTS
 Route::post('/posts/{post}/comment', [CommentController::class, 'store'])->name('comments.store');
 Route::post('/parties/{party}/comment', [\App\Http\Controllers\PartyCommentController::class, 'store'])->name('party.comments.store');
 Route::post('/events/{event}/comment', [\App\Http\Controllers\EventCommentController::class, 'store'])->name('event.comments.store');
+//  EBD COMMENTS
 
-
-//  NOTIFICATIONS
+//  NOTIFICATION
 Route::get('/notifications', [\App\Http\Controllers\NotificationsController::class, 'index'])->name('notifications.show');
 Route::post('/notifications/mark-one/{id}', [NotificationsController::class, 'store'])->name('notifications.store');
 Route::get('/notifications/mark-all', [NotificationsController::class, 'update'])->name('notifications.update');
 Route::get('/notifications/mark-delete/{id}', [NotificationsController::class, 'destroy'])->name('notifications.destroy');
+//  END NOTIFICATIONS
 
 // DEGREE
 Route::get('/degrees/{degree}', [\App\Http\Controllers\DegreeController::class, 'index'])
     ->middleware('auth')
     ->name('degree.show');
-
 
 Route::get('/degrees/{degree}/create-post', [\App\Http\Controllers\DegreePostController::class, 'create'])
     ->middleware('auth')
@@ -282,6 +271,11 @@ Route::post('/degrees/{degree}/add-post', [\App\Http\Controllers\DegreePostContr
 Route::get('/degrees/{degree}/posts/{post}', [\App\Http\Controllers\DegreePostController::class, 'index'])
     ->middleware('auth')
     ->name('degree.post.show');
+
+    Route::get('/degrees/{degree:id}/members', [\App\Http\Controllers\DegreeController::class, 'members'])
+        ->name('degree.members')
+        ->middleware('auth');
+//  END DEGREE
 
 //  DEGREE COMMENTS
 Route::post('/degrees/{degree}/posts/{post}/comment', [\App\Http\Controllers\DegreeCommentController::class, 'store'])
@@ -302,7 +296,7 @@ Route::put('/degrees/{degree}/posts/{post}', [\App\Http\Controllers\DegreePostCo
 Route::get('/degrees/{degree}/posts/{post}/delete', [\App\Http\Controllers\DegreePostController::class, 'destroy'])
     ->name('degree.posts.destroy')
     ->middleware('auth');
-
+//  EBD DEGREE COMMENTS
 
 
 //  DEGREE LIKES
@@ -313,7 +307,7 @@ Route::post('/degrees/{degree}/posts/{post}/like', [\App\Http\Controllers\Degree
 Route::post('/degrees/{degree}/posts/{post}/dislike', [\App\Http\Controllers\DegreeDislikeController::class, 'toggle'])
     ->middleware('auth')
     ->name('degree.dislikes.toggle');
-
+//  END DEGREE LIKES
 
 
 

@@ -3,6 +3,10 @@
 
     <div class="">
 
+        <h1 class="text-4xl px-2 text-center mb-4" style="font-family: 'Poppins', sans-serif;">
+            <!--                        DASHBOARD-->
+            Register
+        </h1>
 
         <BreezeValidationErrors class="mb-4"/>
         <form @submit.prevent="submit">
@@ -102,7 +106,7 @@
                     <BreezeLabel for="degree" value="You are Studying" class="flex mb-1 items-center justify-center"/>
 
                     <select class="form-control w-full" name="type" v-model="form.degree">
-                        <option :value="degree.title" v-for="degree in degrees" :key="degree.id">
+                        <option :value="degree.id" v-for="degree in degrees" :key="degree.id">
                             {{ degree.title }}
                         </option>
                     </select>

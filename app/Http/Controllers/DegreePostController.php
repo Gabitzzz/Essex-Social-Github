@@ -6,6 +6,7 @@ use App\Events\SomeonePostedEvent;
 use App\Http\Requests\StoreImage;
 use App\Models\Comment;
 use App\Models\Degree;
+use App\Models\DegreeComment;
 use App\Models\DegreePost;
 use App\Models\Post;
 use App\Models\User;
@@ -22,13 +23,31 @@ class DegreePostController extends Controller
     public function index(Degree $degree, DegreePost $post)
     {
 
-//        $degreePost = DegreePost::with('degree')->where('id', '=', $degree->id)->with('user')->with('degreeLikes')->get()->first();
-        $degreePost = DegreePost::with('user')->where("id", "=", $post->id)->with('likes')->with('user')->get()->first();
+
+//        $posts = Post::whereIn('user_id', function ($query) use ($id) {
+//            $query->select('followed_id')
+//                ->from('following')
+//                ->where('follower_id', $id);
+//        })->orWhere('user_id', $id)
+//            ->with('user')
+//            ->with('likes')
+//            ->with('dislikes')
+//            ->latest()->get()->all();
+
+//        $id = $post->id;
+
+//        dd($id);
+
+        $users = User::all()->where('degree', '=', $degree->id);
+
 
         return Inertia::render('DegreePosts/Index', [
-            'post' => $degreePost,
+            'post' => DegreePost::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->with('user')->get()->first(),
 
+//            'user' => $user,
             'degree' => $degree,
+            'comments' => DegreeComment::with('post')->where("degree_post_id", "=", $post->id)->with('user')->latest()->get(),
+            'users' => $users
 //            'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
 //            'posts' => Post::with('user')->where("user_id", "=", $user->id)->get(),
         ]);
@@ -36,7 +55,6 @@ class DegreePostController extends Controller
 
     public function create(Degree $degree)
     {
-
 
 
         return Inertia::render('DegreePosts/Create', [
@@ -66,13 +84,12 @@ class DegreePostController extends Controller
         }
 
 
-
         DegreePost::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body'],
             'location' => $attributes['location'],
             'image' => $image_path,
-            'degree_id' => $degree->id,
+            'degree' => $degree->id,
 //            'image'=> $imagePath,
         ]);
         $user = User::where('id', auth()->id())->first();
@@ -81,24 +98,20 @@ class DegreePostController extends Controller
         return Redirect::route('degree.show', $degree->id);
     }
 
-    public function edit(Post $post)
+    public function edit(DegreePost $degreePost)
     {
-        return Inertia::render('Posts/Edit', [
-//            'post' => [
-//                'id' => $post->id,
-//                'user_id' => $post->user_id,
-//                'body' => $post->body,
-//                'image' => $post->image,
-////                'avatar' => $user->avatar ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
-////                'cover' => $user->cover ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
-////                'description' => $user->description,
-//            ],
-//        ]);
-            'post' => Post::with('user')->where("id", "=", $post->id)->get()->first(),
+        $degreePost = DegreePost::with('user')->where("id", "=", $degreePost->id)->with('likes')->with('dislikes')->with('user')->get()->first();
+
+//        $post = DegreePost::with('user')->where('id', '=', $degreePost->id)->get()->first();
+        dd($degreePost);
+
+
+        return Inertia::render('DegreePosts/Edit', [
+            'post' => DegreePost::with('user')->where("id", "=", $degreePost->id)->get()->first(),
         ]);
     }
 
-    public function update(Post $post)
+    public function update(DegreePost $post)
     {
         $attributes = request()->validate([
             'body' => ['string', 'max:255'],

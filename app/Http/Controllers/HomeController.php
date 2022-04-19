@@ -12,27 +12,30 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-
-//        $toggler = Post::with('likes')->where('user_id', '=', auth()->id())->exists();
-
-        $posts = Post::select('posts.*')
-//            ->with('comments')
-
+        $id = Auth::id();
+        $posts = Post::whereIn('user_id', function ($query) use ($id) {
+            $query->select('followed_id')
+                ->from('following')
+                ->where('follower_id', $id);
+        })->orWhere('user_id', $id)
             ->with('user')
-//            ->join('following', 'following.followed_id', '=', 'posts.user_id')
             ->with('likes')
             ->with('dislikes')
-//            ->with('comments')
             ->latest()->get()->all();
-
+//
+//        $posts = Post::select('posts.*')
+//            ->with('user')
+//            ->join('following', 'following.followed_id', '=', 'posts.user_id')
+//            ->with('likes')
+//            ->with('dislikes')
+//            ->get()->all();
 
 
         return Inertia::render('Home/Index', [
             'posts' => $posts,
             'likeToggle' => Post::with('likes')->where('user_id', '=', auth()->id())->exists(),
-
         ]);
+
     }
 }
 

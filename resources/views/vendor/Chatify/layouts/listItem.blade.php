@@ -38,7 +38,7 @@
                     </div>
                 @else
                     <div>
-                        <img src="{{asset("storage/". $user->avatar)}}" alt="pic">
+                        <img src="{{asset("storage/". $user->avatar)}}" alt="pic" class="rounded-full">
                     </div>
                 @endif
 

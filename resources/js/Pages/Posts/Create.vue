@@ -5,38 +5,28 @@
 
             <form @submit.prevent="submit">
                 <div class="mb-2">
-                        <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
-
+                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
                         <div class="mt-5 max-2 overflow-hidden rounded-xl font-bold">
                             <h1 class="text-4xl px-2 py-2" style="font-family: 'Poppins', sans-serif;">
                                 Add New Post
                             </h1>
                         </div>
 
-                        <BreezeInput id="body" type="text" class="mt-1 pb-10 block w-full bg-gray-100 "
+                        <BreezeInput id="body" type="text"
+                                     class="mt-1 pb-10 block w-full bg-gray-100"
                                      style="border: none !important;"
                                      v-model="form.body"
                                      placeholder="Add new post"
                                      required autofocus autocomplete="name"/>
                     </div>
                 </div>
-                    <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
 
+                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
                     <input
                         type="file"
                         @change="previewAvatar"
                         ref="photo"
-                        class="
-                                        w-full
-                                        px-4
-                                        py-2
-                                        mt-2
-                                        border
-                                        rounded-md
-                                        focus:outline-none
-                                        focus:ring-1
-                                        focus:ring-blue-600
-                                    "
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                         style="border: none !important;"
                     />
 
@@ -55,7 +45,7 @@
                                      style="border: none !important;"
                                      v-model="form.location"
                                      placeholder="Location"
-                                     />
+                        />
                     </div>
                 </div>
 
@@ -67,9 +57,7 @@
                 </div>
             </form>
 
-                <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
-
-
+            <div class="pb-1 mx-2 sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
                 <div class=" grid grid-cols-3 gap-4 content-center ...">
                     <div class="bg-white rounded-2xl bg-gray-300">
                         <a :href="route('posts.create', $page.props.auth.user.username )"
@@ -78,8 +66,8 @@
                             <img :src="post" width="40" height="40" class="inline-block" alt="plus">
                         </a>
                     </div>
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
 
+                    <div class="bg-white rounded-2xl hover:bg-gray-300">
                         <a :href="route('party.create', $page.props.auth.user.username )"
                            class="w-full  justify-center inline-block text-center pt-2 pb-1"
                         >
@@ -133,7 +121,6 @@ export default {
 
     data() {
         return {
-            // avatar: avatar,
             post: post,
             party: party,
             event: event,
@@ -142,20 +129,17 @@ export default {
             form: this.$inertia.form({
                 body: null,
                 image: null,
-                location:null,
+                location: null,
             }),
             location2: location2,
         }
     },
 
-
     methods: {
-
         submit() {
             if (this.$refs.photo) {
                 this.form.image = this.$refs.photo.files[0];
             }
-
             this.form.post(this.route('posts.store'))
         },
 
@@ -163,7 +147,6 @@ export default {
             const file = e.target.files[0];
             this.url = URL.createObjectURL(file);
         },
-
     },
 
     // created() {
@@ -179,8 +162,6 @@ export default {
     border-radius: 25px;
     color: ghostwhite;
     background-color: black;
-    /*width: 100%;*/
-    /*display: inline;*/
     text-align: center;
     font-size: 12px;
     font-family: 'Nunito', sans-serif;

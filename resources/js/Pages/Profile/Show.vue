@@ -173,7 +173,7 @@
                             </div>
 
                             <div v-for="post in posts">
-                                <div v-if="post.image.length > 4" class="mx-2">
+                                <div v-if="post.image.length > 1" class="flex justify-center mt-4 mx-2">
                                     <img
                                         :src="showImage() +  post.image"
                                         class=""
@@ -181,11 +181,6 @@
                                     />
                                 </div>
 
-                                <div v-else class="mx-2 flex justify-center">
-                                    <h1>
-                                        No photos yet
-                                    </h1>
-                                </div>
 
                             </div>
                         </div>

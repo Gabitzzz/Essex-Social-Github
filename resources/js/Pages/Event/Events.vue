@@ -10,17 +10,18 @@
                     </h1>
 
                     <p class="text-sm mx-2">
-                            Explore Public Parties
-                            <br>
+                        Explore all the Events and join the ones find them interesting!
+
+                        <br>
                     </p>
                 </div>
 
-                <div class="w-16 h-16">
+                <div class="w-16 h-16 mx-6">
                     <InertiaLink :href="route('event.create')"
                     >
                         <img :src="event" alt="plus">
                         <span
-                            class="absolute rounded-full bg-red-600 ml-6  text-xs px-2 py-1 text-white  top-24">NEW</span>
+                            class="absolute rounded-full bg-red-600 ml-6 text-xs px-2 py-1 text-white top-24">NEW</span>
                     </InertiaLink>
                 </div>
             </div>

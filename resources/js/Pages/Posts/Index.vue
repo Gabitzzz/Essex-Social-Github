@@ -67,7 +67,7 @@
                             {{ post.body }}
                         </p>
 
-                        <div v-if="post.image" class="flex justify-center mt-2">
+                        <div v-if="post.image" class="flex justify-center mt-4">
                             <img
                                 :src="showImage() +  post.image"
                                 class="avatar"/>
@@ -105,21 +105,21 @@
                                 </div>
 
                                 <!--                        COMMENTS    -->
-                                <div v-if="comments.length === 0">
-                                </div>
+<!--                                <div v-if="comments.length === 0">-->
+<!--                                </div>-->
 
-                                <div v-else-if="comments.length === 1">
-                                    {{ comments.length }} Comment
-                                </div>
+<!--                                <div v-else-if="comments.length === 1">-->
+<!--                                    {{ comments.length }} Comment-->
+<!--                                </div>-->
 
-                                <div v-else>
-                                    {{ comments.length }} Comments &nbsp;
-                                </div>
+<!--                                <div v-else>-->
+<!--                                    {{ comments.length }} Comments &nbsp;-->
+<!--                                </div>-->
                             </div>
 
                         </inertia-link>
 
-                        <hr class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
+                        <hr>
 
                         <div class="flex mx-2">
                             <div class="flex-auto w-12">
@@ -169,6 +169,27 @@
 
                     </form>
                 </div>
+
+               <div class="px-4 pt-4 font-bold">
+                   <div v-if="comments.length === 0">
+
+                   </div>
+                   <div v-else-if="comments.length === 1">
+                       1 Comment
+
+                       <hr>
+
+                   </div>
+
+                   <div v-else-if="comments.length > 1">
+                        {{comments.length}} Comments
+
+                       <hr>
+
+                   </div>
+               </div>
+
+
 
                 <div v-for="(comment, index) in comments" :key="index">
                     <CommentItem :comment="comment"></CommentItem>

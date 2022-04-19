@@ -1,6 +1,6 @@
 <template>
     <div v-for="(post, key) in posts" :key="key">
-        <DegreePost :post="post" :degree="degree"  ></DegreePost>
+        <DegreePost :post="post" :degree="degree" :users="users" ></DegreePost>
     </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
     props:{
         posts: Array,
         degree: Object,
+        users: Array,
     },
     components:{
         DegreePost,

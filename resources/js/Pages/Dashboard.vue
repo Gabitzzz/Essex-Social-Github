@@ -64,7 +64,8 @@
                     <!-- Column Content -->
                     <div class=" mx-2 max-2 calendar overflow-hidden shadow-lg rounded-xl shadow-md">
                         <h2 class="text-3xl text-white px-6 pt-4">Today</h2>
-                        <h1 class="text-3xl text-white px-6 pb-4 ">{{ formatDate() }}</h1>
+<!--                        <p>{{currentDate()}}</p>-->
+                        <h1 class="text-3xl text-white px-6 pb-4 ">{{ currentDate() }}</h1>
                     </div>
                 </div>
             </div>
@@ -267,6 +268,7 @@
                         <div
                             class="w-20 h-20 lg:w-32 lg:h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out"
                         >
+
                             <form @submit.prevent="signout()">
                                 <button as="button"
                                         type="submit" class="justify-center inline-block text-center">
@@ -530,16 +532,15 @@ export default {
         signout() {
             this.$inertia.post(route('logout'));
         },
-        formatDate() {
-            const date = new Date();
 
-            if (date) {
-                return moment(String(date)).format('d MMM')
-            }
-        },
         showImage() {
             return "/storage/";
         },
+
+        currentDate() {
+            const current = new Date();
+            return moment.utc(current).format('DD MMM');
+        }
     },
     components: {
         BreezeAuthenticatedLayout,

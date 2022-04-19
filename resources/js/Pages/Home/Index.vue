@@ -12,18 +12,26 @@
                 </div>
 
                 <AddTab></AddTab>
-                <Posts :posts="posts" :likes="likes" :comments="comments" :commments="comments" :likeToggle="likeToggle"></Posts>
+
+                <Posts :posts="posts"
+                       :likes="likes"
+                       :comments="comments"
+                       :commments="comments"
+                       :likeToggle="likeToggle">
+                </Posts>
+
             </div>
         </div>
     </BreezeAuthenticatedLayout>
 </template>
 
 <script>
-import Posts from "@/Pages/Posts/Posts";
 import AddTab from "@/Components/AddTab";
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {Head} from '@inertiajs/inertia-vue3';
 
+
+import Posts from "@/Pages/Posts/Posts";
 
 export default {
     name: "Index",
@@ -33,13 +41,16 @@ export default {
         BreezeAuthenticatedLayout,
         Head,
     },
+
     props: {
         posts: Array,
         likes: Array,
         comments: Array,
         likeToggle: Boolean,
-        toggler: Boolean,
+        user: Array,
     },
+
+
     // created() {
     //     debugger
     // }

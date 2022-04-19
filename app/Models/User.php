@@ -46,16 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function timeline()
-    {
-        $friends = $this->follows->pluck('id');
 
-        return Post::whereIn('user_id', $friends)
-            ->orWhere('user_id', $this->id)
-            ->withLikes()
-            ->latest('created_at')->get()
-            ->paginate(10);
-    }
 
     public function posts()
     {
@@ -75,7 +66,7 @@ class User extends Authenticatable
     }
 
     public function degree(){
-        return $this->belongsTo(Degree::class);
+        return $this->belongsToMany(Degree::class);
     }
 
     public function events()

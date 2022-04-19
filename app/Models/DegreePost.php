@@ -9,14 +9,15 @@ class DegreePost extends Model
 {
     use HasFactory;
 
+    protected $appends = [
+        'timeAgo',
+    ];
+
 
     protected $guarded = [];
 
 
 
-//    protected $appends = [
-//        'timeAgo',
-//    ];
 
 //    FOR EDITING POSTS
     public function user()
@@ -42,20 +43,20 @@ class DegreePost extends Model
 
     public function dislikes()
     {
-        return $this->belongsToMany(User::class, 'degree_dislikes');
+        return $this->belongsToMany(User::class, 'degree_dislikes')->withTimestamps();
     }
 
 
 
-    public function degreeComments()
+    public function comments()
     {
         return $this->hasMany(DegreeComment::class, 'degree_comments')->withTimestamps();
     }
 
-//    public function getTimeAgoAttribute()
-//    {
-//        return $this->created_at->diffForHumans();
-//    }
+    public function getTimeAgoAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
 
 
 }

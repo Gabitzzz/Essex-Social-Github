@@ -117,10 +117,10 @@ class PartyController extends Controller
             'date' => ['required', 'max:255'],
             'partyImg' => ['nullable', 'file'],
         ]);
-        $time_attributes = request()->validate([
-            'time' => ['nullable', 'max:255'],
-            'day' => ['nullable', 'max:255'],
-        ]);
+//        $time_attributes = request()->validate([
+//            'time' => ['nullable', 'max:255'],
+//            'day' => ['nullable', 'max:255'],
+//        ]);
 
         if ($request->hasFile('partyImg')) {
             $attributes['partyImg'] = $request->file('partyImg')
