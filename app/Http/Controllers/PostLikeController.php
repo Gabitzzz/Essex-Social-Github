@@ -15,6 +15,8 @@ class PostLikeController extends Controller
     public function toggle(Post $post, User $user)
     {
         $post->likes()->toggle(auth()->id());
+
+
         return Redirect::back();
     }
 

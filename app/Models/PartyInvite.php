@@ -21,6 +21,4 @@ class PartyInvite extends Model
     }
 
 
-
-
 }

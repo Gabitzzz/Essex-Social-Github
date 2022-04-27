@@ -185,7 +185,6 @@ export default {
                 password: '',
                 password_confirmation: '',
                 terms: false,
-
                 dob: '',
                 type: '',
                 study_year: '',

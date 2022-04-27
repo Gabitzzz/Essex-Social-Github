@@ -4,7 +4,7 @@
         <inertia-link preserve-scroll
                       method="POST"
                       as="button"
-                      :href="route('degree.dislikes.toggle', post.id)"
+                      :href="route('degree.dislikes.toggle', [post, degree])"
                       class="h-6 w-6 rounded-full bg-red-500 hover:bg-red-700">
         </inertia-link>
     </div>
@@ -18,6 +18,8 @@ export default {
     props: {
         method: Function,
         post: Object,
+        degree: Object,
+        dislikes: Array,
     },
     components:{
         InertiaLink,

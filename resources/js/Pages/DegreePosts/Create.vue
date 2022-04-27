@@ -30,17 +30,7 @@
                         type="file"
                         @change="previewAvatar"
                         ref="photo"
-                        class="
-                                        w-full
-                                        px-4
-                                        py-2
-                                        mt-2
-                                        border
-                                        rounded-md
-                                        focus:outline-none
-                                        focus:ring-1
-                                        focus:ring-blue-600
-                                    "
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                         style="border: none !important;"
                     />
 
@@ -71,35 +61,35 @@
                 </div>
             </form>
 
-            <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">
+<!--            <div class="pb-1 mx-auto sm:mx-24 md:mx-30 lg:mx-72 xl:mx-60 2xl:mx-80">-->
 
 
-                <div class=" grid grid-cols-3 gap-4 content-center ...">
-                    <div class="bg-white rounded-2xl bg-gray-300">
-                        <a :href="route('posts.create', $page.props.auth.user.username )"
-                           class="w-full justify-center inline-block text-center pt-2 pb-1"
-                        >
-                            <img :src="post" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
-                    </div>
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
+<!--                <div class=" grid grid-cols-3 gap-4 content-center ...">-->
+<!--                    <div class="bg-white rounded-2xl bg-gray-300">-->
+<!--                        <a :href="route('posts.create', $page.props.auth.user.username )"-->
+<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="post" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
 
-                        <a :href="route('party.create', $page.props.auth.user.username )"
-                           class="w-full  justify-center inline-block text-center pt-2 pb-1"
-                        >
-                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
-                    </div>
+<!--                        <a :href="route('party.create', $page.props.auth.user.username )"-->
+<!--                           class="w-full  justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="party" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </a>-->
+<!--                    </div>-->
 
-                    <div class="bg-white rounded-2xl hover:bg-gray-300">
-                        <a :href="route('event.create', $page.props.auth.user.username )"
-                           class="w-full justify-center inline-block text-center pt-2 pb-1"
-                        >
-                            <img :src="event" width="40" height="40" class="inline-block" alt="plus">
-                        </a>
-                    </div>
-                </div>
-            </div>
+<!--                    <div class="bg-white rounded-2xl hover:bg-gray-300">-->
+<!--                        <a :href="route('event.create', $page.props.auth.user.username )"-->
+<!--                           class="w-full justify-center inline-block text-center pt-2 pb-1"-->
+<!--                        >-->
+<!--                            <img :src="event" width="40" height="40" class="inline-block" alt="plus">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </BreezeAuthenticatedLayout>
     </div>
 </template>

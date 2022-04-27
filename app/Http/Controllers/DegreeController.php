@@ -10,20 +10,16 @@ use Inertia\Inertia;
 
 class DegreeController extends Controller
 {
-    //
-
     public function index(Degree $degree)
     {
         $degreePost = DegreePost::with('user')
             ->where("degree_id", "=", $degree->id)
             ->with('likes')
             ->with('dislikes')
-            ->with('user')
             ->latest()
             ->get()->all();
-
-        $users = User::all()->where('degree', '=', $degree->id);
-
+        $users = User::all()
+            ->where('degree', '=', $degree->id);
 
         return Inertia::render('Degree/Index', [
             'degree' => $degree,

@@ -141,8 +141,8 @@
                             <img :src="backButton" alt="">
                         </InertiaLink>
 
-                        <DegreeLike :post="post"  class="ml-1"></DegreeLike>
-                        <DegreeDislike :post="post"  class="ml-1"></DegreeDislike>
+                        <DegreeLike :post="post" :degree="degree"  class="ml-1"></DegreeLike>
+                        <DegreeDislike :post="post" :degree="degree"  class="ml-1"></DegreeDislike>
                     </div>
                 </div>
             </div>

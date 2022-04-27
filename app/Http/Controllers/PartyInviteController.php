@@ -18,9 +18,6 @@ class PartyInviteController extends Controller
         $partyInvite->party_id = $id;
 
         $partyInvite->save();
-
-
-
         return redirect()->back();
     }
 
@@ -30,6 +27,5 @@ class PartyInviteController extends Controller
         $party->invites()->where('party_id', '=', $id)->where('user_id', Auth::user()->id)->delete();
         return redirect()->back();
     }
-
 }
 

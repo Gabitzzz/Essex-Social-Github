@@ -16,7 +16,7 @@ class CreateDegreePostsTable extends Migration
         Schema::create('degree_posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('degree');
+            $table->unsignedBigInteger('degree_id');
             $table->string('body');
             $table->text('image')->nullable();
             $table->string('location')->nullable();

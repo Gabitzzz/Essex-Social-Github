@@ -35,46 +35,34 @@ class RegisteredUserController extends Controller
     /**
      * Handle an incoming registration request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      *
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
-
-
         $request->validate([
             'name' => 'required|string|max:50',
             'username' => 'required|string|max:10|unique:users',
             'email' => 'required|string|email|max:40|regex:/(.*)@essex\.ac.uk/i|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-
-            'dob' => 'nullable|string|max:50',
-            'type' => 'nullable|string|max:50',
-            'study_year' => 'nullable|string|max:50',
-            'degree' => 'nullable|max:30',
+            'dob' => 'required|string|max:50',
+            'type' => 'required|string|max:50',
+            'study_year' => 'required|string|max:50',
+            'degree' => 'required|max:30',
         ]);
-
         $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-
             'dob' => $request->dob,
             'type' => $request->type,
             'study_year' => $request->study_year,
             'degree' => $request->degree,
-
         ]);
-
-        event(new Registered($user));
-
         Auth::login($user);
-
         return redirect(RouteServiceProvider::HOME);
     }
-
-
 }

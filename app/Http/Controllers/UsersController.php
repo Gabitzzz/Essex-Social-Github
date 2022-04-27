@@ -56,12 +56,10 @@ class UsersController extends Controller
     {
         Request::validate([
             'name' => ['required', 'max:50'],
-            'username' => ['required', 'max:50'],
+            'username' => ['required', 'max:50', 'unique'],
             'description' => ['required', 'max:50'],
-
             'email' => ['required', 'max:50', 'email', Rule::unique('users')],
             'password' => ['required'],
-
             'dob' => ['nullable', 'max:50'],
             'type' => ['nullable', 'max:50'],
             'study_year' => ['nullable', 'max:50'],
@@ -72,10 +70,10 @@ class UsersController extends Controller
             $avatar_path = $request->file('avatar')->store('avatar', 'public');
         }
 
+
         if ($request->hasFile('cover')) {
             $cover_path = $request->file('cover')->store('cover', 'public');
         }
-
         Auth::user()->account->users()->create([
             'name' => Request::get('name'),
             'username' => Request::get('username'),
@@ -102,27 +100,23 @@ class UsersController extends Controller
     public function update(User $user, StoreImage $request)
     {
         $attributes = request()->validate([
-            'username' => ['required', 'max:50'],
+            'username' => ['required', 'max:50', 'unique'],
             'name' => ['required', 'max:50'],
-            'email' => ['required', 'max:50', 'email', Rule::unique('users')->ignore($user->id)],
+            'email' => ['required', 'max:50', 'email', Rule::unique('users')
+                ->ignore($user->id)],
             'password' => ['required', 'max:50'],
             'description' => ['nullable', 'max:250'],
             'avatar' => ['file'],
-            'cover' => ['file'],
         ]);
         if ($request->hasFile('avatar')) {
             $attributes['avatar'] = $request->file('avatar')
                 ->store('avatar', 'public');
         }
-
-        if ($request->hasFile('cover')) {
-            $attributes['cover'] = $request->file('cover')
-                ->store('cover', 'public');
-        }
-
         $user->update($attributes);
         return Redirect::route('dashboard');
     }
+
+
 
     public function destroy(User $user)
     {

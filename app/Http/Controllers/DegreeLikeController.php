@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Events\SomeoneLikedEvent;
 use App\Models\Degree;
+use App\Models\DegreeDislike;
 use App\Models\DegreeLike;
 use App\Models\DegreePost;
+use App\Models\Dislike;
 use App\Models\Like;
 use App\Models\User;
 use App\Notifications\SomeoneLiked;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class DegreeLikeController extends Controller
@@ -20,6 +23,9 @@ class DegreeLikeController extends Controller
 
 //        $post = $degreePost::with('degree')->get()->first();
         $post->likes()->toggle(auth()->id());
+        DB::table('degree_dislikes')->where('degree_post_id', $degreePostId)
+            ->where('user_id', auth()->id())->delete();
+
         return Redirect::back();
     }
 

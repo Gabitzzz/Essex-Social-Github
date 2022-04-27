@@ -45,7 +45,7 @@ class DegreePostController extends Controller
             'post' => DegreePost::with('user')->where("id", "=", $post->id)->with('likes')->with('dislikes')->with('user')->get()->first(),
 
 //            'user' => $user,
-            'degree_id' => $degree,
+            'degree' => $degree,
             'comments' => DegreeComment::with('post')->where("degree_post_id", "=", $post->id)->with('user')->latest()->get(),
             'users' => $users
 //            'comments' => Comment::with('post')->where("post_id", "=", $post->id)->with('user')->latest()->get(),
@@ -55,13 +55,10 @@ class DegreePostController extends Controller
 
     public function create(Degree $degree)
     {
-
-
         return Inertia::render('DegreePosts/Create', [
             'degree' => $degree,
         ]);
     }
-
 
     public function store(StoreImage $request, Degree $degree)
     {
@@ -69,38 +66,43 @@ class DegreePostController extends Controller
             'body' => 'required|max:255',
             'location' => 'nullable|max:255',
             'image' => 'nullable|image',
-            'degree_id' => ['nullable', Rule::exists('degrees', 'id')->where(function ($query) {
+            'degree_id' => ['nullable', Rule::exists('degrees', 'id')
+                ->where(function ($query) {
                 $query->where('degree_id', '=', 'id');
             })],
-            'user_id' => ['nullable', Rule::exists('users', 'id')->where(function ($query) {
+            'user_id' => ['nullable', Rule::exists('users', 'id')
+                ->where(function ($query) {
                 $query->where('user_id', Auth::user()->id);
             })],
         ]);
-
         $image_path = '';
 
         if ($request->hasFile('image')) {
-            $image_path = $request->file('image')->store('post', 'public');
+            $image_path = $request->file('image')
+                ->store('post', 'public');
         }
-
-
         DegreePost::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body'],
             'location' => $attributes['location'],
             'image' => $image_path,
             'degree_id' => $degree->id,
-//            'image'=> $imagePath,
         ]);
-        $user = User::where('id', auth()->id())->first();
-//        $user->notify(new SomeonePosted($user, auth()->user()));
-//        event(new SomeonePostedEvent($user, auth()->user()));
         return Redirect::route('degree.show', $degree->id);
     }
 
+
+
+
+
+
     public function edit(DegreePost $degreePost)
     {
-        $degreePost = DegreePost::with('user')->where("id", "=", $degreePost->id)->with('likes')->with('dislikes')->with('user')->get()->first();
+        $degreePost = DegreePost::with('user')
+            ->where("id", "=", $degreePost->id)
+            ->with('likes')
+            ->with('dislikes')
+            ->with('user')->get()->first();
 
 //        $post = DegreePost::with('user')->where('id', '=', $degreePost->id)->get()->first();
         dd($degreePost);

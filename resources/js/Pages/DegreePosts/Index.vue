@@ -1,7 +1,7 @@
 <template>
     <BreezeAuthenticatedLayout>
 
-        <DegreeHeader :degree="degree" :users="users"></DegreeHeader>
+<!--        <DegreeHeader :degree="degree" :users="users"></DegreeHeader>-->
         <div class="mt-4 mx-auto sm:mx-24 md:mx-30 lg:mx-48 xl:mx-60 2xl:mx-80">
 
             <div class="mx-2 max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
@@ -50,13 +50,13 @@
                     </div>
 
                     <div class="mr-4" style="">
-                        <inertia-link :href="route('degree.posts.edit', [post, degree])"
-                                      v-if="post.user.id === $page.props.auth.user.id"
-                                      class=" -mt-6  "
-                                      as="button"
-                        >
-                            ...
-                        </inertia-link>
+<!--                        <inertia-link :href="route('degree.posts.edit', [post, degree])"-->
+<!--                                      v-if="post.user.id === $page.props.auth.user.id"-->
+<!--                                      class=" -mt-6  "-->
+<!--                                      as="button"-->
+<!--                        >-->
+<!--                            ...-->
+<!--                        </inertia-link>-->
                     </div>
                 </div>
 
@@ -250,7 +250,7 @@ export default {
 
 
         submit() {
-            this.form.post(this.route('degree.comments.store', [this.degree.id, this.post.id]), {
+            this.form.post(this.route('degree.comments.store', [this.post.id, this.post.id]), {
                 preserveScroll: true,
                 onSuccess: () => {
                     this.form.body = null

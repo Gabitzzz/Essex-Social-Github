@@ -50,22 +50,9 @@
                                         type="file"
                                         @change="previewAvatar"
                                         ref="photo"
-                                        class="
-                                        w-full
-                                        px-4
-                                        py-2
-                                        mt-2
-                                        rounded-md
-                                        focus:outline-none
-                                        focus:ring-1
-                                        focus:ring-blue-600
-
-                                    "
-
+                                        class="w-full px-4 py-2 mt-2 rounded-md outline-none focus:ring-1 focus:ring-blue-600"
                                     />
-
                                 </div>
-
                             </div>
 
                             <div>
@@ -170,16 +157,12 @@ export default {
     },
 
     methods: {
+
+
         submit() {
             if (this.$refs.photo) {
                 this.form.avatar = this.$refs.photo.files[0];
             }
-
-            if (this.$refs.coverPhoto) {
-                this.form.cover = this.$refs.coverPhoto.files[0];
-            }
-
-
             this.form.post(this.route('users.update', this.user.id), this.data, {
                 preserveState: (page) => Object.keys(($page.props.errors).length)
             });
@@ -189,6 +172,9 @@ export default {
             const file = e.target.files[0];
             this.url = URL.createObjectURL(file);
         },
+
+
+
         previewCover(e) {
             const file = e.target.files[0];
             this.coverUrl = URL.createObjectURL(file);
