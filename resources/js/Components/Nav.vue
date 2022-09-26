@@ -7,7 +7,6 @@
                     <!-- Logo -->
                     <inertia-link :href="route('home')">
                         <img :src="image" class="w-20 h-20"/>
-
                     </inertia-link>
                     <!--                         Navigation Links-->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

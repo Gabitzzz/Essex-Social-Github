@@ -324,22 +324,22 @@
 
                     </div>
 
-                    <div class="flex mt-2">
+<!--                    <div class="flex mt-2">-->
 
-                        <div
-                            class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"
-                        >
-                            <InertiaLink :href="route('party.show')"
-                                         class=" justify-center inline-block text-center"
-                            >
-                                <img :src="societieslogo" class="inline-block p-1" alt="plus">
-                            </InertiaLink>
-                        </div>
+<!--                        <div-->
+<!--                            class="w-10 h-10  max-w-xs overflow-hidden rounded-2xl transition-shadow duration-300 ease-in-out"-->
+<!--                        >-->
+<!--                            <InertiaLink :href="route('party.show')"-->
+<!--                                         class=" justify-center inline-block text-center"-->
+<!--                            >-->
+<!--                                <img :src="societieslogo" class="inline-block p-1" alt="plus">-->
+<!--                            </InertiaLink>-->
+<!--                        </div>-->
 
-                        <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">
-                            Societies
-                        </p>
-                    </div>
+<!--                        <p class="text-md p-2 md:mx-0  font-light" style="font-family: 'Poppins', sans-serif;">-->
+<!--                            Societies-->
+<!--                        </p>-->
+<!--                    </div>-->
 
                     <div v-if="$page.props.degree != null"
                         class="flex mt-2">

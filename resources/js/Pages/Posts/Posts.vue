@@ -13,8 +13,6 @@
 
 <script>
 import {InertiaLink} from "@inertiajs/inertia-vue3";
-
-
 import Post from "@/Pages/Posts/Post";
 
 export default {

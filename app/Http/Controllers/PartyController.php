@@ -33,7 +33,10 @@ class PartyController extends Controller
 
     public function display(Party $party, User $user)
     {
-        $var = $party::with('invites')->where("id", "=", $party->id)->with('user')->get()->first();
+        $var = $party::with('invites')
+            ->where("id", "=", $party->id)
+            ->with('user')
+            ->get()->first();
         $invites = PartyInvite::with('user')->where("party_id", "=", $party->id)->get();
 
         return Inertia::render('Party/Index', [

@@ -24,7 +24,7 @@
                                 {{ user.name }}
                             </a>
 
-                            <a :href="route('profile', user.username)" class="text-xs">
+                            <a :href="route('profile', user.username)" class="text-sm">
                                 {{ user.username }}
                             </a>
                         </div>

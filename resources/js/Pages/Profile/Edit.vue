@@ -12,7 +12,7 @@
                             </h1>
                         </div>
                     </div>
-                    <form @submit.prevent="submit">
+                    <form @submit.prevent="submit" >
                         <div class="p-8 mb-2 ">
                             <div>
                                 <div v-if="$page.props.user.avatar === null" class="flex justify-center">

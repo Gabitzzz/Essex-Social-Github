@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Notifications\SomeoneLiked;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class PostLikeController extends Controller
@@ -15,7 +16,8 @@ class PostLikeController extends Controller
     public function toggle(Post $post, User $user)
     {
         $post->likes()->toggle(auth()->id());
-
+        DB::table('dislikes')->where('post_id', $post->id)
+            ->where('user_id', auth()->id())->delete();
 
         return Redirect::back();
     }

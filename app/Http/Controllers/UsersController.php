@@ -45,10 +45,8 @@ class UsersController extends Controller
                 'followers as following' => function ($q) {
                     return $q->where('follower_id', auth()->id());
                 },
-
             ])->withCasts(['following' => 'boolean'])
                 ->paginate(),
-
         ]);
     }
 
@@ -94,13 +92,12 @@ class UsersController extends Controller
         else{
             return Inertia::render('Profile/Edit', ['user' => auth()->user()]);
         }
-
     }
 
     public function update(User $user, StoreImage $request)
     {
         $attributes = request()->validate([
-            'username' => ['required', 'max:50', 'unique'],
+            'username' => ['required', 'max:50'],
             'name' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')
                 ->ignore($user->id)],
@@ -160,15 +157,10 @@ class UsersController extends Controller
             'type' => 'nullable|string|max:10',
             'study_year' => 'nullable|string|max:10',
             'citizenship' => 'nullable|string|max:20',
-
         ]);
-
-
         return Inertia::render('Home/Info', [
             'user' => auth()->user(),
             'attributes' => $attributes,
-
-
         ]);
 
 //        return Redirect::route('dashboard');

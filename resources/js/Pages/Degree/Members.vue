@@ -114,6 +114,7 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import degreePicture from "/img/Degree/degreePicture.jpg";
 import backButton from "/img/Tab/left-arrow.png";
 import chat from "/img/Chat/chat-img.png";
+import defaultProfile from "/img/Posts/defaultProfile.png";
 
 export default {
     name: "Members",
@@ -126,6 +127,7 @@ export default {
             degreePicture: degreePicture,
             backButton: backButton,
             chat: chat,
+            defaultProfile: defaultProfile,
         }
     },
 
