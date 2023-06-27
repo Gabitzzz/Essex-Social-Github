@@ -33,7 +33,7 @@
             {{-- ---------------- [ User Tab ] ---------------- --}}
             <input type="text" class="messenger-search" placeholder="Search"/>
 
-            <div class="@if($type == 'user') show @endif messenger-tab users-tab app-scroll mt-4" data-view="users">
+            <div class="@if($type ?? '' == 'user') show @endif messenger-tab users-tab app-scroll mt-4" data-view="users">
 
                 {{-- Favorites --}}
                 <div class="favorites-section">
@@ -50,7 +50,7 @@
             </div>
 
             {{-- ---------------- [ Group Tab ] ---------------- --}}
-            <div class="@if($type == 'group') show @endif messenger-tab groups-tab app-scroll" data-view="groups">
+            <div class="@if($type ?? '' == 'group') show @endif messenger-tab groups-tab app-scroll" data-view="groups">
                 {{-- items --}}
                 <p style="text-align: center;color:grey;margin-top:30px">
                     <a target="_blank" style="color:{{$messengerColor}};"

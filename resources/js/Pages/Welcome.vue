@@ -21,13 +21,21 @@
                 </div>
             </div>
 
+<!--            <div class=" text-center items-center justify-center mt-20">-->
+<!--                <p>-->
+<!--                    Version 1.0.0 - Capstone Project-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                    Developed by <a href="https://gabilitcan.com/" class="font-semibold italic">Lițcan N. Gabriel</a>-->
+<!--                </p>-->
+<!--            </div>-->
+
             <div class=" text-center items-center justify-center mt-20">
                 <p>
-                    Version 1.0.0 - Capstone Project
+                    Versiunea 1.0.0 - Lucrare de licență
                 </p>
                 <p>
-                    Developed by <a href="https://gabilitcan.com/" class="font-semibold italic">Lițcan N. Gabriel</a>
-
+                    Dezvoltat de <span class="font-bold">Joițoiu Robert-Cristian</span>
                 </p>
             </div>
 

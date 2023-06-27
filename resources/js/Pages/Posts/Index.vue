@@ -233,8 +233,8 @@ export default {
     props: {
         post: Object,
         comments: Array,
-        likes: Array,
-        dislikes: Array,
+        // likes: Array,
+        // dislikes: Array,
     },
     data() {
         return {

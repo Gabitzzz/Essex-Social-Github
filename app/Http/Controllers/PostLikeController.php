@@ -16,6 +16,8 @@ class PostLikeController extends Controller
     public function toggle(Post $post, User $user)
     {
         $post->likes()->toggle(auth()->id());
+
+
         DB::table('dislikes')->where('post_id', $post->id)
             ->where('user_id', auth()->id())->delete();
 

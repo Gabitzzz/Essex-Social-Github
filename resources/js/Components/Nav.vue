@@ -2,11 +2,11 @@
     <nav class="bg-white border-b border-gray-100 sticky">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+            <div class="flex justify-between items-center h-16">
                 <div class="flex">
                     <!-- Logo -->
                     <inertia-link :href="route('home')">
-                        <img :src="image" class="w-20 h-20"/>
+                        <img :src="image" class="w-20 "/>
                     </inertia-link>
                     <!--                         Navigation Links-->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -112,7 +112,7 @@ import BreezeDropdown from '@/Components/Dropdown.vue';
 import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue';
 import BreezeDropdownLink from '@/Components/DropdownLink.vue';
 import BreezeNavLink from '@/Components/NavLink.vue';
-import image from "/img/logo/5.png";
+import image from "/img/logo/poli.png";
 import search from "/img/Tab/search.png";
 import notification from "/img/Tab/notification.png";
 import plus from "/img/Tab/plus.png";

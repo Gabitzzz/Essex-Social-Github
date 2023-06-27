@@ -221,7 +221,7 @@
                             <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                                 <div class="p-6 border-b border-gray-200">
                                     <p>
-                                        <strong>Degree:</strong> {{ $page.props.user.degree }}
+                                        <strong>Faculty:</strong> {{ $page.props.user.degree }}
                                     </p>
                                     <p>
                                         <strong>Date of Birth</strong> {{ $page.props.user.name }}

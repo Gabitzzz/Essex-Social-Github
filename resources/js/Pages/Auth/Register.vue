@@ -24,19 +24,19 @@
 
             <div class="mt-8">
                 <div class="flex justify-center items-center">
-                    <BreezeLabel for="email" value="Essex Email" class="flex items-center justify-center"/>
+                    <BreezeLabel for="email" value="Poli Email" class="flex items-center justify-center"/>
 
 
                 </div>
                 <div class="flex justify-between items-center">
                     <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required
                                  autocomplete="email"
-                                 placeholder="jd19102@essex.ac.uk"
+                                 placeholder="john.doe@stud.etti.upb.ro"
                     />
                     <div class="absolute right-0 tooltip text-sm justify-end px-2 bg-white rounded-full">?
                         <span class="tooltiptext text-sm">
-                            Are you an Essex alumni? <br>
-                            Use the Essex Email Address you had during your time here.
+                            Are you a Poli alumni? <br>
+                            Use the Poli Email Address you had during your time here.
                         </span>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                     <DatePicker
                         v-model="form.dob"
                         is-expanded
-                        is24hr
+                        is24hrusername
                         format="YYYY-MM-DD"
                         :masks="{ L: 'YYYY-MM-DD' }"
                         mode="date"
@@ -89,7 +89,7 @@
                     <div class="my-8">
                         <BreezeLabel for="study_year" value="Study Year" class="flex mb-1 items-center justify-center"/>
                         <vSelect id="study_year" type="text" v-model="form.study_year" class="border-none"
-                                 :options="['Foundation Year', '1st Year', '2nd Year', '3rd Year', 'Placement Year', 'Year Abroad']"></vSelect>
+                                 :options="['1st Year', '2nd Year', '3rd Year', '4th Year', ]"></vSelect>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@
                     <div class="my-8">
                         <BreezeLabel for="study_year" value="Study Year" class="flex mb-1 items-center justify-center"/>
                         <vSelect id="study_year" type="text" v-model="form.study_year" class="border-none"
-                                 :options="['1st Year Masters', '2nd Year Masters', '1st Year PHD', '2nd Year PHD', '3rd Year PHD', 'Completion Year']"></vSelect>
+                                 :options="['1st Year Masters', '2nd Year Masters', 'PHD']"></vSelect>
                     </div>
                 </div>
 

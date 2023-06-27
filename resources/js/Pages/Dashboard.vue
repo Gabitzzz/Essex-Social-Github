@@ -52,12 +52,10 @@
                     <!-- Column Content -->
                     <div class="mx-2 max-2 weather overflow-hidden rounded-xl shadow-lg">
                         <h1 class="text-3xl text-white px-4 py-4 ">
-                            Colchester <br>
-                            17°
+                            Bucharest <br>
+                            27°
                         </h1>
                     </div>
-
-
                 </div>
 
                 <div class="w-1/2 sm:w-1/2 overflow-hidden md:w-6/12">
@@ -76,8 +74,8 @@
                 <div class="w-1/4 overflow-hidden xl:w-3/12 pb-4">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden shadow-md rounded-2xl shadow-md  ">
-                        <a href="https://www.essex.ac.uk/sport">
-                            <img :src="essex_sport" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        <a href="https://curs.upb.ro/2022/login/">
+                            <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </a>
                     </div>
                 </div>
@@ -85,7 +83,7 @@
                 <div class="w-1/4 overflow-hidden  xl:w-3/12 pb-4">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden shadow-md rounded-2xl shadow-md  ">
-                        <a href="https://www.essex.ac.uk/information/food-and-drink/food-and-drink-at-colchester-campus">
+                        <a href="https://studenti.pub.ro/index.php?page=Informatii&ActiveViewID=tab_infogen">
                             <img :src="essex_food" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </a>
                     </div>
@@ -95,7 +93,7 @@
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden  rounded-2xl shadow-md  ">
 
-                        <a href="https://www.essexstudent.com/campus/">
+                        <a href="https://admitere.pub.ro/">
                             <img :src="su" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </a>
                     </div>
@@ -104,7 +102,7 @@
                 <div class="w-1/4 overflow-hidden xl:w-3/12 pb-4">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden rounded-2xl shadow-md   ">
-                        <a href="https://www.essexstudent.com/societies/">
+                        <a href="https://etti.pub.ro/absolvire/">
                             <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </a>
                     </div>
@@ -119,8 +117,8 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <a href="https://moodle.essex.ac.uk/">
-                                <img :src="moodle" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            <a href="https://polifest.upb.ro/">
+                                <img :src="poli_fest" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                             </a>
                         </div>
                     </div>
@@ -128,8 +126,8 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <a href="https://leap.essex.ac.uk/student" class="">
-                                <img :src="leap" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl " alt="plus">
+                            <a href="https://autofest.upb.ro/" class="">
+                                <img :src="poli_autofest" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl " alt="plus">
                             </a>
                         </div>
                     </div>
@@ -137,8 +135,8 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <a href="https://faser.essex.ac.uk/">
-                                <img :src="faser" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
+                            <a href="https://www.robochallenge.ro/">
+                                <img :src="robo" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
                                      alt="plus">
                             </a>
                         </div>
@@ -147,8 +145,8 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <a href="https://listenagain.essex.ac.uk/">
-                                <img :src="listen_again" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
+                            <a href="https://apv.lsebucuresti.org/">
+                                <img :src="apv" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
                                      alt="plus">
                             </a>
                         </div>
@@ -157,8 +155,8 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <a href="https://findyourway.essex.ac.uk//">
-                                <img :src="fyw" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl " alt="plus">
+                            <a href="https://upb.ro/calendar-evenimente/mobilpro-concurs-international-anual-de-idei-si-aplicatii-software-hardware/">
+                                <img :src="mobilpro" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl " alt="plus">
                             </a>
                         </div>
                     </div>
@@ -166,8 +164,8 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <a href="https://essex.rl.talis.com/index.html">
-                                <img :src="readinglist" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
+                            <a href="https://olympics.lsacbucuresti.ro/">
+                                <img :src="poliolympics" class="inline-block px-4 py-6 lg:px-8 lg:py-8 rounded-3xl "
                                      alt="plus">
                             </a>
                         </div>
@@ -176,8 +174,8 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <a href="https://library.essex.ac.uk/home">
-                                <img :src="library" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
+                            <a href="https://lanparty.lsacbucuresti.ro/">
+                                <img :src="lan" class="inline-block px-4 py-8 lg:px-8 lg:py-8 rounded-3xl "
                                      alt="plus">
                             </a>
                         </div>
@@ -469,6 +467,13 @@ import library from "/img/Dashboard/library.png";
 import degreePicture from "/img/Dashboard/degree.png";
 import leap from "/img/Dashboard/leap.jpeg";
 import faser from "/img/Dashboard/faser.png";
+import poli_fest from "/img/Dashboard/poli_fest.jpg";
+import mobilpro from "/img/Dashboard/mobilpro.jpg";
+import poli_autofest from "/img/Dashboard/poli_autofest.jpg";
+import poliolympics from "/img/Dashboard/poliolympics.png";
+import apv from "/img/Dashboard/apv.png";
+import robo from "/img/Dashboard/robo.jpeg";
+import lan from "/img/Dashboard/lanparty.jpg";
 import fyw from "/img/Dashboard/fyw.png";
 import shutdown from "/img/Dashboard/shutdown.png";
 import listen_again from "/img/Dashboard/listenagain.png";
@@ -525,6 +530,15 @@ export default {
             degreePicture: degreePicture,
             user: user,
             library:library,
+            poli_fest: poli_fest,
+            lan: lan,
+            mobilpro: mobilpro,
+            poli_autofest: poli_autofest,
+            poliolympics: poliolympics,
+            robo: robo,
+            apv: apv,
+
+
         };
     },
 
