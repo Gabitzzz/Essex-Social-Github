@@ -100,7 +100,7 @@ class PartyController extends Controller
         ]);
         $user = User::where('id', auth()->id())->first();
 //        $user->notify(new SomeonePosted($user, auth()->user()));
-        event(new SomeonePostedEvent($user, auth()->user()));
+//        event(new SomeonePostedEvent($user, auth()->user()));
         return Redirect::route('party.show');
     }
 
