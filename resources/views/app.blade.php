@@ -9,7 +9,7 @@
         <title inertia>{{ config('app.name', 'Poli Social') }}</title>
 
         <meta property="og:title" content="Poli Social"/>
-{{--        <meta property="og:image" content="https://essex.social/images/logo/2.png" />--}}
+        <meta property="og:image" content="https://essex.social/images/logo/poli.png" />
 
         <link rel="icon" type="image/png" href="{{ asset('img/logo/6.png')}}">
 

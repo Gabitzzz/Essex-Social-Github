@@ -20,8 +20,12 @@ class UsersController extends Controller
 {
     public function index(User $user)
     {
+
+        $degree = Degree::with('users')->where('id','=', $user->degree)->get()->first();
+
         return Inertia::render('Profile/Show', [
             'user' => $user,
+            'degree'=> $degree,
             'posts' => Post::with('user')->where("user_id", "=", $user->id)->with('likes')->with('dislikes')->latest()->get(),
             'followToggle' => $user->followers()->where('follower_id', auth()->id())->exists(),
             'followers' => $user->followers()->withCount([
@@ -56,7 +60,7 @@ class UsersController extends Controller
             'dob' => ['nullable', 'max:50'],
             'type' => ['nullable', 'max:50'],
             'study_year' => ['nullable', 'max:50'],
-            'degree_id' => ['nullable', 'max:50'],
+            'degree' => ['nullable', 'max:50'],
         ]);
 
         if ($request->hasFile('avatar')) {

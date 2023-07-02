@@ -227,8 +227,18 @@
                                         <strong>Date of Birth</strong> {{ $page.props.user.dob }}
 
                                     </p>
+
+
+                                    <div v-show="$page.props.user.study_year">
+                                        <p>
+                                            <strong>Study Year</strong> {{ $page.props.user.study_year }}
+                                        </p>
+                                    </div>
+
+
+
                                     <p>
-                                        <strong>Study Year</strong> {{ $page.props.user.study_year }}
+                                        <strong>Faculty:</strong> {{ $page.props.degree.title }}
                                     </p>
 
                                 </div>

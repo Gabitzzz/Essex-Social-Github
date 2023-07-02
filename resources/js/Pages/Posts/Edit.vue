@@ -87,7 +87,7 @@
                     <loading-button :loading="form.processing"
                                     class="button px-8 mt-4 py-2 bg-black text-white rounded-2xl"
                                     type="submit">
-                        UPDATE PARTY
+                        UPDATE POST
                     </loading-button>
                 </div>
 
