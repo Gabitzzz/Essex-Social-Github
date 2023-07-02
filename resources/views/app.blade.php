@@ -11,7 +11,7 @@
         <meta property="og:title" content="Poli Social"/>
         <meta property="og:image" content="https://essex.social/images/logo/poli.png" />
 
-        <link rel="icon" type="image/png" href="{{ asset('img/logo/6.png')}}">
+        <link rel="icon" type="image/png" href="{{ asset('img/logo/poli.png')}}">
 
 
         <!-- Fonts -->
