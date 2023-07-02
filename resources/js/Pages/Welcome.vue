@@ -1,47 +1,49 @@
 <template>
-    <Head title="Welcome"/>
+   <div>
+       <Head title="Welcome"/>
 
-    <div class="flex items-center justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
-        <div>
-            <div class="flex items-center justify-center">
-                <BreezeApplicationLogo/>
-            </div>
+       <div class="flex items-center justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
+           <div>
+               <div class="flex items-center justify-center">
+                   <BreezeApplicationLogo/>
+               </div>
 
-            <div>
-                <div class="flex items-center mt-4">
-                    <Link :href="route('register')" class="button px-8 py-2">
-                        REGISTER
-                    </Link>
-                </div>
+               <div>
+                   <div class="flex items-center mt-4">
+                       <Link :href="route('register')" class="button px-8 py-2">
+                           REGISTER
+                       </Link>
+                   </div>
 
-                <div class="flex items-center justify-center mt-4">
-                    <Link :href="route('login')" class="button px-8 py-2">
-                        LOG IN
-                    </Link>
-                </div>
-            </div>
+                   <div class="flex items-center justify-center mt-4">
+                       <Link :href="route('login')" class="button px-8 py-2">
+                           LOG IN
+                       </Link>
+                   </div>
+               </div>
 
-<!--            <div class=" text-center items-center justify-center mt-20">-->
-<!--                <p>-->
-<!--                    Version 1.0.0 - Capstone Project-->
-<!--                </p>-->
-<!--                <p>-->
-<!--                    Developed by <a href="https://gabilitcan.com/" class="font-semibold italic">Lițcan N. Gabriel</a>-->
-<!--                </p>-->
-<!--            </div>-->
+               <!--            <div class=" text-center items-center justify-center mt-20">-->
+               <!--                <p>-->
+               <!--                    Version 1.0.0 - Capstone Project-->
+               <!--                </p>-->
+               <!--                <p>-->
+               <!--                    Developed by <a href="https://gabilitcan.com/" class="font-semibold italic">Lițcan N. Gabriel</a>-->
+               <!--                </p>-->
+               <!--            </div>-->
 
-            <div class=" text-center items-center justify-center mt-20">
-                <p>
-                    Versiunea 1.0.0 - Lucrare de licență
-                </p>
-                <p>
-                    Dezvoltat de <span class="font-bold">Joițoiu Robert-Cristian</span>
-                </p>
-            </div>
+               <div class=" text-center items-center justify-center mt-20">
+                   <p>
+                       Versiunea 1.0.0 - Lucrare de licență
+                   </p>
+                   <p>
+                       Dezvoltat de <span class="font-bold">Joițoiu Robert-Cristian</span>
+                   </p>
+               </div>
 
 
-        </div>
-    </div>
+           </div>
+       </div>
+   </div>
 </template>
 
 <style scoped>
