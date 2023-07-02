@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
             'dob' => 'required|string|max:50',
             'type' => 'required|string|max:50',
             'study_year' => 'nullable|string|max:50',
-            'degree' => 'nullable|max:30',
+            'degree' => 'nullable|string|max:30',
         ]);
         $user = User::create([
             'name' => $request->name,
