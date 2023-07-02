@@ -43,8 +43,6 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-
-        $parsed_day =
         $request->validate([
             'name' => 'required|string|max:50',
             'username' => 'required|string|max:16|unique:users',
@@ -53,7 +51,7 @@ class RegisteredUserController extends Controller
             'dob' => 'required|string|max:50',
             'type' => 'required|string|max:50',
             'study_year' => 'nullable|string|max:50',
-            'degree' => 'nullable|string|max:30',
+            'degree' => 'nullable|max:30',
         ]);
         $user = User::create([
             'name' => $request->name,

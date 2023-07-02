@@ -125,8 +125,11 @@
                 <div v-if="form.type === 'Staff'">
                     <div class="my-8">
                         <BreezeLabel for="degree" value="Faculty" class="flex mb-1 items-center justify-center"/>
-                        <vSelect id="degree" type="text" v-model="form.degree" class="border-none"
-                                 :options="['ETTI']"></vSelect>
+                        <select class="form-control w-full" name="type" v-model="form.degree">
+                            <option :value="degree.id" v-for="degree in degrees" :key="degree.id">
+                                {{ degree.title }}
+                            </option>
+                        </select>
                     </div>
                 </div>
 

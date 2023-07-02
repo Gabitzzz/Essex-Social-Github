@@ -66,13 +66,13 @@
                     <img :src="plus" width="25" height="25" class="inline-block" alt="plus">
                 </a>
 
-                <a :href="route('chatify')"
-                   class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
-                >
-                    <div>
-                        <img :src="chat" width="25" height="25" class="inline-block" alt="profile">
-                    </div>
-                </a>
+<!--                <a :href="route('chatify')"-->
+<!--                   class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"-->
+<!--                >-->
+<!--                    <div>-->
+<!--                        <img :src="chat" width="25" height="25" class="inline-block" alt="profile">-->
+<!--                    </div>-->
+<!--                </a>-->
 
 
                 <a :href="route('profile', $page.props.auth.user.username )"

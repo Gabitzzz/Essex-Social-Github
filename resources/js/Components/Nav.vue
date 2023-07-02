@@ -35,11 +35,11 @@
                                 <img :src="search" width="25" height="25" class="inline-block" alt="search">
                             </inertia-link>
 
-                            <a
-                                class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"
-                                :href="route('chatify')" style="border-radius: 15px;">
-                                <img :src="chat" width="25" height="25" class="inline-block" alt="search">
-                            </a>
+<!--                            <a-->
+<!--                                class="flex items-center group bg-gray-100 p-2 border-2 border-gray-200 border-opacity-25"-->
+<!--                                :href="route('chatify')" style="border-radius: 15px;">-->
+<!--                                <img :src="chat" width="25" height="25" class="inline-block" alt="search">-->
+<!--                            </a>-->
 
 
                             <inertia-link
