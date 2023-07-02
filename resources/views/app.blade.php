@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title inertia>{{ config('app.name', 'Essex Social') }}</title>
+        <title inertia>{{ config('app.name', 'Poli Social') }}</title>
 
-        <meta property="og:title" content="Essex Social"/>
-        <meta property="og:image" content="https://essex.social/images/logo/2.png" />
+        <meta property="og:title" content="Poli Social"/>
+{{--        <meta property="og:image" content="https://essex.social/images/logo/2.png" />--}}
 
         <link rel="icon" type="image/png" href="{{ asset('img/logo/6.png')}}">
 

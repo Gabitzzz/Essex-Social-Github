@@ -12,7 +12,7 @@
                     </div>
 
                     <h1 class="mx-2 mb-2">
-                        Search here for your Essex friends.
+                        Search here for your Poli friends.
                     </h1>
 
                     <input type="search" v-model="params.search"

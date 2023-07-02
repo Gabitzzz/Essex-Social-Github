@@ -220,18 +220,17 @@
                         <div class=" mt-5">
                             <div class="max-2 bg-white overflow-hidden shadow-sm rounded-xl shadow-md">
                                 <div class="p-6 border-b border-gray-200">
+<!--                                    <p>-->
+<!--                                        <strong>Faculty:</strong> {{ $page.props.degree.title }}-->
+<!--                                    </p>-->
                                     <p>
-                                        <strong>Faculty:</strong> {{ $page.props.user.degree }}
-                                    </p>
-                                    <p>
-                                        <strong>Date of Birth</strong> {{ $page.props.user.name }}
+                                        <strong>Date of Birth</strong> {{ $page.props.user.dob }}
+
                                     </p>
                                     <p>
                                         <strong>Study Year</strong> {{ $page.props.user.study_year }}
                                     </p>
-                                    <p>
-                                        <strong>Relationship Status:</strong> {{ $page.props.user.description }}
-                                    </p>
+
                                 </div>
                             </div>
                         </div>
@@ -284,6 +283,7 @@ export default {
         likes: Array,
         dislikes: Array,
         galleries: Array,
+        degree: Object,
     },
 
     components: {

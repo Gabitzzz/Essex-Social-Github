@@ -12,13 +12,12 @@ class UserPolicy
 
     public function create(User $user)
     {
-       return $user->email === 'john@doe.com';
-
+       return $user->email === 'robert.joitoiu@stud.etti.upb.ro';
     }
 
     public function edit(User $user)
     {
-        return $user->email === 'nl19102@essex.ac.uk';
+        return $user->email === 'robert.joitoiu@stud.etti.upb.ro';
 
     }
 }

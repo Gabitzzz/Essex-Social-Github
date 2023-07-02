@@ -84,7 +84,7 @@
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden shadow-md rounded-2xl shadow-md  ">
                         <a href="https://studenti.pub.ro/index.php?page=Informatii&ActiveViewID=tab_infogen">
-                            <img :src="essex_food" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                            <img :src="students" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </a>
                     </div>
                 </div>
@@ -93,8 +93,8 @@
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden  rounded-2xl shadow-md  ">
 
-                        <a href="https://admitere.pub.ro/">
-                            <img :src="su" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        <a href="https://etti.pub.ro/absolvire/">
+                            <img :src="grad" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </a>
                     </div>
                 </div>
@@ -102,8 +102,8 @@
                 <div class="w-1/4 overflow-hidden xl:w-3/12 pb-4">
                     <!-- Column Content -->
                     <div class="mx-1 max-2 bg-white overflow-hidden rounded-2xl shadow-md   ">
-                        <a href="https://etti.pub.ro/absolvire/">
-                            <img :src="societies" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
+                        <a href="https://admitere.pub.ro/">
+                            <img :src="admission" class="inline-block px-2 py-2 lg:px-4 lg:py-4" alt="plus">
                         </a>
                     </div>
                 </div>
@@ -135,8 +135,8 @@
                     <div class="inline-block px-2">
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                            <a href="https://www.robochallenge.ro/">
-                                <img :src="robo" class="inline-block px-4 py-4 lg:px-8 lg:py-8 rounded-3xl "
+                            <a href="http://www.robochallenge.ro/">
+                                <img :src="robo" class="inline-block px-4 py-6 lg:px-8 lg:py-8 rounded-3xl "
                                      alt="plus">
                             </a>
                         </div>
@@ -175,7 +175,7 @@
                         <div
                             class="w-32 h-32 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <a href="https://lanparty.lsacbucuresti.ro/">
-                                <img :src="lan" class="inline-block px-4 py-8 lg:px-8 lg:py-8 rounded-3xl "
+                                <img :src="lan" class="inline-block px-4 py-8 lg:px-8 lg:py-10 rounded-3xl "
                                      alt="plus">
                             </a>
                         </div>
@@ -478,6 +478,9 @@ import fyw from "/img/Dashboard/fyw.png";
 import shutdown from "/img/Dashboard/shutdown.png";
 import listen_again from "/img/Dashboard/listenagain.png";
 import readinglist from "/img/Dashboard/readinglist.png";
+import admission from "/img/Dashboard/admission.png";
+import grad from "/img/Dashboard/grad.png";
+import students from "/img/Dashboard/students.png";
 import post from "/img/Posts/post.png";
 import party from "/img/Posts/party.png";
 import event from "/img/Posts/event.png";
@@ -537,6 +540,9 @@ export default {
             poliolympics: poliolympics,
             robo: robo,
             apv: apv,
+            admission: admission,
+            grad: grad,
+            students: students,
 
 
         };

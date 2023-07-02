@@ -5,14 +5,9 @@
         Forgot your password? <br>
         No problemo. <br>
         Just email
-        <a href="mailto:nl19102@essex.ac.uk" class="font-bold">nl19102@essex.ac.uk</a>
-        with your Essex Email Address and I will provide you a new password.
-
+        <a href="mailto:robert.joitoiu@stud.etti.upb.ro" class="font-bold">robert.joitoiu@stud.etti.upb.ro</a>
+        with your Student Email Address and I will provide you a new password.
     </div>
-
-
-
-
 
 </template>
 
