@@ -37,7 +37,7 @@
                         </div>
 
                         <div>
-                            <div class=" text-center pb-12 mt-2 text-sm  ">
+                            <div class=" text-center pb-6 md:pb-12 mt-2 text-sm  ">
                                 <div v-if="invites.length === 0" class="mb-7">
 
                                 </div>
